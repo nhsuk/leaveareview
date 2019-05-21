@@ -1,0 +1,112 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Transactional page layout
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Leave a Review",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "Find a dentist"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>High Ash Dental Surgery</h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+      {{ contentsList({
+        items: [
+          {
+            href: "",
+            text: "Overview"
+          },
+          {
+            href: "",
+            text: "Departments and services"
+          }
+          ,
+          {
+            href: "",
+            text: "Ratings and reviews"
+          }
+          ,
+          {
+            href: "",
+            text: "Leave a review",
+            current: "true"
+          }
+        ]
+      }) }}
+
+      <h2>Leave a Review</h2>
+
+      <p>Comments containing the following will not be published or will be edited:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Names of individuals, mention of gender or identifying features</li>
+        <li>Offensive, abusive or inappropriate language or remarks</li>
+        <li>Complaints relating to clinical negligence which should first be addressed by the relevant hospital or practice</li>
+      </ul>
+      <p>We recommend you read the complete moderation rules before proceeding.</p>
+
+      <form action="visitdate" method="post">
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
