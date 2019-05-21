@@ -29,54 +29,44 @@
 {% block beforeContent %}
   {{ breadcrumb({
     href: "/",
-    text: "Find a dentist"
+    text: "High Ash Dental Surgery"
   }) }}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>High Ash Dental Surgery</h1>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-3">Step 10 of 10</span>
 
-      {% from 'contents-list/macro.njk' import contentsList %}
+      <form action="/q10" method="post">
 
-      {{ contentsList({
-        items: [
-          {
-            href: "",
-            text: "Overview"
-          },
-          {
-            href: "",
-            text: "Departments and services"
+        {% call fieldset({
+          legend: {
+            text: "Check your answers",
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true
           }
-          ,
-          {
-            href: "",
-            text: "Ratings and reviews"
-          }
-          ,
-          {
-            href: "",
-            text: "Leave a review",
-            current: "true"
-          }
-        ]
-      }) }}
+        }) %}
 
-      <h2>Leave a Review</h2>
+        <h3>Your review</h3>
 
-      <p>Comments containing the following will not be published or will be edited:</p>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Names of individuals, mention of gender or identifying features</li>
-        <li>Offensive, abusive or inappropriate language or remarks</li>
-        <li>Complaints relating to clinical negligence which should first be addressed by the relevant hospital or practice</li>
-      </ul>
-      <p>We recommend you read the complete moderation rules before proceeding.</p>
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Date of visit</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["month"]}}, {{data["year"]}}</p>
+        <p><a href="visitdate">Change</a></p>
 
-      <form action="/visitdate" method="post">
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Recommend to family and friends</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["familyfriends"]}}</p>
+        <p><a href="rating-question-1">Change</a></p>
+
+         <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+
+        {% endcall %}
 
         {{ button({
           "text": "Continue",
@@ -84,6 +74,11 @@
         }) }}
 
       </form>
+
+      {{ backLink({
+      "href": "rating-question-9",
+      "text": "Back"
+      }) }}
 
     </div>
 

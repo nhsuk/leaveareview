@@ -57,38 +57,47 @@
 
         {{ input({
           "label": {
-          "text": "Title"
+          "text": "Email address"
           },
-          "hint": {
-          "text": "A brief description of your review"
-          },
-          "id": "title",
-          "name": "title",
-          "classes": "nhsuk-input--width-10"
+          "id": "email",
+          "name": "email",
+          "classes": "nhsuk-input--width-full"
         }) }}
 
         {{ input({
           "label": {
-          "text": "Title"
+          "text": "Confirm email address"
           },
-          "hint": {
-          "text": "A brief description of your review"
-          },
-          "id": "title",
-          "name": "title",
-          "classes": "nhsuk-input--width-10"
+          "id": "confirmemail",
+          "name": "confirmemail",
+          "classes": "nhsuk-input--width-full"
         }) }}
 
         {{ input({
           "label": {
-          "text": "Title"
+          "text": "Display name"
           },
-          "hint": {
-          "text": "A brief description of your review"
+          "id": "displayname",
+          "name": "displayname",
+          "classes": "nhsuk-input--width-full"
+        }) }}
+
+        {% from 'checkboxes/macro.njk' import checkboxes %}
+
+        {{ checkboxes({
+          "idPrefix": "anonymous",
+          "name": "anonymous",
+          "fieldset": {
+            "legend": {
+              "text": ""
+            }
           },
-          "id": "title",
-          "name": "title",
-          "classes": "nhsuk-input--width-10"
+          "items": [
+            {
+              "value": "yes",
+              "text": "I want to be anonymous"
+            }
+          ]
         }) }}
 
         {% endcall %}

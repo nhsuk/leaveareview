@@ -43,7 +43,7 @@ router.get('/', function(req , res){
       res.redirect('/leave-review/rating-question-3')
     }
     else {
-      res.redirect('/leave-review/review-step-1')
+      res.redirect('/leave-review/rating-question-8')
     }
   });
 
@@ -106,14 +106,33 @@ router.get('/', function(req , res){
     let title = req.body.title;
     let details = req.body.details;
 
-    if (title == ''){
-      res.redirect('/leave-review/rating-question-9')
+    if (title == '') {
+      res.redirect('/leave-review/rating-question-8')
     }
     else if (details == ''){
+      res.redirect('/leave-review/rating-question-8')
+    }
+    else {
+      res.redirect('/leave-review/rating-question-9')
+    }
+  });
+
+  router.post('/q9', function (req, res) {
+    let email = req.body.email;
+    let confirmemail = req.body.confirmemail;
+    let displayname = req.body.displayname;
+
+    if (email == '') {
+      res.redirect('/leave-review/rating-question-9')
+    }
+    else if (confirmemail == ''){
+      res.redirect('/leave-review/rating-question-9')
+    }
+    else if (displayname == ''){
       res.redirect('/leave-review/rating-question-9')
     }
     else {
-      res.redirect('/leave-review/rating-question-8')
+      res.redirect('/leave-review/rating-question-10')
     }
   });
 
