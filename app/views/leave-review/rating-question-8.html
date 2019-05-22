@@ -39,7 +39,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-3">Step 8 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 8 of 10</span>
 
       <form action="/q8" method="post">
 
@@ -50,6 +50,11 @@
             isPageHeading: true
           }
         }) %}
+
+        <span id="error-message" class="nhsuk-error-message" style="display: none;">
+          <span class="nhsuk-u-visually-hidden">Error:</span> 
+          Please complete all fields
+        </span>        
 
         {% from 'input/macro.njk' import input %}
 
@@ -62,20 +67,22 @@
           },
           "id": "title",
           "name": "title",
+          "value": data["title"],
           "classes": "nhsuk-input--width-full"
         }) }}
 
         {% from 'textarea/macro.njk' import textarea %}
 
         {{ textarea({
-          "name": "details",
-          "id": "details",
           "label": {
-            "text": "Details"
+          "text": "Details"
           },
           "hint": {
-            "text": "Leave a short review of your experience"
-          }
+          "text": "Leave a short review of your experience"
+          },
+          "id": "details",
+          "name": "details",
+          "value": data["details"]
         }) }}
 
         {% endcall %}
@@ -116,4 +123,12 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

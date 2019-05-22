@@ -39,47 +39,57 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-3">Step 6 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 6 of 10</span>
 
       <form action="/q6" method="post">
 
-        {% call fieldset({
-          legend: {
-            text: "How satisfied are you with the provided information of NHS treatment costs?",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
+        <div class="nhsuk-form-group">
 
-        {{ radios({
-          "idPrefix": "treatmentcostsinfo",
-          "name": "treatmentcostsinfo",
-          "items": [
-            {
-              "value": "1",
-              "text": "Very dissatisfied"
-            },
-            {
-              "value": "2",
-              "text": "Fairly dissatisfied"
-            },
-            {
-              "value": "3",
-              "text": "Neither satisfied or dissatisfied"
-            },
-            {
-              "value": "4",
-              "text": "Fairly satisfied"
-            },
-            {
-              "value": "5",
-              "text": "Very satisfied"
-            }
-            
-          ]
-        }) }}
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              How satisfied are you with the provided information of NHS treatment costs?
+            </legend>
 
-        {% endcall %}
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentcostsinfo-1" name="treatmentcostsinfo" type="radio" value="Very dissatisfied"{{checked("treatmentcostsinfo","Very dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Very dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentcostsinfo-2" name="treatmentcostsinfo" type="radio" value="Fairly dissatisfied"{{checked("treatmentcostsinfo","Fairly dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Fairly dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentcostsinfo-3" name="treatmentcostsinfo" type="radio" value="Neither satisfied or dissatisfied"{{checked("treatmentcostsinfo","Neither satisfied or dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Neither satisfied or dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentcostsinfo-4" name="treatmentcostsinfo" type="radio" value="Fairly satisfied"{{checked("treatmentcostsinfo","Fairly satisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Fairly satisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentcostsinfo-5" name="treatmentcostsinfo" type="radio" value="Very satisfied"{{checked("treatmentcostsinfo","Very satisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Very satisfied
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>      
 
         {{ button({
           "text": "Continue",
@@ -117,4 +127,12 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

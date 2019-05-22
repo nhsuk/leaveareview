@@ -39,47 +39,57 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-3">Step 1 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 10</span>
 
       <form action="/q1" method="post">
 
-        {% call fieldset({
-          legend: {
-            text: "How likely are you to recommend this dentist to friends and family if they needed similar care or treatment?",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
+        <div class="nhsuk-form-group">
 
-        {{ radios({
-          "idPrefix": "familyfriends",
-          "name": "familyfriends",
-          "items": [
-            {
-              "value": "1",
-              "text": "Extremely unlikely"
-            },
-            {
-              "value": "2",
-              "text": "Unlikely"
-            },
-            {
-              "value": "3",
-              "text": "Neither likely or unlikely"
-            },
-            {
-              "value": "4",
-              "text": "Likely"
-            },
-            {
-              "value": "5",
-              "text": "Extremely likely"
-            }
-            
-          ]
-        }) }}
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              How likely are you to recommend this dentist to friends and family if they needed similar care or treatment?
+            </legend>
 
-        {% endcall %}
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="familyfriends-1" name="familyfriends" type="radio" value="Extremely unlikely"{{checked("familyfriends","Extremely unlikely")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Extremely unlikely
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="familyfriends-2" name="familyfriends" type="radio" value="Unlikely"{{checked("familyfriends","Unlikely")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Unlikely
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="familyfriends-3" name="familyfriends" type="radio" value="Neither likely or unlikely"{{checked("familyfriends","Neither likely or unlikely")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Neither likely or unlikely
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="familyfriends-4" name="familyfriends" type="radio" value="Likely"{{checked("familyfriends","Likely")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Likely
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="familyfriends-5" name="familyfriends" type="radio" value="Extremely likely"{{checked("familyfriends","Extremely Likely")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Extremely likely
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
 
         {{ button({
           "text": "Continue",
@@ -117,4 +127,12 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

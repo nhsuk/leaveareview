@@ -39,9 +39,9 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-3">Step 10 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 10 of 10</span>
 
-      <form action="/q10" method="post">
+      <form action="/leave-review/confirmation" method="post">
 
         {% call fieldset({
           legend: {
@@ -63,13 +63,66 @@
         <p class="nhsuk-u-margin-bottom-3">{{data["familyfriends"]}}</p>
         <p><a href="rating-question-1">Change</a></p>
 
-         <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Appointment waiting time</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["appointmentwaitingtime"]}}</p>
+        <p><a href="rating-question-3">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Treated with dignity and respect</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["dignityrespect"]}}</p>
+        <p><a href="rating-question-4">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Involved in treatment decisions</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentdecisions"]}}</p>
+        <p><a href="rating-question-5">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Information of NHS treatment costs</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentcostsinfo"]}}</p>
+        <p><a href="rating-question-6">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Outcome of treatment</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentoutcome"]}}</p>
+        <p><a href="rating-question-7">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">        
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Title</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["title"]}}</p>
+        <p><a href="rating-question-8">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Details</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["details"]}}</p>
+        <p><a href="rating-question-8">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">           
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Email address</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["email"]}}</p>
+        <p><a href="rating-question-9">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Display name</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["displayname"]}}</p>
+        <p><a href="rating-question-9">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">         
 
         {% endcall %}
 
         {{ button({
-          "text": "Continue",
+          "text": "Submit review",
           "id": "btn_submit"
         }) }}
 

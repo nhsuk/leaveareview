@@ -39,50 +39,16 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 10</span>
-
-      <form action="/q2" method="post">
-
-        {% call fieldset({
-          legend: {
-            text: "Would you like to leave further ratings in addition to a written review?",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-
-      <span id="error-message" class="nhsuk-error-message" style="display: none;">
-        <span class="nhsuk-u-visually-hidden">Error:</span> 
-        Please select an option
-      </span>
-
-        {{ radios({
-          "idPrefix": "furtherratings",
-          "name": "furtherratings",
-          "items": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        }) }}
-
-        {% endcall %}
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
+        <h1>Thank you</h1>
+        <p>Your feedback is incredibly useful to the NHS and other patients. We hope you will review other services in the future.</p>
+        <h2>What happens next</h2>
+        <p>We’ve sent an email to {{data["email"]}}</p>
+        <p>Before we submit your review we need to be sure we have your contact details correct in case we need to get in touch with you about it.</p>
+        <p>Please follow the link in that email to verify your email address.</p>
 
       {{ backLink({
-      "href": "rating-question-1",
-      "text": "Back"
+      "href": "/leave-review/index",
+      "text": "Back to High Ash Dental Surgery"
       }) }}
 
     </div>
