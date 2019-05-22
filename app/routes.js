@@ -135,10 +135,9 @@ router.get('/', function(req , res){
       res.redirect('/leave-review/rating-question-9?error=true')
     }
     else {
-      res.redirect('/leave-review/confirmation')
+      res.redirect('/leave-review/rating-question-10')
     }
   });
-
 
 // Add your routes here - above the module.exports line
 
