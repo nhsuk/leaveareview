@@ -12,16 +12,17 @@ router.get('/', function(req , res){
   // Branching
 
   router.post('/rating-review', function (req, res) {
+    let month = req.body.month;
     let year = req.body.year;
   
-    if (year >= 2017){
-      res.redirect('/leave-review/rating-question-1')
-    }
-    else if (year < 2017) {
-      res.redirect('/leave-review/visitdate')
+    if (year < 2017) {
+      res.redirect('/leave-review/visitdate?error=true')
+    } 
+    else if (!month) {
+      res.redirect('/leave-review/visitdate?error=true')
     } 
     else {
-      res.redirect('/leave-review/')
+      res.redirect('/leave-review/rating-question-1')
     }
   });
 

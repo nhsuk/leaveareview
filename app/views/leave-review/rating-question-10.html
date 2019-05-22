@@ -65,35 +65,39 @@
 
         <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Appointment waiting time</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["appointmentwaitingtime"]}}</p>
-        <p><a href="rating-question-3">Change</a></p>
+        {% if data["furtherratings"] == "yes" %}
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Appointment waiting time</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["appointmentwaitingtime"]}}</p>
+          <p><a href="rating-question-3">Change</a></p>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Treated with dignity and respect</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["dignityrespect"]}}</p>
-        <p><a href="rating-question-4">Change</a></p>
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Treated with dignity and respect</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["dignityrespect"]}}</p>
+          <p><a href="rating-question-4">Change</a></p>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Involved in treatment decisions</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentdecisions"]}}</p>
-        <p><a href="rating-question-5">Change</a></p>
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Involved in treatment decisions</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentdecisions"]}}</p>
+          <p><a href="rating-question-5">Change</a></p>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Information of NHS treatment costs</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentcostsinfo"]}}</p>
-        <p><a href="rating-question-6">Change</a></p>
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Information of NHS treatment costs</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentcostsinfo"]}}</p>
+          <p><a href="rating-question-6">Change</a></p>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Outcome of treatment</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["treatmentoutcome"]}}</p>
-        <p><a href="rating-question-7">Change</a></p>
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">        
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Outcome of treatment</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentoutcome"]}}</p>
+          <p><a href="rating-question-7">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
+
+        {%endif%}       
 
         <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Title</p>
         <p class="nhsuk-u-margin-bottom-3">{{data["title"]}}</p>
