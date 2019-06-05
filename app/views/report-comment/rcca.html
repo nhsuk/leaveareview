@@ -1,0 +1,108 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Transactional page layout
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Report a comment",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "High Ash Dental Surgery Reviews"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">Check your answers</h1>
+
+      <form action="/report-comment/confirmation" method="post">
+
+        <fieldset class="nhsuk-fieldset">     
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Reason for reporting</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["reportreason"]}}</p>
+          <p><a href="rcq1">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Details</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["moredetail"]}}</p>
+          <p><a href="rcq2">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">           
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Email address</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["emailaddress"]}}</p>
+          <p><a href="rcq3">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+          <p>By submitting you are confirming that, to the best of your knowledge, the details you are providing are correct and that you agree to the <a href="https://www.nhs.uk/our-policies/comments-policy/" target="new">moderation rules</a>.</p>         
+
+          {{ button({
+            "text": "Submit report",
+            "id": "btn_submit"
+          }) }}
+
+        </fieldset>
+
+      </form>
+
+      {{ backLink({
+      "href": "rcq3",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

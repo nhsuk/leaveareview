@@ -9,7 +9,7 @@ router.get('/', function(req , res){
   });
   
   
-  // Branching
+  // Branching - Leave a review
 
   router.post('/rating-review', function (req, res) {
     let month = req.body.month;
@@ -139,6 +139,59 @@ router.get('/', function(req , res){
       res.redirect('/leave-review/rating-question-10')
     }
   });
+
+
+  // Branching - Report a comment
+
+  router.post('/rcq1', function (req, res) {
+    let reportreason = req.body.reportreason;
+
+    if (!reportreason){
+      res.redirect('/report-comment/rcq1?error=true')
+    } 
+    else if (reportreason == "Offensive content"){
+      res.redirect('/report-comment/rcq2')
+    }
+    else if (reportreason == "Innacurate content"){
+      res.redirect('/report-comment/rcq2')
+    }
+    else if (reportreason == "Incorrect organisation"){
+      res.redirect('/report-comment/rcq2')
+    }
+    else if (reportreason == "Other"){
+      res.redirect('/report-comment/rcq2')
+    }
+    else {
+      res.redirect('/report-comment/rcq2')
+    }
+  });
+
+  router.post('/rcq2', function (req, res) {
+    let moredetail = req.body.moredetail;
+
+    if (!moredetail){
+      res.redirect('/report-comment/rcq2?error=true')
+    } 
+    else {
+      res.redirect('/report-comment/rcq3')
+    }
+  });
+
+  router.post('/rcq3', function (req, res) {
+    let emailaddress = req.body.emailaddress;
+    let confirmemailaddress = req.body.confirmemailaddress;
+
+    if (!emailaddress){
+      res.redirect('/report-comment/rcq3?error=true')
+    } 
+    if (!confirmemailaddress){
+      res.redirect('/report-comment/rcq3?error=true')
+    } 
+    else {
+      res.redirect('/report-comment/rcca')
+    }
+  });
+
 
 // Add your routes here -  above the module.exports line
 

@@ -1,0 +1,115 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Report a comment
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Report a comment",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "High Ash Dental Surgery Reviews"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 4</span>
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">Your details</h1>
+
+      <p>We only use your email address to communicate with you about your feedback. This includes telling you when it is published or has a reply.</p>
+
+      <form action="/rcq3" method="post">
+
+        <fieldset class="nhsuk-fieldset">
+
+          <span id="error-message" class="nhsuk-error-message" style="display: none;">
+            <span class="nhsuk-u-visually-hidden">Error:</span> 
+            Please complete all fields below
+          </span>  
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="emailaddress">
+              Your email address
+            </label>
+            <input class="nhsuk-input nhsuk-input--width-full" id="emailaddress" name="emailaddress" type="text" value="{{data["emailaddress"]}}">
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="confirmemailaddress">
+              Confirm email address
+            </label>
+            <input class="nhsuk-input nhsuk-input--width-full" id="confirmemailaddress" name="confirmemailaddress" type="text" value="{{data["confirmemailaddress"]}}">
+          </div>
+
+          {{ button({
+            "text": "Continue",
+            "id": "btn_submit"
+          }) }}
+
+        </fieldset>
+
+      </form>
+
+      {{ backLink({
+      "href": "rcq2",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}
