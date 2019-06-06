@@ -1,0 +1,104 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Transactional page layout
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Comments Response Tool",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-u-margin-bottom-4">User Comments</h1>
+
+      <p class="nhsuk-body-l">Review and respond to the user comments below.</p>
+      <div class="nhsuk-body-m page">Page <b>1</b> of <b>2</b></div>
+      <div class="nhsuk-body-m records">Displaying <b>1 - 5</b> of <b>9</b> Comments</div>
+
+      <hr style="clear: both;">
+
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent Service</b></p>
+      <p>by Vikram Shinde <span class="nhsuk-body-s" style="display:inline">- Posted on 24/04/2019</span></p>
+      <p>I have registered my 2 daughters as a new patients. The reception was polite while registering. She gave us all required information and helped us to get first assessment appointment. The dentists also was very friendly and helpful. The children didnt scared at all. Dentist made them comfortable. I would highly recommend this Dentist practice.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Good Experience</b></p>
+      <p>by Cheryl Wogan <span class="nhsuk-body-s" style="display:inline">- Posted on 20/03/2019</span></p>
+      <p>I had need of a urgent appointment, I was seen within 1 hour of contacting the surgery. I had not been to this practice before.The staff were very friendly and professional I cannot recommend this practice enough.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Friendly and professional service</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 19/03/2019</span></p>
+      <p>I'm glad to have found a dentist that provides such good service, particularly after much less favourable experiences with other practices in North Leeds. Waiting times for routine appontments may take a little longer than I'd like, but emergency appontments are possible and there's even adequate parking nearby.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Really happy</b></p>
+      <p>by T Patel <span class="nhsuk-body-s" style="display:inline">- Posted on 20/11/2017</span></p>
+      <p>Really happy with the service High Ash Dental Surgery. Staff are very friendly and professional. Receptionist is really nice and welcoming. The new Dental Hygienist is fantastic. Explained what was going to be done from start to finish and there was definitely visible patient care demonstrated. Just waiting for the books to open up again so i can get by family registered at this Surgery. Thanks</p>
+      <p class="nhsuk-body-s">Visited 20/11/2017</p>
+      <p><a href="response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Friendly and efficient</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 21/11/2017</span></p>
+      <p>All staff have been very helpful and informative. Their kindness was especially appreciated when I received some unwelcome news; they all went into action very quickly to ensure I receive the best treatment. Thank you</p>
+      <p class="nhsuk-body-s">Visited 21/11/2017</p>
+      <p><a href="response">Respond to this comment</a></p>
+      <hr>
+
+      {% from 'pagination/macro.njk' import pagination %}
+
+      {{ pagination({
+        "nextUrl": "/org-response/comments-p2",
+        "nextPage": "Page 2"
+      }) }}
+      
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
