@@ -192,6 +192,29 @@ router.get('/', function(req , res){
     }
   });
 
+  router.post('/confirmation', function (req, res) {
+    let moredetail = req.body.moredetail;
+
+    if (!moredetail){
+      res.redirect('/report-comment/rcq2?error=true')
+    } 
+    else {
+      res.redirect('/report-comment/rcq3')
+    }
+  });
+
+ // Branching - Org Response Tool
+
+  router.post('/process-response', function (req, res) {
+    let response = req.body.yourresponse;
+  
+    if (response == '') {
+      res.redirect('/org-response/response-error')
+    } 
+    else {
+      res.redirect('/org-response/response-confirm')
+    }
+  });
 
 // Add your routes here -  above the module.exports line
 
