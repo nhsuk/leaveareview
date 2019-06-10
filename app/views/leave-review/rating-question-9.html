@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Transactional page layout
+  Leave a review
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a Review",
+        "name": "Leave a review",
         "href": "/"
       },
       "showNav": "false",
@@ -43,72 +43,53 @@
 
       <form action="/q9" method="post">
 
-        {% call fieldset({
-          legend: {
-            text: "Your details",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
+        <div class="nhsuk-form-group">
 
-        <p>We only use your email address to communicate with you about your feedback. This includes telling you when it is published or has a reply.</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              How satisfied are you with the outcome of your treatment?
+            </legend>
 
-        {% from 'input/macro.njk' import input %}
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
 
-        <span id="error-message" class="nhsuk-error-message" style="display: none;">
-          <span class="nhsuk-u-visually-hidden">Error:</span> 
-          Please complete all fields
-        </span>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentoutcome-1" name="treatmentoutcome" type="radio" value="Very dissatisfied"{{checked("treatmentoutcome","Very dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Very dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentoutcome-2" name="treatmentoutcome" type="radio" value="Fairly dissatisfied"{{checked("treatmentoutcome","Fairly dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Fairly dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentoutcome-3" name="treatmentoutcome" type="radio" value="Neither satisfied or dissatisfied"{{checked("treatmentoutcome","Neither satisfied or dissatisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Neither satisfied or dissatisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentoutcome-4" name="treatmentoutcome" type="radio" value="Fairly satisfied"{{checked("treatmentoutcome","Fairly satisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Fairly satisfied
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="treatmentoutcome-5" name="treatmentoutcome" type="radio" value="Very satisfied"{{checked("treatmentoutcome","Very satisfied")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Very satisfied
+                </label>
+              </div>
+            </div>
+          </fieldset>
 
-        {{ input({
-          "label": {
-          "text": "Email address"
-          },
-          "id": "email",
-          "name": "email",
-          "value": data["email"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {{ input({
-          "label": {
-          "text": "Confirm email address"
-          },
-          "id": "confirmemail",
-          "name": "confirmemail",
-          "value": data["confirmemail"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {{ input({
-          "label": {
-          "text": "Display name"
-          },
-          "id": "displayname",
-          "name": "displayname",
-          "value": data["displayname"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {% from 'checkboxes/macro.njk' import checkboxes %}
-
-        {{ checkboxes({
-          "idPrefix": "anonymous",
-          "name": "anonymous",
-          "fieldset": {
-            "legend": {
-              "text": ""
-            }
-          },
-          "items": [
-            {
-              "value": "yes",
-              "text": "I want to be anonymous"
-            }
-          ]
-        }) }}
-
-        {% endcall %}
+        </div>
 
         {{ button({
           "text": "Continue",

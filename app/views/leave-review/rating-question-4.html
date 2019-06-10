@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Transactional page layout
+  Leave a review
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a Review",
+        "name": "Leave a review",
         "href": "/"
       },
       "showNav": "false",
@@ -43,53 +43,35 @@
 
       <form action="/q4" method="post">
 
-        <div class="nhsuk-form-group">
+        {% call fieldset({
+          legend: {
+            text: "Would you like to answer 5 more questions about the service you visited? Y/N",
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              How satisfied are you that you are you treated with dignity and respect by staff?
-            </legend>
+      <span id="error-message" class="nhsuk-error-message" style="display: none;">
+        <span class="nhsuk-u-visually-hidden">Error:</span> 
+        Please select an option
+      </span>
 
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
-            </span>
+        {{ radios({
+          "idPrefix": "furtherratings",
+          "name": "furtherratings",
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I'm done"
+            }
+          ]
+        }) }}
 
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="dignityrespect-1" name="dignityrespect" type="radio" value="Very dissatisfied"{{checked("dignityrespect","Very dissatisfied")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  Very dissatisfied
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="dignityrespect-2" name="dignityrespect" type="radio" value="Fairly dissatisfied"{{checked("dignityrespect","Fairly dissatisfied")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Fairly dissatisfied
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="dignityrespect-3" name="dignityrespect" type="radio" value="Neither satisfied or dissatisfied"{{checked("dignityrespect","Neither satisfied or dissatisfied")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Neither satisfied or dissatisfied
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="dignityrespect-4" name="dignityrespect" type="radio" value="Fairly satisfied"{{checked("dignityrespect","Fairly satisfied")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Fairly satisfied
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="dignityrespect-5" name="dignityrespect" type="radio" value="Very satisfied"{{checked("dignityrespect","Very satisfied")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Very satisfied
-                </label>
-              </div>
-            </div>
-          </fieldset>
-
-        </div>      
+        {% endcall %}
 
         {{ button({
           "text": "Continue",

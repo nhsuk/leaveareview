@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Transactional page layout
+  Leave a review
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a Review",
+        "name": "Leave a review",
         "href": "/"
       },
       "showNav": "false",
@@ -45,30 +45,44 @@
 
         {% call fieldset({
           legend: {
-            text: "Would you like to leave further ratings in addition to a written review?",
+            text: "Your review",
             classes: "nhsuk-fieldset__legend--l",
             isPageHeading: true
           }
         }) %}
 
-      <span id="error-message" class="nhsuk-error-message" style="display: none;">
-        <span class="nhsuk-u-visually-hidden">Error:</span> 
-        Please select an option
-      </span>
+        <span id="error-message" class="nhsuk-error-message" style="display: none;">
+          <span class="nhsuk-u-visually-hidden">Error:</span> 
+          Please complete all fields
+        </span>        
 
-        {{ radios({
-          "idPrefix": "furtherratings",
-          "name": "furtherratings",
-          "items": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
+        {% from 'input/macro.njk' import input %}
+
+        {{ input({
+          "label": {
+          "text": "Title of your review"
+          },
+          "hint": {
+          "text": "For example 'Great practice'"
+          },
+          "id": "title",
+          "name": "title",
+          "value": data["title"],
+          "classes": "nhsuk-input--width-full"
+        }) }}
+
+        {% from 'textarea/macro.njk' import textarea %}
+
+        {{ textarea({
+          "label": {
+          "text": "Details"
+          },
+          "hint": {
+          "text": "Leave a short review of your experience"
+          },
+          "id": "details",
+          "name": "details",
+          "value": data["details"]
         }) }}
 
         {% endcall %}

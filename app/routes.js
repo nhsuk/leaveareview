@@ -38,23 +38,32 @@ router.get('/', function(req , res){
   });
 
   router.post('/q2', function (req, res) {
-    let furtherratings = req.body.furtherratings;
+    let title = req.body.title;
+    let details = req.body.details;
 
-    if (!furtherratings){
+    if (!title) {
       res.redirect('/leave-review/rating-question-2?error=true')
-    } 
-    else if (furtherratings == "yes"){
-      res.redirect('/leave-review/rating-question-3')
+    }
+    else if (!details){
+      res.redirect('/leave-review/rating-question-2?error=true')
     }
     else {
-      res.redirect('/leave-review/rating-question-8')
+      res.redirect('/leave-review/rating-question-3')
     }
   });
 
   router.post('/q3', function (req, res) {
-    let appointmentwaitingtime = req.body.appointmentwaitingtime;
+    let email = req.body.email;
+    let confirmemail = req.body.confirmemail;
+    let displayname = req.body.displayname;
 
-    if (!appointmentwaitingtime){
+    if (!email) {
+      res.redirect('/leave-review/rating-question-3?error=true')
+    }
+    else if (!confirmemail){
+      res.redirect('/leave-review/rating-question-3?error=true')
+    }
+    else if (!displayname){
       res.redirect('/leave-review/rating-question-3?error=true')
     }
     else {
@@ -63,20 +72,23 @@ router.get('/', function(req , res){
   });
 
   router.post('/q4', function (req, res) {
-    let dignityrespect = req.body.dignityrespect;
+    let furtherratings = req.body.furtherratings;
 
-    if (!dignityrespect){
+    if (!furtherratings){
       res.redirect('/leave-review/rating-question-4?error=true')
+    } 
+    else if (furtherratings == "yes"){
+      res.redirect('/leave-review/rating-question-5')
     }
     else {
-      res.redirect('/leave-review/rating-question-5')
+      res.redirect('/leave-review/rating-question-10')
     }
   });
 
   router.post('/q5', function (req, res) {
-    let treatmentdecisions = req.body.treatmentdecisions;
+    let appointmentwaitingtime = req.body.appointmentwaitingtime;
 
-    if (!treatmentdecisions){
+    if (!appointmentwaitingtime){
       res.redirect('/leave-review/rating-question-5?error=true')
     }
     else {
@@ -85,9 +97,9 @@ router.get('/', function(req , res){
   });
 
   router.post('/q6', function (req, res) {
-    let treatmentcostsinfo = req.body.treatmentcostsinfo;
+    let dignityrespect = req.body.dignityrespect;
 
-    if (!treatmentcostsinfo){
+    if (!dignityrespect){
       res.redirect('/leave-review/rating-question-6?error=true')
     }
     else {
@@ -96,9 +108,9 @@ router.get('/', function(req , res){
   });
 
   router.post('/q7', function (req, res) {
-    let treatmentoutcome = req.body.treatmentoutcome;
+    let treatmentdecisions = req.body.treatmentdecisions;
 
-    if (!treatmentoutcome){
+    if (!treatmentdecisions){
       res.redirect('/leave-review/rating-question-7?error=true')
     }
     else {
@@ -107,13 +119,9 @@ router.get('/', function(req , res){
   });
 
   router.post('/q8', function (req, res) {
-    let title = req.body.title;
-    let details = req.body.details;
+    let treatmentcostsinfo = req.body.treatmentcostsinfo;
 
-    if (!title) {
-      res.redirect('/leave-review/rating-question-8?error=true')
-    }
-    else if (!details){
+    if (!treatmentcostsinfo){
       res.redirect('/leave-review/rating-question-8?error=true')
     }
     else {
@@ -122,23 +130,17 @@ router.get('/', function(req , res){
   });
 
   router.post('/q9', function (req, res) {
-    let email = req.body.email;
-    let confirmemail = req.body.confirmemail;
-    let displayname = req.body.displayname;
+    let treatmentoutcome = req.body.treatmentoutcome;
 
-    if (!email) {
-      res.redirect('/leave-review/rating-question-9?error=true')
-    }
-    else if (!confirmemail){
-      res.redirect('/leave-review/rating-question-9?error=true')
-    }
-    else if (!displayname){
+    if (!treatmentoutcome){
       res.redirect('/leave-review/rating-question-9?error=true')
     }
     else {
       res.redirect('/leave-review/rating-question-10')
     }
   });
+
+
 
 
   // Branching - Report a comment
