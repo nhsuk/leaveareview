@@ -1,0 +1,287 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Find another dentist",
+    href: "/"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>High Ash Dental Surgery</h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+      {{ contentsList({
+        items: [
+          {
+            href: "",
+            text: "Overview",
+            current: "true"
+          },
+          {
+            href: "",
+            text: "Services"
+          }
+          ,
+          {
+            href: "",
+            text: "Ratings and reviews"
+          }
+          ,
+          {
+            href: "/leave-review/",
+            text: "Leave a review"
+          }
+        ]
+      }) }}
+
+      <h2>Contact</h2>
+      <p>88 High Ash Drive<br>
+      Leeds<br>
+      West Yorkshire<br>
+      LS17 8RE</p>
+      <p class="nhsuk-u-margin-bottom-2"><a href="">Get directions</a></p>
+      <p class="nhsuk-u-margin-bottom-2"><a href="">0113 2688391</a></p>
+      <p><a href="">www.highashdental.co.uk</a></p>
+
+      <h2>New patients</h2>
+      <p>Patients do not need to be registered at this surgery to make an appointment. This surgery is:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><b>NOT</b> accepting new NHS patients</li>
+        <li>Accepting adult patients</li>
+        <li>Accepting charge exempt adult patients</li>
+        <li>Accepting child patients</li>
+      </ul>
+      <p class="nhs-body-xs">Verified on 07/01/2019</p>
+
+      <h2>Opening times</h2>
+      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Opening times</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Day</th>
+              <th class="nhsuk-table__header" scope="col">Opening hours</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Monday</td>
+              <td class="nhsuk-table__cell ">9am to 1pm<br>2pm to 5.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Tuesday</td>
+              <td class="nhsuk-table__cell ">9am to 1pm<br>2pm to 5.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Wednesday</td>
+              <td class="nhsuk-table__cell ">9am to 1pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Thursday</td>
+              <td class="nhsuk-table__cell ">9am to 1pm<br>2pm to 5.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Friday</td>
+              <td class="nhsuk-table__cell ">9am to 1pm<br>1.30pm to 4pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Saturday</td>
+              <td class="nhsuk-table__cell ">Closed</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Sunday</td>
+              <td class="nhsuk-table__cell ">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Holiday opening times</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Holiday</th>
+              <th class="nhsuk-table__header" scope="col">Opening hours</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Christmas Day</td>
+              <td class="nhsuk-table__cell ">Closed</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Boxing Day</td>
+              <td class="nhsuk-table__cell ">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nhs-body-xs">Verified on 07/01/2019</p>
+
+      <h2>Facilities</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Car parking</li>
+        <li>Cycle parking</li>
+      </ul>
+      <h2>Accessibility</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Wheelchair access</li>
+        <li>Step free access</li>
+        <li>Induction loop</li>
+        <li>Disabled WC</li>
+        <li>Disabled car parking</li>
+        <li>Signing service</li>
+      </ul>
+
+      <h2>Dentists at this surgery</h2>
+      <p>The General Dental Council (GDC) regulates dental professionals in the U.K</p>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Dentists at this surgery</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Name</th>
+              <th class="nhsuk-table__header" scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Dr Neema Naik</td>
+              <td class="nhsuk-table__cell "><a href="https://olr.gdc-uk.org/searchregister/searchresults?Surname=&registrationNumber=73247">Check registration</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Mr Abdul Munaf Qayyum</td>
+              <td class="nhsuk-table__cell "><a href="https://olr.gdc-uk.org/searchregister/searchresults?Surname=&registrationNumber=73250">Check registration</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Dr Sally Anne Rowberry</td>
+              <td class="nhsuk-table__cell "><a href="https://olr.gdc-uk.org/searchregister/searchresults?Surname=&registrationNumber=61566">Check registration</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What patients say</h2>
+      <p>Latest reviews of this dental practice.</p>
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
+        <div class="nhsuk-promo__content">
+          <h3 class="nhsuk-promo__heading">Really happy</h3>
+          <p class="nhsuk-promo__description">Really happy with the service High Ash Dental Surgery. Staff are very friendly and professional. Receptionist is really nice and w…</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">21 November 2017</p>
+        </div>
+        </a>
+      </div>
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
+        <div class="nhsuk-promo__content">
+          <h3 class="nhsuk-promo__heading">Friendly and efficient</h3>
+          <p class="nhsuk-promo__description">All staff have been very helpful and informative. Their kindness was especially appreciated when I received some unwelcome news; they all...</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">20 November 2017</p>
+        </div>
+        </a>
+      </div>
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
+        <div class="nhsuk-promo__content">
+          <h3 class="nhsuk-promo__heading">I feel so much better</h3>
+          <p class="nhsuk-promo__description">Two days ago I had the roots from a molar removed, which I was dreading, and i couldn't believe how quick and painless the whole procedur...</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">17 July 2017</p>
+        </div>
+        </a>
+      </div>
+
+      <p><a href="">Read all 7 reviews</a></p>
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/leave-review">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Leave a review</span>
+        </a>
+      </div>
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
