@@ -31,3 +31,33 @@
 
 .nhsuk-promo__grey2 {
     color: #768692; }
+
+.nhsuk-page-heading {
+    padding: 25px 0 40px; }
+    @media (min-width: 48.0625em) {
+        .nhsuk-page-heading {
+        padding: 34px 0 56px; } }
+    .nhsuk-page-heading h1 {
+        margin: 0; }
+    .nhsuk-page-heading__small {
+        color: #425563;
+        display: block;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-top: 8px; }
+        @media (min-width: 40.0625em) {
+        .nhsuk-page-heading__small {
+            font-size: 32px;
+            line-height: 36px;
+            } }
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }

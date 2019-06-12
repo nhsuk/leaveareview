@@ -5,7 +5,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Overview
+  Org name - Services
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -41,16 +41,10 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
-  </div>
-</nav>
+  {{ breadcrumb({
+    text: "Find another dentist",
+    href: "/"
+  }) }}
 {% endblock %}
 
 
@@ -59,56 +53,51 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>
-        <span role="text">
-          Overview
-          <span class="nhsuk-page-heading__small">
-            <span class="visually-hidden"> -</span> 
-            High Ash Dental Surgery
-          </span>
-        </span>
-      </h1>
+      <h1>High Ash Dental Surgery</h1>
 
-      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-9" role="navigation" aria-label="Pages in this guide">
-        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
-        <ol class="nhsuk-contents-list__list">
-          <li class="nhsuk-contents-list__item" aria-current="page">
-            <span class="nhsuk-contents-list__current">Overview</span>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/services/">Services</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="">Ratings and reviews</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/leave-review/">Leave a review</a>
-          </li>
-        </ol>
-      </nav>
+      {% from 'contents-list/macro.njk' import contentsList %}
 
-      <div class="nhsuk-panel-with-label">
-        <h2 class="nhsuk-panel-with-label__label">Contact</h2>
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Address</p>
-        <p>88 High Ash Drive<br>
-        Leeds<br>
-        West Yorkshire<br>
-        LS17 8RE</p>
-        <hr class="nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-3">
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Quick links</p>
-        <p class="nhsuk-u-margin-bottom-2"><a href="">Directions</a></p>
-        <p class="nhsuk-u-margin-bottom-2"><a href="">0113 2688391</a></p>
-        <p><a href="">www.highashdental.co.uk</a></p>
-      </div>
+      {{ contentsList({
+        items: [
+          {
+            href: "/overview/",
+            text: "Overview"
+          },
+          {
+            href: "",
+            text: "Services",
+            current: "true"
+          }
+          ,
+          {
+            href: "",
+            text: "Ratings and reviews"
+          }
+          ,
+          {
+            href: "/leave-review/",
+            text: "Leave a review"
+          }
+        ]
+      }) }}
 
-      <h2>Taking on new NHS patients</h2>
-      <p>This surgery is:</p>
+      <h2>Contact</h2>
+      <p>88 High Ash Drive<br>
+      Leeds<br>
+      West Yorkshire<br>
+      LS17 8RE</p>
+      <p class="nhsuk-u-margin-bottom-2"><a href="">Get directions</a></p>
+      <p class="nhsuk-u-margin-bottom-2"><a href="">0113 2688391</a></p>
+      <p><a href="">www.highashdental.co.uk</a></p>
+
+      <h2>New patients</h2>
+      <p>Patients do not need to be registered at this surgery to make an appointment. This surgery is:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Accepting children (up to the age of 18)</li>
-        <li><b>NOT</b> Accepting adults (18 and over)</li>
-        <li><b>NOT</b> Accepting adults entitled to free dental care</li>
+        <li><b>NOT</b> accepting new NHS patients</li>
+        <li>Accepting adult patients</li>
+        <li>Accepting charge exempt adult patients</li>
+        <li>Accepting child patients</li>
       </ul>
-      <p>Patients do not need to be registered at this surgery to make an appointment.</p>
       <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
       <h2>Opening times</h2>
@@ -153,15 +142,13 @@
           </tbody>
         </table>
       </div>
-      <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
-      <h2>Additional opening times</h2>
       <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
         <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Additional opening times</caption>
+          <caption class="nhsuk-table__caption">Holiday opening times</caption>
           <thead class="nhsuk-table__head">
             <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Day</th>
+              <th class="nhsuk-table__header" scope="col">Holiday</th>
               <th class="nhsuk-table__header" scope="col">Opening hours</th>
             </tr>
           </thead>
@@ -179,6 +166,11 @@
       </div>
       <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
+      <h2>Facilities</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Car parking</li>
+        <li>Cycle parking</li>
+      </ul>
       <h2>Accessibility</h2>
       <ul class="nhsuk-list nhsuk-list--bullet">
         <li>Wheelchair access</li>
@@ -189,14 +181,8 @@
         <li>Signing service</li>
       </ul>
 
-      <h2>Facilities</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Car parking</li>
-        <li>Cycle parking</li>
-      </ul>
-
       <h2>Dentists at this surgery</h2>
-      <p>The General Dental Council (GDC) regulates UK dental professionals.</p>
+      <p>The General Dental Council (GDC) regulates dental professionals in the U.K</p>
       <div class="nhsuk-table-responsive">
         <table class="nhsuk-table">
           <caption class="nhsuk-table__caption">Dentists at this surgery</caption>
@@ -230,7 +216,7 @@
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Really happy</h3>
           <p class="nhsuk-promo__description">Really happy with the service High Ash Dental Surgery. Staff are very friendly and professional. Receptionist is really nice and w…</p>
-          <p class="nhs-body-s nhsuk-promo__grey2">21 November 2017</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">21 November 2017</p>
         </div>
         </a>
       </div>
@@ -239,7 +225,7 @@
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Friendly and efficient</h3>
           <p class="nhsuk-promo__description">All staff have been very helpful and informative. Their kindness was especially appreciated when I received some unwelcome news; they all...</p>
-          <p class="nhs-body-s nhsuk-promo__grey2">20 November 2017</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">20 November 2017</p>
         </div>
         </a>
       </div>
@@ -248,7 +234,7 @@
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">I feel so much better</h3>
           <p class="nhsuk-promo__description">Two days ago I had the roots from a molar removed, which I was dreading, and i couldn't believe how quick and painless the whole procedur...</p>
-          <p class="nhs-body-s nhsuk-promo__grey2">17 July 2017</p>
+          <p class="nhs-body-xs nhsuk-promo__grey2">17 July 2017</p>
         </div>
         </a>
       </div>
