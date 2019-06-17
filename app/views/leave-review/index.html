@@ -41,10 +41,16 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-  {{ breadcrumb({
-    text: "Find a dentist",
-    href: "/"
-  }) }}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 
@@ -53,7 +59,15 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>High Ash Dental Surgery</h1>
+      <h1>
+        <span role="text">
+          Leave a review
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            High Ash Dental Surgery
+          </span>
+        </span>
+      </h1>
 
       {% from 'contents-list/macro.njk' import contentsList %}
 
@@ -80,8 +94,6 @@
           }
         ]
       }) }}
-
-      <h2>Leave a review</h2>
 
       <p>Comments containing the following will not be published or will be edited:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
