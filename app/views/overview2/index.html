@@ -41,10 +41,16 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-  {{ breadcrumb({
-    text: "Find another dentist",
-    href: "/"
-  }) }}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 
@@ -53,7 +59,15 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>High Ash Dental Surgery</h1>
+      <h1>
+        <span role="text">
+          Overview
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            High Ash Dental Surgery
+          </span>
+        </span>
+      </h1>
 
       {% from 'contents-list/macro.njk' import contentsList %}
 
@@ -61,12 +75,12 @@
         items: [
           {
             href: "/overview/",
-            text: "Overview"
+            text: "Overview",
+            current: "true"
           },
           {
             href: "",
-            text: "Services",
-            current: "true"
+            text: "Services"
           }
           ,
           {
@@ -90,14 +104,14 @@
       <p class="nhsuk-u-margin-bottom-2"><a href="">0113 2688391</a></p>
       <p><a href="">www.highashdental.co.uk</a></p>
 
-      <h2>New patients</h2>
-      <p>Patients do not need to be registered at this surgery to make an appointment. This surgery is:</p>
+      <h2>Taking on new NHS patients</h2>
+      <p>This surgery is:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li><b>NOT</b> accepting new NHS patients</li>
-        <li>Accepting adult patients</li>
-        <li>Accepting charge exempt adult patients</li>
-        <li>Accepting child patients</li>
+        <li>Accepting children (up to the age of 18)</li>
+        <li><b>NOT</b> Accepting adults (18 and over)</li>
+        <li><b>NOT</b> Accepting adults entitled to free dental care</li>
       </ul>
+      <p>Patients do not need to be registered at this surgery to make an appointment.</p>
       <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
       <h2>Opening times</h2>
@@ -142,13 +156,15 @@
           </tbody>
         </table>
       </div>
+      <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
+      <h2>Additional opening times</h2>
       <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
         <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Holiday opening times</caption>
+          <caption class="nhsuk-table__caption">Additional opening times</caption>
           <thead class="nhsuk-table__head">
             <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Holiday</th>
+              <th class="nhsuk-table__header" scope="col">Day</th>
               <th class="nhsuk-table__header" scope="col">Opening hours</th>
             </tr>
           </thead>
@@ -166,11 +182,6 @@
       </div>
       <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
-      <h2>Facilities</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Car parking</li>
-        <li>Cycle parking</li>
-      </ul>
       <h2>Accessibility</h2>
       <ul class="nhsuk-list nhsuk-list--bullet">
         <li>Wheelchair access</li>
@@ -181,8 +192,14 @@
         <li>Signing service</li>
       </ul>
 
+      <h2>Facilities</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Car parking</li>
+        <li>Cycle parking</li>
+      </ul>
+
       <h2>Dentists at this surgery</h2>
-      <p>The General Dental Council (GDC) regulates dental professionals in the U.K</p>
+      <p>The General Dental Council (GDC) regulates UK dental professionals.</p>
       <div class="nhsuk-table-responsive">
         <table class="nhsuk-table">
           <caption class="nhsuk-table__caption">Dentists at this surgery</caption>
