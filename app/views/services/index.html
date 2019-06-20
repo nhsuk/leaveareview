@@ -1,0 +1,162 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Services
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Services
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            High Ash Dental Surgery
+          </span>
+        </span>
+      </h1>
+
+      {% from 'contents-list/macro.njk' import contentsList %}
+
+      {{ contentsList({
+        items: [
+          {
+            href: "/overview/",
+            text: "Overview"
+          },
+          {
+            href: "",
+            text: "Services",
+            current: "true"
+          }
+          ,
+          {
+            href: "",
+            text: "Ratings and reviews"
+          }
+          ,
+          {
+            href: "/leave-review/",
+            text: "Leave a review"
+          }
+        ]
+      }) }}
+
+
+      <h2>General dentistry</h2>
+      <p>This dental practice provides NHS treatments including:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Check-ups</li>
+        <li>Fillings</li>
+        <li>Dentures</li>
+        <li>Crowns</li>
+        <li>Bridges</li>
+      </ul>
+      <p><a href="">Find out more about NHS dental treatments</a></p>
+
+      <h2>Specialist Dental Care</h2>
+      <p>The following specialist treatments are also provided that may be available on the NHS:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Orthodontic treatment to improve crooked teeth</li>
+        <li>Gum disease treatment to treat infected gums</li>
+        <li>Root canal treatment to treat the infection at the centre of a tooth</li>
+        <li>Oral surgery including wisdom tooth extraction</li>
+        <li>Sedation services for patients with dental anxiety</li>
+        <li>Domiciliary services for patients that cannot reach a dental surgery</li>
+      </ul>
+
+      <h2>NHS dental costs</h2>
+      <p>How much you have to pay for NHS dental treatment depends on what you’re having done.</p>
+      <p><a href="https://www.nhs.uk/common-health-questions/dental-health/which-dental-treatments-are-available-on-the-nhs/">Find out how much you have to pay for NHS dental treatment.</a></p>
+      <p>Treatments such as veneers and braces are only available on the NHS if there’s a clinical need for them.</p>
+      <p>Cosmetic treatments, such as teeth whitening, are not available on the NHS.</p>
+      <p>Ask your dentist whether the treatment they’re recommending is available on the NHS and how much it will cost before you go ahead.</p>
+
+      <h2>Help with NHS dental costs</h2>
+      <p>Some people can <a href="https://www.nhs.uk/common-health-questions/dental-health/who-is-entitled-to-free-nhs-dental-treatment-in-england/"> get help paying dental costs.</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
