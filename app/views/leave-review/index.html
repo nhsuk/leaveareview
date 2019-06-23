@@ -69,31 +69,23 @@
         </span>
       </h1>
 
-      {% from 'contents-list/macro.njk' import contentsList %}
-
-      {{ contentsList({
-        items: [
-          {
-            href: "/overview/",
-            text: "Overview"
-          },
-          {
-            href: "",
-            text: "Services"
-          }
-          ,
-          {
-            href: "",
-            text: "Ratings and reviews"
-          }
-          ,
-          {
-            href: "",
-            text: "Leave a review",
-            current: "true"
-          }
-        ]
-      }) }}
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/services/">Services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/ratings-reviews/">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Leave a review</span>
+          </li>
+        </ol>
+      </nav>
 
       <p>Comments containing the following will not be published or will be edited:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">

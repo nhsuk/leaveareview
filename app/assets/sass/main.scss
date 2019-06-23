@@ -61,3 +61,38 @@
     padding: 0;
     position: absolute;
     width: 1px; }
+
+.stars {
+    color: #ffd300;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0;
+    text-shadow: 1px 1px 1px #768692;}
+    @media (min-width: 40.0625em) {
+        .stars {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 28px;
+            } }
+
+.starssmall {
+    color: #ffd300;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0;
+    text-shadow: 1px 1px 1px #768692;}
+    @media (min-width: 40.0625em) {
+        .starssmall {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+            } }
+
+.greyinset {
+    margin: 0 0 0 20px;
+    border-left: 12px solid #D8D8D8 !important;
+}
