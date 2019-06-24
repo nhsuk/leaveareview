@@ -44,7 +44,7 @@
 
         {% call fieldset({
           legend: {
-            text: "Would you like to answer 5 more questions about the service you visited? Y/N",
+            text: "Would you like to answer 5 more multiple choice questions?",
             classes: "nhsuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -56,6 +56,9 @@
       </span>
 
         {{ radios({
+          "hint": {
+          "text": "It will take around 30 seconds"
+          },
           "idPrefix": "furtherratings",
           "name": "furtherratings",
           "items": [
