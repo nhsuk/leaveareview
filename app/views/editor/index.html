@@ -1,0 +1,205 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Header
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Organisation name
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Overview</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/services/">Services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/ratings-reviews/">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-xl">Sub-header</h2>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Check before you start
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+                Check eligibility
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#" aria-describedby="read-declaration-completed">
+                Read declaration
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Prepare application
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#" aria-describedby="company-information-completed">
+                Company information
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#" aria-describedby="contact-details-completed">
+                Your contact details
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="contact-details-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#">
+                List convictions
+              </a>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#">
+                Provide financial evidence
+              </a>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#" aria-describedby="medical-information-completed">
+                Give medical information
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Apply
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="#">
+                Submit and pay
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

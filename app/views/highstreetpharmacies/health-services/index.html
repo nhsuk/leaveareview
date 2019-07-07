@@ -1,0 +1,151 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Health services
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">High street pharmacies</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to High street pharmacies</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Health services
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Hyde Park Pharmacy
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/highstreetpharmacies/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/highstreetpharmacies/prescription-support/">Prescription support</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Health services</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/highstreetpharmacies/ratings-reviews/">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/highstreetpharmacies/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+      <h2>Health support</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Stop smoking advice, support and the supply of nicotine replacement therapy (NHS service)</li>
+        <li>Weight management service (Non-NHS service)</li>
+      </ul>
+  
+      <h2>Sexual Health</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Emergency contraception (Non-NHS service)</li>
+        <li>Chlamydia testing kits (Non-NHS service)</li>
+        <li>Chlamydia screening & treatment for under 25-year olds (NHS service)</li>
+      </ul>
+
+      <h2>Vaccinations</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Seasonal influenza flu jab for over 65-year olds and other at-risk groups (NHS service)</li>
+        <li>Seasonal influenza flu jab for non-risk groups (Non-NHS service)</li>
+        <li>Travel vaccinations (Non-NHS service)</li>
+      </ul>
+
+      <h2>Heath screening & testing</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Blood pressure testing (Non-NHS service)</li>
+        <li>Type 2 diabetes screening (Non-NHS service)</li>
+        <li>NHS health check for over 40-year olds to assess the risk of heart disease (NHS service)</li>
+      </ul>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
