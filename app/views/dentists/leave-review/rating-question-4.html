@@ -28,7 +28,7 @@
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/overview/",
+    href: "/dentists/overview/",
     text: "High Ash Dental Surgery"
   }) }}
 {% endblock %}
@@ -38,74 +38,37 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 10</span>
 
-      <form action="/q3" method="post">
+      <form action="/q4" method="post">
 
         {% call fieldset({
           legend: {
-            text: "Your details",
+            text: "Would you like to answer 5 more multiple choice questions?",
             classes: "nhsuk-fieldset__legend--l",
             isPageHeading: true
           }
         }) %}
 
-        <p>We only use your email address to communicate with you about your feedback. This includes telling you when it is published or has a reply.</p>
+      <span id="error-message" class="nhsuk-error-message" style="display: none;">
+        <span class="nhsuk-u-visually-hidden">Error:</span> 
+        Please select an option
+      </span>
 
-        {% from 'input/macro.njk' import input %}
-
-        <span id="error-message" class="nhsuk-error-message" style="display: none;">
-          <span class="nhsuk-u-visually-hidden">Error:</span> 
-          Please complete all fields
-        </span>
-
-        {{ input({
-          "label": {
-          "text": "Email address"
-          },
-          "id": "email",
-          "name": "email",
-          "value": data["email"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {{ input({
-          "label": {
-          "text": "Confirm email address"
-          },
-          "id": "confirmemail",
-          "name": "confirmemail",
-          "value": data["confirmemail"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {{ input({
-          "label": {
-          "text": "Display name"
-          },
+        {{ radios({
           "hint": {
-          "text": "Displayed with your review, this does not have to be your real name"
+          "text": "It will take around 30 seconds"
           },
-          "id": "displayname",
-          "name": "displayname",
-          "value": data["displayname"],
-          "classes": "nhsuk-input--width-full"
-        }) }}
-
-        {% from 'checkboxes/macro.njk' import checkboxes %}
-
-        {{ checkboxes({
-          "idPrefix": "anonymous",
-          "name": "anonymous",
-          "fieldset": {
-            "legend": {
-              "text": ""
-            }
-          },
+          "idPrefix": "furtherratings",
+          "name": "furtherratings",
           "items": [
             {
               "value": "yes",
-              "text": "I want to be anonymous"
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No, I'm done"
             }
           ]
         }) }}
@@ -120,7 +83,7 @@
       </form>
 
       {{ backLink({
-      "href": "rating-question-2",
+      "href": "rating-question-3",
       "text": "Back"
       }) }}
 

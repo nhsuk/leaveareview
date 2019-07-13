@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Leave a review
+  Transactional page layout
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a review",
+        "name": "Report a comment",
         "href": "/"
       },
       "showNav": "false",
@@ -28,63 +28,25 @@
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/overview/",
-    text: "High Ash Dental Surgery"
+    href: "/dentists/ratings-reviews/",
+    text: "High Ash Dental Surgery Reviews"
   }) }}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 10</span>
-
-      <form action="/q4" method="post">
-
-        {% call fieldset({
-          legend: {
-            text: "Would you like to answer 5 more multiple choice questions?",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-
-      <span id="error-message" class="nhsuk-error-message" style="display: none;">
-        <span class="nhsuk-u-visually-hidden">Error:</span> 
-        Please select an option
-      </span>
-
-        {{ radios({
-          "hint": {
-          "text": "It will take around 30 seconds"
-          },
-          "idPrefix": "furtherratings",
-          "name": "furtherratings",
-          "items": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No, I'm done"
-            }
-          ]
-        }) }}
-
-        {% endcall %}
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">Thank you</h1>
+        <p>The comment that you have reported will be sent to a moderator, who will decide whether it breaks the NHS website's <a href="https://www.nhs.uk/our-policies/comments-policy/" target="new">moderation rules</a>.</p>
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">What happens next</h2>
+        <p>We'll contact you when a decision has been made.</p>
 
       {{ backLink({
-      "href": "rating-question-3",
-      "text": "Back"
+      "href": "/dentists/leave-review/index",
+      "text": "Back to High Ash Dental Surgery Reviews"
       }) }}
 
     </div>

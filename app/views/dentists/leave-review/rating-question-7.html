@@ -28,7 +28,7 @@
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/overview/",
+    href: "/dentists/overview/",
     text: "High Ash Dental Surgery"
   }) }}
 {% endblock %}
@@ -38,15 +38,15 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 5 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 7 of 10</span>
 
-      <form action="/q5" method="post">
+      <form action="/q7" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              How satisfied are you with how quickly you were able to get an appointment?
+              How satisfied are you that the surgery involves you in decisions about your treatment?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
@@ -56,31 +56,31 @@
 
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="appointmentwaitingtime-1" name="appointmentwaitingtime" type="radio" value="Very dissatisfied"{{checked("appointmentwaitingtime","Very dissatisfied")}}>
+                <input class="nhsuk-radios__input" id="treatmentdecisions-1" name="treatmentdecisions" type="radio" value="Very dissatisfied"{{checked("treatmentdecisions","Very dissatisfied")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                   Very dissatisfied
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="appointmentwaitingtime-2" name="appointmentwaitingtime" type="radio" value="Fairly dissatisfied"{{checked("appointmentwaitingtime","Fairly dissatisfied")}}>
+                <input class="nhsuk-radios__input" id="treatmentdecisions-2" name="treatmentdecisions" type="radio" value="Fairly dissatisfied"{{checked("treatmentdecisions","Fairly dissatisfied")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Fairly dissatisfied
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="appointmentwaitingtime-3" name="appointmentwaitingtime" type="radio" value="Neither satisfied or dissatisfied"{{checked("appointmentwaitingtime","Neither satisfied or dissatisfied")}}>
+                <input class="nhsuk-radios__input" id="treatmentdecisions-3" name="treatmentdecisions" type="radio" value="Neither satisfied or dissatisfied"{{checked("treatmentdecisions","Neither satisfied or dissatisfied")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Neither satisfied or dissatisfied
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="appointmentwaitingtime-4" name="appointmentwaitingtime" type="radio" value="Fairly satisfied"{{checked("appointmentwaitingtime","Fairly satisfied")}}>
+                <input class="nhsuk-radios__input" id="treatmentdecisions-4" name="treatmentdecisions" type="radio" value="Fairly satisfied"{{checked("treatmentdecisions","Fairly satisfied")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Fairly satisfied
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="appointmentwaitingtime-5" name="appointmentwaitingtime" type="radio" value="Very satisfied"{{checked("appointmentwaitingtime","Very satisfied")}}>
+                <input class="nhsuk-radios__input" id="treatmentdecisions-5" name="treatmentdecisions" type="radio" value="Very satisfied"{{checked("treatmentdecisions","Very satisfied")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Very satisfied
                 </label>
@@ -88,7 +88,7 @@
             </div>
           </fieldset>
 
-        </div>
+        </div>      
 
         {{ button({
           "text": "Continue",
@@ -98,7 +98,7 @@
       </form>
 
       {{ backLink({
-      "href": "rating-question-4",
+      "href": "rating-question-6",
       "text": "Back"
       }) }}
 
