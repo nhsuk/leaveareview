@@ -16,19 +16,23 @@
       "primaryLinks": [
         {
           "url"  : "/editor/index",
-          "label" : "My profiles"
+          "label" : "Home"
         },
         {
-          'url' : '/editor/picker',
+          'url' : '#',
           'label' : 'Add profile'
         },
         {
-          'url'  : '/editor/index',
+          'url'  : '#',
           'label' : 'Manage users'
         },
         {
-          'url'  : '/editor/index',
+          'url'  : '#',
           'label' : 'Manage reviews'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
         }
       ]
     })
@@ -41,6 +45,8 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">My profiles</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
   </div>
@@ -55,13 +61,31 @@
 
       <h1>
         <span role="text">
-          Add profiles
+          My profiles
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
             Organisation name
           </span>
         </span>
       </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Overview</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/services/">Services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/ratings-reviews/">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
 
     </div>
 
@@ -72,6 +96,8 @@
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-xl">Sub-header</h2>
 
       <ol class="app-task-list">
         <li>
