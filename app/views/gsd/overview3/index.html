@@ -1,0 +1,177 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Mental health support</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Mental health support</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Age Uk Leeds
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Carer service for refugees and asylum seekers
+          </span>
+        </span>
+      </h1>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>Contact</h2>
+
+      <div class="nhsuk-grid-row nhsuk-panel-group">
+
+        <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Address</h3>
+            <p>Bradbury Building<br>
+            Mark Lane<br>
+            Leeds<br>
+            West Yorkshire<br>
+            LS2 8JA</p>
+          </div>
+        </div>
+
+        <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Quick links</h3>
+            <p class="nhsuk-u-margin-bottom-2"><a href="https://www.google.com/maps/place/Age+UK+Leeds/@53.799857,-1.5452926,17z/data=!3m1!4b1!4m5!3m4!1s0x48795eabb2b5a15f:0xfee49458a5702432!8m2!3d53.799857!4d-1.5431039">Directions</a></p>
+            <p class="nhsuk-u-margin-bottom-2"><a href="">0113 389 3000</a></p>
+            <p class="nhsuk-u-margin-bottom-2"><a href="mailto:info@ageukleeds.org.uk">Email</a></p>
+            <p class="nhsuk-u-margin-bottom-2"><a href="https://www.ageuk.org.uk/">Website</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>About</h2>
+      <p>Age UK Leeds works across Leeds and the district – from Menston in the west to Wetherby in the East; from Harewood in the north to Morley in the south.</p>
+      <p>It was set up in 1975 as the Leeds Old People’s Welfare Council by a group of concerned and committed trustees including local Quakers with whom we shared offices for many years on Woodhouse Lane. As the organisation expanded, we needed more space and so opened a second office on Mark Lane, which we eventually bought in 1992, and a third office was rented in South Leeds at Bridge House. In the early 80s the organisation became Age Concern Leeds and then in 2010 Age UK Leeds.</p>
+
+      <h2>Opening times</h2>
+      <p>Monday - Thursday 9.00am - 4.30pm & Friday 9.00am - 4.00pm</p>
+
+      <h2>Facebook</h2>
+      <p><a href="https://www.facebook.com/ageuk">facebook.com/ageuk</a></p>
+
+      <h2>Twitter</h2>
+      <p><a href="https://twitter.com/age_uk">twitter.com/age_uk</a></p>
+
+      <h2>Further information</h2>
+      <p>Our services for old people are wide ranging and cover Leeds Metropolitan District• Older Carers Support Service • End of Life Care • Mental Health Hospital After Care• Advocacy • Long- term health support • Macmillan Prostate Cancer Support</p>
+      
+      <h2>Referral method</h2>
+      <p>Self-referral</p>
+      
+      <h2>Access</h2>
+      <p>Premises are accessible</p>
+
+      <h2>Catchment area</h2>
+      <p>Leeds Metropolitan District</p>
+
+      <h2>Target group</h2>
+      <p>Older people 50 + and their carers</p>
+
+      
+      <p>This information was supplied by <a href="https://www.serco.com/">Serco Global Services</a> on 03-07-2019.</p>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
