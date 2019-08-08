@@ -46,9 +46,9 @@
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Distance selling pharmacies</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Distance selling pharmacies</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -98,7 +98,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
     <h2>Contact</h2>
-      <div class="nhsuk-grid-row nhsuk-panel-group">
+      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
         <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
           <div class="nhsuk-panel">
             <h3>Address</h3>
@@ -106,17 +106,27 @@
             1 Hawthorn Park<br>
             Leeds<br>
             LS14 1PQ</p>
+            <p><a href="https://www.google.com/maps/place/Pharmacy2U/@53.8337415,-1.4641704,17z/data=!3m1!4b1!4m5!3m4!1s0x48795b48803de107:0x72f87d7a70ab0139!8m2!3d53.8337415!4d-1.4619817">Get directions</a></p>
           </div>
         </div>
         <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
           <div class="nhsuk-panel">
-            <h3>Quick links</h3>
-            <p class="nhsuk-u-margin-bottom-2"><a href="">Directions</a></p>
-            <p class="nhsuk-u-margin-bottom-2"><a href="">0113 265 0222</a></p>
-            <p class="nhsuk-u-margin-bottom-2"><a href="mailto:support@pharmacy2u.co.uk">Email</a></p>
-            <p class="nhsuk-u-margin-bottom-2"><a href="https://www.pharmacy2u.co.uk">Website</a></p>
+            <h3>Telephone</h3>
+            <p><a href="">0113 265 0222</a></p>
+            <h3>Online</h3>
+            <p class="nhsuk-u-margin-bottom-2"><a href="mailto:support@pharmacy2u.co.uk">Send an email</a></p>
+            <p><a href="https://www.pharmacy2u.co.uk">Visit website</a></p>
           </div>
         </div>
+      </div>
+      <div class="nhsuk-action-link nhsuk-u-margin-bottom-8">
+        <a class="nhsuk-action-link__link" href="https://beta.nhs.uk/find-a-pharmacy/">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Find another pharmacy</span>
+        </a>
       </div>
     </div>
   </div>
@@ -137,90 +147,105 @@
       <p><a href="">Find out more about ordering prescriptions from distance selling pharmacies</a>.</p>
 
       <h2>Opening times</h2>
-      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
-        <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Opening times</caption>
-          <thead class="nhsuk-table__head">
-            <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Day</th>
-              <th class="nhsuk-table__header" scope="col">Opening hours</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Monday</td>
-              <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Tuesday</td>
-              <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Wednesday</td>
-              <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Thursday</td>
-              <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Friday</td>
-              <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Saturday</td>
-              <td class="nhsuk-table__cell ">8:30am - 1:00pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Sunday</td>
-              <td class="nhsuk-table__cell ">Closed</td>
-            </tr>
-          </tbody>
-        </table>
+      <p class="nhsuk-body-s">All opening times last updated on 07/01/2019</p>
+      <div class="nhsuk-table__panel-with-heading-tab">
+        <h3 class="nhsuk-table__heading-tab">Standard opening times</h3>
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Standard opening times</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col">Day</th>
+                <th class="nhsuk-table__header" scope="col">Opening hours</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Monday</td>
+                <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Tuesday</td>
+                <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Wednesday</td>
+                <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Thursday</td>
+                <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Friday</td>
+                <td class="nhsuk-table__cell ">8:00am to 5:30pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Saturday</td>
+                <td class="nhsuk-table__cell ">8:30am - 1:00pm</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Sunday</td>
+                <td class="nhsuk-table__cell ">Closed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
-      <h2>Upcoming bank holidays</h2>
-      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
-        <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Upcoming bank holidays</caption>
-          <thead class="nhsuk-table__head">
-            <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Date</th>
-              <th class="nhsuk-table__header" scope="col">Day</th>
-              <th class="nhsuk-table__header" scope="col">Holiday</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">26 August 9am to 11am</td>
-              <td class="nhsuk-table__cell">Monday</td>
-              <td class="nhsuk-table__cell">Summer bank holiday</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="nhsuk-table__panel-with-heading-tab">
+        <h3 class="nhsuk-table__heading-tab">Upcoming bank holidays</h3>
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Upcoming bank holidays</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col">Holiday</th>
+                <th class="nhsuk-table__header" scope="col">Date</th>
+                <th class="nhsuk-table__header" scope="col">Opening hours</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Summer bank holiday</td>
+                <td class="nhsuk-table__cell">26 August</td>
+                <td class="nhsuk-table__cell">9am to 11am</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <p class="nhs-body-xs">Verified on 07/01/2019</p>
 
-      <h2>Other closed dates</h2>
-      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
-        <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Other closed dates</caption>
-          <thead class="nhsuk-table__head">
-            <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Date</th>
-              <th class="nhsuk-table__header" scope="col">Day</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">2 September</td>
-              <td class="nhsuk-table__cell">Monday</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="nhsuk-table__panel-with-heading-tab">
+        <h3 class="nhsuk-table__heading-tab">Changes to opening hours</h3>
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Changes to opening hours</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col">Day</th>
+                <th class="nhsuk-table__header" scope="col">Date</th>
+                <th class="nhsuk-table__header" scope="col">Opening hours</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Monday</td>
+                <td class="nhsuk-table__cell">2 September</td>
+                <td class="nhsuk-table__cell">9am to 11am</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <p class="nhs-body-xs">Verified on 07/01/2019</p>
+
+      <h2>Customer facilities</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Car parking</li>
+        <li>Cycle parking</li>
+        <li>Private consultation room</li>
+        <li>Appointment booking available for consultations</li>
+      </ul>
 
       <h2>Accessibility</h2>
       <ul class="nhsuk-list nhsuk-list--bullet">
@@ -228,14 +253,6 @@
         <li>Step free access</li>
         <li>Disabled WC</li>
         <li>Disabled car parking</li>
-      </ul>
-
-      <h2>Facilities</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Car parking</li>
-        <li>Cycle parking</li>
-        <li>Private consultation room</li>
-        <li>Appointment booking available for consultations</li>
       </ul>
 
       <h2>What patients say</h2>
