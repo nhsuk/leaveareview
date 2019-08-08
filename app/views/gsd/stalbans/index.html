@@ -1,0 +1,208 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Search category</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Search category</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          St Albans And District Bereavement Network
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Category should go here
+          </span>
+        </span>
+      </h1>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+    <h2>Contact</h2>
+      <div class="nhsuk-grid-row nhsuk-panel-group">
+        <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Address</h3>
+            <p>31 Catherine St<br>
+            St Albans<br>
+            Hertfordshire<br>
+            AL3 5BJ</p>
+            <p><a href="https://www.google.com/maps/place/Bereavement+Matters+-+St+Albans+%26+District+Bereavement+Network/@52.7933122,-2.0015468,8z/data=!4m19!1m13!4m12!1m4!2m2!1d-1.5148425!2d53.846783!4e1!1m6!1m2!1s0x48763f266d664a8f:0xd2bd83d4a027d349!2sSt+Albans+And+District+Bereavement+Network!2m2!1d-0.337634!2d51.755343!3m4!1s0x48763f266d664a8f:0xd2bd83d4a027d349!8m2!3d51.755343!4d-0.337634">Directions</a></p>
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Telephone</h3>
+            <p><a href="">01727 841841</a></p>
+            <h3>Online</h3>
+            <p class="nhsuk-u-margin-bottom-2"><a href="mailto:help@sabn.org.uk">Email</a></p>
+            <p><a href="https://www.sabn.org.uk">Website</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>About</h2>
+      <p>The St Albans and District Bereavement Network (SABN) was established as a charity in July 2002 to provide support for bereaved people in the St Albans area. It has a board of trustees and a management committee, all of whom are unpaid volunteers.</p>
+        
+      <h2>Opening times</h2>
+      <p>Our helpline is answered personally each weekday between 9.30am and 1pm.</p>
+      <p>You can also leave a message at other times and we will get back to you.</p>
+
+
+      <h2>Area information</h2>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Area information</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Info</th>
+              <th class="nhsuk-table__header" scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Catchment area</td>
+              <td class="nhsuk-table__cell ">St Albans City and District</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Eligibility information</h2>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Eligibility information</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Info</th>
+              <th class="nhsuk-table__header" scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Target group</td>
+              <td class="nhsuk-table__cell ">Open to all</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Service information</h2>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Service information</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Info</th>
+              <th class="nhsuk-table__header" scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Referral method</td>
+              <td class="nhsuk-table__cell ">Self referral</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p>This information was supplied by <a href="https://www.serco.com/">Serco Global Services</a> on 03-07-2019.</p>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
