@@ -1,0 +1,346 @@
+.nhsuk-table-responsive {
+  margin-top: 20px !important;
+}
+
+.nhsuk-table__cell {
+  vertical-align: top;
+}
+
+.page {
+  float: right;
+}
+
+.records {
+  float: left;
+}
+
+.nhsuk-body-xs {
+  font-size: 12px;
+}
+
+.nhsuk-promo__grey2 {
+  color: #768692;
+}
+
+.nhsuk-page-heading {
+  padding: 25px 0 40px;
+}
+@media (min-width: 48.0625em) {
+  .nhsuk-page-heading {
+    padding: 34px 0 56px;
+  }
+}
+.nhsuk-page-heading h1 {
+  margin: 0;
+}
+.nhsuk-page-heading__small {
+  color: #425563;
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-top: 8px;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-page-heading__small {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.stars {
+  color: #ffd300;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0;
+  text-shadow: 1px 1px 1px #768692;
+}
+@media (min-width: 40.0625em) {
+  .stars {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+}
+
+.starssmall {
+  color: #ffd300;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0;
+  text-shadow: 1px 1px 1px #768692;
+}
+@media (min-width: 40.0625em) {
+  .starssmall {
+    font-size: 1§8px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+}
+
+.greyinset {
+  margin: 0 0 0 20px;
+  border-left: 12px solid #d8d8d8 !important;
+}
+
+///////////////////////////
+// .GOV TaskList styles  //
+///////////////////////////
+
+.app-task-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list {
+    min-width: 550px;
+  }
+}
+
+.app-task-list__section {
+  display: table;
+  font-family: "nta", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.11111;
+}
+
+@media print {
+  .app-task-list__section {
+    font-family: sans-serif;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list__section {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+}
+
+@media print {
+  .app-task-list__section {
+    font-size: 18pt;
+    line-height: 1.15;
+  }
+}
+
+.app-task-list__section-number {
+  display: table-cell;
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list__section-number {
+    min-width: 30px;
+    padding-right: 0;
+  }
+}
+
+.app-task-list__items {
+  //font-family: "nta", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-bottom: 40px;
+  list-style: none;
+  padding-left: 0;
+}
+
+@media print {
+  .app-task-list__items {
+    font-family: sans-serif;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list__items {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.31579;
+  }
+}
+
+@media print {
+  .app-task-list__items {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list__items {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .app-task-list__items {
+    padding-left: 30px;
+  }
+}
+
+.app-task-list__item {
+  border-bottom: 1px solid #bfc1c3;
+  margin-bottom: 0 !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.app-task-list__item:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.app-task-list__item:first-child {
+  border-top: 1px solid #bfc1c3;
+}
+
+.app-task-list__task-name {
+  display: block;
+}
+
+@media (min-width: 28.125em) {
+  .app-task-list__task-name {
+    float: left;
+    width: 75%;
+  }
+}
+
+.app-task-list__task-completed {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 28.125em) {
+  .app-task-list__task-completed {
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.app-related-items {
+  border-top: 10px solid #005ea5;
+  padding-top: 10px;
+}
+
+.app-related-items .govuk-list > li {
+  margin-bottom: 10px;
+}
+
+////////////////////////////
+// Custom TaskList styles //
+////////////////////////////
+.app-task-list {
+  margin-top: 20px;
+}
+
+.app-task-list__items {
+  padding-left: 0px;
+}
+
+/* Panel group
+   ========================================================================== */
+/**
+ * Panel group allows you to have a row of panels.
+ *
+ * 1. Flexbox is used to make each panel in a row the same height.
+ */
+.nhsuk-panel-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* [1] */
+  margin-bottom: 32px;
+}
+@media (max-width: 48.0525em) {
+  .nhsuk-panel-group {
+    margin-bottom: 24px;
+  }
+}
+
+.nhsuk-panel-group__item-nobottommargin {
+  display: flex;
+  /* [1] */
+}
+@media (max-width: 48.0525em) {
+  .nhsuk-panel-group__item-nobottommargin {
+    flex: 0 0 100%;
+  }
+}
+@media (max-width: 48.0525em) {
+  .nhsuk-panel-group__item-nobottommargin {
+    margin-bottom: 0px !important;
+  }
+  .nhsuk-panel-group__item-nobottommargin :last-child {
+    margin-bottom: 0;
+  }
+}
+.nhsuk-panel-group__item-nobottommargin .nhsuk-panel {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   COMPONENTS / #PANEL
+   ========================================================================== */
+.nhsuk-panel {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #212b32;
+  width: 100%;
+}
+.nhsuk-panel > *:first-child {
+  margin-top: 0;
+}
+.nhsuk-panel > *:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel {
+    margin-bottom: 48px;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel {
+    margin-top: 48px;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel {
+    padding: 32px;
+  }
+}
+@media print {
+  .nhsuk-panel {
+    border: 1px solid #212b32;
+    page-break-inside: avoid;
+  }
+}

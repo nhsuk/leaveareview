@@ -1,13 +1,14 @@
 // Import NHS.UK frontend library
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+@import "node_modules/nhsuk-frontend/packages/nhsuk";
 
 // Components that are not in the NHS.UK frontend library
-@import 'components/panel-confirmation';
-@import 'components/related-nav';
+@import "components/panel-confirmation";
+@import "components/related-nav";
 
 ///////////////////////////////////////////
-// Add your custom CSS/Sass styles below... 
+// Add your custom CSS/Sass styles below...
 ///////////////////////////////////////////
+<<<<<<< HEAD
 
 .nhsuk-table-responsive {
     margin-top: 20px !important;
@@ -685,3 +686,6 @@
     display: none;
   }
 }
+=======
+@import "custom";
+>>>>>>> Updating prototype to new version
