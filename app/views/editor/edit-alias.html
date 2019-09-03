@@ -1,0 +1,138 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Display name
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Display name",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 2</span>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">     
+
+      <form action="/display-name" method="post">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            Enter your aliases
+          </legend>
+          <p>Aliases are used to help people find your pages when searching on the NHS website. These could be former names of your organisation or names that people use to refer to your organisation.</p>
+
+          <span id="error-message" class="nhsuk-error-message" style="display: none;">
+            <span class="nhsuk-u-visually-hidden">Error:</span> 
+            You must enter at least 1 alias
+          </span>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias1">
+              Alias 1
+            </label>
+            <input class="nhsuk-input" id="alias1" name="alias1" type="text" aria-describedby="input" value="{{data["alias1"]}}">
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias2">
+              Alias 2
+            </label>
+            <input class="nhsuk-input" id="alias2" name="alias2" type="text" aria-describedby="input" value="{{data["alias2"]}}">
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias3">
+              Alias 3
+            </label>
+            <input class="nhsuk-input" id="alias3" name="alias3" type="text" aria-describedby="input" value="{{data["alias3"]}}">
+          </div>
+
+        </fieldset>
+
+        {{ button({
+        "text": "Continue",
+        "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "/editor/manage-profile",
+      "text": "Back"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

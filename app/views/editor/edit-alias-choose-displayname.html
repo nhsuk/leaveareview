@@ -1,0 +1,162 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Display name
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Display name",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds"> 
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">     
+
+      <form action="/display-name-2" method="post">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            Choose your display name
+          </legend>
+          <p>You can select an alias as your organisation display name below. The organisation display name will be visible on all your public profile pages.</p>
+
+          <span id="error-message" class="nhsuk-error-message" style="display: none;">
+            <span class="nhsuk-u-visually-hidden">Error:</span> 
+            You must choose an option
+          </span>
+
+          <div class="nhsuk-form-group">
+
+            <div class="nhsuk-radios">
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-0" name="displayname" type="radio" value="No alias" {{checked("displayname","No alias")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  No alias as display name
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-1" name="displayname" type="radio" value="{{data["alias1"]}}" {{checked("displayname",data["alias1"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  {{data["alias1"]}}
+                </label>
+              </div>
+
+              {% if data["alias2"] == "" %}
+              {%else%}
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-2" name="displayname" type="radio" value="{{data["alias2"]}}" {{checked("displayname",data["alias2"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  {{data["alias2"]}}
+                </label>
+              </div>
+              {%endif%}  
+
+              {% if data["alias3"] == "" %}
+              {%else%}
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-3" name="displayname" type="radio" value="{{data["alias3"]}}" {{checked("displayname",data["alias3"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  {{data["alias3"]}}
+                </label>
+              </div>
+              {%endif%} 
+
+            </div>
+
+          </div>
+
+
+        </fieldset>
+
+        {{ button({
+          "text": "Save and return",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "/editor/edit-alias",
+      "text": "Back"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

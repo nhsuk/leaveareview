@@ -218,6 +218,54 @@ router.get('/', function(req , res){
     }
   });
 
+
+
+// Branching - Profile Editor
+
+router.post('/display-name', function (req, res) {
+  let alias1 = req.body.alias1;
+
+  if (!alias1) {
+    res.redirect('/editor/edit-alias?error=true')
+  }
+  else {
+    res.redirect('/editor/edit-alias-choose-displayname')
+  }
+});
+
+router.post('/display-name-2', function (req, res) {
+  let displayname = req.body.displayname;
+
+  if (!displayname) {
+    res.redirect('/editor/edit-alias-choose-displayname?error=true')
+  }
+  else {
+    res.redirect('/editor/manage-profile')
+  }
+});
+
+router.post('/address', function (req, res) {
+  let address1 = req.body.address1;
+
+  if (!address1) {
+    res.redirect('/editor/edit-address?error=true')
+  }
+  else {
+    res.redirect('/editor/manage-profile')
+  }
+});
+
+router.post('/telephone-online', function (req, res) {
+  let telephone = req.body.telephone;
+
+  if (!telephone) {
+    res.redirect('/editor/edit-telephone-online?error=true')
+  }
+  else {
+    res.redirect('/editor/manage-profile')
+  }
+});
+
 // Add your routes here -  above the module.exports line
 
 module.exports = router; 
