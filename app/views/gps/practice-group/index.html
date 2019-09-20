@@ -1,0 +1,203 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Other GP surgeries within practice group
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          GP surgeries in this practice group
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-4" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/register/">Register with this GP surgery</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/services/">Services and clinics</a>
+          </li>          
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/staff/">Staff at this GP surgery</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Other GP surgeries within practice group</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/ratings/">Ratings</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/reviews/">Patient reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>This practice is part of a practice group.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>Patients at this GP surgery can:</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>book weekend and evening appointments with GPs at other branches within this practice group</li>
+        <li>book routine appointments with GPs at other branches within this practice group</li>
+        <li>attend clinics at other branches within this practice group</li>
+      </ul>
+
+      <h2>Other branches</h2>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=38558">Moorfield House Surgery</a><br>
+      35 Edgar Street<br>
+      Hereford<br>
+      Herefordshire<br>
+      HR4 9JP</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=39681">Quay House Medical Centre</a><br>
+      100 Westfaling Street<br>
+      Whitecross<br>
+      Hereford<br>
+      Herefordshire<br>
+      HR4 0JF</p>
+      
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=39823">Sarum House Surgery</a><br>
+      3 St Ethelbert Street<br>
+      Hereford<br>
+      Herefordshire<br>
+      HR1 2NS</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44663">Greyfriars Surgery</a><br>
+      25 St Nicholas Street<br>
+      Hereford<br>
+      Herefordshire<br>
+      HR4 0BH</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152194">King Street Surgery</a><br>
+      22A King Street<br>
+      Hereford<br>
+      HR4 9DA</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152195">Credenhill Surgery</a><br>
+      16 Meadow Drive<br>
+      Credenhill<br>
+      Hereford<br>
+      HR4 7EF</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152196">South Wye Medical Centre</a><br>
+      Belmont Road<br>
+      Hereford<br>
+      HR2 7JE</p>
+
+      <p><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152197">Bobblestock Surgery</a><br>
+      Grandstand Road<br>
+      Hereford<br>
+      HR4 9LP</p>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

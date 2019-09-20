@@ -426,3 +426,18 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.facility-overall {
+  display: inline-block;
+  padding: 0.2em 0.667em;
+  color: #ffffff;
+  font-size: 0.4286em;
+  line-height: 1.333;
+  vertical-align: middle;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.facility-overall.good {
+  background: #458f00;
+}
