@@ -1,0 +1,179 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Services and clinics
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Appointments
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/register/">Register with this GP surgery</a>
+          </li>          
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Services and clinics</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/staff/">Staff at this GP surgery</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/practice-group/">Other GP surgeries within practice group</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/ratings/">Ratings</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/reviews/">Patient reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>GP appointments at this surgery</h2>
+      <p>This surgery offers a range of GP appointments:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>routine appointments (with a GP of your choice)</li>
+        <li>same day/48 hour appointments (with a rota GP)</li>
+        <li>drop-in appointments (on the 1st Saturday of the month)</li>
+        <li>telephone consultations</li>
+        <li>evening appointments (every Wednesday 6 to 8pm)</li>
+      </ul>
+
+      <h2>Appointments with a nurse</h2>
+      <p>Nurse appointments are available for:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>vaccinations</li>
+        <li>blood pressure checks</li>
+        <li>health reviews</li>
+        <li>wound management</li>
+        <li>cervical screening</li>
+        <li>stop smoking and other lifestyle advice</li>
+      </ul>
+
+      <h2>Appointments with other healthcare staff</h2>
+      <p>Appointments are available with a:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>physiotherapist – for back, neck and joint pain</li>
+        <li>mental health therapist – for stress, anxiety or depression</li>
+      </ul>
+
+      <h2>How to book an appointment</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>phone reception (insert phone number?)</li>
+        <li>visit the <a href="">surgery website</a></li>
+        <li><a href="">book online</a> (routine appointments only)</li>
+      </ul>
+      
+      <h3>If no appointments are available</h3>
+      <p>If our evening and weekend appointments are full, it may be possible to arrange an appointment with a neighbouring GP surgery.</p>
+      <p>To book an appointment at a neighbouring GP surgery, phone our reception (or phone 111 if this surgery is closed).</p>
+      <p>Appointments are also available with a neighbouring GP surgery on bank holidays.</p>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
