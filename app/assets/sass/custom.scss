@@ -441,3 +441,35 @@
 .facility-overall.good {
   background: #458f00;
 }
+
+
+/* ----------------------
+  Ratings indicator arrow
+  ----------------------- */
+.cqcratingindicator {
+  color: #458f00;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0 15px 0 0;}
+  @media (min-width: 40.0625em) {
+      .cqcratingindicator {
+          font-size: 26px;
+          font-weight: 600;
+          line-height: 28px;
+          } }
+
+.cqcratingindicatorsmall {
+  color: #005EB8;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0 15px 0 0;}
+  @media (min-width: 40.0625em) {
+      .cqcratingindicatorsmall {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 28px;
+          } }
