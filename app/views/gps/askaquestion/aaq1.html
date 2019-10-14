@@ -1,0 +1,133 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Ask a doctor a question
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Ask a doctor a question",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/gps/overview/",
+    text: "Aylestone Hill Surgery"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 4</span>
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">Select your practice</h1>
+
+      <form action="/aaq2" method="post">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset">
+            <!--legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              Why are you reporting this comment?
+            </legend-->
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="practicename-1" name="practicename" type="radio" value="Aylestone Hill Surgery"{{checked("practicename","Aylestone Hill Surgery")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Aylestone Hill Surgery
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="practicename-2" name="practicename" type="radio" value="Moorfield House Surgery"{{checked("practicename","Moorfield House Surgery")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Moorfield House Surgery
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="practicename-3" name="practicename" type="radio" value="Quay House Medical Centre"{{checked("practicename","Quay House Medical Centre")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Quay House Medical Centre
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="practicename-4" name="practicename" type="radio" value="Sarum House Surgery"{{checked("practicename","Sarum House Surgery")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  Sarum House Surgery
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "index",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

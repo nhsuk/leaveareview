@@ -266,6 +266,58 @@ router.post('/telephone-online', function (req, res) {
   }
 });
 
+
+
+  // Branching - Ask a doctor a question
+
+  router.post('/aaq2', function (req, res) {
+    let practicename = req.body.practicename;
+
+    if (!practicename){
+      res.redirect('/gps/askaquestion/aaq1?error=true')
+    } 
+    else {
+      res.redirect('/gps/askaquestion/aaq2')
+    }
+  });
+
+  router.post('/aaq3', function (req, res) {
+    let name = req.body.name;
+    let day = req.body.day;
+    let month = req.body.month;
+    let year = req.body.year;
+    let phone = req.body.phone;
+    let emailaddress = req.body.emailaddress;
+    let confirmemailaddress = req.body.confirmemailaddress;
+
+    if (!name){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    } 
+    if (!day){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    } 
+    if (!month){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    }
+    if (!year){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    }
+    if (!year){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    }
+    if (!emailaddress){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    } 
+    if (!confirmemailaddress){
+      res.redirect('/gps/askaquestion/aaq2?error=true')
+    }
+    else {
+      res.redirect('/gps/askaquestion/aaq3')
+    }
+  });
+
+
+
 // Add your routes here -  above the module.exports line
 
 module.exports = router; 
