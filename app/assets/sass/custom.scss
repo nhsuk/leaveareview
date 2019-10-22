@@ -699,4 +699,21 @@
     }
   }
 
+/* Panel colour variant
+   ========================================================================== */
+   .nhsuk-panel-important {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #fff9c4 !important; 
+    border: solid 4px #ffb81C; 
+  }
+
+  .nhsuk-panel-positive {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #D8E8E2 !important; 
+    border: solid 4px #007F3B; 
+  }
   
