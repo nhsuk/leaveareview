@@ -1,26 +1,27 @@
 // External dependencies
 const express = require('express');
 const router = express.Router();
-
+const pharmacies = require('./data/pharmacies');
+// require('./opening-times')(app);
 
 // Documentation router
-router.get('/', function(req , res){ 
+router.get('/', function(req , res){
     res.render('index');
   });
-  
-  
+
+
   // Branching - Leave a review
 
   router.post('/rating-review', function (req, res) {
     let month = req.body.month;
     let year = req.body.year;
-  
+
     if (year < 2017) {
       res.redirect('/dentists/leave-review/visitdate?error=true')
-    } 
+    }
     else if (!month) {
       res.redirect('/dentists/leave-review/visitdate?error=true')
-    } 
+    }
     else {
       res.redirect('/dentists/leave-review/rating-question-1')
     }
@@ -76,7 +77,7 @@ router.get('/', function(req , res){
 
     if (!furtherratings){
       res.redirect('/dentists/leave-review/rating-question-4?error=true')
-    } 
+    }
     else if (furtherratings == "yes"){
       res.redirect('/dentists/leave-review/rating-question-5')
     }
@@ -150,7 +151,7 @@ router.get('/', function(req , res){
 
     if (!reportreason){
       res.redirect('/dentists/report-comment/rcq1?error=true')
-    } 
+    }
     else if (reportreason == "Offensive content"){
       res.redirect('/dentists/report-comment/rcq2')
     }
@@ -173,7 +174,7 @@ router.get('/', function(req , res){
 
     if (!moredetail){
       res.redirect('/dentists/report-comment/rcq2?error=true')
-    } 
+    }
     else {
       res.redirect('/dentists/report-comment/rcq3')
     }
@@ -185,10 +186,10 @@ router.get('/', function(req , res){
 
     if (!emailaddress){
       res.redirect('/dentists/report-comment/rcq3?error=true')
-    } 
+    }
     if (!confirmemailaddress){
       res.redirect('/dentists/report-comment/rcq3?error=true')
-    } 
+    }
     else {
       res.redirect('/dentists/report-comment/rcca')
     }
@@ -199,7 +200,7 @@ router.get('/', function(req , res){
 
     if (!moredetail){
       res.redirect('/dentists/report-comment/rcq2?error=true')
-    } 
+    }
     else {
       res.redirect('/dentists/report-comment/rcq3')
     }
@@ -209,10 +210,10 @@ router.get('/', function(req , res){
 
   router.post('/process-response', function (req, res) {
     let response = req.body.yourresponse;
-  
+
     if (response == '') {
       res.redirect('/org-response/response-error')
-    } 
+    }
     else {
       res.redirect('/org-response/response-confirm')
     }
@@ -266,8 +267,6 @@ router.post('/telephone-online', function (req, res) {
   }
 });
 
-
-
   // Branching - Ask a doctor a question
 
   router.post('/aaq2', function (req, res) {
@@ -316,8 +315,43 @@ router.post('/telephone-online', function (req, res) {
     }
   });
 
+router.post('/search-profiles', (req, res) => {
+  let searchResult = req.body.searchQuery;
+  const result = findService(searchResult);
+  console.log(result);
+  res.render('editor/select-profiles', { result });
+});
 
+function findService(query) {
+  const servicesFound = pharmacies.filter(pharm => Object.values(pharm).find(val => val.includes(query)));
+  return servicesFound;
+}
+
+router.post('/monday' , (req, res) => {
+  if (req.body.monday === 'yes') {
+    res.redirect('/editor/opening-times/days/monday/monday-time');
+  } else {
+    res.redirect('/editor/opening-times/days');
+  }
+});
+
+router.post('/wednesday' , (req, res) => {
+  if (req.body.wednesday === 'yes') {
+    res.redirect('/editor/opening-times/days/wednesday/wednesday-time');
+  } else {
+    res.redirect('/editor/opening-times/days');
+  }
+});
+
+router.post('/monday-time', (req, res) => {
+  res.redirect('/editor/opening-times/days/copy-day');
+});
+
+router.post('/copy-day', (req, res) => {
+  let copiedDays = req.body.copyDays;
+  res.render('editor/opening-times/days', { copiedDays });
+});
 
 // Add your routes here -  above the module.exports line
 
-module.exports = router; 
+module.exports = router;
