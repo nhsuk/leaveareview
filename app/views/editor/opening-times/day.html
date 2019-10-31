@@ -2,7 +2,6 @@
 
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
-{% from 'date-input/macro.njk' import dateInput %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -56,33 +55,26 @@ Org name - Overview
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Temporary changes</h1>
-    {{ dateInput({
-      "id": "dob",
-      "namePrefix": "dob",
-      "fieldset": {
-        "legend": {
-          "text": "What is your date of birth?"
-        }
-      },
-      "hint": {
-        "text": "For example, 31 3 1980"
-      },
-      "items": [
-        {
-          "name": "day",
-          "classes": "nhsuk-input--width-2"
-        },
-        {
-          "name": "month",
-          "classes": "nhsuk-input--width-2"
-        },
-        {
-          "name": "year",
-          "classes": "nhsuk-input--width-4"
-        }
-      ]
-    }) }}
+    <form method="post" action="/editor/opening-times/days/{{dayObj.key}}/set">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
+          <legend class="nhsuk-fieldset__legend">
+            <h1>Is Hyde Park Pharmacy open on {{dayObj.display}}?</h1>
+          </legend>
+          <div class="nhsuk-radios nhsuk-radios--inline">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" type="radio" value="yes" name="open">
+              <label class="nhsuk-label nhsuk-radios__label">Yes</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" type="radio" value="no" name="open">
+              <label class="nhsuk-label nhsuk-radios__label">No</label>
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="nhsuk-button">Continue</button>
+      </div>
+    </form>
   </div>
 </div>
 

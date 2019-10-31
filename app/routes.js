@@ -327,31 +327,87 @@ function findService(query) {
   return servicesFound;
 }
 
-router.post('/monday' , (req, res) => {
-  if (req.body.monday === 'yes') {
-    res.redirect('/editor/opening-times/days/monday/monday-time');
+const days = {
+  MONDAY: {
+    key: 'monday',
+    display: 'Monday'
+  },
+  TUESDAY: {
+    key: 'tuesday',
+    display: 'Tuesday'
+  },
+  WEDNESDAY: {
+    key: 'wednesday',
+    display: 'Wednesday'
+  },
+  THURSDAY: {
+    key: 'thursday',
+    display: 'Thursday'
+  },
+  FRIDAY: {
+    key: 'friday',
+    display: 'Friday'
+  },
+  SATURDAY: {
+    key: 'saturday',
+    display: 'Saturday'
+  },
+  SUNDAY: {
+    key: 'sunday',
+    display: 'Sunday'
+  },
+}
+
+const getDay = req => days[req.params.day.toUpperCase()];
+
+router.get('/editor/opening-times/days', (_, res) => {
+  // In real world this would come from API
+  const openingTimes = Object.keys(days).map((key) => ({
+    'name': days[key].display,
+    'times': [] 
+  }));
+  res.render('editor/opening-times/days', { openingTimes });
+});
+
+router.get('/editor/opening-times/days/:day', (req, res) => {
+  const dayObj = getDay(req);
+  res.render('editor/opening-times/day', { dayObj });
+});
+
+router.post('/editor/opening-times/days/:day/set' , (req, res) => {
+  if (req.body.open === 'yes') {
+    const dayObj = getDay(req);
+    res.render('editor/opening-times/set', { dayObj });
   } else {
     res.redirect('/editor/opening-times/days');
   }
 });
 
-router.post('/wednesday' , (req, res) => {
-  if (req.body.wednesday === 'yes') {
-    res.redirect('/editor/opening-times/days/wednesday/wednesday-time');
-  } else {
-    res.redirect('/editor/opening-times/days');
-  }
+router.post('/editor/opening-times/days/:day/copy' , (req, res) => {
+  const dayObj = getDay(req);
+  const daysToDisplay = {...days}
+  delete daysToDisplay[dayObj.key.toUpperCase()];
+  res.render('editor/opening-times/copy', { 
+    dayObj,
+    daysToDisplay, 
+    times: req.body 
+  });
 });
 
-router.post('/monday-time', (req, res) => {
-  res.redirect('/editor/opening-times/days/copy-day');
+router.post('/editor/opening-times/days', (req, res) => {
+  // Get an array of opening times from the request body
+  const times = Object.keys(req.body).filter(key => !days[key.toUpperCase()])
+    .map(timeKey => req.body[timeKey])
+    .filter(Boolean);
+  // Build opening times object by adding times to all days sent in the request body
+  const openingTimes = Object.entries(days).map(([key, value]) => {
+    return {
+      'name': days[key].display,
+      'times': req.body[value.key] ? times : [] 
+    }
+  });
+  // In real work save opening timed to DB and redirect to `editor/opening-times/days`
+  res.render('editor/opening-times/days', { openingTimes });
 });
-
-router.post('/copy-day', (req, res) => {
-  let copiedDays = req.body.copyDays;
-  res.render('editor/opening-times/days', { copiedDays });
-});
-
-// Add your routes here -  above the module.exports line
 
 module.exports = router;

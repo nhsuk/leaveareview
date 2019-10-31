@@ -56,7 +56,7 @@ Org name - Overview
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <form method="post" action="/monday-time">
+    <form method="post" action="/editor/opening-times/days/{{dayObj.key}}/copy">
       <div id="enter-time" class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend">
@@ -71,42 +71,42 @@ Org name - Overview
             <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedOpentime1">Open</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" name="wedOpentime1" type="time" id="wedOpentime1">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime1">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" name="openTime1" type="time" id="openTime1">
                 </div>
               </div>
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedCloseTime1">Closed</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" name="wedCloseTime1" type="time" id="wedCloseTime1">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime1">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" name="closeTime1" type="time" id="closeTime1">
                 </div>
               </div>
             </div>
             <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedOpentime2">Open</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" id="wedOpentime2">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime2">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" name="openTime2" type="time" id="openTime2">
                 </div>
               </div>
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedCloseTime2">Closed</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" id="wedCloseTime2">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime2">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" name="closeTime2" id="closeTime2">
                 </div>
               </div>
             </div>
             <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedOpentime3">Open</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" id="wedOpentime3">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime3">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" name="openTime3" id="openTime3">
                 </div>
               </div>
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
-                  <label class="nhsuk-label nhsuk-date-input__label" for="wedCloseTime3">Closed</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" id="wedCloseTime3">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime3">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" type="time" name="closeTime3" id="closeTime3">
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ Org name - Overview
           </div>
           <div class="nhsuk-checkboxes">
             <div class="nhsuk-checkboxes__item">
-              <input type="checkbox" id="24hours" class="nhsuk-checkboxes__input" name="wed24Hours" />
+              <input type="checkbox" id="24hours" class="nhsuk-checkboxes__input" name="open24Hours" />
               <label for="24hours" class="nhsuk-label nhsuk-checkboxes__label">Open 24 hours</label>
             </div>
           </div>
@@ -170,10 +170,21 @@ Org name - Overview
     // Display the previously hidden time entries
     if (counter <= 3) {
       document.getElementById(`timeEntry${counter}`).style.display = 'block';
+      document.getElementById(`openTime${counter}`).focus();
     }
     if (counter === 3) {
       document.getElementById('anotherTime').style.display = 'none';
     }
+      // // Once 3 entries are shown already, clone previous
+      // let newTime = document.getElementById(`timeEntry${counter - 1}`).cloneNode(true);
+      // // Update IDs and for
+      // newTime.setAttribute('id', `timeEntry${counter}`);
+      // newTime.children[0].querySelector('input').setAttribute('id', `openTime${counter}`);
+      // newTime.children[0].querySelector('label').setAttribute('for', `openTime${counter}`);
+      // newTime.children[1].querySelector('input').setAttribute('id', `closeTime${counter}`);
+      // newTime.children[1].querySelector('label').setAttribute('for', `closeTime${counter}`);
+      // // Append to end of the parent div
+      // document.getElementById('openingTimes').appendChild(newTime);
   });
 
   // 24 hour checkbox
