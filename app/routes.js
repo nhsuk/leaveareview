@@ -1,3 +1,5 @@
+const LocalStorage = require('node-localstorage').LocalStorage;
+
 // External dependencies
 const express = require('express');
 const router = express.Router();
@@ -6,8 +8,10 @@ const pharmacies = require('./data/pharmacies');
 
 // Documentation router
 router.get('/', function(req , res){
-    res.render('index');
-  });
+  // Save default opening times to local storage
+  localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
+  res.render('index');
+});
 
 
   // Branching - Leave a review
@@ -360,13 +364,22 @@ const days = {
 
 const getDay = req => days[req.params.day.toUpperCase()];
 
+// Create local storage for opening times
+const localStorage = new LocalStorage('./scratch');
+
+// Create default opening times
+const emptyOpeningTimes = Object.keys(days).map((key) => ({
+  'name': days[key].display,
+  'times': []
+}))
+
+// Save default opening times to local storage
+localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
+
 router.get('/editor/opening-times/days', (_, res) => {
-  // In real world this would come from API
-  const openingTimes = Object.keys(days).map((key) => ({
-    'name': days[key].display,
-    'times': [] 
-  }));
-  res.render('editor/opening-times/days', { openingTimes });
+  res.render('editor/opening-times/days', { 
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes'))
+  });
 });
 
 router.get('/editor/opening-times/days/:day', (req, res) => {
@@ -375,10 +388,20 @@ router.get('/editor/opening-times/days/:day', (req, res) => {
 });
 
 router.post('/editor/opening-times/days/:day/set' , (req, res) => {
+  // Existing opening times from localstorage
+  const localOpeningTimes = JSON.parse(localStorage.getItem('localOpeningTimes'));
+  const dayObj = getDay(req);
+
   if (req.body.open === 'yes') {
-    const dayObj = getDay(req);
     res.render('editor/opening-times/set', { dayObj });
   } else {
+    const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
+      name,
+      'times': dayObj.display === name ? [] : times
+    }));
+  
+    // Set localstorage times to new times
+    localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
     res.redirect('/editor/opening-times/days');
   }
 });
@@ -390,24 +413,30 @@ router.post('/editor/opening-times/days/:day/copy' , (req, res) => {
   res.render('editor/opening-times/copy', { 
     dayObj,
     daysToDisplay, 
-    times: req.body 
+    times: req.body
   });
 });
 
 router.post('/editor/opening-times/days', (req, res) => {
+  // Existing opening times from localstorage
+  const localOpeningTimes = JSON.parse(localStorage.getItem('localOpeningTimes'));
+
   // Get an array of opening times from the request body
-  const times = Object.keys(req.body).filter(key => !days[key.toUpperCase()])
+  const newTimes = Object.keys(req.body).filter(key => !days[key.toUpperCase()])
     .map(timeKey => req.body[timeKey])
     .filter(Boolean);
+
   // Build opening times object by adding times to all days sent in the request body
-  const openingTimes = Object.entries(days).map(([key, value]) => {
-    return {
-      'name': days[key].display,
-      'times': req.body[value.key] ? times : [] 
-    }
-  });
-  // In real work save opening timed to DB and redirect to `editor/opening-times/days`
-  res.render('editor/opening-times/days', { openingTimes });
+  const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
+    name,
+    'times': req.body[name.toLowerCase()] ? newTimes : times
+  }));
+
+  // Set localstorage times to new times
+  localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
+
+  // Redirect to page which will display times from new localstorage
+  res.redirect('/editor/opening-times/days');
 });
 
 module.exports = router;
