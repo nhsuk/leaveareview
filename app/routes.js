@@ -4,8 +4,10 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 const express = require('express');
 const router = express.Router();
 const pharmacies = require('./data/pharmacies');
-// require('./opening-times')(app);
+const moment = require('moment');
+const app = require('../app');
 
+moment.locale('en-GB');
 // Documentation router
 router.get('/', function(req , res){
   // Save default opening times to local storage
@@ -397,7 +399,7 @@ router.post('/editor/opening-times/days/:day/set' , (req, res) => {
   } else {
     const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
       name,
-      'times': dayObj.display === name ? [] : times
+      'times': dayObj.display === name ? [] : times,
     }));
   
     // Set localstorage times to new times
@@ -437,6 +439,68 @@ router.post('/editor/opening-times/days', (req, res) => {
 
   // Redirect to page which will display times from new localstorage
   res.redirect('/editor/opening-times/days');
+});
+
+router.post('/editor/opening-times/bank-holiday/day' , (req, res) => {
+  if(req.body.open === 'yes') {
+    res.redirect('/editor/opening-times/bank-holiday/opening-time');
+  } else {
+    res.redirect('/editor/opening-times/bank-holiday/days');
+  }
+});
+
+router.post('/editor/opening-times/bank-holiday/opening-time', (req, res) => {
+  let firstTime;
+  let secondTime;
+  let thirdTime;
+  if(req.body.bankHolOpenTime1) {
+    `${moment(req.body.bankHolOpenTime1, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime1, 'h:mma').format('h:mma')}`;
+  }
+  if(req.body.bankHolOpenTime2) {
+    secondTime = `${moment(req.body.bankHolOpenTime2, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime2, 'h:mma').format('h:mma')}`;
+  }
+  if(req.body.bankHolOpenTime3) {
+    `${moment(req.body.bankHolOpenTime3, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime3, 'h:mma').format('h:mma')}`;
+  }
+  res.render('editor/opening-times/bank-holiday/days', { firstTime, secondTime, thirdTime });
+});
+
+let tempChanges = [];
+
+router.post('/editor/opening-times/temporary-changes/temporary-changes-date', (req, res) => {
+  let tempDate = `${req.body.tempChangeDay} ${req.body.tempChangeMonth} ${req.body.tempChangeYear}`;
+  tempDate = moment(tempDate, "DD MMM YYYY").format("DD MMM YYYY");
+  res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time?date=${tempDate}`);
+});
+
+router.get('/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
+  let temporaryDate = req.query.date;
+  res.render('editor/opening-times/temporary-changes/temporary-changes-time', { temporaryDate });
+});
+
+router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
+  function getTime() {
+    let time = [];
+    if(req.body.open24Hours) {
+      time.push('Open 24 hours');
+    }
+    if(req.body.tempOpenTime1) {
+      time.push(`${req.body.tempOpenTime1} ${req.body.tempCloseTime1}`);
+    }
+    if(req.body.tempOpenTime2) {
+      time.push(`${req.body.tempOpenTime2} ${req.body.tempCloseTime2}`);
+    }
+    if(req.body.tempOpenTime3) {
+      time.push(`${req.body.tempOpenTime3} ${req.body.tempCloseTime3}`);
+    }
+    return time;
+  }
+  tempChange = {
+    date: req.body.tempDateHidden,
+    time: getTime(),
+  }
+  tempChanges.push(tempChange);
+  res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
 });
 
 module.exports = router;

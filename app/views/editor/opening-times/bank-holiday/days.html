@@ -76,10 +76,22 @@ Org name - Overview
          Thursday 26 December 
         </dt>
         <dd class="nhsuk-summary-list__value">
-          Closed
+          {% if firstTime %}
+            <p>{{ firstTime }}</p>
+            {% if secondTime %}
+              <p>{{ secondTime }}</p>
+            {% endif %}
+            {% if thirdTime %}
+              <p>{{ thirdTime }}</p>
+            {% endif %}
+          {% elif data['open24Hours'] %}
+            <p>Open 24 hours</p>
+          {% else %}
+            Closed
+          {% endif %}
         </dd>
         <dd class="nhsuk-summary-list__actions">
-          <a href="#">
+          <a href="day">
             Change<span class="nhsuk-u-visually-hidden"> Thursday 26 December</span>
           </a>
         </dd>
