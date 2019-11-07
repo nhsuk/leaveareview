@@ -65,14 +65,15 @@ Org name - Overview
           <dd class="nhsuk-summary-list__value">
             {% if day.times.length %}
               {% if 'on' === day.times[0] %}
-                Open 24hrs
+                Open 24 hours 
               {% else %}
-                {% set cls = cycler("-", "") %}
-                {% set comma = joiner(", ") -%}
+                {% set cls = cycler(" to ", "") %}
                 {%- for time in day.times | batch(2) -%}
-                  {{ comma() }}{%- for times in time -%}
+                <p>
+                  {%- for times in time -%}
                     {{ times }}{{cls.next()}}
                   {%- endfor -%}
+                </p>
                 {%- endfor %}
               {% endif %}            
             {% else %}

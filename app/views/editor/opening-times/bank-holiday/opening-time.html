@@ -166,21 +166,11 @@ Org name - Overview
     // Display the previously hidden time entries
     if (counter <= 3) {
       document.getElementById(`timeEntry${counter}`).style.display = 'block';
-      document.getElementById(`openTime${counter}`).focus();
+      document.getElementById(`bankHolOpenTime${counter}`).focus();
     }
     if (counter === 3) {
       document.getElementById('anotherTime').style.display = 'none';
     }
-      // // Once 3 entries are shown already, clone previous
-      // let newTime = document.getElementById(`timeEntry${counter - 1}`).cloneNode(true);
-      // // Update IDs and for
-      // newTime.setAttribute('id', `timeEntry${counter}`);
-      // newTime.children[0].querySelector('input').setAttribute('id', `openTime${counter}`);
-      // newTime.children[0].querySelector('label').setAttribute('for', `openTime${counter}`);
-      // newTime.children[1].querySelector('input').setAttribute('id', `closeTime${counter}`);
-      // newTime.children[1].querySelector('label').setAttribute('for', `closeTime${counter}`);
-      // // Append to end of the parent div
-      // document.getElementById('openingTimes').appendChild(newTime);
   });
 
   // 24 hour checkbox

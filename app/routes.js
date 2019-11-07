@@ -437,6 +437,7 @@ router.post('/editor/opening-times/days', (req, res) => {
   // Set localstorage times to new times
   localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
 
+  console.log(newOpeningTimes); 
   // Redirect to page which will display times from new localstorage
   res.redirect('/editor/opening-times/days');
 });
@@ -454,22 +455,28 @@ router.post('/editor/opening-times/bank-holiday/opening-time', (req, res) => {
   let secondTime;
   let thirdTime;
   if(req.body.bankHolOpenTime1) {
-    `${moment(req.body.bankHolOpenTime1, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime1, 'h:mma').format('h:mma')}`;
+    firstTime = `${req.body.bankHolOpenTime1} to ${req.body.bankHolCloseTime1}`;
   }
   if(req.body.bankHolOpenTime2) {
-    secondTime = `${moment(req.body.bankHolOpenTime2, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime2, 'h:mma').format('h:mma')}`;
+    secondTime = `${req.body.bankHolOpenTime2} to ${req.body.bankHolCloseTime2}`;
   }
   if(req.body.bankHolOpenTime3) {
-    `${moment(req.body.bankHolOpenTime3, 'h:mm a').format('h:mma')} to ${moment(req.body.bankHolCloseTime3, 'h:mma').format('h:mma')}`;
+    thirdTime = `${req.body.bankHolOpenTime3} to ${req.body.bankHolCloseTime3}`;
   }
   res.render('editor/opening-times/bank-holiday/days', { firstTime, secondTime, thirdTime });
 });
 
 let tempChanges = [];
 
+router.get('/editor/opening-times/temporary-changes/temporary-changes', (req, res) => {
+  if(tempChanges.length === 0) {
+    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-date');
+  }
+});
+
 router.post('/editor/opening-times/temporary-changes/temporary-changes-date', (req, res) => {
   let tempDate = `${req.body.tempChangeDay} ${req.body.tempChangeMonth} ${req.body.tempChangeYear}`;
-  tempDate = moment(tempDate, "DD MMM YYYY").format("DD MMM YYYY");
+  tempDate = moment(tempDate, "DD MMMM YYYY").format("DD MMMM YYYY");
   res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time?date=${tempDate}`);
 });
 
