@@ -39,6 +39,52 @@
 
       <hr style="clear: both;">
 
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            Filter comments
+          </span>
+        </summary>
+
+        <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-with-hint-text">
+              Search
+            </label>
+            <span class="nhsuk-hint" id="input-with-hint-text-hint">
+              by city, name, postcode, ODS or Trust code.
+            </span>
+            <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
+          </div>
+
+          <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-4">
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+                Option 1
+              </label>
+            </div>
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
+                Option 2
+              </label>
+            </div>
+          </div>
+          
+          {{ button({
+          "text": "Apply filter",
+          "id": "btn_submit"
+          }) }}
+
+        </div>
+
+      </details>
+
+
+
       <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent Service</b></p>
       <p>by Vikram Shinde <span class="nhsuk-body-s" style="display:inline">- Posted on 24/04/2019</span></p>
       <p>I have registered my 2 daughters as a new patients. The reception was polite while registering. She gave us all required information and helped us to get first assessment appointment. The dentists also was very friendly and helpful. The children didnt scared at all. Dentist made them comfortable. I would highly recommend this Dentist practice.</p>

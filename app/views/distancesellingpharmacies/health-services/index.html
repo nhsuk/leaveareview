@@ -5,7 +5,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Prescription support
+  Org name - Health services
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -46,9 +46,9 @@
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online pharmacy</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online pharmacy</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -61,7 +61,7 @@
 
       <h1>
         <span role="text">
-          Help with medicines
+          Health services
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
             Pharmacy2u Ltd
@@ -75,14 +75,14 @@
           <li class="nhsuk-contents-list__item">
             <a class="nhsuk-contents-list__link" href="/distancesellingpharmacies/overview/">Overview</a>
           </li>
-          <li class="nhsuk-contents-list__item" aria-current="page">
-            <span class="nhsuk-contents-list__current">Help with medicines</span>
-          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/distancesellingpharmacies/help-with-medicines/">Help with medicines</a>
+        </li>
           <li class="nhsuk-contents-list__item">
             <a class="nhsuk-contents-list__link" href="/distancesellingpharmacies/prescription-support/">Help with NHS prescription costs</a>
           </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/distancesellingpharmacies/health-services/">Health services at this pharmacy</a>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Health services at this pharmacy</span>
           </li>
           <li class="nhsuk-contents-list__item">
             <a class="nhsuk-contents-list__link" href="/distancesellingpharmacies/ratings-reviews/">Ratings and reviews</a>
@@ -92,31 +92,44 @@
           </li>
         </ol>
       </nav>
-
-      <p>This pharmacy offers these free NHS services:</p>
+       
+      <p>This pharmacy provides some health services at it's premises. Contact the pharmacy for further details.</p>
       
-      <h2>Medicine questions</h2>
-
-      <p>Pharmacists can answer your questions about prescription medicines and those that you can buy such as paracetamol.</p>
-      <p>Find out about commonly prescribed medicines and medicines you can buy without a prescription in our <a href="https://www.nhs.uk/medicines/">medicines A-Z</a></p>
-      
-      <h2>Advice about new medicines</h2>
-      <p>Advice and support to tell you more about a medicine you’ve just begun taking for:</p>
+      <h2>Minor ailments</h2>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>asthma</li>
-        <li>chronic obstructive pulmonary disease (COPD)</li>
-        <li>type 2 diabetes</li>
-        <li>high blood pressure</li>
-        <li>conditions which need blood thinning medicines </li>
+        <li>Advice and medicines for a range of common illnesses such as coughs, colds and sore throats (NHS)</li>
       </ul>
 
-      <h2>Medicine check-up</h2>
-      <p>A medicine review by a pharmacist if you take several prescription medicines or have a long-term illness. The service focuses on:</p>
-      <ul>
-        <li>increasing your knowledge of the medicines you take</li>
-        <li>why you take them</li>
-        <li>how you can take them more easily</li>
+      <h2>Healthy living</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Stop smoking advice, support and the supply of nicotine replacement therapy (NHS)</li>
+        <li>Weight management (paid for)</li>
+        <li>Alcohol misuse screening and intervention (NHS)</li>
       </ul>
+  
+      <h2>Sexual health</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Emergency contraception (paid for)</li>
+        <li>Chlamydia testing kits (paid for)</li>
+        <li>Chlamydia testing & treatment for 16 to 25-year olds (NHS)</li>
+        <li>Condom supply (NHS)</li>
+      </ul>
+
+      <h2>Vaccinations</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Flu vaccination for 65-year olds and older and other at-risk groups (NHS). <a href="https://www.nhs.uk/conditions/vaccinations/who-should-have-flu-vaccine/">Find out if you’re eligible for a free flu vaccine</a>.</li>
+        <li>Flu vaccination for non-risk groups (paid for)</li>
+        <li>Travel vaccinations (paid for)</li>
+      </ul>
+
+      <h2>Health checks and tests</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Blood pressure testing (paid for)</li>
+        <li>Type 2 diabetes testing (paid for)</li>
+        <li><a href="https://www.nhs.uk/conditions/nhs-health-check/">NHS health check</a> for over-40s (NHS)</li>
+      </ul>
+
+      <p class="nhsuk-body-s">Last updated on 07/01/2019</p>
 
     </div>
 
