@@ -377,10 +377,12 @@ const emptyOpeningTimes = Object.keys(days).map((key) => ({
 
 // Save default opening times to local storage
 localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
+localStorage.setItem('lastUpdatedOn', '23 March 2019');
 
 router.get('/editor/opening-times/days', (_, res) => {
   res.render('editor/opening-times/days', { 
-    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes'))
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
+    lastUpdatedOn: localStorage.getItem('lastUpdatedOn'),
   });
 });
 
@@ -401,9 +403,12 @@ router.post('/editor/opening-times/days/:day/set' , (req, res) => {
       name,
       'times': dayObj.display === name ? [] : times,
     }));
+    console.log(newOpeningTimes);
   
+    const dateNow = '31 December 2019' 
     // Set localstorage times to new times
     localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
+    localStorage.setItem('lastUpdatedOn', dateNow); 
     res.redirect('/editor/opening-times/days');
   }
 });
@@ -415,7 +420,7 @@ router.post('/editor/opening-times/days/:day/copy' , (req, res) => {
   res.render('editor/opening-times/copy', { 
     dayObj,
     daysToDisplay, 
-    times: req.body
+    times: req.body,
   });
 });
 
@@ -436,7 +441,8 @@ router.post('/editor/opening-times/days', (req, res) => {
 
   // Set localstorage times to new times
   localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
-
+  const dateNow = moment().format("DD MMMM YYYY");
+  localStorage.setItem('lastUpdatedOn', dateNow); 
   console.log(newOpeningTimes); 
   // Redirect to page which will display times from new localstorage
   res.redirect('/editor/opening-times/days');
@@ -488,8 +494,8 @@ router.get('/editor/opening-times/temporary-changes/temporary-changes-time', (re
 router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
   function getTime() {
     let time = [];
-    if(req.body.open24Hours) {
-      time.push('Open 24 hours');
+    if(req.body.closed) {
+      time.push('Closed');
     }
     if(req.body.tempOpenTime1) {
       time.push(`${req.body.tempOpenTime1} ${req.body.tempCloseTime1}`);

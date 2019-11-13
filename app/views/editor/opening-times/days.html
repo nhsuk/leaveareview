@@ -56,7 +56,8 @@ Org name - Overview
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
     <h1>Standard opening times</h1>
-    <dl class="nhsuk-summary-list">
+    <p>Last updated on {{ lastUpdatedOn }}</p>
+    <dl class="nhsuk-summary-list" title="Standard opening times">
       {% for day in openingTimes %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
@@ -64,20 +65,16 @@ Org name - Overview
           </dt>
           <dd class="nhsuk-summary-list__value">
             {% if day.times.length %}
-              {% if 'on' === day.times[0] %}
-                Open 24 hours 
-              {% else %}
-                {% set cls = cycler(" to ", "") %}
-                {%- for time in day.times | batch(2) -%}
-                <p>
-                  {%- for times in time -%}
-                    {{ times }}{{cls.next()}}
-                  {%- endfor -%}
-                </p>
-                {%- endfor %}
-              {% endif %}            
+              {% set cls = cycler(" to ", "") %}
+              {%- for time in day.times | batch(2) -%}
+              <p>
+                {%- for times in time -%}
+                  {{ times }}{{cls.next()}}
+                {%- endfor -%}
+              </p>
+              {%- endfor %}
             {% else %}
-              Closed
+              Unknown 
             {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
@@ -88,6 +85,25 @@ Org name - Overview
         </div>
       {% endfor %}
     </dl>
+
+    <form action="" method="POST">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m nhsuk-u-visually-hidden">
+            Are the opening still accurate?
+          </legend>
+          <div class="nhsuk-checkboxes">
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+                I confirm these opening times are still accurate
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="nhsuk-button">Confirm</button>
+    </form>
   </div>
 </div>
 
