@@ -1,0 +1,119 @@
+
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+{% from 'checkboxes/macro.njk' import checkboxes %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+{{ header({
+"showNav": "true",
+"showSearch": "false",
+"primaryLinks": [
+{
+"url"  : "/editor",
+"label" : "My profiles"
+},
+{
+'url' : '/editor/picker',
+'label' : 'Add profile'
+},
+{
+'url'  : '/editor',
+'label' : 'Manage users'
+},
+{
+'url'  : '/editor',
+'label' : 'Review comments'
+},
+{
+'url'  : '/editor',
+'label' : 'Logout'
+}
+]
+})
+}}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor">Back to My profiles</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <form action="/editor/opening-times/days" method="post">
+      <input type="hidden" name="{{dayObj.key}}" value="{{dayObj.key}}" />
+      {% for id, value in times %}
+          <input type="hidden" name="{{id}}" value="{{value}}" />
+      {% endfor %}
+      <legend>
+        <h1>Copy {{dayObj.display}}'s opening times to another day</h1>
+      </legend>
+      <div class="nhsuk-u-margin-bottom-5">
+        {% for key, value in daysToDisplay %}
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" id="{{value.key}}" class="nhsuk-checkboxes__input" name="{{value.key}}" value="{{value.key}}" />
+                <label for="{{value.key}}" class="nhsuk-label nhsuk-checkboxes__label">{{value.display}}</label>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
+      <button type="submit" class="nhsuk-button nhsuk-button--secondary">Do not copy</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+{{ footer({
+"links": [
+{
+"URL": "#",
+"label": "NHS sites"
+},
+{
+"URL": "#",
+"label": "About us"
+},
+{
+"URL": "#",
+"label": "Contact us"
+},
+{
+"URL": "#",
+"label": "Sitemap"
+},
+{
+"URL": "#",
+"label": "Our policies"
+}
+]
+})}}
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+
+</script>
+{% endblock %}

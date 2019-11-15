@@ -1,0 +1,138 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+{{ header({
+"showNav": "true",
+"showSearch": "false",
+"primaryLinks": [
+{
+"url"  : "/editor",
+"label" : "My profiles"
+},
+{
+'url' : '/editor/picker',
+'label' : 'Add profile'
+},
+{
+'url'  : '/editor',
+'label' : 'Manage users'
+},
+{
+'url'  : '/editor',
+'label' : 'Review comments'
+},
+{
+'url'  : '/editor',
+'label' : 'Logout'
+}
+]
+})
+}}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor">Back to My profiles</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Standard opening times</h1>
+    <p>Last updated on {{ lastUpdatedOn }}</p>
+    <dl class="nhsuk-summary-list" title="Standard opening times">
+      {% for day in openingTimes %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            {{ day.name }}
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if day.times.length %}
+              {% set cls = cycler(" to ", "") %}
+              {%- for time in day.times | batch(2) -%}
+              <p>
+                {%- for times in time -%}
+                  {{ times }}{{cls.next()}}
+                {%- endfor -%}
+              </p>
+              {%- endfor %}
+            {% else %}
+              Closed
+            {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="/editor/opening-times/days/{{ day.name | lower}}">
+              Change<span class="nhsuk-u-visually-hidden"> {{ day.name }}</span>
+            </a>
+          </dd>
+        </div>
+      {% endfor %}
+    </dl>
+
+    <form action="" method="POST">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m nhsuk-u-visually-hidden">
+            Are the opening still accurate?
+          </legend>
+          <div class="nhsuk-checkboxes">
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+                I confirm these opening times are still accurate
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="nhsuk-button">Confirm</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+{{ footer({
+"links": [
+{
+"URL": "#",
+"label": "NHS sites"
+},
+{
+"URL": "#",
+"label": "About us"
+},
+{
+"URL": "#",
+"label": "Contact us"
+},
+{
+"URL": "#",
+"label": "Sitemap"
+},
+{
+"URL": "#",
+"label": "Our policies"
+}
+]
+})}}
+{% endblock %}
