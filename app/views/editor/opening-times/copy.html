@@ -65,14 +65,16 @@ Org name - Overview
       <legend>
         <h1>Copy {{dayObj.display}}'s opening times to another day</h1>
       </legend>
-      {% for key, value in daysToDisplay %}
-          <div class="nhsuk-checkboxes">
-            <div class="nhsuk-checkboxes__item">
-              <input type="checkbox" id="{{value.key}}" class="nhsuk-checkboxes__input" name="{{value.key}}" value="{{value.key}}" />
-              <label for="{{value.key}}" class="nhsuk-label nhsuk-checkboxes__label">{{value.display}}</label>
+      <div class="nhsuk-u-margin-bottom-5">
+        {% for key, value in daysToDisplay %}
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" id="{{value.key}}" class="nhsuk-checkboxes__input" name="{{value.key}}" value="{{value.key}}" />
+                <label for="{{value.key}}" class="nhsuk-label nhsuk-checkboxes__label">{{value.display}}</label>
+              </div>
             </div>
-          </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
       <button type="submit" class="nhsuk-button">Continue</button>
       <button type="submit" class="nhsuk-button nhsuk-button--secondary">Do not copy</button>
     </form>
