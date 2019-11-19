@@ -395,9 +395,14 @@ router.post('/editor/opening-times/days/:day/set' , (req, res) => {
   // Existing opening times from localstorage
   const localOpeningTimes = JSON.parse(localStorage.getItem('localOpeningTimes'));
   const dayObj = getDay(req);
+  const currentDay = dayObj.display;
+  const getOpeningTimes = localOpeningTimes.filter((times) => {
+    return times.name == currentDay;
+  });
+  const currentDayOpeningTimes = getOpeningTimes[0].times;
 
   if (req.body.open === 'yes') {
-    res.render('editor/opening-times/set', { dayObj });
+    res.render('editor/opening-times/set', { dayObj, currentDayOpeningTimes });
   } else {
     const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
       name,
