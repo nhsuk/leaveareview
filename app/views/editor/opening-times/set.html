@@ -68,7 +68,7 @@ Org name - Overview
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="openTime1">Open</label>
-                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-5" name="openTime1" type="time" id="openTime1">
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-5" name="openTime1" type="time" id="openTime1" value={{currentDayOpeningTimes[0]}}>
                 </div>
               </div>
               <div class="nhsuk-date-input__item">
@@ -168,31 +168,24 @@ Org name - Overview
     if (counter === 3) {
       document.getElementById('anotherTime').style.display = 'none';
     }
-      // // Once 3 entries are shown already, clone previous
-      // let newTime = document.getElementById(`timeEntry${counter - 1}`).cloneNode(true);
-      // // Update IDs and for
-      // newTime.setAttribute('id', `timeEntry${counter}`);
-      // newTime.children[0].querySelector('input').setAttribute('id', `openTime${counter}`);
-      // newTime.children[0].querySelector('label').setAttribute('for', `openTime${counter}`);
-      // newTime.children[1].querySelector('input').setAttribute('id', `closeTime${counter}`);
-      // newTime.children[1].querySelector('label').setAttribute('for', `closeTime${counter}`);
-      // // Append to end of the parent div
-      // document.getElementById('openingTimes').appendChild(newTime);
   });
 
-  // 24 hour checkbox
-  document.getElementById("24hours").addEventListener('click', () => {
-    if (document.getElementById('24hours').checked) {
-      const openingTimes = document.querySelector('#openingTimes').children;
-      const openingTimesArray = Array.from(openingTimes);
-      for (var i = 0; i < openingTimesArray.length; i++) {
-        openingTimesArray[i].querySelectorAll('input').forEach( (input) => {
-          input.disabled = true;
-        })
-      }
-    } else {
-      document.getElementById('openingTimes').style.display = "block";
-    }
+  document.getElementById('removeTime1').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime1').value = '';
+    document.getElementById('closeTime1').value = '';
+  });
+
+  document.getElementById('removeTime2').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime2').value = '';
+    document.getElementById('closeTime2').value = '';
+  });
+
+  document.getElementById('removeTime3').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime3').value = '';
+    document.getElementById('closeTime3').value = '';
   });
 
 </script>
