@@ -486,8 +486,8 @@ router.get('/editor/opening-times/temporary-changes/temporary-changes', (req, re
 });
 
 router.post('/editor/opening-times/temporary-changes/temporary-changes-date', (req, res) => {
-  let tempDate = `${req.body.tempChangeDay} ${req.body.tempChangeMonth} ${req.body.tempChangeYear}`;
-  tempDate = moment(tempDate, "DD MMMM YYYY").format("DD MMMM YYYY");
+  let tempDate = `${req.body.tempChangeYear}-${req.body.tempChangeMonth}-${req.body.tempChangeDay}`;
+  tempDate = moment(tempDate).format("DD MMMM YYYY");
   res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time?date=${tempDate}`);
 });
 
