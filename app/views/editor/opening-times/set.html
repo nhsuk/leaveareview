@@ -152,9 +152,18 @@ Org name - Overview
 {% block pageScripts %}
 <script>
   // Hiding additional time entries by default
-  document.getElementById('timeEntry2').style.display = 'none';
-  document.getElementById('timeEntry3').style.display = 'none';
+  if (document.getElementById('openTime2').value == '') {
+    document.getElementById('timeEntry2').style.display = 'none';
+  }
 
+  if (document.getElementById('openTime3').value == '') {
+    document.getElementById('timeEntry3').style.display = 'none';
+  }
+
+  if (document.getElementById('openTime3').value !== '') {
+    document.getElementById('anotherTime').style.display = 'none';
+  }
+  
   // Counter to display more time entries
   let counter = 1;
   document.getElementById('anotherTime').addEventListener('click', function (e) {
