@@ -386,6 +386,12 @@ router.get('/editor/opening-times/days', (_, res) => {
   });
 });
 
+router.get('/editor/opening-times/confirm-opening-times', (_, res) => {
+  res.render('editor/opening-times/confirm-opening-times', {
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
+  });
+});
+
 router.get('/editor/opening-times/days/:day', (req, res) => {
   const dayObj = getDay(req);
   res.render('editor/opening-times/day', { dayObj });
@@ -450,7 +456,7 @@ router.post('/editor/opening-times/days', (req, res) => {
   localStorage.setItem('lastUpdatedOn', dateNow); 
   console.log(newOpeningTimes); 
   // Redirect to page which will display times from new localstorage
-  res.redirect('/editor/opening-times/days');
+  res.redirect('/editor/opening-times/confirm-opening-times');
 });
 
 router.post('/editor/opening-times/bank-holiday/day' , (req, res) => {
@@ -488,8 +494,29 @@ router.get('/editor/opening-times/temporary-changes/temporary-changes', (req, re
 router.post('/editor/opening-times/temporary-changes/temporary-changes-date', (req, res) => {
   let tempDate = `${req.body.tempChangeYear}-${req.body.tempChangeMonth}-${req.body.tempChangeDay}`;
   tempDate = moment(tempDate).format("DD MMMM YYYY");
-  res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time?date=${tempDate}`);
+  res.redirect(`/editor/opening-times/temporary-changes/temporary-change-open?date=${tempDate}`);
 });
+
+router.get('/editor/opening-times/temporary-changes/temporary-change-open', (req, res) => {
+  let temporaryDate = req.query.date;
+  console.log('temporaryDate ', temporaryDate);
+  res.render('editor/opening-times/temporary-changes/temporary-change-open', { temporaryDate });
+});
+
+router.post('/editor/opening-times/temporary-changes/temporary-change-open', (req, res) => {
+  console.log(req.body.tempDateHidden)
+  if (req.body.open === 'yes') {
+    res.render(`editor/opening-times/temporary-changes/temporary-changes-time`, { temporaryDate: req.body.tempDateHidden } ); 
+  } else {
+    let tempChange = {
+      date: req.body.tempDateHidden,
+      time: 'Closed',
+    }
+    tempChanges.push(tempChange);
+    res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
+  }
+});
+
 
 router.get('/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
   let temporaryDate = req.query.date;
@@ -499,9 +526,6 @@ router.get('/editor/opening-times/temporary-changes/temporary-changes-time', (re
 router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
   function getTime() {
     let time = [];
-    if(req.body.closed) {
-      time.push('Closed');
-    }
     if(req.body.tempOpenTime1) {
       time.push(`${req.body.tempOpenTime1} ${req.body.tempCloseTime1}`);
     }
@@ -513,11 +537,12 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (r
     }
     return time;
   }
-  tempChange = {
+  let tempChange = {
     date: req.body.tempDateHidden,
     time: getTime(),
   }
   tempChanges.push(tempChange);
+  console.log('tempChanges ', tempChanges);
   res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
 });
 

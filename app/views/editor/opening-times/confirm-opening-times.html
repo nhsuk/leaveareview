@@ -55,8 +55,7 @@ Org name - Overview
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Standard opening times</h1>
-    <p class="nhsuk-u-margin-bottom-0">Last updated on {{ lastUpdatedOn }}</p>
+    <h1>Confirm new opening times</h1>
     <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
       {% for day in openingTimes %}
         <div class="nhsuk-summary-list__row">
@@ -85,25 +84,7 @@ Org name - Overview
         </div>
       {% endfor %}
     </dl>
-
-    <form action="" method="POST">
-      <div class="nhsuk-form-group">
-        <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m nhsuk-u-visually-hidden">
-            Are the opening still accurate?
-          </legend>
-          <div class="nhsuk-checkboxes">
-            <div class="nhsuk-checkboxes__item">
-              <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
-                These opening times are up to date 
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <button class="nhsuk-button">Confirm</button>
-    </form>
+    <a class="nhsuk-button" href="/editor/opening-times/days">Continue</a>
   </div>
 </div>
 
