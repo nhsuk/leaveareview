@@ -55,36 +55,27 @@ Org name - Overview
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Confirm new opening times</h1>
-    <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
-      {% for day in openingTimes %}
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-            {{ day.name }}
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {% if day.times.length %}
-              {% set cls = cycler(" to ", "") %}
-              {%- for time in day.times | batch(2) -%}
-              <p>
-                {%- for times in time -%}
-                  {{ times }}{{cls.next()}}
-                {%- endfor -%}
-              </p>
-              {%- endfor %}
-            {% else %}
-              Closed
-            {% endif %}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a href="/editor/opening-times/days/{{ day.name | lower}}">
-              Change<span class="nhsuk-u-visually-hidden"> {{ day.name }}</span>
-            </a>
-          </dd>
-        </div>
-      {% endfor %}
-    </dl>
-    <a class="nhsuk-button" href="/editor/opening-times/days">Continue</a>
+    <form method="post" action="/editor/opening-times/temporary-changes/temporary-change-open">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
+          <legend class="nhsuk-fieldset__legend">
+            <h1>Is Hyde Park Pharmacy open on {{ temporaryDate }}?</h1>
+          </legend>
+          <input type="text" hidden id="tempDateHidden" name="tempDateHidden" value="{{temporaryDate}}" />
+          <div class="nhsuk-radios nhsuk-radios--inline">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" type="radio" value="yes" name="open">
+              <label class="nhsuk-label nhsuk-radios__label">Yes</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" type="radio" value="no" name="open">
+              <label class="nhsuk-label nhsuk-radios__label">No</label>
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="nhsuk-button">Continue</button>
+      </div>
+    </form>
   </div>
 </div>
 
