@@ -483,11 +483,14 @@ router.post('/editor/opening-times/bank-holiday/opening-time', (req, res) => {
   res.render('editor/opening-times/bank-holiday/days', { firstTime, secondTime, thirdTime });
 });
 
-let tempChanges = [];
+localStorage.setItem('tempChanges', JSON.stringify([]));
 
 router.get('/editor/opening-times/temporary-changes/temporary-changes', (req, res) => {
+  const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
   if(tempChanges.length === 0) {
     res.redirect('/editor/opening-times/temporary-changes/temporary-changes-date');
+  } else {
+    res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
   }
 });
 
@@ -504,6 +507,7 @@ router.get('/editor/opening-times/temporary-changes/temporary-change-open', (req
 });
 
 router.post('/editor/opening-times/temporary-changes/temporary-change-open', (req, res) => {
+  const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
   console.log(req.body.tempDateHidden)
   if (req.body.open === 'yes') {
     res.render(`editor/opening-times/temporary-changes/temporary-changes-time`, { temporaryDate: req.body.tempDateHidden } ); 
@@ -512,8 +516,9 @@ router.post('/editor/opening-times/temporary-changes/temporary-change-open', (re
       date: req.body.tempDateHidden,
       time: 'Closed',
     }
-    tempChanges.push(tempChange);
-    res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
+    const newChanges = [...tempChanges, tempChange];
+    localStorage.setItem('tempChanges', JSON.stringify(newChanges));
+    res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges: newChanges });
   }
 });
 
@@ -541,9 +546,9 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (r
     date: req.body.tempDateHidden,
     time: getTime(),
   }
-  tempChanges.push(tempChange);
-  console.log('tempChanges ', tempChanges);
-  res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges });
+  const newChanges = [...tempChanges, tempChange];
+  localStorage.setItem('tempChanges', JSON.stringify(newChanges));
+  res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges: newChanges });
 });
 
 module.exports = router;
