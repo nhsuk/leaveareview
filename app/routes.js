@@ -532,13 +532,13 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (r
   function getTime() {
     let time = [];
     if(req.body.tempOpenTime1) {
-      time.push(`${req.body.tempOpenTime1} ${req.body.tempCloseTime1}`);
+      time.push(`${req.body.tempOpenTime1} to ${req.body.tempCloseTime1}`);
     }
     if(req.body.tempOpenTime2) {
-      time.push(`${req.body.tempOpenTime2} ${req.body.tempCloseTime2}`);
+      time.push(`${req.body.tempOpenTime2} to ${req.body.tempCloseTime2}`);
     }
     if(req.body.tempOpenTime3) {
-      time.push(`${req.body.tempOpenTime3} ${req.body.tempCloseTime3}`);
+      time.push(`${req.body.tempOpenTime3} to ${req.body.tempCloseTime3}`);
     }
     return time;
   }
