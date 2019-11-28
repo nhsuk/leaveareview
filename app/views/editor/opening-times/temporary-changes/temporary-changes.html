@@ -64,9 +64,13 @@ Org name - Overview
               {{ singleTempChange.date }} 
             </dt>
             <dd class="nhsuk-summary-list__value">
+            {% if singleTempChange.time === 'Closed' %}
+              <span>{{ singleTempChange.time }}</span>
+            {% else %}
               {% for tempChangeTime in singleTempChange.time %}
-                <span>{{ tempChangeTime }}</span>
+                <p>{{ tempChangeTime }}</p>
               {% endfor %}
+            {% endif %}
             </dd>
             <dd class="nhsuk-summary-list__actions">
               <a href="#">
