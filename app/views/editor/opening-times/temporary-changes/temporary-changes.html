@@ -1,0 +1,116 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+{{ header({
+"showNav": "true",
+"showSearch": "false",
+"primaryLinks": [
+{
+"url"  : "/editor",
+"label" : "My profiles"
+},
+{
+'url' : '/editor/picker',
+'label' : 'Add profile'
+},
+{
+'url'  : '/editor',
+'label' : 'Manage users'
+},
+{
+'url'  : '/editor',
+'label' : 'Review comments'
+},
+{
+'url'  : '/editor',
+'label' : 'Logout'
+}
+]
+})
+}}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor">Back to My profiles</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>Temporary changes</h1>
+    {% if tempChanges.length > 0 %}
+      <dl class="nhsuk-summary-list opening-times">
+        {% for singleTempChange in tempChanges %}
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              {{ singleTempChange.date }} 
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+            {% if singleTempChange.time === 'Closed' %}
+              <span>{{ singleTempChange.time }}</span>
+            {% else %}
+              {% for tempChangeTime in singleTempChange.time %}
+                <p>{{ tempChangeTime }}</p>
+              {% endfor %}
+            {% endif %}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> {{ singleTempChange.date }}</span>
+              </a>
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+    {% endif %}
+    <p><a href="temporary-changes-date">Add a temporary change</a></p>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+{{ footer({
+"links": [
+{
+"URL": "#",
+"label": "NHS sites"
+},
+{
+"URL": "#",
+"label": "About us"
+},
+{
+"URL": "#",
+"label": "Contact us"
+},
+{
+"URL": "#",
+"label": "Sitemap"
+},
+{
+"URL": "#",
+"label": "Our policies"
+}
+]
+})}}
+{% endblock %}

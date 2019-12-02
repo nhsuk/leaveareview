@@ -1,0 +1,201 @@
+
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+{{ header({
+"showNav": "true",
+"showSearch": "false",
+"primaryLinks": [
+{
+"url"  : "/editor",
+"label" : "My profiles"
+},
+{
+'url' : '/editor/picker',
+'label' : 'Add profile'
+},
+{
+'url'  : '/editor',
+'label' : 'Manage users'
+},
+{
+'url'  : '/editor',
+'label' : 'Review comments'
+},
+{
+'url'  : '/editor',
+'label' : 'Logout'
+}
+]
+})
+}}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor">Back to My profiles</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <form method="post" action="/editor/opening-times/days/{{dayObj.key}}/copy">
+      <div id="enter-time" class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend">
+            <h1>What time is Hyde Park Pharmacy open?</h1>
+          </legend>
+          <span class="nhsuk-hint">Please enter times below in the 24 hour format. For midnight use 00:00 and for midday use 12:00. Times must not overlap. For services that close at midnight please use 23:59 to avoid validation errors. Services that start at midnight please use 00:00.</span>
+          <div id="openingTimes">
+            <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime1">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="openTime1" type="text" id="openTime1" value={{currentDayOpeningTimes[0]}}>
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime1">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="closeTime1" type="text" id="closeTime1" value={{currentDayOpeningTimes[1]}}>
+                </div>
+              </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Remove time</a>
+            </div>
+            <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime2">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="openTime2" type="text" id="openTime2" value={{currentDayOpeningTimes[2]}}>
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime2">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime2" id="closeTime2" value={{currentDayOpeningTimes[3]}}>
+                </div>
+              </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Remove time</a>
+            </div>
+            <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="openTime3">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="openTime3" id="openTime3" value={{currentDayOpeningTimes[4]}}>
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="closeTime3">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime3" id="closeTime3" value={{currentDayOpeningTimes[5]}}>
+                </div>
+              </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Remove time</a>
+            </div>
+            <p><a id="anotherTime" href="">Add another opening time</a></p>
+          </div>
+        </fieldset>
+        <button type="submit" class="nhsuk-button">Continue</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+{{ footer({
+"links": [
+{
+"URL": "#",
+"label": "NHS sites"
+},
+{
+"URL": "#",
+"label": "About us"
+},
+{
+"URL": "#",
+"label": "Contact us"
+},
+{
+"URL": "#",
+"label": "Sitemap"
+},
+{
+"URL": "#",
+"label": "Our policies"
+}
+]
+})}}
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  // Hiding additional time entries by default
+  if (document.getElementById('openTime2').value == '') {
+    document.getElementById('timeEntry2').style.display = 'none';
+  }
+
+  if (document.getElementById('openTime3').value == '') {
+    document.getElementById('timeEntry3').style.display = 'none';
+  }
+
+  if (document.getElementById('openTime3').value !== '') {
+    document.getElementById('anotherTime').style.display = 'none';
+  }
+  
+  // Counter to display more time entries
+  let counter = 1;
+  document.getElementById('anotherTime').addEventListener('click', function (e) {
+    e.preventDefault();
+    counter++;
+    // Display the previously hidden time entries
+    if (counter <= 3) {
+      document.getElementById(`timeEntry${counter}`).style.display = 'block';
+      document.getElementById(`openTime${counter}`).focus();
+    }
+    if (counter === 3) {
+      document.getElementById('anotherTime').style.display = 'none';
+    }
+  });
+
+  document.getElementById('removeTime1').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime1').value = '';
+    document.getElementById('closeTime1').value = '';
+  });
+
+  document.getElementById('removeTime2').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime2').value = '';
+    document.getElementById('closeTime2').value = '';
+  });
+
+  document.getElementById('removeTime3').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('openTime3').value = '';
+    document.getElementById('closeTime3').value = '';
+  });
+
+</script>
+{% endblock %}
