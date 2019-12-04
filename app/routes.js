@@ -321,18 +321,6 @@ router.post('/telephone-online', function (req, res) {
     }
   });
 
-router.post('/search-profiles', (req, res) => {
-  let searchResult = req.body.searchQuery;
-  const result = findService(searchResult);
-  console.log(result);
-  res.render('editor/select-profiles', { result });
-});
-
-function findService(query) {
-  const servicesFound = pharmacies.filter(pharm => Object.values(pharm).find(val => val.includes(query)));
-  return servicesFound;
-}
-
 const days = {
   MONDAY: {
     key: 'monday',
@@ -550,5 +538,39 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (r
   localStorage.setItem('tempChanges', JSON.stringify(newChanges));
   res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges: newChanges });
 });
+
+function findService(query) {
+  const servicesFound = pharmacies.filter(pharm => Object.values(pharm).find(val => val.includes(query)));
+  return servicesFound;
+}
+
+router.get('/profiles', (req, res) => {
+  let currentPharmacies = pharmacies.slice(0, 15);
+  res.render('profiles/index', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles/profiles-page2', (req, res) => {
+  let currentPharmacies = pharmacies.slice(15, 30);
+  res.render('profiles/profiles-page2', { currentPharmacies, pharmacies });
+});
+
+router.post('/search-pharmacy', (req, res) => {
+  let searchTerm = req.body.search;
+  const currentPharmacies = findService(searchTerm);
+  res.render('profiles/index', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles/sort-name', (req, res) => {
+  let currentPharmacies = pharmacies.slice(0, 15);
+  currentPharmacies = currentPharmacies.sort((a, b) => a.Name.localeCompare(b.Name));
+  res.render('profiles/sort-name', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles/sort-city', (req, res) => {
+  let currentPharmacies = pharmacies.slice(0, 15);
+  currentPharmacies = currentPharmacies.sort((a, b) => a.Town.localeCompare(b.Town));
+  res.render('profiles/sort-name', { currentPharmacies, pharmacies });
+});
+
 
 module.exports = router;

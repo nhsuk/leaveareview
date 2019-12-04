@@ -1,5 +1,12 @@
+<!-- 
+ADDING CUSTOM CSS
+Add your custom CSS/Sass to /app/assets/sass/main.scss
+-->
+
+
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout.html' %}
+
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
   NHS.UK prototype kit
@@ -32,7 +39,7 @@
           </div>
         </form>
       </div>
-      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">'Leeds'</span>.
+      <p>Showing <span class="nhsuk-u-font-weight-bold">{1}-{15} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">'Leeds'</span>.
       <table class="nhsuk-table">
         <caption class="nhsuk-table__caption">Profile search results</caption>
         <thead class="nhsuk-table__head">
@@ -54,13 +61,6 @@
           {% endfor %}
         </tbody>
       </table>
-      <nav aria-label="Page navigation">
-        <ul class="pagination">
-          <li class="page-item"><span class="page-link active">1</span></li>
-          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2">2</a></li>
-          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2">Next</a></li>
-        </ul>
-      </nav>
     </div>
   </div>
 {% endblock %}
