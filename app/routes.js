@@ -539,11 +539,6 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-time', (r
   res.render('editor/opening-times/temporary-changes/temporary-changes', { tempChanges: newChanges });
 });
 
-function findService(query) {
-  const servicesFound = pharmacies.filter(pharm => Object.values(pharm).find(val => val.includes(query)));
-  return servicesFound;
-}
-
 router.get('/profiles', (req, res) => {
   let currentPharmacies = pharmacies.slice(0, 15);
   res.render('profiles/index', { currentPharmacies, pharmacies });
@@ -556,9 +551,21 @@ router.get('/profiles/profiles-page2', (req, res) => {
 
 router.post('/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
-  const currentPharmacies = findService(searchTerm);
-  res.render('profiles/index', { currentPharmacies, pharmacies });
+  const currentPharmacies = findByODS(searchTerm);
+  res.render('profiles/index', { currentPharmacies, pharmacies, searchTerm });
 });
+
+function findByODS(searchTerm) {
+  const searchResults = pharmacies.filter(pharm => pharm.ODSCode.toLowerCase().includes(searchTerm.toLowerCase()));
+  return searchResults;
+}
+
+/* Sort and and full search no longer required for mvp */
+
+function findService(query) {
+  const servicesFound = pharmacies.filter(pharm => Object.values(pharm).find(val => val.toLowerCase().includes(query.toLowerCase())));
+  return servicesFound;
+}
 
 router.get('/profiles/sort-name', (req, res) => {
   let currentPharmacies = pharmacies.slice(0, 15);
