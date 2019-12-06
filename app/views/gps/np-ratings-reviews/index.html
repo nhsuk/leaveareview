@@ -1,0 +1,252 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Ratings and reviews
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Dentists</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Dentists</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Performance ratings
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/register/">Register with this GP surgery</a>
+          </li>     
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/services/">Clinics and services</a>
+          </li> 
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/prescriptions/">Prescriptions</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+              <span class="nhsuk-contents-list__current">Performance ratings</span>
+            </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/p-ratings-reviews/">Patient ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/leave-review/">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+
+  
+        <h2>Inspection ratings</h2>
+  
+        <h3>Care Quality Commission (CQC) rating</h3>
+        <p>The CQC is the independent regulator of health services in England. They inspect services to make sure that they are safe, effective and provide high quality care.</p>
+        <p>CQC has rated this GP surgery as follows: <span class="facility-overall good">Overall Good</span></p>
+  
+        <h3>CQC inspections & ratings of specific services</h3>
+        <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-8">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">CQC inspections & ratings of specific services</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col">Specific service</th>
+                <th class="nhsuk-table__header" scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">People with long term conditions</td>
+                <td class="nhsuk-table__cell">Good</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Families, children and young people</td>
+                <td class="nhsuk-table__cell">Good</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Older people</td>
+                <td class="nhsuk-table__cell ">Good</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Working age people (including those recently retired and students)</td>
+                <td class="nhsuk-table__cell ">Good</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">People experiencing poor mental health (including people with dementia)</td>
+                <td class="nhsuk-table__cell ">Good</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">People whose circumstances may make them vulnerable</td>
+                <td class="nhsuk-table__cell ">Good</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Care Quality Commission (CQC) ratings key</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col" width="33%">Rating</th>
+                <th class="nhsuk-table__header" scope="col">Details</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Outstanding</td>
+                <td class="nhsuk-table__cell">The service is performing exceptionally well.</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell"><span class="cqcratingindicator">►</span> Good</td>
+                <td class="nhsuk-table__cell">The service is performing well and meeting our expectations.</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Requires improvement</td>
+                <td class="nhsuk-table__cell ">The service is not performing as well as it should and we have told the service how it must improve.</td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Inadequate</td>
+                <td class="nhsuk-table__cell ">The service is performing badly and we've taken action against the person or organisation that runs it.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <p class="nhsuk-u-margin-bottom-6"><a href="https://www.cqc.org.uk/location/1-550177673">Further CQC inspection information</a></p>
+  
+        <h3>GP Patient Survey scores for this surgery</h3>
+        <p>The GP Patient Survey allows you to see how your surgery is performing. The survey is run by Ipsos MORI on behalf of the NHS.</p>
+  
+        <h4>Where patient experience is best</h4>
+  
+        <dl class="nhsuk-u-margin-bottom-6">
+          <dt><span class="percentagenumber">98%</span> of respondents felt their needs were met during their last general practice appointment</dt>
+          <dd class="percentage-blue1 percentage-blue1-98"><span class="text">This GP surgery: 98%</span></dd>
+          <dd class="percentage-blue2 percentage-blue2-96"><span class="text">Local (CCG) average: 96%</span></dd>
+          <dd class="percentage-grey3 percentage-grey3-94"><span class="text">National average: 94%</span></dd>
+        </dl>
+        <dl class="nhsuk-u-margin-bottom-6">
+          <dt><span class="percentagenumber">97%</span> of respondents were involved as much as they wanted to be in decisions about their care and treatment during their last general practice appointment</dt>
+          <dd class="percentage-blue1 percentage-blue1-97"><span class="text">This GP surgery: 97%</span></dd>
+          <dd class="percentage-blue2 percentage-blue2-96"><span class="text">Local (CCG) average: 96%</span></dd>
+          <dd class="percentage-grey3 percentage-grey3-93"><span class="text">National average: 93%</span></dd>
+        </dl>
+        <dl class="nhsuk-u-margin-bottom-6">
+          <dt><span class="percentagenumber">82%</span> of respondents say they have had enough support from local services or organisations in the last 12 months to help manage their long-term condition(s)</dt>
+          <dd class="percentage-blue1 percentage-blue1-82"><span class="text">This GP surgery: 82%</span></dd>
+          <dd class="percentage-blue2 percentage-blue2-83"><span class="text">Local (CCG) average: 83%</span></dd>
+          <dd class="percentage-grey3 percentage-grey3-78"><span class="text">National average: 78%</span></dd>
+        </dl>
+  
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <!--li>98% of respondents felt their needs were met during their last general practice appointment<p class="nhsuk-body-xs">Local (CCG) average: 96%<br>National average: 94%</p></li-->
+          <!--li>97% of respondents were involved as much as they wanted to be in decisions about their care and treatment during their last general practice appointment<p class="nhsuk-body-xs">Local (CCG) average: 96%<br>National average: 93%</p></li-->
+          <!--i>82% of respondents say they have had enough support from local services or organisations in the last 12 months to help manage their long-term condition(s)<p class="nhsuk-body-xs">Local (CCG) average: 83%<br>National average: 78%</p></li-->
+        </ul>
+  
+        <h4>Where patient experience could improve</h4>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>27% of respondents find it easy to get through to this GP practice by phone<p class="nhsuk-body-xs">Local (CCG) average: 69%<br>National average: 68%</p></li>
+          <li>54% of respondents describe their experience of making an appointment as good<p class="nhsuk-body-xs">Local (CCG) average: 72%<br>National average: 67%</p></li>
+          <li>32% of respondents usually get to see or speak to their preferred GP when they would like to<p class="nhsuk-body-xs">Local (CCG) average: 49%<br>National average: 48%</p></li>
+        </ul>
+  
+        <p><a href="">Report an issue with the information on this page</a></p>
+  
+      </div>
+  
+    </div>
+      
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
