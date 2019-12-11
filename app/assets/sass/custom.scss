@@ -670,6 +670,15 @@
     border: solid 4px #005EB8 !important; 
   }
 
+  
+  .nhsuk-panel-warning {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #F1F3E2 !important; 
+    border: solid 4px #FFEB3B !important; 
+  }
+
   .nhsuk-panel-positive {
     margin-bottom: 40px;
     margin-top: 40px;
@@ -693,3 +702,7 @@
     border-left: 0px solid #d8dde0 !important;
     padding: 0 24px 24px 24px !important;
   } 
+
+  .noborder {
+    border: 0px;
+  }
