@@ -40,10 +40,10 @@
         <tbody>
           {% for pharmacy in currentPharmacies %}
           <tr>
-            <td>{{pharmacy.Name}}</td>
+            <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
             <td>{{pharmacy.Line1}}</td>
             <td>{{pharmacy.Postcode}}</td>
-            <td>{{pharmacy.ODSCode}}</td>
+            <td aria-label="{{ pharmacy.ODSCode.split('').join(' ')}}">{{pharmacy.ODSCode}}</td>
           </tr>
           {% endfor %}
         </tbody>
