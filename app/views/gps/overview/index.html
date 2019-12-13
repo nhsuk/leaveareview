@@ -56,7 +56,7 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-one-half">
 
       <h1>
         <span role="text">
@@ -68,14 +68,7 @@
         </span>
       </h1>
 
-    </div>
-  </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      
-      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-4" role="navigation" aria-label="Pages in this guide">
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-8" role="navigation" aria-label="Pages in this guide">
         <h2 class="nhsuk-u-visually-hidden">Contents</h2>
         <ol class="nhsuk-contents-list__list">
           <li class="nhsuk-contents-list__item" aria-current="page">
@@ -106,18 +99,44 @@
       </nav>
 
     </div>
-  </div>
 
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-one-half">
 
       <div class="nhsuk-panel nhsuk-panel-warning">
         <h3>This GP surgery is now closed for the day</h3>
         <p>If you have an urgent medical problem and you’re not sure what to do, <a href="https://111.nhs.uk/">call 111</a> or <a href="http://111.nhs.uk">visit 111 online</a> </p>
       </div>
 
+      <!--div class="nhsuk-panel nhsuk-panel-important">
+        <h5>This GP surgery is not currently accepting new patients.</h5>
+      </div-->
+
+      <div class="govuk-warning-text nhsuk-u-margin-bottom-8">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          This GP surgery is not currently accepting new patients.
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      
     </div>
   </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+    </div>
+  </div>
+
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
@@ -196,7 +215,7 @@
           <caption class="nhsuk-table__caption">Reception opening times</caption>
           <thead class="nhsuk-table__head">
             <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Day</th>
+              <th class="nhsuk-table__header" scope="col" width="35%">Day</th>
               <th class="nhsuk-table__header" scope="col">Opening hours</th>
             </tr>
           </thead>
@@ -211,7 +230,7 @@
             </tr>
             <tr class="nhsuk-table__row">
               <td class="nhsuk-table__cell">Wednesday</td>
-              <td class="nhsuk-table__cell">8am to 6.30pm - 11 December from 8am to 2pm and 4pm to 6pm.</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm<br><b>11 December</b> - 8am to 2pm and 4pm to 6pm</td>
             </tr>
             <tr class="nhsuk-table__row">
               <td class="nhsuk-table__cell">Thursday</td>
@@ -284,14 +303,14 @@
 
 
       <h3>Other staff at this surgery</h3>
-      <!--p>There is a range of other professionals in the health team including:</p-->
+      <p>There is a range of other professionals in the health team including:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
         <li>Nursing staff</li>
         <li>On-site pharmacist</li>
         <li>Physiotherapist</li>
         <li>Mental health therapist</li>
         <li>Community link worker</li>
-      </ul>
+      </ul-->
 
       <p>For more information about staff at this surgery, see the <a href="https://www.herefordmedicalgroup.co.uk/team?category=gp-partners">surgery website</a>.</p>
 
@@ -340,7 +359,7 @@
       <div class="nhsuk-panel">
         <h3><a href="/dentists/ratings-review/#3"><span class="nhsuk-u-visually-hidden">Read review tited</span>Really happy</a></h3> 
         <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w...</p>
-        <p class="nhs-body-s nhsuk-promo__grey2">21 November 2017</p>
+        <p class="nhsuk-body-s nhsuk-promo__grey2">21 November 2017</p>
       </div> 
 
       <p><a href="/dentists/ratings-reviews/">Read all 7 reviews</a></p>

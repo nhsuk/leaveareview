@@ -662,6 +662,14 @@
 
 /* Panel colour variant
    ======================================================================= */
+   .nhsuk-panel-positive {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #D8E8E2 !important; 
+    border: solid 4px #007F3B !important; 
+  }
+
    .nhsuk-panel-important {
     margin-bottom: 40px;
     margin-top: 40px;
@@ -676,14 +684,6 @@
     padding: 24px;
     background-color: #F1F3E2 !important; 
     border: solid 4px #FFEB3B !important; 
-  }
-
-  .nhsuk-panel-positive {
-    margin-bottom: 40px;
-    margin-top: 40px;
-    padding: 24px;
-    background-color: #D8E8E2 !important; 
-    border: solid 4px #007F3B; 
   }
   
   .nhsuk-details {
@@ -705,3 +705,75 @@
   .noborder {
     border: 0px;
   }
+
+
+
+/* GOV Warning text
+   ======================================================================= */
+
+.govuk-warning-text {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.govuk-warning-text__icon {
+  font-family: "GDS Transport",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 35px;
+  min-height: 29px;
+  margin-top: -7px;
+  border: 3px solid #0b0c0c;
+  border-radius: 50%;
+  color: #fff;
+  background: #0b0c0c;
+  font-size: 30px;
+  line-height: 29px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ @media (min-width: 40.0625em){
+.govuk-warning-text__icon {
+    margin-top: -5px;
+}}
+
+.govuk-warning-text__text {
+  font-family: "GDS Transport",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #0b0c0c;
+  display: block;
+  padding-left: 45px;
+}
+@media (min-width: 40.0625em){
+.govuk-warning-text__text {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.31579;
+}}
+
+.govuk-warning-text__assistive {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
