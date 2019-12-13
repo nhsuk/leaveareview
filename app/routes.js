@@ -555,6 +555,23 @@ router.post('/search-pharmacy', (req, res) => {
   res.render('profiles/index', { currentPharmacies, pharmacies, searchTerm });
 });
 
+/* Profiles with comments */
+router.get('/profiles-comments', (req, res) => {
+  let currentPharmacies = pharmacies.slice(0, 15);
+  res.render('profiles-comments/index', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles-comments/profiles-page2', (req, res) => {
+  let currentPharmacies = pharmacies.slice(15, 30);
+  res.render('profiles/profiles-page2', { currentPharmacies, pharmacies });
+});
+
+router.post('/search-pharmacy-with-comments', (req, res) => {
+  let searchTerm = req.body.search;
+  const currentPharmacies = findByODS(searchTerm);
+  res.render('profiles-comments/index', { currentPharmacies, pharmacies, searchTerm });
+});
+
 function findByODS(searchTerm) {
   const searchResults = pharmacies.filter(pharm => pharm.ODSCode.toLowerCase().includes(searchTerm.toLowerCase()));
   return searchResults;

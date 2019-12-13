@@ -1,0 +1,66 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout.html' %}
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>
+        Respond to comments 
+      </h1>
+      <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
+        <form action="/search-pharmacy" method="POST">
+          <label class="nhsuk-label" for="search">Search by ODS code</label>
+          <div class="search-sort">
+            <div class="search-bar">
+              <input id="search" type="text" name="search" class="nhsuk-input search-input" />
+              <button type="submit" class="nhsuk-button search-button nhsuk-u-margin-bottom-0">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {% if (searchTerm) %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.
+      {% else %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
+      {% endif %}
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Name</th>
+              <th class="nhsuk-table__header">Address</th>
+              <th class="nhsuk-table__header">ODS Code</th>
+              <th class="nhsuk-table__header">Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pharmacy in currentPharmacies %}
+            <tr>
+              <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+              <td>{{pharmacy.Line1}}</td>
+              <td>{{pharmacy.ODSCode}}</td>
+              <td>{{pharmacy.comments}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item"><span class="page-link active"><span class="nhsuk-u-visually-hidden">Page </span>1</span></li>
+          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2"><span class="nhsuk-u-visually-hidden">Page </span>2</a></li>
+          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+{% endblock %}

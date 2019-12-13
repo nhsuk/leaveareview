@@ -5,14 +5,16 @@ module.exports = [
       "Line2": "Colchester Road",
       "city": "Maldon",
       "Postcode": "CM9 4GD",
-      "ODSCode": "FA007"
+      "ODSCode": "FA007",
+      "comments": 1
   },
   {
       "Name": "Boots",
       "Line1": "49-51 Merrion Ctr",
       "city": "Leeds",
       "Postcode": "LS2 8PJ",
-      "ODSCode": "FA008"
+      "ODSCode": "FA008",
+      "comments": 1
   },
   {
       "Name": "Medichem",
@@ -20,7 +22,8 @@ module.exports = [
       "Line2": "Stepney",
       "city": "London",
       "Postcode": "E1 4LR",
-      "ODSCode": "FA012"
+      "ODSCode": "FA012",
+      "comments": 1
   },
   {
       "Name": "Headcorn Pharmacy",
@@ -28,7 +31,8 @@ module.exports = [
       "Line2": "Grigg Lane",
       "city": "Kent",
       "Postcode": "TN27 9AA",
-      "ODSCode": "FA015"
+      "ODSCode": "FA015",
+      "comments": 5
   },
   {
       "Name": "Lloydspharmacy",
@@ -36,7 +40,8 @@ module.exports = [
       "Line2": "Hornsea",
       "city": "",
       "Postcode": "HU18 1AB",
-      "ODSCode": "FA020"
+      "ODSCode": "FA020",
+      "comments": 3
   },
   {
       "Name": "Rowlands Pharmacy",
@@ -44,7 +49,8 @@ module.exports = [
       "Line2": "North End",
       "city": "Hampshire",
       "Postcode": "PO2 9JN",
-      "ODSCode": "FA029"
+      "ODSCode": "FA029",
+      "comments": 3
   },
   {
       "Name": "Bridgegate Chemist",
@@ -52,7 +58,8 @@ module.exports = [
       "Line2": "Retford",
       "city": "",
       "Postcode": "DN22 7UZ",
-      "ODSCode": "FA031"
+      "ODSCode": "FA031",
+      "comments": 8
   },
   {
       "Name": "New Line Pharmacy",
@@ -60,14 +67,16 @@ module.exports = [
       "Line2": "Stakeford",
       "city": "Northumberland",
       "Postcode": "NE62 5UR",
-      "ODSCode": "FA037"
+      "ODSCode": "FA037",
+      "comments": 0
   },
   {
       "Name": "Sarsons Pharmacy",
       "Line1": "1-5 Palace Avenue",
       "city": "Paignton",
       "Postcode": "TQ3 3EF",
-      "ODSCode": "FMF95"
+      "ODSCode": "FMF95",
+      "comments": 0
   },
   {
       "Name": "LloydsPharmacy",
@@ -75,7 +84,8 @@ module.exports = [
       "Line2": "Ramsey",
       "city": "",
       "Postcode": "PE26 1HA",
-      "ODSCode": "FA042"
+      "ODSCode": "FA042",
+      "comments": 0
   },
   {
       "Name": "Coastal Pharmacy",
@@ -83,7 +93,8 @@ module.exports = [
       "Line2": "Heysham",
       "city": "Morecambe",
       "Postcode": "LA3 1DA",
-      "ODSCode": "FA044"
+      "ODSCode": "FA044",
+      "comments": 0
   },
   {
       "Name": "Fa Strange Chemist",
@@ -91,7 +102,8 @@ module.exports = [
       "Line2": "Upper Clapton",
       "city": "London",
       "Postcode": "E5 8EQ",
-      "ODSCode": "FA049"
+      "ODSCode": "FA049",
+      "comments": 0
   },
   {
       "Name": "Lloydspharmacy",
@@ -99,7 +111,8 @@ module.exports = [
       "Line2": "808 Green Lanes",
       "city": "London",
       "Postcode": "N21 2SA",
-      "ODSCode": "FA050"
+      "ODSCode": "FA050",
+      "comments": 0
   },
   {
       "Name": "Instore Pharmacy",
@@ -107,14 +120,16 @@ module.exports = [
       "Line2": "Bridge Road",
       "city": "Rainham",
       "Postcode": "RM13 9YZ",
-      "ODSCode": "FA052"
+      "ODSCode": "FA052",
+      "comments": 0
   },
   {
       "Name": "Boots",
       "Line1": "73 PICCADILLY",
       "city": "London",
       "Postcode": "W1J 8HS",
-      "ODSCode": "FA053"
+      "ODSCode": "FA053",
+      "comments": 3
   },
   {
       "Name": "LloydsPharmacy Inside Sainsbury's",
@@ -122,7 +137,8 @@ module.exports = [
       "Line2": "New Costessey",
       "city": "",
       "Postcode": "NR5 0JS",
-      "ODSCode": "FA056"
+      "ODSCode": "FA056",
+      "comments": 1
   },
   {
       "Name": "Heswall Hills Pharmacy",
@@ -130,7 +146,8 @@ module.exports = [
       "Line2": "Heswall",
       "city": "Wirral",
       "Postcode": "CH60 1XF",
-      "ODSCode": "FA057"
+      "ODSCode": "FA057",
+      "comments": 0
   },
   {
       "Name": "Morrisons Pharmacy ",
@@ -138,7 +155,8 @@ module.exports = [
       "Line2": "Festival Park",
       "city": "Stoke-on-Trent",
       "Postcode": "ST1 5NY",
-      "ODSCode": "FA058"
+      "ODSCode": "FA058",
+      "comments": 0
   },
   {
       "Name": "Well Woodford - Jubilee Parade",
@@ -146,7 +164,8 @@ module.exports = [
       "Line2": "Snakes Lane",
       "city": "Woodford Green, Essex",
       "Postcode": "IG8 7QF",
-      "ODSCode": "FA065"
+      "ODSCode": "FA065",
+      "comments": 0
   },
   {
       "Name": "Singlewell Pharmacy",
@@ -154,14 +173,16 @@ module.exports = [
       "Line2": "133 Singlewell Road",
       "city": "Gravesend",
       "Postcode": "DA11 7QA",
-      "ODSCode": "FA066"
+      "ODSCode": "FA066",
+      "comments": 0
   },
   {
       "Name": "Boots",
       "Line1": "1 Coopers Square",
       "city": "Burton-on-Trent",
       "Postcode": "DE14 1DG",
-      "ODSCode": "FA076"
+      "ODSCode": "FA076",
+      "comments": 0
   },
   {
       "Name": "King Street Pharmacy",
@@ -169,7 +190,8 @@ module.exports = [
       "Line2": "Stonehouse",
       "city": "Devon",
       "Postcode": "PL1 5JE",
-      "ODSCode": "FA079"
+      "ODSCode": "FA080",
+      "comments": 0
   },
   {
       "Name": "Boots",
@@ -177,7 +199,8 @@ module.exports = [
       "Line2": "Crayford Road, Crayford",
       "city": "Dartford",
       "Postcode": "DA1 4LD",
-      "ODSCode": "FA084"
+      "ODSCode": "FA084",
+      "comments": 0
   },
   {
       "Name": "LloydsPharmacy",
@@ -185,7 +208,8 @@ module.exports = [
       "Line2": "Rowley Regis",
       "city": "Warley",
       "Postcode": "B65 0JF",
-      "ODSCode": "FA086"
+      "ODSCode": "FA086",
+      "comments": 3
   },
   {
       "Name": "Asda Pharmacy",
@@ -193,7 +217,8 @@ module.exports = [
       "Line2": "Off Carden Avenue",
       "city": "Hollingbury,Brighton",
       "Postcode": "BN1 8AS",
-      "ODSCode": "FA088"
+      "ODSCode": "FA088",
+      "comments": 1
   },
   {
       "Name": "Sai Chemists",
@@ -201,7 +226,8 @@ module.exports = [
       "Line2": "Tower Hamlets",
       "city": "London",
       "Postcode": "E1 2LP",
-      "ODSCode": "FA089"
+      "ODSCode": "FA089",
+      "comments": 0
   },
   {
       "Name": "Heathbrook Pharmacy",
@@ -209,14 +235,16 @@ module.exports = [
       "Line2": "Newbold Verdon",
       "city": "Leicester",
       "Postcode": "LE9 9LD",
-      "ODSCode": "FA090"
+      "ODSCode": "FA090",
+      "comments": 0
   },
   {
       "Name": "Morrill Pharmacy",
       "Line1": "312 Holderness Road",
       "city": "Hull",
       "Postcode": "HU9 3DA",
-      "ODSCode": "FA104"
+      "ODSCode": "FA104",
+      "comments": 1
   },
   {
       "Name": "LloydsPharmacy Inside Sainsbury's",
@@ -224,7 +252,8 @@ module.exports = [
       "Line2": "Waterloo Road",
       "city": "",
       "Postcode": "RM1 1AU",
-      "ODSCode": "FA111"
+      "ODSCode": "FA111",
+      "comments": 0
   },
   {
       "Name": "Rowlands Pharmacy",
@@ -232,14 +261,16 @@ module.exports = [
       "Line2": "Lawson Street",
       "city": "Stockton on Tees",
       "Postcode": "TS18 1HU",
-      "ODSCode": "FA114"
+      "ODSCode": "FA114",
+      "comments": 0
   },
   {
       "Name": "Boots",
       "Line1": "55 Vicarage Rd",
       "city": "St. Agnes",
       "Postcode": "TR5 0TH",
-      "ODSCode": "FA129"
+      "ODSCode": "FA129",
+      "comments": 0
   },
   {
       "Name": "Broadheath Pharmacy",
@@ -247,7 +278,8 @@ module.exports = [
       "Line2": "Broadheath",
       "city": "Cheshire",
       "Postcode": "WA14 4PJ",
-      "ODSCode": "FA130"
+      "ODSCode": "FA130",
+      "comments": 3
   },
   {
       "Name": "Wyken Pharmacy",
@@ -255,7 +287,8 @@ module.exports = [
       "Line2": "Coventry",
       "city": "West Midlands",
       "Postcode": "CV2 3LA",
-      "ODSCode": "FA137"
+      "ODSCode": "FA137",
+      "comments": 3
   },
   {
       "Name": "Medway Pharmacy",
@@ -263,7 +296,8 @@ module.exports = [
       "Line2": "Medway Village",
       "city": "Greenford",
       "Postcode": "UB6 8HR",
-      "ODSCode": "FA150"
+      "ODSCode": "FA150",
+      "comments": 3
   },
   {
       "Name": "Greenfields Pharmacy",
@@ -271,7 +305,8 @@ module.exports = [
       "Line2": "Kentish Town Road",
       "city": "London",
       "Postcode": "NW1 9QB",
-      "ODSCode": "FA151"
+      "ODSCode": "FA151",
+      "comments": 1
   },
   {
       "Name": "Eccleshall Pharmacy",
@@ -279,7 +314,8 @@ module.exports = [
       "Line2": "Eccleshall",
       "city": "Stafford",
       "Postcode": "ST21 6BZ",
-      "ODSCode": "FA163"
+      "ODSCode": "FA163",
+      "comments": 3
   },
   {
       "Name": "LloydsPharmacy",
@@ -287,7 +323,8 @@ module.exports = [
       "Line2": "Parson Cross",
       "city": "",
       "Postcode": "S5 8AL",
-      "ODSCode": "FA166"
+      "ODSCode": "FA166",
+      "comments": 1
   },
   {
       "Name": "LloydsPharmacy",
@@ -295,7 +332,8 @@ module.exports = [
       "Line2": "",
       "city": "",
       "Postcode": "EX2 4TA",
-      "ODSCode": "FA167"
+      "ODSCode": "FA167",
+      "comments": 0
   },
   {
       "Name": "Well Carlisle - Blackwell Road",
@@ -303,6 +341,7 @@ module.exports = [
       "Line2": "Carlisle ",
       "city": "Cumbria",
       "Postcode": "CA2 4EQ",
-      "ODSCode": "FA176"
+      "ODSCode": "FA176",
+      "comments": 4
   }
 ];
