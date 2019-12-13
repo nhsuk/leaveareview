@@ -1,4 +1,6 @@
 @import "components/tabs";
+@import "components/_search-and-sort";
+@import "components/pagination-new";
 
 .nhsuk-grey3 {
   background-color: #AEB7BD;
@@ -705,6 +707,7 @@
   .noborder {
     border: 0px;
   }
+<<<<<<< HEAD
 
 
 
@@ -777,3 +780,5 @@
   border: 0 !important;
   white-space: nowrap !important;
 }
+=======
+>>>>>>> acdcee2121676a8481cb472c1959b0ac4ff51852

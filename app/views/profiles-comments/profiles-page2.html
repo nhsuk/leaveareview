@@ -26,19 +26,15 @@
           </div>
         </form>
       </div>
-      {% if (searchTerm) %}
-      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.
-      {% else %}
-      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
-      {% endif %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">16-30 results of {{pharmacies.length}}</span>.</p>
       <table class="nhsuk-table">
         <caption class="nhsuk-table__caption">Profile search results</caption>
         <thead class="nhsuk-table__head">
           <tr class="nhsuk-table__row">
             <th class="nhsuk-table__header">Name</th>
             <th class="nhsuk-table__header">Address</th>
-            <th class="nhsuk-table__header">Postcode</th>
             <th class="nhsuk-table__header">ODS Code</th>
+            <th class="nhsuk-table__header">Comments</th>
           </tr>
         </thead>
         <tbody>
@@ -46,17 +42,17 @@
           <tr>
             <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
             <td>{{pharmacy.Line1}}</td>
-            <td>{{pharmacy.Postcode}}</td>
-            <td aria-label="{{ pharmacy.ODSCode.split('').join(' ')}}">{{pharmacy.ODSCode}}</td>
+            <td>{{pharmacy.ODSCode}}</td>
+            <td>{{pharmacy.comments}}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       <nav aria-label="Page navigation">
         <ul class="pagination">
-          <li class="page-item"><span class="page-link active"><span class="nhsuk-u-visually-hidden">Page </span>1</span></li>
-          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2"><span class="nhsuk-u-visually-hidden">Page </span>2</a></li>
-          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2">Next</a></li>
+          <li class="page-item"><a class="page-link" href="/profiles">Previous <span class="nhsuk-u-visually-hidden">page</span></a></li>
+          <li class="page-item"><a class="page-link" href="/profiles"><span class="nhsuk-u-visually-hidden">Page </span>1</a></li>
+          <li class="page-item"><span class="page-link active"><span class="nhsuk-u-visually-hidden">Page </span>2</span></li>
         </ul>
       </nav>
     </div>

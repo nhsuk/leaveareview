@@ -1,0 +1,31 @@
+{% macro pagination(currentPage, pageCount) %}
+<nav aria-label="Pagination" class="navigation--number" data-active-tile="1">
+    <div class="container">
+        {% if (currentPage > 1) %}
+        <a class="navigation-control" href="/examples/search2/search-p{{ currentPage - 1 }}">Previous</a>
+        {% endif %}
+        <ol>
+            {% for i in range(1, pageCount+1) -%}
+                {% if i == currentPage %}
+                    <li class="active" data-number="{{ i }}">
+                        <span>
+                            <span>Page </span>
+                            <span class="count">{{ i }}</span>
+                        </span>
+                    </li>
+                {% else %}
+                    <li data-number="{{ i }}">
+                        <a href="/examples/search2/search-p{{ i }}">
+                            <span>Page </span>
+                            <span class="count">{{ i }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {%- endfor %}
+        </ol>
+        {% if (currentPage < pageCount) %}
+        <a class="navigation-control" href="/examples/search2/search-p{{ currentPage + 1 }}">Next</a>
+        {% endif %}
+    </div>
+</nav>
+{% endmacro %}

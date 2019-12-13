@@ -1,0 +1,36 @@
+$color_nhsuk-white: #fff;
+$nhsuk-border-color: #d8dde0;
+
+.search-sort {
+  align-items: center;
+  background-color: $color_nhsuk-white;
+  display: flex;
+  justify-content: space-between;
+  padding: .5em;
+
+  .search-bar {
+    align-items: center;
+    display: flex;
+  }
+
+  .search-input {
+    margin-right: 1em;
+    width: 75%;
+  }
+
+  .search-button {
+    margin-top: 0;
+    padding: 4px 16px;
+  }
+
+  .sort {
+    a {
+      border-right: 1px solid $nhsuk-border-color;
+      padding-right: .5em;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
