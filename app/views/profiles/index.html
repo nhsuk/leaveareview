@@ -46,7 +46,7 @@
             <tbody class="nhsuk-table__body">
               {% for pharmacy in currentPharmacies %}
               <tr class="nhsuk-table__row">
-                <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td><a href="/editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.Line1}}</td>
                 <td>{{pharmacy.Postcode}}</td>
                 <td aria-label="{{ pharmacy.ODSCode.split('').join(' ')}}">{{pharmacy.ODSCode}}</td>
