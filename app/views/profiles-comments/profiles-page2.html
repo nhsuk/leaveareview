@@ -27,27 +27,31 @@
         </form>
       </div>
       <p>Showing <span class="nhsuk-u-font-weight-bold">16-30 results of {{pharmacies.length}}</span>.</p>
-      <table class="nhsuk-table">
-        <caption class="nhsuk-table__caption">Profile search results</caption>
-        <thead class="nhsuk-table__head">
-          <tr class="nhsuk-table__row">
-            <th class="nhsuk-table__header">Name</th>
-            <th class="nhsuk-table__header">Address</th>
-            <th class="nhsuk-table__header">ODS Code</th>
-            <th class="nhsuk-table__header">Comments</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for pharmacy in currentPharmacies %}
-          <tr>
-            <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
-            <td>{{pharmacy.Line1}}</td>
-            <td>{{pharmacy.ODSCode}}</td>
-            <td>{{pharmacy.comments}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      <div class="nhsuk-table__panel-with-heading-tab">
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Profile search results</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header">Name</th>
+                <th class="nhsuk-table__header">Address</th>
+                <th class="nhsuk-table__header">ODS Code</th>
+                <th class="nhsuk-table__header">Comments</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              {% for pharmacy in currentPharmacies %}
+              <tr class="nhsuk-table__row">
+                <td><a href="#"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td>{{pharmacy.Line1}}</td>
+                <td>{{pharmacy.ODSCode}}</td>
+                <td>{{pharmacy.comments}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <nav aria-label="Page navigation">
         <ul class="pagination">
           <li class="page-item"><a class="page-link" href="/profiles">Previous <span class="nhsuk-u-visually-hidden">page</span></a></li>
