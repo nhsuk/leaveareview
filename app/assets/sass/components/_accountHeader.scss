@@ -1,0 +1,62 @@
+.nhsuk-account-navigation-container {
+  background-color: #FFF;
+}
+
+.nhsuk-account-navigation {
+  border-top: 10px solid #AEB7BD;
+  border-bottom: 1px solid #AEB7BD;
+  display: flex;
+  justify-content: flex-end;
+  
+  @media(max-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.nhsuk-account-navigation__main {
+  list-style-type: none;
+  margin-bottom: 0;
+  
+  @media(max-width: 768px) {
+    padding-left: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-bottom: 0;
+
+    @media(max-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+.nhsuk-account-navigation__link {
+  border-bottom: 4px solid transparent;
+  box-sizing: border-box;
+  color: #4a4a4a;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  padding: 12px 16px 8px;
+  text-decoration: none;
+  text-transform: none;
+
+  &:hover {
+    border-bottom: 4px solid #d8dde0;
+  }
+}
+
+.nhsuk-notification-badge {
+  background: #d4351c;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 25px;
+  padding: 0px 2px;
+  text-align: center;
+  white-space: nowrap;
+}
