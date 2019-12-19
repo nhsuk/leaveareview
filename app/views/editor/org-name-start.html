@@ -1,0 +1,105 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Organisation names
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Organisation names",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Organisation names
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Hyde Park Pharmacy
+          </span>
+        </span>
+      </h1>
+
+      <p>Profile organisation names are used to help people find your pages when searching on the NHS website. These could be former names of your organisation or non-official names that people use to refer to your organisation.</p>
+      <p>You can have up to 5 of these saved, helping users find your profile but only one can be chosen as your profile's 'Display name'.</p>
+
+      <form action="org-name-edit" method="post">
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "manage-profile",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

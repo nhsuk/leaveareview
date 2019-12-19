@@ -229,14 +229,14 @@ router.get('/', function(req , res){
 
 // Branching - Profile Editor
 
-router.post('/display-name', function (req, res) {
+router.post('/org-name', function (req, res) {
   let alias1 = req.body.alias1;
 
   if (!alias1) {
-    res.redirect('/editor/edit-alias?error=true')
+    res.redirect('/editor/org-name-edit?error=true')
   }
   else {
-    res.redirect('/editor/edit-alias-choose-displayname')
+    res.redirect('/editor/org-name-choose-displayname')
   }
 });
 
@@ -244,7 +244,7 @@ router.post('/display-name-2', function (req, res) {
   let displayname = req.body.displayname;
 
   if (!displayname) {
-    res.redirect('/editor/edit-alias-choose-displayname?error=true')
+    res.redirect('/editor/org-name-choose-displayname?error=true')
   }
   else {
     res.redirect('/editor/manage-profile')

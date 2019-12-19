@@ -56,7 +56,7 @@
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
             Choose your display name
           </legend>
-          <p>You can select an alias as your organisation display name below. The organisation display name will be visible on all your public profile pages.</p>
+          <p>All organisation names will be used to help users find your profile but only one can be chosen as your profile's display name.</p>
 
           <span id="error-message" class="nhsuk-error-message" style="display: none;">
             <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -70,7 +70,7 @@
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="alias-0" name="displayname" type="radio" value="No alias" {{checked("displayname","No alias")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  No alias as display name
+                  Do not use a display name, keep <b>Hyde Park Pharmacy</b> for display
                 </label>
               </div>
 
@@ -101,6 +101,26 @@
               </div>
               {%endif%} 
 
+              {% if data["alias4"] == "" %}
+              {%else%}
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-4" name="displayname" type="radio" value="{{data["alias4"]}}" {{checked("displayname",data["alias4"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  {{data["alias4"]}}
+                </label>
+              </div>
+              {%endif%} 
+
+              {% if data["alias5"] == "" %}
+              {%else%}
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="alias-5" name="displayname" type="radio" value="{{data["alias5"]}}" {{checked("displayname",data["alias5"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                  {{data["alias5"]}}
+                </label>
+              </div>
+              {%endif%} 
+
             </div>
 
           </div>
@@ -116,7 +136,7 @@
       </form>
 
       {{ backLink({
-      "href": "/editor/edit-alias",
+      "href": "org-name-edit",
       "text": "Back"
       }) }}
 
