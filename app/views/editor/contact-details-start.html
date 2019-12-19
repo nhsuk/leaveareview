@@ -1,0 +1,100 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Contact details
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Contact details",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Contact details
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Hyde Park Pharmacy
+          </span>
+        </span>
+      </h1>
+
+      <p>Use this tool to edit this profile's contacts details. These include Telephone, Website, Email etc. It does not include your address.</p>
+      <p>In order to update your profile's address, you need to... duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+      <form action="contact-details-edit" method="post">
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

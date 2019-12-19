@@ -1,0 +1,161 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Leave a review
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Leave a review",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/dentists/overview/",
+    text: "High Ash Dental Surgery"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 10 of 10</span>
+
+      <form action="/dentists/leave-review/confirmation" method="post">
+
+        {% call fieldset({
+          legend: {
+            text: "Check your answers",
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Date of visit</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["month"]}}, {{data["year"]}}</p>
+        <p><a href="visitdate">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Recommend to family and friends</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["familyfriends"]}}</p>
+        <p><a href="rating-question-1">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Title</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["title"]}}</p>
+        <p><a href="rating-question-2">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Details</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["details"]}}</p>
+        <p><a href="rating-question-2">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">           
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Email address</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["email"]}}</p>
+        <p><a href="rating-question-3">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
+
+        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Display name</p>
+        <p class="nhsuk-u-margin-bottom-3">{{data["displayname"]}}</p>
+        <p><a href="rating-question-3">Change</a></p>
+
+        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
+
+        {% if data["furtherratings"] == "yes" %}
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Appointment waiting time</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["appointmentwaitingtime"]}}</p>
+          <p><a href="rating-question-5">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Treated with dignity and respect</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["dignityrespect"]}}</p>
+          <p><a href="rating-question-6">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Involved in treatment decisions</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentdecisions"]}}</p>
+          <p><a href="rating-question-7">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Information of NHS treatment costs</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentcostsinfo"]}}</p>
+          <p><a href="rating-question-8">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+
+          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Outcome of treatment</p>
+          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentoutcome"]}}</p>
+          <p><a href="rating-question-9">Change</a></p>
+
+          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
+
+        {%endif%}             
+
+        {% endcall %}
+
+        {{ button({
+          "text": "Submit review",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "rating-question-9",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

@@ -266,12 +266,13 @@ router.post('/telephone-online', function (req, res) {
   let telephone = req.body.telephone;
 
   if (!telephone) {
-    res.redirect('/editor/edit-telephone-online?error=true')
+    res.redirect('/editor/contact-details-edit?error=true')
   }
   else {
     res.redirect('/editor/manage-profile')
   }
 });
+
 
   // Branching - Ask a doctor a question
 
@@ -320,6 +321,9 @@ router.post('/telephone-online', function (req, res) {
       res.redirect('/gps/askaquestion/aaq3')
     }
   });
+
+
+
 
 const days = {
   MONDAY: {
