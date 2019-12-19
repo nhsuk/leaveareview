@@ -1,6 +1,6 @@
 <!-- This layout is setup for transactional pages -->
 
-<!-- Extends the layout from /docs/views/layout.html -->
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Leave a review
+  Org name - Manage Profile - Contact details
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a review",
+        "name": "Contact details",
         "href": "/"
       },
       "showNav": "false",
@@ -27,110 +27,89 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-  {{ breadcrumb({
-    href: "/dentists/overview/",
-    text: "High Ash Dental Surgery"
-  }) }}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 10 of 10</span>
+      <form action="manage-profile" method="post">
 
-      <form action="/dentists/leave-review/confirmation" method="post">
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
-        {% call fieldset({
-          legend: {
-            text: "Check your answers",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            Your telephone and online details
+          </legend>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Date of visit</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["month"]}}, {{data["year"]}}</p>
-        <p><a href="visitdate">Change</a></p>
+          <dl class="nhsuk-summary-list">
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Telephone
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["telephone"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="contact-details-edit">
+                    Change<span class="nhsuk-u-visually-hidden"> telephone</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Website
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["website"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="contact-details-edit">
+                    Change<span class="nhsuk-u-visually-hidden"> website</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Email
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["email"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="contact-details-edit">
+                    Change<span class="nhsuk-u-visually-hidden"> email</span>
+                  </a>
+                </dd>
+              </div>
+            
+            </dl>
 
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Recommend to family and friends</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["familyfriends"]}}</p>
-        <p><a href="rating-question-1">Change</a></p>
+          </fieldset>
 
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Title</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["title"]}}</p>
-        <p><a href="rating-question-2">Change</a></p>
-
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
-
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Details</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["details"]}}</p>
-        <p><a href="rating-question-2">Change</a></p>
-
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">           
-
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Email address</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["email"]}}</p>
-        <p><a href="rating-question-3">Change</a></p>
-
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
-
-        <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Display name</p>
-        <p class="nhsuk-u-margin-bottom-3">{{data["displayname"]}}</p>
-        <p><a href="rating-question-3">Change</a></p>
-
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">   
-
-        {% if data["furtherratings"] == "yes" %}
-
-          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Appointment waiting time</p>
-          <p class="nhsuk-u-margin-bottom-3">{{data["appointmentwaitingtime"]}}</p>
-          <p><a href="rating-question-5">Change</a></p>
-
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-
-          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Treated with dignity and respect</p>
-          <p class="nhsuk-u-margin-bottom-3">{{data["dignityrespect"]}}</p>
-          <p><a href="rating-question-6">Change</a></p>
-
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-
-          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Involved in treatment decisions</p>
-          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentdecisions"]}}</p>
-          <p><a href="rating-question-7">Change</a></p>
-
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-
-          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Information of NHS treatment costs</p>
-          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentcostsinfo"]}}</p>
-          <p><a href="rating-question-8">Change</a></p>
-
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-
-          <p class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Outcome of treatment</p>
-          <p class="nhsuk-u-margin-bottom-3">{{data["treatmentoutcome"]}}</p>
-          <p><a href="rating-question-9">Change</a></p>
-
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4"> 
-
-        {%endif%}             
-
-        {% endcall %}
 
         {{ button({
-          "text": "Submit review",
+          "text": "Save and return",
           "id": "btn_submit"
         }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rating-question-9",
+      "href": "contact-details-edit",
       "text": "Back"
       }) }}
 

@@ -262,14 +262,14 @@ router.post('/address', function (req, res) {
   }
 });
 
-router.post('/telephone-online', function (req, res) {
+router.post('/contact-details', function (req, res) {
   let telephone = req.body.telephone;
 
   if (!telephone) {
     res.redirect('/editor/contact-details-edit?error=true')
   }
   else {
-    res.redirect('/editor/manage-profile')
+    res.redirect('/editor/contact-details-check')
   }
 });
 
