@@ -8,37 +8,6 @@
   Org name - Overview
 {% endblock %}
 
-<!-- Header goes inside this block -->
-{% block header %}
-  {{ header({
-      "showNav": "true",
-      "showSearch": "false",
-      "primaryLinks": [
-        {
-          "url"  : "/editor",
-          "label" : "My profiles"
-        },
-        {
-          'url' : '/editor/picker',
-          'label' : 'Add profile'
-        },
-        {
-          'url'  : '/editor',
-          'label' : 'Manage users'
-        },
-        {
-          'url'  : '/editor',
-          'label' : 'Review comments'
-        },
-        {
-          'url'  : '/editor',
-          'label' : 'Logout'
-        }
-      ]
-    })
-  }}
-{% endblock %}
-
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
