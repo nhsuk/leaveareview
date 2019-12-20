@@ -1,34 +1,11 @@
 <!-- This layout is setup for NHS.UK pages -->
 
 <!-- Extends the layout from /docs/views/layout.html -->
-{% extends "layout.html" %}
+{% extends 'layout-app-header.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
   Org name - Overview
-{% endblock %}
-
-<!-- Header goes inside this block -->
-{% block header %}
-  {{ header({
-      "showNav": "true",
-      "showSearch": "false",
-      "primaryLinks": [
-        {
-          "url"  : "/profiles/",
-          "label" : "My profiles"
-        },
-        {
-          'url'  : '/profiles-comments/',
-          'label' : 'Review comments'
-        },
-        {
-          'url'  : '/editor',
-          'label' : 'Logout'
-        }
-      ]
-    })
-  }}
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
