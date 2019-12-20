@@ -1,0 +1,147 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Opening times
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Opening times",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Opening times
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Hyde Park Pharmacy
+          </span>
+        </span>
+      </h1>
+
+      <p>Use this tool to update or verify your opening times including bank holidays and temporary changes.</p>
+      <p class="nhsuk-u-margin-bottom-6">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
+    
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="days">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h3 class="nhsuk-promo__heading">Standard times</h3>
+            <p class="nhsuk-promo__description">Your typical 7 day a week opening times.</p>
+            <hr>
+            <p class="nhsuk-promo__description">Last verified: </p>
+          </div>
+        </a>
+      </div>
+    </div>
+            
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="bank-holiday/days">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h3 class="nhsuk-promo__heading">Bank holidays</h3>
+            <p class="nhsuk-promo__description">Set your Bank Holiday opening times.</p>
+            <hr>
+            <p class="nhsuk-promo__description">Last verified: </p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="temporary-changes/temporary-changes">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h3 class="nhsuk-promo__heading">Temporary changes</h3>
+            <p class="nhsuk-promo__description">Adhoc changes to your standard opening times.</p>
+            <hr>
+            <p class="nhsuk-promo__description">Last verified: </p>
+          </div>
+        </a>
+      </div>
+    </div>
+            
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ backLink({
+      "href": "/editor/manage-profile",
+      "text": "Back"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
