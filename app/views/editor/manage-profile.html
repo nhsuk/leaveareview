@@ -43,7 +43,7 @@
           Manage profile
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span>
-            Profile name
+            Hyde Park Pharmacy
           </span>
         </span>
       </h1>
@@ -66,7 +66,12 @@
             <h3 class="nhsuk-promo__heading">Organisation name</h3>
             <p class="nhsuk-promo__description">Update the organisation names for your profile. They can help users find your organisation.</p>
             <hr>
-            <p class="nhsuk-promo__description">Non-MVP links / stats etc.</p>
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            <p class="nhsuk-promo__description nhsuk-body-s"><b>Current display name:</b> Hyde Park Pharmacy</p>
+            {%else%}
+            <p class="nhsuk-promo__description nhsuk-body-s"><b>Current display name:</b> {{data["displayname"]}}</p>
+            {%endif%}
           </div>
         </a>
       </div>
@@ -80,7 +85,7 @@
             <h3 class="nhsuk-promo__heading">Contact details</h3>
             <p class="nhsuk-promo__description">Update your telephone & online details here. Plus details on how to change your address.</p>
             <hr>
-            <p class="nhsuk-promo__description">Non-MVP links / stats etc.</p>
+            <p class="nhsuk-promo__description nhsuk-body-s"><b>Last verified:</b></p>
           </div>
         </a>
       </div>
@@ -94,7 +99,7 @@
             <h3 class="nhsuk-promo__heading">Opening times</h3>
             <p class="nhsuk-promo__description">Update or verify your opening times including bank holidays and temporary changes.</p>
             <hr>
-            <p class="nhsuk-promo__description">Non-MVP links / stats etc.</p>
+            <p class="nhsuk-promo__description nhsuk-body-s"><b>Last verified:</b></p>
           </div>
         </a>
       </div>
@@ -112,7 +117,7 @@
               <h3 class="nhsuk-promo__heading">Facilities</h3>
               <p class="nhsuk-promo__description">Update your customer facilities and accessibility facilities here.</p>
               <hr>
-              <p class="nhsuk-promo__description">Non-MVP links / stats etc.</p>
+              <p class="nhsuk-promo__description nhsuk-body-s"><b>Last verified:</b></p>
             </div>
           </a>
         </div>
@@ -126,7 +131,7 @@
               <h3 class="nhsuk-promo__heading">Services</h3>
               <p class="nhsuk-promo__description">Update the display of services you provide at your organisation.</p>
               <hr>
-              <p class="nhsuk-promo__description">Non-MVP links / stats etc.</p>
+              <p class="nhsuk-promo__description nhsuk-body-s"><b>Last verified:</b></p>
             </div>
           </a>
         </div>
