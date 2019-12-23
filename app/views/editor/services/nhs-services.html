@@ -4,7 +4,6 @@
 {% extends "layout.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
-<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
 
 <!-- Set the page title inside this block -->
@@ -12,7 +11,6 @@
   Org name - Manage Profile - Contact details
 {% endblock %}
 
-<!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
@@ -45,26 +43,41 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1>
-        <span role="text">
-          Contact details 
-          <span class="nhsuk-page-heading__small">
-            <span class="visually-hidden"> -</span> 
-            Hyde Park Pharmacy
-          </span>
-        </span>
+        NHS Commissioned services 
       </h1>
-
-      <p>Use this tool to edit this profile's contacts details. These include Telephone, Website, Email etc. It does not include your address.</p>
-      <p>In order to update your profile's address, you need to... duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-      <form action="contact-details-edit" method="post">
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
+      <p>HINT TEXT NEEDS CHANGING</p>
+      <form>
+        <h2>Health services</h2>
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend"><h3>Minor ailments</h3></legend>
+            <div class="nhsuk-checkboxes__item">
+              <input
+                type="checkbox"
+                name="ailments"
+                id="ailment-service"
+                class="nhsuk-checkboxes__input"
+              />
+              <label for="ailment-service" class="nhsuk-label nhsuk-checkboxes__label">Minor ailment service</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend"><h3>Vaccinations</h3></legend>
+            <div class="nhsuk-checkboxes__item">
+              <input
+                type="checkbox"
+                name="ailments"
+                id="flu-jab"
+                class="nhsuk-checkboxes__input"
+              />
+              <label for="flu-jab" class="nhsuk-label nhsuk-checkboxes__label">Flu jab - at risk work groups</label>
+            </div>
+          </fieldset>
+        </div>
       </form>
+      
 
       {{ backLink({
       "href": "manage-profile",
