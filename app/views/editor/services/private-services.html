@@ -41,35 +41,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1>
-        NHS Commissioned services 
+        Private services 
       </h1>
       <p>HINT TEXT NEEDS CHANGING</p>
     </div>
   </div>
 
-  <form action="/editor/services/nhs-services" method="post">
+  <form action="/editor/services/private-services" method="post">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-one-half">
 
           <h2>Health services</h3>
           {{ checkboxes({
-            "idPrefix": "minor-ailments",
-            "name": "Minor ailments",
-            "fieldset": {
-              "legend": {
-                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Minor ailments</h3>"
-              }
-            },
-            "items": [
-              {
-                "value": "minorAilment",
-                "text": "Minor ailment service"
-              }
-            ]
-          }) }}
-          {{ checkboxes({
-            "idPrefix": "vaccinations",
-            "name": "vaccinations",
+            "idPrefix": "privateVaccinations",
+            "name": "privateVaccinations",
             "fieldset": {
               "legend": {
                 "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Vaccinations</h3>"
@@ -79,12 +64,16 @@
               {
                 "value": "fluJab",
                 "text": "Flu jab - at risk work groups"
+              },
+              {
+                "value": "travelClinic",
+                "text": "Travel clinic"
               }
             ]
           }) }}
           {{ checkboxes({
-            "idPrefix": "sexual-health",
-            "name": "sexual-health",
+            "idPrefix": "private-sexual-health",
+            "name": "private-sexual-health",
             "fieldset": {
               "legend": {
                 "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Sexual health</h3>"
@@ -94,10 +83,6 @@
               {
                 "value": "emergencyContraception",
                 "text": "Emergency contraception"
-              },
-              {
-                "value": "condomSupply",
-                "text": "Condom supply"
               },
               {
                 "value": "chlamydiaScreening",
@@ -111,8 +96,8 @@
           }) }}
           
           {{ checkboxes({
-            "idPrefix": "healthy-living",
-            "name": "healthy-living",
+            "idPrefix": "private-healthy-living",
+            "name": "private-healthy-living",
             "fieldset": {
               "legend": {
                 "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Healthy living</h3>"
@@ -124,29 +109,29 @@
                 "text": "Stop smoking service"
               },
               {
-                "value": "stopSmokingVoucher",
-                "text": "Stop smoking voucher service"
-              },
-              {
                 "value": "weightManagementService",
                 "text": "Weight management service"
-              },
-              {
-                "value": "alcoholService",
-                "text": "Alcohol screening and intervention service"
               }
             ]
           }) }}
           
           {{ checkboxes({
-            "idPrefix": "health-checks",
-            "name": "health-checks",
+            "idPrefix": "private-health-checks",
+            "name": "private-health-checks",
             "fieldset": {
               "legend": {
                 "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Health checks and tests</h3>"
               }
             },
             "items": [
+              {
+                "value": "bloodPressure",
+                "text": "Blood pressure monitoring"
+              },
+              {
+                "value": "diabeticScreening",
+                "text": "Disabetic screening"
+              },
               {
                 "value": "healthCheck",
                 "text": "Health check"
@@ -158,8 +143,8 @@
 
       <div class="nhsuk-grid-column-one-half">
         {{ checkboxes({
-          "idPrefix": "prescriptions-delivery",
-          "name": "prescriptions-delivery",
+          "idPrefix": "private-prescriptions-delivery",
+          "name": "private-prescriptions-delivery",
           "fieldset": {
             "legend": {
               "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Prescriptions & delivery</h3>"
@@ -167,43 +152,23 @@
           },
           "items": [
             {
-              "value": "applianceDispensing",
-              "text": "Appliance dispensing"
+              "value": "prescriptionDelivery",
+              "text": "Prescription delivery service"
             },
             {
-              "value": "stomaCustomisation",
-              "text": "Stoma customisation service"
+              "value": "smsReminders",
+              "text": "SMS repeat prescription reminders"
             },
             {
-              "value": "applianceUseReviewService",
-              "text": "Appliance use review service"
-            }
-          ]
-        }) }}
-        
-        {{ checkboxes({
-          "idPrefix": "help-with-medicine",
-          "name": "help-with-medicine",
-          "fieldset": {
-            "legend": {
-              "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Help with medicines</h3>"
-            }
-          },
-          "items": [
-            {
-              "value": "medicineUseReviewService",
-              "text": "Medicine use review service"
-            },
-            {
-              "value": "newMedicineService",
-              "text": "New medicine service"
+              "value": "mobileApp",
+              "text": "Mobile app for repeat prescription"
             }
           ]
         }) }}
       </div>
     
     </div>
-    <input type="submit" class="nhsuk-button" value="Continue" />
+    <input type="submit" class="nhsuk-button" value="Save & return" />
   </form>
 {% endblock %}
 
