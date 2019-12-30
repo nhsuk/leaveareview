@@ -1,0 +1,236 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Contact details
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Contact details",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        NHS Commissioned services 
+      </h1>
+      <p>HINT TEXT NEEDS CHANGING</p>
+    </div>
+  </div>
+
+  <form action="/editor/services/nhs-services" method="post">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half">
+
+          <h2>Health services</h3>
+          {{ checkboxes({
+            "idPrefix": "minor-ailments",
+            "name": "Minor ailments",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Minor ailments</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "minorAilment",
+                "text": "Minor ailment service"
+              }
+            ]
+          }) }}
+          {{ checkboxes({
+            "idPrefix": "vaccinations",
+            "name": "vaccinations",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Vaccinations</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "fluJab",
+                "text": "Flu jab - at risk work groups"
+              }
+            ]
+          }) }}
+          {{ checkboxes({
+            "idPrefix": "sexual-health",
+            "name": "sexual-health",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Sexual health</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "emergencyContraception",
+                "text": "Emergency contraception"
+              },
+              {
+                "value": "condomSupply",
+                "text": "Condom supply"
+              },
+              {
+                "value": "chlamydiaScreening",
+                "text": "Chlamydia screening"
+              },
+              {
+                "value": "pregnancyTesting",
+                "text": "Pregnancy testing"
+              }
+            ]
+          }) }}
+          
+          {{ checkboxes({
+            "idPrefix": "healthy-living",
+            "name": "healthy-living",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Healthy living</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "stopSmoking",
+                "text": "Stop smoking service"
+              },
+              {
+                "value": "stopSmokingVoucher",
+                "text": "Stop smoking voucher service"
+              },
+              {
+                "value": "weightManagementService",
+                "text": "Weight management service"
+              },
+              {
+                "value": "alcoholService",
+                "text": "Alcohol screening and intervention service"
+              }
+            ]
+          }) }}
+          
+          {{ checkboxes({
+            "idPrefix": "health-checks",
+            "name": "health-checks",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Health checks and tests</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "healthCheck",
+                "text": "Health check"
+              }
+            ]
+          }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-half">
+        {{ checkboxes({
+          "idPrefix": "prescriptions-delivery",
+          "name": "prescriptions-delivery",
+          "fieldset": {
+            "legend": {
+              "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Prescriptions & delivery</h3>"
+            }
+          },
+          "items": [
+            {
+              "value": "applianceDispensing",
+              "text": "Appliance dispensing"
+            },
+            {
+              "value": "stomaCustomisation",
+              "text": "Stoma customisation service"
+            },
+            {
+              "value": "applianceUseReviewService",
+              "text": "Appliance use review service"
+            }
+          ]
+        }) }}
+        
+        {{ checkboxes({
+          "idPrefix": "help-with-medicine",
+          "name": "help-with-medicine",
+          "fieldset": {
+            "legend": {
+              "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Help with medicines</h3>"
+            }
+          },
+          "items": [
+            {
+              "value": "medicineUseReviewService",
+              "text": "Medicine use review service"
+            },
+            {
+              "value": "newMedicineService",
+              "text": "New medicine service"
+            }
+          ]
+        }) }}
+      </div>
+    
+    </div>
+    <input type="submit" class="nhsuk-button" value="Continue" />
+  </form>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

@@ -4,7 +4,6 @@
 {% extends "layout.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
-<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
 
 <!-- Set the page title inside this block -->
@@ -12,7 +11,6 @@
   Org name - Manage Profile - Contact details
 {% endblock %}
 
-<!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
@@ -46,7 +44,7 @@
 
       <h1>
         <span role="text">
-          Contact details 
+          Edit services 
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
             Hyde Park Pharmacy
@@ -54,17 +52,8 @@
         </span>
       </h1>
 
-      <p>Use this tool to edit this profile's contacts details. These include Telephone, Website, Email etc. It does not include your address.</p>
-      <p>In order to update your profile's address, you need to... duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-      <form action="contact-details-edit" method="post">
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
+      <p>Use this tool to edit this profile's services. These have been split into two distinct sections. One for our NHS services and the other paid services.</p>
+      <a class="nhsuk-button" href="nhs-services">Continue</a>
 
       {{ backLink({
       "href": "manage-profile",

@@ -1,0 +1,201 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Manage Profile - Contact details
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Contact details",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        Private services 
+      </h1>
+      <p>HINT TEXT NEEDS CHANGING</p>
+    </div>
+  </div>
+
+  <form action="/editor/services/private-services" method="post">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half">
+
+          <h2>Health services</h3>
+          {{ checkboxes({
+            "idPrefix": "privateVaccinations",
+            "name": "privateVaccinations",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Vaccinations</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "fluJab",
+                "text": "Flu jab - at risk work groups"
+              },
+              {
+                "value": "travelClinic",
+                "text": "Travel clinic"
+              }
+            ]
+          }) }}
+          {{ checkboxes({
+            "idPrefix": "private-sexual-health",
+            "name": "private-sexual-health",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Sexual health</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "emergencyContraception",
+                "text": "Emergency contraception"
+              },
+              {
+                "value": "chlamydiaScreening",
+                "text": "Chlamydia screening"
+              },
+              {
+                "value": "pregnancyTesting",
+                "text": "Pregnancy testing"
+              }
+            ]
+          }) }}
+          
+          {{ checkboxes({
+            "idPrefix": "private-healthy-living",
+            "name": "private-healthy-living",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Healthy living</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "stopSmoking",
+                "text": "Stop smoking service"
+              },
+              {
+                "value": "weightManagementService",
+                "text": "Weight management service"
+              }
+            ]
+          }) }}
+          
+          {{ checkboxes({
+            "idPrefix": "private-health-checks",
+            "name": "private-health-checks",
+            "fieldset": {
+              "legend": {
+                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Health checks and tests</h3>"
+              }
+            },
+            "items": [
+              {
+                "value": "bloodPressure",
+                "text": "Blood pressure monitoring"
+              },
+              {
+                "value": "diabeticScreening",
+                "text": "Disabetic screening"
+              },
+              {
+                "value": "healthCheck",
+                "text": "Health check"
+              }
+            ]
+          }) }}
+
+      </div>
+
+      <div class="nhsuk-grid-column-one-half">
+        {{ checkboxes({
+          "idPrefix": "private-prescriptions-delivery",
+          "name": "private-prescriptions-delivery",
+          "fieldset": {
+            "legend": {
+              "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Prescriptions & delivery</h3>"
+            }
+          },
+          "items": [
+            {
+              "value": "prescriptionDelivery",
+              "text": "Prescription delivery service"
+            },
+            {
+              "value": "smsReminders",
+              "text": "SMS repeat prescription reminders"
+            },
+            {
+              "value": "mobileApp",
+              "text": "Mobile app for repeat prescription"
+            }
+          ]
+        }) }}
+      </div>
+    
+    </div>
+    <input type="submit" class="nhsuk-button" value="Save & return" />
+  </form>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
