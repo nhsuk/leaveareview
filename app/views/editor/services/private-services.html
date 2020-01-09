@@ -8,13 +8,13 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Contact details
+  Org name - Manage Profile - Services
 {% endblock %}
 
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Contact details",
+        "name": "Services",
         "href": "/"
       },
       "showNav": "false",
@@ -40,18 +40,18 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>
-        Private services 
-      </h1>
-      <p>HINT TEXT NEEDS CHANGING</p>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
+      <h3>Private services</h3>
+      <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which private services you would like to display on your public profile.</p class="nhsuk-caption-l nhsuk-u-margin-bottom-4">
     </div>
   </div>
 
-  <form action="/editor/services/private-services" method="post">
+  <form action="/private-services" method="post">
+
     <div class="nhsuk-grid-row">
+
       <div class="nhsuk-grid-column-one-half">
 
-          <h2>Health services</h3>
           {{ checkboxes({
             "idPrefix": "privateVaccinations",
             "name": "privateVaccinations",
@@ -142,6 +142,7 @@
       </div>
 
       <div class="nhsuk-grid-column-one-half">
+
         {{ checkboxes({
           "idPrefix": "private-prescriptions-delivery",
           "name": "private-prescriptions-delivery",
@@ -168,8 +169,16 @@
       </div>
     
     </div>
-    <input type="submit" class="nhsuk-button" value="Save & return" />
-  </form>
+
+  <input type="submit" class="nhsuk-button" value="Save & return" />
+  
+</form>
+
+{{ backLink({
+"href": "nhs-services",
+"text": "Back"
+}) }}
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->

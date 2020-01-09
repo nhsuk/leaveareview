@@ -8,13 +8,13 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Contact details
+  Org name - Manage Profile - Services
 {% endblock %}
 
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Contact details",
+        "name": "Services",
         "href": "/"
       },
       "showNav": "false",
@@ -52,11 +52,11 @@
         </span>
       </h1>
 
-      <p>Use this tool to edit this profile's services. These have been split into two distinct sections. One for our NHS services and the other paid services.</p>
+      <p>Use this tool to edit this profile's services. These have been split into two distinct sections. One for our NHS commissioned services and the other for private services.</p>
       <a class="nhsuk-button" href="nhs-services">Continue</a>
 
       {{ backLink({
-      "href": "manage-profile",
+      "href": "/editor/manage-profile",
       "text": "Back"
       }) }}
 

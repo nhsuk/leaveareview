@@ -285,6 +285,18 @@ router.post("/aaq3", function(req, res) {
   }
 });
 
+// Branching - Services
+router.post("/nhs-services", function(req, res) {
+  let minorailments = req.body.minorailments;
+res.redirect("/editor/services/private-services");
+});
+
+router.post("/private-services", function(req, res) {
+  let minorailments = req.body.minorailments;
+res.redirect("/editor/manage-profile");
+});
+
+
 const days = {
   MONDAY: {
     key: "monday",
@@ -591,13 +603,6 @@ function findByODS(searchTerm) {
   return searchResults;
 }
 
-router.post("/editor/services/nhs-services", (req, res) => {
-  res.redirect("/editor/services/private-services");
-});
-
-router.post("/editor/services/private-services", (req, res) => {
-  res.redirect("/editor/manage-profile");
-});
 
 /* Sort and and full search no longer required for mvp */
 

@@ -8,13 +8,13 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Contact details
+  Org name - Manage Profile - Services
 {% endblock %}
 
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Contact details",
+        "name": "Services",
         "href": "/"
       },
       "showNav": "false",
@@ -40,75 +40,87 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>
-        NHS Commissioned services 
-      </h1>
-      <p>HINT TEXT NEEDS CHANGING</p>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 2</span>
+      <h3>NHS commissioned services</h3>
+      <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which NHS commissioned services you would like to display on your public profile.</p>
     </div>
   </div>
+  
+  <form action="/nhs-services" method="post">
 
-  <form action="/editor/services/nhs-services" method="post">
     <div class="nhsuk-grid-row">
+      
       <div class="nhsuk-grid-column-one-half">
 
-          <h2>Health services</h3>
-          {{ checkboxes({
-            "idPrefix": "minor-ailments",
-            "name": "Minor ailments",
-            "fieldset": {
-              "legend": {
-                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Minor ailments</h3>"
-              }
-            },
-            "items": [
-              {
-                "value": "minorAilment",
-                "text": "Minor ailment service"
-              }
-            ]
-          }) }}
-          {{ checkboxes({
-            "idPrefix": "vaccinations",
-            "name": "vaccinations",
-            "fieldset": {
-              "legend": {
-                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Vaccinations</h3>"
-              }
-            },
-            "items": [
-              {
-                "value": "fluJab",
-                "text": "Flu jab - at risk work groups"
-              }
-            ]
-          }) }}
-          {{ checkboxes({
-            "idPrefix": "sexual-health",
-            "name": "sexual-health",
-            "fieldset": {
-              "legend": {
-                "html": "<h3 class='nhsuk-u-font-size-19 nhsuk-u-font-weight-regular'>Sexual health</h3>"
-              }
-            },
-            "items": [
-              {
-                "value": "emergencyContraception",
-                "text": "Emergency contraception"
-              },
-              {
-                "value": "condomSupply",
-                "text": "Condom supply"
-              },
-              {
-                "value": "chlamydiaScreening",
-                "text": "Chlamydia screening"
-              },
-              {
-                "value": "pregnancyTesting",
-                "text": "Pregnancy testing"
-              }
-            ]
-          }) }}
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Minor ailments
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="minorailments" name="minorailments" type="checkbox" value="Yes" {{ checked("minorailments", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="minorailments">
+                  Minor ailment service
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Vaccinations
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="flujabatrisk" name="flujabatrisk" type="checkbox" value="Yes" {{ checked("flujabatrisk", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="flujabatrisk">
+                  Flu jab - at risk work groups
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Sexual Health
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="emergencycontraception" name="emergencycontraception" type="checkbox" value="Yes" {{ checked("emergencycontraception", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="emergencycontraception">
+                  Emergency contraception
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="condomsupply" name="condomsupply" type="checkbox" value="Yes" {{ checked("condomsupply", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="condomsupply">
+                  Condom supply
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="chlamydiascreening" name="chlamydiascreening" type="checkbox" value="Yes" {{ checked("chlamydiascreening", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="chlamydiascreening">
+                  Chlamydia screening
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="pregnancytesting" name="pregnancytesting" type="checkbox" value="Yes" {{ checked("pregnancytesting", "Yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="pregnancytesting">
+                  Pregnancy testing
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        
+        </div>
+
           
           {{ checkboxes({
             "idPrefix": "healthy-living",
@@ -157,6 +169,7 @@
       </div>
 
       <div class="nhsuk-grid-column-one-half">
+
         {{ checkboxes({
           "idPrefix": "prescriptions-delivery",
           "name": "prescriptions-delivery",
@@ -201,10 +214,22 @@
           ]
         }) }}
       </div>
-    
+
     </div>
-    <input type="submit" class="nhsuk-button" value="Continue" />
-  </form>
+
+    {{ button({
+    "text": "Continue",
+    "id": "btn_submit"
+    }) }}
+
+</form>
+
+{{ backLink({
+"href": "index",
+"text": "Back"
+}) }}
+  
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
