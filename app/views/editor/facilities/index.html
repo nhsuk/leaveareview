@@ -8,13 +8,13 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Services
+  Org name - Manage Profile - Facilities
 {% endblock %}
 
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Services",
+        "name": "Facilities",
         "href": "/"
       },
       "showNav": "false",
@@ -44,7 +44,7 @@
 
       <h1>
         <span role="text">
-          Services 
+          Facilities 
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
             Hyde Park Pharmacy
@@ -52,8 +52,8 @@
         </span>
       </h1>
 
-      <p>Use this tool to edit this profile's services. These have been split into two distinct sections. One for our NHS commissioned services and the other for private services.</p>
-      <a class="nhsuk-button" href="nhs-services">Continue</a>
+      <p>Use this tool to edit this profile's facilities.</p>
+      <a class="nhsuk-button" href="facilities-edit">Continue</a>
 
       {{ backLink({
       "href": "/editor/manage-profile",
