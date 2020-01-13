@@ -1,12 +1,22 @@
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header.html' %}
+
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  NHS.UK prototype kit
+  Profile Manager
 {% endblock %}
 
-<!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
 
 {% block content %}
@@ -65,4 +75,25 @@
       </nav>
     </div>
   </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
 {% endblock %}
