@@ -287,14 +287,18 @@ router.post('/aaq3', function(req, res) {
 
 // Branching - Services
 router.post('/nhs-services', function(req, res) {
-  let minorailments = req.body.minorailments;
   res.redirect('/editor/services/private-services');
 });
 
 router.post('/private-services', function(req, res) {
-  let minorailments = req.body.minorailments;
   res.redirect('/editor/manage-profile');
 });
+
+// Branching - Facilities
+router.post('/facilities', function(req, res) {
+  res.redirect('/editor/manage-profile');
+});
+
 
 const days = {
   MONDAY: {
