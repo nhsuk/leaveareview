@@ -1,12 +1,26 @@
-
-<!-- This layout is setup for NHS.UK pages -->
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Org name - Overview
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
 
 
@@ -16,8 +30,18 @@ Org name - Overview
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Manage Weldricks Pharmacy
+        {%else%}
+        Manage {{data["displayname"]}}
+        {%endif%}</a></li>
+      </a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/days">Days</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor">Back to My profiles</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,7 +54,12 @@ Org name - Overview
       <div id="enter-time" class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend">
-            <h1>What time is Hyde Park Pharmacy open?</h1>
+            <h1>{% set displayname = 'alias0' %}
+              {% if data["displayname"] == alias0 %}
+              What time is Weldricks Pharmacy open?
+              {%else%}
+              What time is {{data["displayname"]}} open?
+              {%endif%}</h1>
           </legend>
           <span class="nhsuk-hint">Please enter times below in the 24 hour format. For midnight use 00:00 and for midday use 12:00. Times must not overlap. For services that close at midnight please use 23:59 to avoid validation errors. Services that start at midnight please use 00:00.</span>
           <div id="openingTimes">
@@ -91,31 +120,24 @@ Org name - Overview
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
-{{ footer({
-"links": [
-{
-"URL": "#",
-"label": "NHS sites"
-},
-{
-"URL": "#",
-"label": "About us"
-},
-{
-"URL": "#",
-"label": "Contact us"
-},
-{
-"URL": "#",
-"label": "Sitemap"
-},
-{
-"URL": "#",
-"label": "Our policies"
-}
-]
-})}}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
 {% endblock %}
 
 

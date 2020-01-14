@@ -8,13 +8,13 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Services
+  Profile Manager
 {% endblock %}
 
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Services",
+        "name": "Profile Manager",
         "href": "/"
       },
       "showNav": "false",
@@ -29,9 +29,22 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Manage Weldricks Pharmacy
+        {%else%}
+        Manage {{data["displayname"]}}
+        {%endif%}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Manage Weldricks Pharmacy
+      {%else%}
+      Back to Manage {{data["displayname"]}}
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}
@@ -41,7 +54,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 2</span>
-      <h3>NHS commissioned services</h3>
+      <h2>NHS commissioned services</h2>
       <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which NHS commissioned services you would like to display on your public profile.</p>
     </div>
   </div>
@@ -250,28 +263,21 @@
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
-      {
-        "URL": "#",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "#",
-        "label": "About us"
-      },
       {
         "URL": "#",
         "label": "Contact us"
       },
       {
         "URL": "#",
-        "label": "Sitemap"
+        "label": "Our policies"
       },
       {
-        "URL": "#",
-        "label": "Our policies"
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
       }
     ]
   })}}

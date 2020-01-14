@@ -1,5 +1,3 @@
-<!-- This layout is setup for transactional pages -->
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
@@ -9,14 +7,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Display name
+  Profile Manager
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Display name",
+        "name": "Profile Manager",
         "href": "/"
       },
       "showNav": "false",
@@ -31,9 +29,22 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Manage Weldricks Pharmacy
+        {%else%}
+        Manage {{data["displayname"]}}
+        {%endif%}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Manage Weldricks Pharmacy
+      {%else%}
+      Back to Manage {{data["displayname"]}}
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}
@@ -68,9 +79,9 @@
             <div class="nhsuk-radios">
 
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="alias-0" name="displayname" type="radio" value="Hyde Park Pharmacy" {{checked("displayname",data["alias0"])}}>
+                <input class="nhsuk-radios__input" id="alias-0" name="displayname" type="radio" value="Weldricks Pharmacy" {{checked("displayname",data["alias0"])}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  Do not use a display name, keep <b>Hyde Park Pharmacy</b> for display
+                  Do not use a display name, use <b>Weldricks Pharmacy</b> for display
                 </label>
               </div>
 
@@ -146,28 +157,21 @@
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
-      {
-        "URL": "#",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "#",
-        "label": "About us"
-      },
       {
         "URL": "#",
         "label": "Contact us"
       },
       {
         "URL": "#",
-        "label": "Sitemap"
+        "label": "Our policies"
       },
       {
-        "URL": "#",
-        "label": "Our policies"
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
       }
     ]
   })}}

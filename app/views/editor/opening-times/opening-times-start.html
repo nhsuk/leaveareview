@@ -1,5 +1,3 @@
-<!-- This layout is setup for transactional pages -->
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
@@ -9,14 +7,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Manage Profile - Opening times
+  Profile Manager
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Opening times",
+        "name": "Profile Manager",
         "href": "/"
       },
       "showNav": "false",
@@ -31,9 +29,22 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">Manage Hyde Park Pharmacy</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Manage Weldricks Pharmacy
+        {%else%}
+        Manage {{data["displayname"]}}
+        {%endif%}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Manage Weldricks Pharmacy
+      {%else%}
+      Back to Manage {{data["displayname"]}}
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}
@@ -49,13 +60,17 @@
           Opening times
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
-            Hyde Park Pharmacy
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            Weldricks Pharmacy
+            {%else%}
+            {{data["displayname"]}}
+            {%endif%}
           </span>
         </span>
       </h1>
 
-      <p>Use this tool to update or verify your opening times including bank holidays and temporary changes.</p>
-      <p class="nhsuk-u-margin-bottom-6">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p class="nhsuk-u-margin-bottom-6">Use this tool to update or verify your opening times including bank holidays and temporary changes.</p>
 
     </div>
 
@@ -70,8 +85,6 @@
           <div class="nhsuk-promo__content">
             <h3 class="nhsuk-promo__heading">Standard times</h3>
             <p class="nhsuk-promo__description">Your typical 7 day a week opening times.</p>
-            <hr>
-            <p class="nhsuk-promo__description">Last verified: </p>
           </div>
         </a>
       </div>
@@ -84,8 +97,6 @@
           <div class="nhsuk-promo__content">
             <h3 class="nhsuk-promo__heading">Bank holidays</h3>
             <p class="nhsuk-promo__description">Set your Bank Holiday opening times.</p>
-            <hr>
-            <p class="nhsuk-promo__description">Last verified: </p>
           </div>
         </a>
       </div>
@@ -98,8 +109,6 @@
           <div class="nhsuk-promo__content">
             <h3 class="nhsuk-promo__heading">Temporary changes</h3>
             <p class="nhsuk-promo__description">Adhoc changes to your standard opening times.</p>
-            <hr>
-            <p class="nhsuk-promo__description">Last verified: </p>
           </div>
         </a>
       </div>
@@ -119,28 +128,21 @@
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
-      {
-        "URL": "#",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "#",
-        "label": "About us"
-      },
       {
         "URL": "#",
         "label": "Contact us"
       },
       {
         "URL": "#",
-        "label": "Sitemap"
+        "label": "Our policies"
       },
       {
-        "URL": "#",
-        "label": "Our policies"
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
       }
     ]
   })}}

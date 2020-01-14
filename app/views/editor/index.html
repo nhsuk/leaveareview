@@ -1,15 +1,22 @@
-<!-- This layout is setup for NHS.UK pages -->
-
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Organisation Profile Manager
+  Profile Manager
 {% endblock %}
 
-<!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
 
 {% block content %}
@@ -20,7 +27,12 @@
           Welcome
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span>
-            Weldricks pharmacy
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            Weldricks Pharmacy
+            {%else%}
+            {{data["displayname"]}}
+            {%endif%}
           </span>
         </span>
       </h1>
@@ -114,28 +126,21 @@
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
-      {
-        "URL": "#",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "#",
-        "label": "About us"
-      },
       {
         "URL": "#",
         "label": "Contact us"
       },
       {
         "URL": "#",
-        "label": "Sitemap"
+        "label": "Our policies"
       },
       {
-        "URL": "#",
-        "label": "Our policies"
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
       }
     ]
   })}}
