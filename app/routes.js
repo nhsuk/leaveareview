@@ -7,6 +7,9 @@ const pharmacies = require('./data/pharmacies');
 const moment = require('moment');
 const app = require('../app');
 
+// Create local storage for opening times
+const localStorage = new LocalStorage('./scratch');
+
 moment.locale('en-GB');
 // Documentation router
 router.get('/', function(req, res) {
@@ -239,6 +242,57 @@ router.post('/contact-details', function(req, res) {
   }
 });
 
+router.post('/contact-details-check', function(req, res) {
+  localStorage.setItem(
+    'contactDetailsUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('/editor/manage-profile');
+});
+
+router.post('/facilities-edit', function(req, res) {
+  localStorage.setItem(
+    'facilitiesLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('/editor/manage-profile');
+});
+
+router.post('/private-services', function(req, res) {
+  localStorage.setItem(
+    'servicesLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('/editor/manage-profile');
+});
+
+router.get('/editor/manage-profile', function(req, res) {
+  let contactDetailsLastUpdatedDate = '12 December 2019';
+  let openingTimesLastUpdatedDate = '12 December 2019'
+  let facilitiesLastUpdatedDate = '12 December 2019'
+  let servicesLastUpdatedDate = '12 December 2019'
+  if (localStorage.getItem('contactDetailsUpdatedDate')) {
+    contactDetailsLastUpdatedDate = localStorage.getItem(
+      'contactDetailsUpdatedDate'
+    );
+  }
+  if (localStorage.getItem('lastUpdatedOn')) {
+    openingTimesLastUpdatedDate = localStorage.getItem('lastUpdatedOn');
+  }
+  if (localStorage.getItem('facilitiesLastUpdatedDate')) {
+    facilitiesLastUpdatedDate = localStorage.getItem('facilitiesLastUpdatedDate');
+  }
+  if (localStorage.getItem('servicesLastUpdatedDate')) {
+    servicesLastUpdatedDate = localStorage.getItem('servicesLastUpdatedDate');
+  }
+  res.render('editor/manage-profile', { 
+    contactDetailsLastUpdatedDate, 
+    openingTimesLastUpdatedDate, 
+    facilitiesLastUpdatedDate, 
+    servicesLastUpdatedDate,
+  });
+});
+
 // Branching - Ask a doctor a question
 
 router.post('/aaq2', function(req, res) {
@@ -299,7 +353,6 @@ router.post('/facilities', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-
 const days = {
   MONDAY: {
     key: 'monday',
@@ -332,9 +385,6 @@ const days = {
 };
 
 const getDay = req => days[req.params.day.toUpperCase()];
-
-// Create local storage for opening times
-const localStorage = new LocalStorage('./scratch');
 
 // Create default opening times
 const emptyOpeningTimes = Object.keys(days).map(key => ({
@@ -638,4 +688,7 @@ router.get('/profiles/sort-city', (req, res) => {
   res.render('profiles/sort-name', { currentPharmacies, pharmacies });
 });
 
-module.exports = router;
+module.exports = { 
+  router: router,
+  localStorage: localStorage
+}
