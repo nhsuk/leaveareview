@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -55,7 +55,7 @@
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
       <h2>Private services</h2>
-      <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which private services you would like to display on your public profile.</p class="nhsuk-caption-l nhsuk-u-margin-bottom-4">
+      <p class="nhsuk-u-margin-bottom-6">Tick the checkboxes to choose which private services you would like to display on your profile.</p class="nhsuk-caption-l nhsuk-u-margin-bottom-4">
     </div>
   </div>
 
@@ -77,7 +77,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="privateservices-1" name="privateservices" type="checkbox" value="flujabatriskP" {{ checked("privateservices", "flujabatriskP") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="privateservices-1">
-                  Flu jab - at risk work groups
+                  Flu vaccine - for not at risk groups
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
@@ -155,7 +155,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="privateservices-9" name="privateservices" type="checkbox" value="diabeticscreeningP" {{ checked("privateservices", "diabeticscreeningP") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="privateservices-9">
-                  Disabetic screening
+                  Diabetes screening
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
@@ -205,6 +205,8 @@
       </div>
     
     </div>
+
+    <p>I confirm that these private services are correct.</p>
 
   <input type="submit" class="nhsuk-button" value="Save & confirm" />
   

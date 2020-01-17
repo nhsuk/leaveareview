@@ -32,18 +32,18 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -54,7 +54,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Standard opening times</h1>
+    <h1>Opening times</h1>
     <!--p class="nhsuk-u-margin-bottom-0">Last updated on {{ lastUpdatedOn }}</p-->
     <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
       {% for day in openingTimes %}
@@ -84,7 +84,7 @@
         </div>
       {% endfor %}
     </dl>
-      <p>By clicking on this button, I confirm that the above times are up to date</p>
+      <p>I confirm that these opening times are correct.</p>
       <a href="/editor/opening-times/opening-times-start" class="nhsuk-button">Save and Confirm</a>
   </div>
 </div>

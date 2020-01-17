@@ -30,17 +30,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -53,7 +53,7 @@
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 1</span>
       <h2>Facilities</h2>
-      <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which facilities you would like to display on your public profile.</p>
+      <p class="nhsuk-u-margin-bottom-6">Tick the checkboxes to choose which facilities you would like to display on your profile.</p>
     </div>
   </div>
   
@@ -87,7 +87,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="facilities-3" name="facilities" type="checkbox" value="disabledWC" {{ checked("facilities", "disabledWC") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
-                  Disabled WC
+                  Disabled toilet
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
@@ -117,7 +117,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="facilities-8" name="facilities" type="checkbox" value="stepFreeAccess" {{ checked("facilities", "stepFreeAccess") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-8">
-                  Step free access
+                  Step-free access
                 </label>
               </div>
             </div>
@@ -186,6 +186,8 @@
       </div>
 
     </div>
+
+    <p>I confirm that these facilities are correct.</p>
 
     {{ button({
     "text": "Save and confirm",

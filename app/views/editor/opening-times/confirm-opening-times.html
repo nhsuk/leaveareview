@@ -32,9 +32,9 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
       </a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
@@ -49,7 +49,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Confirm new opening times</h1>
+    <h2>Check your new opening times</h2>
     <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
       {% for day in openingTimes %}
         <div class="nhsuk-summary-list__row">
@@ -78,6 +78,7 @@
         </div>
       {% endfor %}
     </dl>
+    <p>I confirm that these opening times are correct.</p>
     <a class="nhsuk-button" href="/editor/opening-times/opening-times-start">Save and confirm</a>
   </div>
 </div>

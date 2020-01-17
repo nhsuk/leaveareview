@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -69,8 +69,8 @@
         </span>
       </h1>
 
-      <p>Use this tool to edit your contact details for this profile. These include telephone, website and email.</p>
-      <p>You cannot use this tool to edit your address. In order to update your profile's address, contact the <a href="">NHS Business Services Authority</a>.</p>
+      <p>Update or validate your contact details for this profile.</p>
+      <p>You cannot use this tool to edit your address. To update your profile's address, <a href="">email the NHS Business Services Authority</a>.</p>
 
       <form action="contact-details-edit" method="post">
 

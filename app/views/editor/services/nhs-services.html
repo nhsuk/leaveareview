@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -55,7 +55,7 @@
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 2</span>
       <h2>NHS commissioned services</h2>
-      <p class="nhsuk-u-margin-bottom-6">Use the checkboxes below to choose which NHS commissioned services you would like to display on your public profile.</p>
+      <p class="nhsuk-u-margin-bottom-6">Tick the checkboxes to choose which NHS commissioned services you would like to display on your profile.</p>
     </div>
   </div>
   
@@ -93,7 +93,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="nhscommissionedservices-2" name="nhscommissionedservices" type="checkbox" value="flujabatrisk" {{ checked("nhscommissionedservices", "flujabatrisk") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="nhscommissionedservices-2">
-                  Flu jab - at risk work groups
+                  Flu vaccine - at risk groups
                 </label>
               </div>
             </div>
@@ -177,7 +177,7 @@
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="nhscommissionedservices-11" name="nhscommissionedservices" type="checkbox" value="healthcheck" {{ checked("nhscommissionedservices", "healthcheck") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="nhscommissionedservices-11">
-                  Health check
+                  NHS Health check
                 </label>
               </div>
             </div>
@@ -243,6 +243,8 @@
       </div-->
 
     </div>
+
+    <p>I confirm that these NHS commissioned services are correct.</p>
 
     {{ button({
     "text": "Confirm and continue",

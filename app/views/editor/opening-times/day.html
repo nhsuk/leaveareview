@@ -32,9 +32,9 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
       </a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
@@ -55,7 +55,7 @@
           <legend class="nhsuk-fieldset__legend">
             <h1>{% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
-              Is Weldricks Pharmacy open on {{dayObj.display}}?
+              Is Weldricks pharmacy open on {{dayObj.display}}?
               {%else%}
               Is {{data["displayname"]}} open on {{dayObj.display}}?
               {%endif%}</h1>
