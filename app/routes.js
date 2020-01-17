@@ -542,7 +542,6 @@ router.get(
   '/editor/opening-times/temporary-changes/temporary-change-open',
   (req, res) => {
     let temporaryDate = req.query.date;
-    console.log('temporaryDate ', temporaryDate);
     res.render('editor/opening-times/temporary-changes/temporary-change-open', {
       temporaryDate
     });
@@ -553,13 +552,15 @@ router.post(
   '/editor/opening-times/temporary-changes/temporary-change-open',
   (req, res) => {
     const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
-    console.log(req.body.tempDateHidden);
+    console.log('tempChangesOpen', tempChanges);
     if (req.body.open === 'yes') {
+      console.log('tempChangesYES')
       res.render(
         `editor/opening-times/temporary-changes/temporary-changes-time`,
         { temporaryDate: req.body.tempDateHidden }
       );
     } else {
+      console.log('tempChangesElse')
       let tempChange = {
         date: req.body.tempDateHidden,
         time: 'Closed'
@@ -606,6 +607,7 @@ router.post(
     };
     const newChanges = [...tempChanges, tempChange];
     localStorage.setItem('tempChanges', JSON.stringify(newChanges));
+    console.log('NEWCHANGES', newChanges)
     res.render('editor/opening-times/temporary-changes/temporary-changes', {
       tempChanges: newChanges
     });
