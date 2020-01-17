@@ -245,7 +245,7 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('contactDetailsUpdatedDate', '12 December 2019');
   localStorage.setItem('lastUpdatedOn', '12 December 2019');
   localStorage.setItem('facilitiesLastUpdatedDate', '12 December 2019')
-  localStorage.setItem('serviceLastUpdatedDate', '12 December 2019')
+  localStorage.setItem('servicesLastUpdatedDate', '12 December 2019')
   res.render('examples/passing-data/clear-data-success');
 });
 
