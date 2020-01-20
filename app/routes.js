@@ -218,7 +218,7 @@ router.post('/display-name-2', function(req, res) {
   if (!displayname) {
     res.redirect('/editor/org-name-choose-displayname?error=true');
   } else {
-    res.redirect('/editor/manage-profile');
+    res.redirect('/editor/org-name-confirm-displayname');
   }
 });
 
@@ -265,6 +265,10 @@ router.post('/private-services', function(req, res) {
   );
   res.redirect('/editor/manage-profile');
 });
+
+
+
+
 
 router.get('/editor/manage-profile', function(req, res) {
   let contactDetailsLastUpdatedDate = '12 December 2019';
