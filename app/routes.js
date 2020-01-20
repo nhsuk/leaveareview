@@ -268,9 +268,9 @@ router.post('/private-services', function(req, res) {
 
 router.get('/editor/manage-profile', function(req, res) {
   let contactDetailsLastUpdatedDate = '12 December 2019';
-  let openingTimesLastUpdatedDate = '12 December 2019'
-  let facilitiesLastUpdatedDate = '12 December 2019'
-  let servicesLastUpdatedDate = '12 December 2019'
+  let openingTimesLastUpdatedDate = '12 December 2019';
+  let facilitiesLastUpdatedDate = '12 December 2019';
+  let servicesLastUpdatedDate = '12 December 2019';
   if (localStorage.getItem('contactDetailsUpdatedDate')) {
     contactDetailsLastUpdatedDate = localStorage.getItem(
       'contactDetailsUpdatedDate'
@@ -280,16 +280,18 @@ router.get('/editor/manage-profile', function(req, res) {
     openingTimesLastUpdatedDate = localStorage.getItem('lastUpdatedOn');
   }
   if (localStorage.getItem('facilitiesLastUpdatedDate')) {
-    facilitiesLastUpdatedDate = localStorage.getItem('facilitiesLastUpdatedDate');
+    facilitiesLastUpdatedDate = localStorage.getItem(
+      'facilitiesLastUpdatedDate'
+    );
   }
   if (localStorage.getItem('servicesLastUpdatedDate')) {
     servicesLastUpdatedDate = localStorage.getItem('servicesLastUpdatedDate');
   }
-  res.render('editor/manage-profile', { 
-    contactDetailsLastUpdatedDate, 
-    openingTimesLastUpdatedDate, 
-    facilitiesLastUpdatedDate, 
-    servicesLastUpdatedDate,
+  res.render('editor/manage-profile', {
+    contactDetailsLastUpdatedDate,
+    openingTimesLastUpdatedDate,
+    facilitiesLastUpdatedDate,
+    servicesLastUpdatedDate
   });
 });
 
@@ -552,15 +554,12 @@ router.post(
   '/editor/opening-times/temporary-changes/temporary-change-open',
   (req, res) => {
     const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
-    console.log('tempChangesOpen', tempChanges);
     if (req.body.open === 'yes') {
-      console.log('tempChangesYES')
       res.render(
         `editor/opening-times/temporary-changes/temporary-changes-time`,
         { temporaryDate: req.body.tempDateHidden }
       );
     } else {
-      console.log('tempChangesElse')
       let tempChange = {
         date: req.body.tempDateHidden,
         time: 'Closed'
@@ -588,6 +587,7 @@ router.get(
 router.post(
   '/editor/opening-times/temporary-changes/temporary-changes-time',
   (req, res) => {
+    const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
     function getTime() {
       let time = [];
       if (req.body.tempOpenTime1) {
@@ -607,7 +607,6 @@ router.post(
     };
     const newChanges = [...tempChanges, tempChange];
     localStorage.setItem('tempChanges', JSON.stringify(newChanges));
-    console.log('NEWCHANGES', newChanges)
     res.render('editor/opening-times/temporary-changes/temporary-changes', {
       tempChanges: newChanges
     });
@@ -690,7 +689,7 @@ router.get('/profiles/sort-city', (req, res) => {
   res.render('profiles/sort-name', { currentPharmacies, pharmacies });
 });
 
-module.exports = { 
+module.exports = {
   router: router,
   localStorage: localStorage
-}
+};
