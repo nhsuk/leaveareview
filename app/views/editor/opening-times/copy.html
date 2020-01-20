@@ -40,7 +40,14 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/days">Days</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">Back to Manage Hyde Park Pharmacy</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Weldricks Pharmacy
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}

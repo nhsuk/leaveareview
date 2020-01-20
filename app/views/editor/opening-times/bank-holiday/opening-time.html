@@ -32,9 +32,9 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/bank-holiday/days">Bank holidays</a></li>
@@ -42,9 +42,9 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -65,7 +65,26 @@
               What time is {{data["displayname"]}} open on 26 December 2019?
               {%endif%}</h1>
           </legend>
-          <span class="nhsuk-hint">Please enter times below in the 24 hour format. For midnight use 00:00 and for midday use 12:00. Times must not overlap. For services that close at midnight please use 23:59 to avoid validation errors. Services that start at midnight please use 00:00.</span>
+               
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                How to enter your opening times
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <span class="nhsuk-hint">
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                  <li>Please enter your opening times in the 24 hour format. For midnight use 00:00 and for midday use 12:00</li>
+                  <li>Times must not overlap over 2 days</li>
+                  <li>On each day, opening times must close at 23:59</li>
+                </ul>
+                <h4>Example</h4>
+                <p>If on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
+                <p>Wednesday: 19:00-23:59<br>Thursday: 00:00-02:00</p></span>
+            </div>
+          </details>
+
           <div id="openingTimes">
             <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
@@ -109,7 +128,7 @@
                 </div>
               </div>
             </div>
-            <p><a id="anotherTime" href="">Add another opening time</a></p>
+            <p><a id="anotherTime" href="">Add another opening time to this day</a></p>
           </div>
         </fieldset>
         <button type="submit" class="nhsuk-button">Continue</button>

@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -53,7 +53,7 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 2</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 3</span>
     </div>
   </div>
 
@@ -65,9 +65,9 @@
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-            Organisation names
+            Alternative organisation name
           </legend>
-          <p>You can have up to 5 names for <b>Weldricks Pharmacy</b></p>
+          <p>Your registered name is <b>Weldricks Pharmacy</b></p>
 
           <span id="error-message" class="nhsuk-error-message" style="display: none;">
             <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -76,16 +76,16 @@
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="alias1">
-              Alias 1
+              Your alternative name
             </label>
             <input class="nhsuk-input" id="alias1" name="alias1" type="text" aria-describedby="input" value="{{data["alias1"]}}">
           </div>
-          <div class="nhsuk-form-group">
+          <!--div class="nhsuk-form-group">
             <label class="nhsuk-label" for="alias2">
               Alias 2
             </label>
             <input class="nhsuk-input" id="alias2" name="alias2" type="text" aria-describedby="input" value="{{data["alias2"]}}">
-          </div>
+          </!--div>
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="alias3">
               Alias 3
@@ -103,7 +103,7 @@
               Alias 5
             </label>
             <input class="nhsuk-input" id="alias5" name="alias5" type="text" aria-describedby="input" value="{{data["alias5"]}}">
-          </div>
+          </div-->
 
         </fieldset>
 

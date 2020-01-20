@@ -53,7 +53,7 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds"> 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 3</span>
     </div>
   </div>
 
@@ -65,9 +65,8 @@
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-            Choose your display name
+            Choose your profile's organisation name
           </legend>
-          <p>All organisation names will be used to help users find your profile but only one can be chosen as your profile's display name.</p>
 
           <span id="error-message" class="nhsuk-error-message" style="display: none;">
             <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -81,17 +80,18 @@
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="alias-0" name="displayname" type="radio" value="Weldricks Pharmacy" {{checked("displayname",data["alias0"])}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  Do not use a display name, use <b>Weldricks Pharmacy</b> for display
+                  Use the registered name, <b>Weldricks Pharmacy</b>
                 </label>
               </div>
 
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="alias-1" name="displayname" type="radio" value="{{data["alias1"]}}" {{checked("displayname",data["alias1"])}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  {{data["alias1"]}}
+                  Use the alternative name, <b>{{data["alias1"]}}</b>
                 </label>
               </div>
 
+              <!--
               {% if data["alias2"] == "" %}
               {%else%}
               <div class="nhsuk-radios__item">
@@ -130,7 +130,7 @@
                   {{data["alias5"]}}
                 </label>
               </div>
-              {%endif%} 
+              {%endif%} -->
 
             </div>
 
@@ -140,7 +140,7 @@
         </fieldset>
 
         {{ button({
-          "text": "Save and confirm",
+          "text": "Continue",
           "id": "btn_submit"
         }) }}
 

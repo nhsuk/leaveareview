@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}</a></p>
   </div>
 </nav>
@@ -55,7 +55,7 @@
 
       <h1>
         <span role="text">
-          Organisation names
+          Organisation name
           <span class="nhsuk-page-heading__small">
             <span class="visually-hidden"> -</span> 
             {% set displayname = 'alias0' %}
@@ -68,8 +68,9 @@
         </span>
       </h1>
 
-      <p>Profile organisation names are used to help people find your pages when searching on the NHS website. These could be former names of your organisation or non-official names that people use to refer to your organisation.</p>
-      <p>You can have up to 5 of these saved, helping users find your profile but only one can be chosen as your profile's 'Display name'.</p>
+      <p>Use this tool to change the organisation name on your profile by creating an alternative name.</p>
+      <p>This does not have to be your organisation's registered name.</p>
+      <p>You can change back to the registered organisation name whenever you want.</p>
 
       <form action="org-name-edit" method="post">
 
