@@ -73,20 +73,19 @@
               </span>
             </summary>
             <div class="nhsuk-details__text">
-              <span class="nhsuk-hint">
-                <ul class="nhsuk-list nhsuk-list--bullet">
-                  <li>Please enter your opening times in the 24 hour format. For midnight use 00:00 and for midday use 12:00</li>
-                  <li>Times must not overlap over 2 days</li>
-                  <li>On each day, opening times must close at 23:59</li>
-                </ul>
-                <h4>Example</h4>
-                <p>If on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
-                <p>Wednesday: 19:00-23:59<br>Thursday: 00:00-02:00</p></span>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>Please enter your opening times in the 24 hour format. For midnight use 00:00 and for midday use 12:00</li>
+                <li>Times must not overlap over 2 days</li>
+                <li>On each day, opening times must close at 23:59</li>
+              </ul>
+              <h2>Example</h2>
+              <p>If on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
+              <p>Wednesday: 19:00-23:59<br>Thursday: 00:00-02:00</p>
             </div>
           </details>
 
           <div id="openingTimes" class="nhsuk-u-margin-bottom-6">
-            <div id="timeEntry1" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="bankHolOpenTime1">Open</label>
@@ -99,8 +98,9 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="bankHolCloseTime1" type="text" id="bankHolCloseTime1">
                 </div>
               </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a>
             </div>
-            <div id="timeEntry2" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="bankHolOpenTime2">Open</label>
@@ -113,8 +113,9 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="bankHolCloseTime2" id="bankHolCloseTime2">
                 </div>
               </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a>
             </div>
-            <div id="timeEntry3" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="bankHolOpenTime3">Open</label>
@@ -127,8 +128,8 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="bankHolCloseTime3" id="bankHolCloseTime3">
                 </div>
               </div>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a>
             </div>
-            <p><a id="anotherTime" href="">Add another opening time to this day</a></p>
           </div>
         </fieldset>
         <button type="submit" class="nhsuk-button">Continue</button>
@@ -163,7 +164,25 @@
 
 {% block pageScripts %}
 <script>
+  document.getElementById('removeTime1').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('bankHolOpenTime1').value = '';
+    document.getElementById('bankHolCloseTime1').value = '';
+  });
+
+  document.getElementById('removeTime2').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('bankHolOpenTime2').value = '';
+    document.getElementById('bankHolCloseTime2').value = '';
+  });
+
+  document.getElementById('removeTime3').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('bankHolOpenTime3').value = '';
+    document.getElementById('bankHolCloseTime3').value = '';
+  });
   // Hiding additional time entries by default
+  /*
   document.getElementById('timeEntry2').style.display = 'none';
   document.getElementById('timeEntry3').style.display = 'none';
 
@@ -196,6 +215,7 @@
       document.getElementById('openingTimes').style.display = "block";
     }
   });
+  */
 
 </script>
 {% endblock %}
