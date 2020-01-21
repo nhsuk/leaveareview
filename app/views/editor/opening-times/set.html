@@ -102,7 +102,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="closeTime1" type="text" id="closeTime1" value={{currentDayOpeningTimes[1]}}>
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Remove time</a>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a>
             </div>
             <div id="timeEntry2" class="nhsuk-u-margin-bottom-6">
               <div class="nhsuk-date-input__item">
@@ -117,7 +117,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime2" id="closeTime2" value={{currentDayOpeningTimes[3]}}>
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Remove time</a>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a>
             </div>
         
             <div id="timeEntry3" class="nhsuk-u-margin-bottom-6">
@@ -133,7 +133,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime3" id="closeTime3" value={{currentDayOpeningTimes[5]}}>
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Remove time</a>
+              <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a>
             </div>
             <p><a id="anotherTime" href="">Add another opening time to this day</a></p>
           </div>
@@ -189,9 +189,12 @@
     e.preventDefault();
     counter++;
     // Display the previously hidden time entries
-    if (counter <= 3) {
+    if (document.getElementById(`timeEntry2`).style.display === 'none') {
       document.getElementById(`timeEntry${counter}`).style.display = 'block';
       document.getElementById(`openTime${counter}`).focus();
+    } else if (document.getElementById(`timeEntry2`).style.display !== 'none') {
+      document.getElementById(`timeEntry3`).style.display = 'block';
+      document.getElementById(`openTime3`).focus();
     }
     if (counter === 3) {
       document.getElementById('anotherTime').style.display = 'none';
@@ -215,6 +218,5 @@
     document.getElementById('openTime3').value = '';
     document.getElementById('closeTime3').value = '';
   });
-
 </script>
 {% endblock %}
