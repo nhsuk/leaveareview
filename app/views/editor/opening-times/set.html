@@ -89,7 +89,7 @@
           </details>
 
           <div id="openingTimes" class="nhsuk-u-margin-bottom-6">
-            <div id="timeEntry1" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="openTime1">Open</label>
@@ -104,7 +104,7 @@
               </div>
               <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a>
             </div>
-            <div id="timeEntry2" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="openTime2">Open</label>
@@ -120,7 +120,7 @@
               <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a>
             </div>
         
-            <div id="timeEntry3" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-date-input__label" for="openTime3">Open</label>
@@ -135,7 +135,7 @@
               </div>
               <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a>
             </div>
-            <p><a id="anotherTime" href="">Add another opening time to this day</a></p>
+            <!-- <p><a id="anotherTime" href="">Add another opening time to this day</a></p> -->
           </div>
         </fieldset>
         <button type="submit" class="nhsuk-button">Continue</button>
@@ -171,6 +171,7 @@
 {% block pageScripts %}
 <script>
   // Hiding additional time entries by default
+  /*
   if (document.getElementById('openTime2').value == '') {
     document.getElementById('timeEntry2').style.display = 'none';
   }
@@ -201,6 +202,7 @@
     }
   });
 
+  */
   document.getElementById('removeTime1').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('openTime1').value = '';
