@@ -295,7 +295,7 @@ router.get('/editor/manage-profile', function(req, res) {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
     facilitiesLastUpdatedDate,
-    servicesLastUpdatedDate
+    servicesLastUpdatedDate,
   });
 });
 

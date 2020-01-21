@@ -83,8 +83,8 @@
             {% if thirdTime %}
               <p>{{ thirdTime }}</p>
             {% endif %}
-          {% elif data['open24Hours'] %}
-            <p>Open 24 hours</p>
+          {% elif data['open'] == 'no' %}
+            <p>Closed</p>
           {% else %}
             Unknown
           {% endif %}
