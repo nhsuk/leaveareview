@@ -32,17 +32,17 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Manage Weldricks Pharmacy
+        Edit Weldricks Pharmacy
         {%else%}
-        Manage {{data["displayname"]}}
+        Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Manage Weldricks Pharmacy
+      Back to Edit Weldricks Pharmacy
       {%else%}
-      Back to Manage {{data["displayname"]}}
+      Back to Edit {{data["displayname"]}}
       {%endif%}
     </a></p>
   </div>
@@ -70,7 +70,8 @@
 
           <div class="nhsuk-form-group">
 
-            <p>Are you sure you want to change the organisation name on your profile? The new name will appear on all the pages of your profile and also in search engine listings.</p>
+            <p>Are you sure you want to change your profile's organisation name?</p>
+            <p>The new name will appear on all the pages of your profile and also in search engine listings.</p>
             <p class="nhsuk-body-l">{{data["displayname"]}}</p>
 
           </div>

@@ -59,22 +59,33 @@
       <div id="enter-time" class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend">
-            <h1>What time is the temporary time change on {{ temporaryDate }}</h1>
+            <h1>What time is {% set displayname = 'alias0' %}
+              {% if data["displayname"] == alias0 %}
+              Weldricks Pharmacy
+              {%else%}
+              {{data["displayname"]}}
+              {%endif%} open on {{ temporaryDate }}?</h1>
           </legend>
 
+          <!--h3>How to enter your opening times</h3-->
+          <p>Please enter your opening times in the 24 hour format.</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>For midnight use 00:00 and for midday use 12:00</li>
+            <li>Times must not overlap over 2 days</li>
+            <li>Opening times must close at 23:59</li>
+          </ul>
           <details class="nhsuk-details nhsuk-u-margin-bottom-6">
             <summary class="nhsuk-details__summary">
               <span class="nhsuk-details__summary-text">
-                How to enter your opening times
+                Example - how to enter opening times that extend over 2 days
               </span>
             </summary>
             <div class="nhsuk-details__text">
-              <ul class="nhsuk-list nhsuk-list--bullet">
+              <!--ul class="nhsuk-list nhsuk-list--bullet">
                 <li>Please enter your opening times in the 24 hour format. For midnight use 00:00 and for midday use 12:00</li>
                 <li>Times must not overlap over 2 days</li>
                 <li>On each day, opening times must close at 23:59</li>
-              </ul>
-              <h2>Example</h2>
+              </ul-->
               <p>If on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
               <p>Wednesday: 19:00-23:59<br>Thursday: 00:00-02:00</p>
             </div>
@@ -95,7 +106,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="tempCloseTime1" type="text" id="tempCloseTime1">
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a-->
             </div>
             <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
@@ -110,7 +121,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="tempCloseTime2" id="tempCloseTime2">
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a-->
             </div>
             <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">
@@ -125,7 +136,7 @@
                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="tempCloseTime3" id="tempCloseTime3">
                 </div>
               </div>
-              <a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a-->
             </div>
           </div>
         </fieldset>
