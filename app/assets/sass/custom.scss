@@ -81,7 +81,7 @@
             } }
 
 .starssmall {
-    margin: -15px 0px 10px 0px;
+    margin: -10px 0px 5px 0px;
     //color: #ffd300;
     color: #005EB8;
     display: block;
@@ -93,6 +93,7 @@
   }
     @media (min-width: 40.0625em) {
         .starssmall {
+            margin: -15px 0px 10px 0px;
             font-size: 20px;
             font-weight: 600;
             line-height: 28px;
