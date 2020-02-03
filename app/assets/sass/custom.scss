@@ -24,12 +24,14 @@
 }
 
 .nhsuk-body-xs {
-    font-size: 12px;
+    font-size: 10px;
 }
 
-.nhsuk-promo__grey2 {
-    color: #768692;
-    font-size: 12px; }
+.nhsuk-panel__grey2 {
+    color: #768692 !important;
+    font-size: 14px !important; 
+    margin-top: -10px !important;
+}
 
 .nhsuk-page-heading {
     padding: 25px 0 40px; }
@@ -77,6 +79,7 @@
             } }
 
 .starssmall {
+    margin: -20px 0px 5px 0px;
     color: #ffd300;
     display: block;
     font-size: 14px;
