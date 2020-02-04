@@ -690,12 +690,15 @@
     border: solid 4px #005EB8 !important; 
   }
 
-  .nhsuk-panel-warning {
-    margin-bottom: 40px;
-    margin-top: 40px;
-    padding: 24px;
-    background-color: #F1F3E2 !important; 
-    border: solid 4px #FFEB3B !important; 
+  .nhsuk-notification-warning {
+    margin-bottom: 28px !important;
+    margin-top: -16px !important;
+    padding: 16px !important;
+    /*background-color: #F1F3E2 !important;*/
+    background-color: #ffffff !important;
+    /*border-bottom: solid 4px #AEB7BD !important;*/
+    border-bottom: solid 4px #D8DDE0 !important;
+    border-left: solid 16px #FFB81C !important;
   }
   
   .nhsuk-details {
