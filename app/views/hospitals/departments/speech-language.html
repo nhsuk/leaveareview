@@ -1,0 +1,196 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Speech and language 
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Sevenoaks Hospital
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Departments and services</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/ratings-reviews/">Ratings and reviews</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-inset-text nhsuk-u-margin-top-0">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>This Department is managed by Kent Community Health NHS Foundation Trust. They are not the primary provider at this hospital and may have different contact details.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h2>Contact us</h2>
+      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
+
+        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Online</h3>
+            <p><a href="">Visit this department's webpage</a></p>
+          </div>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
+          <div class="nhsuk-panel">
+            <h3>Ratings and reviews</h3>
+            <p><a href="">Read reviews</a></p>
+            <p><a href="">Review this department</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
+      <h2>About this department</h2>
+      <h3>Who we are</h3>
+      <p>We are speech and language therapists who specialise in treating communication and swallowing disorders using one-to-one or group therapy, carer support and advice. Our clients can have a range of long-term conditions including Parkinson’s disease, motor neurone disease, multiple sclerosis, stroke, dementia and Huntington’s disease, but we are not generally able to treat patients whose condition is the result of a hearing impairment or who have lifelong conditions such as autistic spectrum disorders. Please contact us if you would like to discuss a referral to our service.</p>
+      <h3>What we do</h3>
+      <p>We work in community clinics, hospitals, private homes and nursing and residential homes to assess, diagnose and help patients manage a variety of communication and swallowing disorders. The team provides training programmes to tackle such things as communication after a stroke, feeding and communication difficulties for people suffering from dementia and recognising and managing swallowing and vocal problems including stammering and slurred speech. We specialise in acquired neurological disorders, older adult mental health, voice, head and neck oncology, dysphagia (swallowing disorders) and stammering.</p>
+      <h3>How do you use this service?</h3>
+      <p>You can get in touch using the information here or you can be referred by a GP or healthcare professional.</p>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
+      <h2>Treatments and services</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="">Speech and language</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>What patients say</h2>
+      <p>There are currently no reviews for this department.</p>
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/dentists/leave-review">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Leave a review</span>
+        </a>
+      </div>
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
