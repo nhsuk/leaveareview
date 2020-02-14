@@ -1,0 +1,188 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Patients and visitors
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Sevenoaks Hospital
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-8" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Patients and visitors</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/departments/">A-Z of departments and services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/facilities/">Facilities</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/ratings-reviews/">Ratings, reviews and complaints</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h2>Patients and visitors’ information</h2>
+      <p>The NHS website has more information on <a href="https://www.nhs.uk/using-the-nhs/nhs-services/hospitals/about-nhs-hospital-services/">NHS hospital services</a>, including <a href="https://www.nhs.uk/using-the-nhs/nhs-services/hospitals/staying-in-hospital-as-an-inpatient/">information on staying in hospital</a> and <a href="https://www.nhs.uk/using-the-nhs/nhs-services/hospitals/visiting-someone-in-hospital/">visiting others</a>.</p>
+      
+      
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Patients and visitors’ information links</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Subject</th>
+              <th class="nhsuk-table__header" scope="col">Links</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" width=50%>Getting to this hospital</td>
+              <td class="nhsuk-table__cell ">
+                <a href="https://www.google.com/maps/place/Sevenoaks+Hospital/@51.2878738,0.1933866,17z/data=!3m1!4b1!4m5!3m4!1s0x47df4d8db63d879b:0x46ee0efcf1177e2d!8m2!3d51.2878738!4d0.1955753">Get directions to this hospital</a><br>
+                <a href="https://www.leedsth.nhs.uk/patients-visitors/patient-and-visitor-information/finding-your-way-around/">Finding you way around the hospital</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Parking at this hospital</td>
+              <td class="nhsuk-table__cell "><a href="https://www.leedsth.nhs.uk/patients-visitors/patient-and-visitor-information/getting-to-hospital/car-parking/">Find out more about parking facilities, costs and times</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Visiting times</td>
+              <td class="nhsuk-table__cell "><a href="https://www.leedsth.nhs.uk/patients-visitors/patient-and-visitor-information/visiting-times/">Find out what the visiting times are at this hospital</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Patient information leaflets</td>
+              <td class="nhsuk-table__cell "><a href="https://www.leedsth.nhs.uk/patients-visitors/patient-and-visitor-information/patient-information-leaflets/">Read patient information leaflets published by this hospital</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Patient Advice and Liaison Service </h3>
+      <p>The Patient Advice and Liaison Service (PALS) are people who have been trained to give confidential advice, support and information on health-related matters.</p>
+      <p>PALS can:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>help you with health-related questions</li>
+        <li>help resolve concerns or problems when you're using the NHS</li>
+        <li>tell you how to get more involved in your own healthcare</li>
+        <li>give you more information about the NHS</li>
+      </ul>
+      <p>PALS can also provide advice about this hospital’s discharge policy.</p> 
+      <p><a href="https://www.nhs.uk/using-the-nhs/nhs-services/hospitals/being-discharged-from-hospital/">Find out more about what happens when you leave hospital</a>.</p>
+    </div>
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <hr>
+      <p><a href="">Report an issue with the information on this page</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
