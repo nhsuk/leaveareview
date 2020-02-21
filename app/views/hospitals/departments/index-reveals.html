@@ -1,0 +1,488 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Departments and services
+          <span class="nhsuk-page-heading__small">
+            <span class="visually-hidden"> -</span> 
+            Sevenoaks Hospital
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-8" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/patients-visitors/">Patients and visitors</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Departments and services</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/facilities/">Facilities</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/hospitals/ratings-reviews/">Ratings, reviews and complaints</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h2>Our departments and services</h2>
+      <div class="nhsuk-expander-group">
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details1" open>
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text1" tabindex="1" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>C</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text1" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with c</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Cardiology</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Children's & Adolescent Services</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details2">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text2" tabindex="2" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>D</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text2" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with d</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Diabetic Medicine</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details3">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text3" tabindex="3" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>E</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text3" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with e</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Ear, Nose & Throat</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Eye services (community)</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+      
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details4">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text4" tabindex="4" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>G</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text4" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with g</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Gastrointestinal and Liver services</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">General Surgery</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Geriatric Medicine</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Gynaecology</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details5">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text5" tabindex="5" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>M</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text5" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with m</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/minor-injuries">Minor injuries unit</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details5">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text5" tabindex="5" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>N</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text5" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with n</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Neurology</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details4">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text4" tabindex="4" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>O</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text4" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with o</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Obstetrics And Gynaecology</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Ophthalmology</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/orthopaedics">Orthopaedics</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details3">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text3" tabindex="3" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>P</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text3" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with p</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Pain Management</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Physiotherapy</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details4">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text4" tabindex="4" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>R</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text4" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with r</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Rehabilitation</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Respiratory Medicine</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Rheumatology</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details5">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text5" tabindex="5" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>S</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text5" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with s</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/speech-language">Speech and language services</a></td>
+                  <td class="nhsuk-table__cell ">Kent Community Health NHS Foundation Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+        <details class="nhsuk-details nhsuk-expander" nhsuk-polyfilled="true" id="nhsuk-details5">
+        <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text5" tabindex="5" aria-expanded="false">
+          <span class="nhsuk-details__summary-text">
+            <b>V</b>
+          </span>
+        </summary>
+        <div class="nhsuk-details__text" id="nhsuk-details__text5" aria-hidden="true">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Departments beginning with v</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col" width="40%">Name of department</th>
+                  <th class="nhsuk-table__header" scope="col">Provided by</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><a href="/hospitals/departments/">Vascular surgery</a></td>
+                  <td class="nhsuk-table__cell ">Maidstone and Tunbridge Wells NHS Trust</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </details>
+
+      </div>
+
+      <hr>
+
+    </div>
+  </div>
+
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
