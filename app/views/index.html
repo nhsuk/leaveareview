@@ -7,14 +7,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org / Service profiles - Index
+  Organsation Profiles and Editor - Index
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Org / Service profiles",
+        "name": "Organsation Profiles and Profile Editor",
         "href": "/"
       },
       "showNav": "false",
@@ -31,48 +31,139 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
       <!-- Change the page title here -->
       <p><a href="changelog">Changelog</a></p>
+      <h2>Alpha</h2>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Alpha</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Fidelity</th>
+              <th class="nhsuk-table__header" scope="col" width="30%">Link</th>
+              <th class="nhsuk-table__header" scope="col" width="40%">Notes</th>
+              <th class="nhsuk-table__header" scope="col">Last updated</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Mock-up</td>
+              <td class="nhsuk-table__cell"><a href="https://miro.com/app/board/o9J_kwZ3xhE=/">Profile Editor Mockups</a></td>
+              <td class="nhsuk-table__cell">Miro board</td>
+              <td class="nhsuk-table__cell"></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="opticians/overview/">Opticians</a></td>
+              <td class="nhsuk-table__cell"></td>
+              <td class="nhsuk-table__cell">6 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="dentists/overview/">Dentists</a></td>
+              <td class="nhsuk-table__cell"></td>
+              <td class="nhsuk-table__cell">4 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="highstreetpharmacies/overview/">High street pharmacies</a></td>
+              <td class="nhsuk-table__cell"></td>
+              <td class="nhsuk-table__cell">6 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="distancesellingpharmacies/overview/">Distance selling pharmacies</a></td>
+              <td class="nhsuk-table__cell"></td>
+              <td class="nhsuk-table__cell">6 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="gps/overview/">GP Surgeries</a></td>
+              <td class="nhsuk-table__cell">One more round of testing</td>
+              <td class="nhsuk-table__cell">4 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="hospitals/overview">Hospitals</a></td>
+              <td class="nhsuk-table__cell"></td>
+              <td class="nhsuk-table__cell">23 February 2020</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h3>Discovery</h3>
-      <ul class="nhsuk-u-margin-bottom-6">
-        <li><a href="hospitals/overview">Hospitals</a> <span class="last-updated">Last updated: 20 February 2020</span></li>
-      </ul>
+      <h3>MVP</h3>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Alpha</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Fidelity</th>
+              <th class="nhsuk-table__header" scope="col" width="30%">Link</th>
+              <th class="nhsuk-table__header" scope="col" width="40%">Notes</th>
+              <th class="nhsuk-table__header" scope="col">Last updated</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Mock-up</td>
+              <td class="nhsuk-table__cell"><a href="https://miro.com/app/board/o9J_kvqpC9k=/">MVP Profile Editor Mockups</a></td>
+              <td class="nhsuk-table__cell">Miro board</td>
+              <td class="nhsuk-table__cell"></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="editor">Profile editor</a></td>
+              <td class="nhsuk-table__cell">MVP Prototype - 1 round of testing done w/pharmacies</td>
+              <td class="nhsuk-table__cell">29 January 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="mvp/opticians/overview/">Opticians</a></td>
+              <td class="nhsuk-table__cell">MVP Prototype</td>
+              <td class="nhsuk-table__cell">6 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="mvp/dentists/overview/">Dentists</a></td>
+              <td class="nhsuk-table__cell">MVP Prototype</td>
+              <td class="nhsuk-table__cell">4 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="mvp/highstreetpharmacies/overview/">High street pharmacies</a></td>
+              <td class="nhsuk-table__cell">MVP Prototype</td>
+              <td class="nhsuk-table__cell">6 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell"><a href="mvp/gps/overview/">GP Surgeries</a></td>
+              <td class="nhsuk-table__cell">MVP Prototype</td>
+              <td class="nhsuk-table__cell">20 February 2020</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Prototype</td>
+              <td class="nhsuk-table__cell">Hospitals</td>
+              <td class="nhsuk-table__cell">MVP Prototype</td>
+              <td class="nhsuk-table__cell"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <hr>
-
-      <h3>Alpha</h3>
-      <ul class="nhsuk-u-margin-bottom-4">
-        <li><a href="https://miro.com/app/board/o9J_kwZ3xhE=/">Post MVP Mockups / Page flow</a> - Miro Board</li>
-        <li><a href="https://miro.com/app/board/o9J_kvqpC9k=/">MVP Mockups / Page flow</a> - Miro Boards</li>
-      </ul>
-      <h5>Prototypes</h5>
-      <ul class="nhsuk-u-margin-bottom-4">
-        <li><a href="editor">Profile editor</a> - MVP Prototype - 1 round of testing done w/pharmacies <span class="last-updated">Last updated: 29 January 2020</span></li>
-        <li><a href="opticians/overview/">Opticians</a> <span class="last-updated">Last updated: 6 February 2020</span></li>
-        <li><a href="dentists/overview/">Dentists</a> <span class="last-updated">Last updated: 4 February 2020</span></li>
-        <li><a href="highstreetpharmacies/overview/">High street pharmacies</a> <span class="last-updated">Last updated: 6 February 2020</span></li>
-        <li><a href="distancesellingpharmacies/overview/">Distance selling pharmacies</a> <span class="last-updated">Last updated: 6 February 2020</span></li>
-        <li><a href="gps/overview/">GP Surgeries</a> - One more round of testing <span class="last-updated">Last updated: 4 February 2020</span></li>
-      </ul>
-      <h5>MVP Profile Prototypes</h5>
-      <ul class="nhsuk-u-margin-bottom-6">
-        <li><a href="mvp/opticians/overview/">Opticians</a> <span class="last-updated">Last updated: 6 February 2020</span></li>
-        <li><a href="mvp/dentists/overview/">Dentists</a> <span class="last-updated">Last updated: 4 February 2020</span></li>
-        <li><a href="mvp/highstreetpharmacies/overview/">High street pharmacies</a> <span class="last-updated">Last updated: 6 February 2020</span></li>
-        <li><a href="mvp/gps/overview/">GPs</a> <span class="last-updated">Last updated: 20 February 2020</span></li>
-      </ul>
-
-      <hr>
-
-      <h3>In Dev</h3>
+      <h2>In Dev</h2>
       <ul class="nhsuk-u-margin-bottom-6">
         <li><a href="gsd/overview/">GDoS Profiles</a> <span class="last-updated">Last updated: 28 January 2020</span></li>
       </ul>
 
       <hr>
 
-      <h3>Beta / Live</h3>
+      <h2>Beta / Live</h2>
       <ul class="nhsuk-u-margin-bottom-6">
         <li><a href="https://www.nhs.uk/Services/GP/ReviewsAndRatings/DefaultView.aspx?id=41257">Profile reviews</a></li>
         <li><a href="https://www.nhs.uk/Review/LeaveReview/M81026002">Leave a review</a></li>
