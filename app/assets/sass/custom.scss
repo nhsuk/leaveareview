@@ -711,8 +711,8 @@ dd {
   border: solid 4px #005eb8 !important;
 }
 
-.nhsuk-notification-warning {
-  margin-bottom: 28px !important;
+.nhsuk-notification-amber {
+  margin-bottom: 40px !important;
   margin-top: -16px !important;
   padding: 16px !important;
   /*background-color: #F1F3E2 !important;*/
@@ -721,6 +721,17 @@ dd {
   border-bottom: solid 4px #d8dde0 !important;
   border-left: solid 16px #ffb81c !important;
 }
+.nhsuk-notification-red {
+  margin-bottom: 40px !important;
+  margin-top: -16px !important;
+  padding: 16px !important;
+  /*background-color: #F1F3E2 !important;*/
+  background-color: #ffffff !important;
+  /*border-bottom: solid 4px #AEB7BD !important;*/
+  border-bottom: solid 4px #d8dde0 !important;
+  border-left: solid 16px #d5281b !important;
+}
+
 
 .nhsuk-details {
   // background-color: #ffffff;
@@ -815,16 +826,41 @@ dd {
 }
 
 
-/* GOV Warning text
-   ======================================================================= */
+/* Squares - for Open now or Closed indicators
+   ======================================= */
 
-.green-circle {
+.green-square {
+  margin-bottom: 3px;
   background-color: #007f3b;
   border: 1px solid transparent;
-  border-radius: 50%;
+  border-radius: 15%;
   display: inline-block;
-  height: 25px;
+  height: 26px;
   margin-right: 8px;
   vertical-align: middle;
-  width: 25px;
+  width: 26px;
+}
+
+.red-square {
+  margin-bottom: 3px;
+  background-color: #d5281b;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  display: inline-block;
+  height: 26px;
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 26px;
+}
+
+.amber-square {
+  margin-bottom: 3px;
+  background-color: #ffb81c;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  display: inline-block;
+  height: 26px;
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 26px;
 }
