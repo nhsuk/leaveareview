@@ -5,7 +5,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Services and clinics
+  Org name - Clinics
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -80,20 +80,24 @@
           <li class="nhsuk-contents-list__item">
             <a class="nhsuk-contents-list__link" href="/gps/register/">Register with this GP surgery</a>
           </li>          
-          <li class="nhsuk-contents-list__item" aria-current="page">
-            <span class="nhsuk-contents-list__current">Clinics and services</span>
-          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/clinics-services/">Clinics and services</a>
+
+            <ol class="nhsuk-contents-list__list nhsuk-u-margin-top-2">
+              <li class="nhsuk-contents-list__item">
+                <span class="nhsuk-contents-list__current">Clinic and services at this surgery</span>
+              </li>
+              <li class="nhsuk-contents-list__item">
+                <a class="nhsuk-contents-list__link" href="/gps/clinics-services/other">Other clinic and services available for patients</a>
+              </li>
+            </ol>
+
+          </li> 
           <li class="nhsuk-contents-list__item">
             <a class="nhsuk-contents-list__link" href="/gps/prescriptions/">Prescriptions</a>
           </li>
           <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/np-ratings-reviews/">Performance ratings</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/p-ratings-reviews/">Patient ratings and reviews</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/leave-review/">Leave a review</a>
+            <a class="nhsuk-contents-list__link" href="/gps/ratings-reviews/">Ratings and reviews</a>
           </li>
         </ol>
       </nav>
@@ -104,56 +108,38 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h2>Long-term conditions</h2>
+      <h2>Clinics and services at this surgery</h2>
+      <p>These clinics and services are available at this GP surgery. For more information about services at this surgery, see the <a href="https://www.herefordmedicalgroup.co.uk/services-we-provide">surgery website</a>.</p>
+
+      <h3>Child health</h3>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Diabetes support</li>
+        <li>Baby clinic</li>
+        <li>Child development</li>
+        <li>Child vaccinations</li>
+      </ul>
+
+      <h3>Long-term conditions clinics</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
         <li>Asthma</li>
         <li>COPD</li>
-        <li>Hepatitis C</li>
+        <li>Diabetes</li>
+        <li>Treatment and monitoring of hepatitis C</li>        
       </ul>
 
-      <h2>Mental health</h2>
+      <h3>Older people</h3>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Mental health therapy</li>
-        <li>Social prescribing – helping people to connect to community groups and services</li>
-        <li>Caring for carers</li>
-      </ul>
-
-      <h2>Pharmacy services</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>On-site pharmacist</li>
-        <li>Medicine reviews</li>
+        <li>Longer GP appointments for dementia patients</li>
+        <li>Support for frail older people including advice on preventing falls</li>
       </ul>
     
-      <h2>Vaccinations</h2>
+      <h3>Prescribing services</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>On-site pharmacist providing prescription dispensing and medicine reviews</li>
+      </ul>
+    
+      <h3>Vaccinations</h3>
       <ul class="nhsuk-list nhsuk-list--bullet">
         <li>Flu vaccination</li>
-        <li>Travel vaccinations</li>
-      </ul>
-    
-      <h2>Health checks and tests</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li><a href="">NHS health check</a> for over 40s</li>
-        <li>Blood tests</li>
-      </ul>
-
-      <h2>Older people</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Dementia support</li>
-        <li>Support for older frail people</li>
-      </ul>
-
-      <h2>Staying mobile</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Bone joint and muscle disorders</li>
-        <li>Joint injections</li>
-        <li>Physiotherapy</li>
-      </ul>
-
-      <h2>Healthy living</h2>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Stop smoking</li>
-        <li>Lose or gain weight</li>
       </ul>
 
       <hr>
