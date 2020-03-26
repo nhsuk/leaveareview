@@ -714,7 +714,7 @@ dd {
 .nhsuk-panel-ratings {
   padding: 24px 24px 24px 24px !important;
   background-color: #fff !important;
-  border: solid 4px #D8E5EE !important;
+  //border: solid 4px #D8E5EE !important;
 }
 
 
@@ -912,10 +912,12 @@ dd {
 
 
   .indicator-on {
-    background-color: #D8E5EE;
+    //background-color: #D8E5EE;
+    box-sizing: border-box;
     padding:10px 0 8px 10px;
     font-size: 18px;
-    //border: 0px solid transparent;
+    //border: 3px solid #005eb8;
+    box-shadow: inset 0px 0px 0px 3px #005eb8;
     //border-radius: 25px;
   }
 
