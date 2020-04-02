@@ -28,8 +28,8 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-1",
-    text: "< Is the GP surgery you're registered with in England?"
+    href: "/repeat-prescriptions/rp-question-3",
+    text: "< How often do you get your prescription?"
   }) }}
 {% endblock %}
 
@@ -38,39 +38,13 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 4</span>
+      <h1>You cannot use this service to order a repeat prescription online</h1>
 
-      <form action="/rpq3" method="post">
+      <form action="/repeat-prescriptions/" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Do you already have a repeat prescription from your GP?
-            </legend>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
-            </span>
-            <span class="nhsuk-hint">
-              It may be a prescription you collect from your GP surgery or pharmacy.
-            </span>
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-1" name="existingrepeat" type="radio" value="Yes"{{checked("existingrepeat","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-2" name="existingrepeat" type="radio" value="No"{{checked("existingrepeat","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-2">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
+          <p>This service is only available to patients who currently have at least one repeat prescription from a GP.</p>
 
         </div>
 
@@ -82,7 +56,7 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-1",
+      "href": "rp-question-3",
       "text": "Back"
       }) }}
 

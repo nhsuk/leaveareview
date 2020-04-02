@@ -1,0 +1,145 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-2",
+    text: "< Do you already have a repeat prescription from your GP?"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 4</span>
+
+      <form action="/rpq4" method="post">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              How often do you get your prescription?
+            </legend>
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+            <span class="nhsuk-hint">
+              Hint text..
+            </span>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-1" name="frequency" type="radio" value="Several times a month"{{checked("frequency","Several times a month")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-1">
+                  Several times a month
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-2" name="frequency" type="radio" value="Once a month"{{checked("frequency","Once a month")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-2">
+                  Once a month
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-3" name="frequency" type="radio" value="Once every 2 months"{{checked("frequency","Once every 2 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-3">
+                  Once every 2 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-4" name="frequency" type="radio" value="Once every 3 months"{{checked("frequency","Once every 3 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-4">
+                  Once every 3 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-5" name="frequency" type="radio" value="Once every 6 months"{{checked("frequency","Once every 6 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-5">
+                  Once every 6 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-6" name="frequency" type="radio" value="Once a year"{{checked("frequency","Once a year")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-6">
+                  Once a year
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "rp-question-2",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/frequencys/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

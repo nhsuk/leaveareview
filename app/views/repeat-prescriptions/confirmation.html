@@ -9,15 +9,15 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Leave a review
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Leave a review",
-        "href": "/"
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -28,8 +28,8 @@
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/overview/",
-    text: "High Ash Dental Surgery"
+    href: "/repeat-prescriptions/rp-question-3",
+    text: "< How often do you get your prescription?"
   }) }}
 {% endblock %}
 
@@ -38,16 +38,77 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1>Thank you</h1>
-        <p>Your feedback is incredibly useful to the NHS and other patients. We hope you will review other services in the future.</p>
-        <h2>What happens next</h2>
-        <p>We’ve sent an email to {{data["email"]}}</p>
-        <p>Before we submit your review we need to be sure we have your contact details correct in case we need to get in touch with you about it.</p>
-        <p>Please follow the link in that email to verify your email address.</p>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
+
+
+      <form action="https://account.demo.signin.nhs.uk/#/account/do-you-have-login" method="get">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
+            Your answers
+          </legend>
+          <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key dtwidth">
+                  Is the GP surgery you're registered with in England?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["england"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-1">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Do you already have a repeat prescription from your GP?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["existingrepeat"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-2">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  How often do you get your prescription?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["frequency"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-3">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+            </dl>
+
+          </fieldset>
+
+          <p>If the above details are correct, you can now continue to our NHS Login page.</p>
+
+        {{ button({
+          "text": "Continue to NHS Login",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
 
       {{ backLink({
-      "href": "/dentists/leave-review/index",
-      "text": "Back to High Ash Dental Surgery"
+      "href": "rp-question-3",
+      "text": "Back"
       }) }}
 
     </div>

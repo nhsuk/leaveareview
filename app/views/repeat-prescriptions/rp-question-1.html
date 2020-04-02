@@ -29,7 +29,7 @@ Repeat prescriptions
 {% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions",
-    text: "Start"
+    text: "< Start"
   }) }}
 {% endblock %}
 
@@ -38,7 +38,7 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 10</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 4</span>
 
       <form action="/rpq2" method="post">
 
@@ -57,19 +57,19 @@ Repeat prescriptions
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
                   No
                 </label>
               </div>
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="england-3" name="england" type="radio" value="Not sure"{{checked("england","Not sure")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
                   Not sure
                 </label>
               </div>
@@ -86,7 +86,7 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "visitdate",
+      "href": "/repeat-prescriptions",
       "text": "Back"
       }) }}
 

@@ -711,98 +711,35 @@ router.post('/rpq2', function(req, res) {
 
   if (!england) {
     res.redirect('/repeat-prescriptions/rp-question-1?error=true');
+  } else if (england == 'No') {
+    res.redirect('/repeat-prescriptions/denied-no-england');
+  } else if (england == 'Not sure') {
+    res.redirect('/repeat-prescriptions/find');
   } else {
     res.redirect('/repeat-prescriptions/rp-question-2');
   }
 });
 
 router.post('/rpq3', function(req, res) {
-  let title = req.body.title;
-  let details = req.body.details;
+  let existingrepeat = req.body.existingrepeat;
 
-  if (!title) {
-    res.redirect('/dentists/leave-review/rating-question-2?error=true');
-  } else if (!details) {
-    res.redirect('/dentists/leave-review/rating-question-2?error=true');
+  if (!existingrepeat) {
+    res.redirect('/repeat-prescriptions/rp-question-2?error=true');
+  } else if (existingrepeat == 'No') {
+    res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
   } else {
-    res.redirect('/dentists/leave-review/rating-question-3');
+    res.redirect('/repeat-prescriptions/rp-question-3');
   }
 });
 
 router.post('/rpq4', function(req, res) {
-  let email = req.body.email;
-  let confirmemail = req.body.confirmemail;
-  let displayname = req.body.displayname;
+  let frequency = req.body.frequency;
 
-  if (!email) {
-    res.redirect('/dentists/leave-review/rating-question-3?error=true');
-  } else if (!confirmemail) {
-    res.redirect('/dentists/leave-review/rating-question-3?error=true');
-  } else if (!displayname) {
-    res.redirect('/dentists/leave-review/rating-question-3?error=true');
+  if (!frequency) {
+    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
+  } else if (frequency == 'Once a year') {
+    res.redirect('/repeat-prescriptions/denied-no-frequency');
   } else {
-    res.redirect('/dentists/leave-review/rating-question-4');
-  }
-});
-
-router.post('/rpq5', function(req, res) {
-  let furtherratings = req.body.furtherratings;
-
-  if (!furtherratings) {
-    res.redirect('/dentists/leave-review/rating-question-4?error=true');
-  } else if (furtherratings == 'yes') {
-    res.redirect('/dentists/leave-review/rating-question-5');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-10');
-  }
-});
-
-router.post('/rpq6', function(req, res) {
-  let appointmentwaitingtime = req.body.appointmentwaitingtime;
-
-  if (!appointmentwaitingtime) {
-    res.redirect('/dentists/leave-review/rating-question-5?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-6');
-  }
-});
-
-router.post('/rpq7', function(req, res) {
-  let dignityrespect = req.body.dignityrespect;
-
-  if (!dignityrespect) {
-    res.redirect('/dentists/leave-review/rating-question-6?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-7');
-  }
-});
-
-router.post('/rpq8', function(req, res) {
-  let treatmentdecisions = req.body.treatmentdecisions;
-
-  if (!treatmentdecisions) {
-    res.redirect('/dentists/leave-review/rating-question-7?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-8');
-  }
-});
-
-router.post('/rpq9', function(req, res) {
-  let treatmentcostsinfo = req.body.treatmentcostsinfo;
-
-  if (!treatmentcostsinfo) {
-    res.redirect('/dentists/leave-review/rating-question-8?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-9');
-  }
-});
-
-router.post('/rpq10', function(req, res) {
-  let treatmentoutcome = req.body.treatmentoutcome;
-
-  if (!treatmentoutcome) {
-    res.redirect('/dentists/leave-review/rating-question-9?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-10');
+    res.redirect('/repeat-prescriptions/confirmation');
   }
 });
