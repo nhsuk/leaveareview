@@ -28,7 +28,7 @@
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/dentists/overview/",
+    href: "/overview/",
     text: "High Ash Dental Surgery"
   }) }}
 {% endblock %}
@@ -38,60 +38,17 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/rating-review" method="post">
+        <h1>Thank you</h1>
+        <p>Your feedback is incredibly useful to the NHS and other patients. We hope you will review other services in the future.</p>
+        <h2>What happens next</h2>
+        <p>We’ve sent an email to {{data["email"]}}</p>
+        <p>Before we submit your review we need to be sure we have your contact details correct in case we need to get in touch with you about it.</p>
+        <p>Please follow the link in that email to verify your email address.</p>
 
-        {% call fieldset({
-          legend: {
-            text: "When did you visit this dentist?",
-            classes: "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-
-        <p>High Ash Dental Surgery, 88 High Ash Drive, Leeds, LS17 8RE</p>
-
-        <span class="nhsuk-hint">
-          The visit must have taken place within the last 2 years.
-        </span>
-
-        <span id="error-message" class="nhsuk-error-message" style="display: none;">
-          <span class="nhsuk-u-visually-hidden">Error:</span> 
-          Date cannot be blank or more than 2 years ago
-        </span>
-
-        {% from 'date-input/macro.njk' import dateInput %}
-
-        {{ dateInput({
-          "hint": {
-            "text": "For example, 3 2018"
-          },
-          "items": [
-            {
-              "name": "month",
-              "value": data["month"],
-              "classes": "nhsuk-input--width-2"
-            },
-            {
-              "name": "year",
-              "value": data["year"],
-              "classes": "nhsuk-input--width-4"
-            }
-          ]
-        }) }}
-
-        {% endcall %}
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
-
-        {{ backLink({
-        "href": "coronavirus",
-        "text": "Back"
-        }) }}
+      {{ backLink({
+      "href": "/dentists/leave-review/index",
+      "text": "Back to High Ash Dental Surgery"
+      }) }}
 
     </div>
 
