@@ -722,14 +722,10 @@ dd {
 /* Notifications
    ======================================================================= */
 .nhsuk-notification-amber {
-  margin-bottom: 40px !important;
-  margin-top: -16px !important;
+  border-bottom: solid 4px #d8dde0;
+  border-left: solid 16px #ffb81c;
+  margin: -16px 0 40px 0 !important;
   padding: 16px !important;
-  /*background-color: #F1F3E2 !important;*/
-  background-color: #ffffff !important;
-  /*border-bottom: solid 4px #AEB7BD !important;*/
-  border-bottom: solid 4px #d8dde0 !important;
-  border-left: solid 16px #ffb81c !important;
 }
 .nhsuk-notification-red {
   margin-bottom: 40px !important;
