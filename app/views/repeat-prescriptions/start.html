@@ -44,11 +44,11 @@
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">link</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Services near you</a></li>
+      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li-->
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to link</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Services near you</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -60,23 +60,23 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1 class="nhsuk-u-margin-bottom-4">Order a repeat prescription</h1>
-
-      <h2 class="nhsuk-u-margin-bottom-4">Before you start</h2>
-      <p>To create an NHS login, you will need:</p>
-      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
-        <li>a valid drivers licence at hand</li>
-        <li>to take a photo of yourself holding your license</li>
-        <li>to upload the photo </li>
-      </ul>
+      <p>By answering a few eligibility questions now we will be able to let you know if you can order a repeat prescription online, before going through the process of registering for an NHS login.</p>
+      <p>If you do not want to check your eligibility now, you can go ahead and <a href="https://account.demo.signin.nhs.uk/#/account/register">set up an NHS login</a>.</p>
+    
 
       <form action="/repeat-prescriptions/rp-question-1" method="post">
 
         {{ button({
-          "text": "Start",
+          "text": "Check my eligibility",
           "id": "btn_submit"
         }) }}
 
       </form>
+
+      {{ backLink({
+      "href": "/repeat-prescriptions",
+      "text": "Back"
+      }) }}
 
     </div>
 
