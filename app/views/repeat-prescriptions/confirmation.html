@@ -41,7 +41,7 @@ Repeat prescriptions
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
 
 
-      <form action="https://account.demo.signin.nhs.uk/#/account/do-you-have-login" method="get">
+      <form action="https://account.demo.signin.nhs.uk/#/account/register" method="get">
 
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
@@ -80,10 +80,10 @@ Repeat prescriptions
             
               <div class="nhsuk-summary-list__row">
                 <dt class="nhsuk-summary-list__key">
-                  How often do you get your prescription?
+                  Has your GP asked you to continue with any of the medications you want to order and are they listed on your repeat slip?
                 </dt>
                 <dd class="nhsuk-summary-list__value">
-                  {{data["frequency"]}}
+                  {{data["onslip"]}}
                 </dd>
                 <dd class="nhsuk-summary-list__actions">
                   <a href="/repeat-prescriptions/rp-question-3">
@@ -96,10 +96,10 @@ Repeat prescriptions
 
           </fieldset>
 
-          <p>If the above details are correct, you can now continue to our NHS Login page.</p>
+          <p>If the above details are correct, you can now continue to our NHS Login registration page.</p>
 
         {{ button({
-          "text": "Continue to NHS Login",
+          "text": "Register with NHS Login",
           "id": "btn_submit"
         }) }}
 

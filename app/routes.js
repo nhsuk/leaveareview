@@ -733,6 +733,19 @@ router.post('/rpq3', function(req, res) {
 });
 
 router.post('/rpq4', function(req, res) {
+  let onslip = req.body.onslip;
+
+  if (!onslip) {
+    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
+  } else if (onslip == 'No') {
+    res.redirect('/repeat-prescriptions/denied-acute');
+  } else {
+    res.redirect('/repeat-prescriptions/confirmation');
+  }
+});
+
+/* FREQUENCY QUESTION - Archived
+router.post('/rpq4', function(req, res) {
   let frequency = req.body.frequency;
 
   if (!frequency) {
@@ -743,3 +756,4 @@ router.post('/rpq4', function(req, res) {
     res.redirect('/repeat-prescriptions/confirmation');
   }
 });
+*/

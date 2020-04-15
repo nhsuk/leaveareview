@@ -67,8 +67,8 @@
         <li>check the status of a prescription you have ordered</li>
       </ul>
 
-      <h2 class="nhsuk-u-margin-bottom-4">Who can use this service</h2>
-      <p>To use this service, you must:</p>
+      <h2 class="nhsuk-u-margin-bottom-4">Before you start</h2>
+      <p><b>To use this service, you must:</b></p>
       <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
         <li>be registered at a GP surgery in England</li>
         <li>be aged 13 or older</li>
@@ -76,7 +76,14 @@
         <!--li>have an NHS login - if you do not have one, we can help you <a href="https://account.login.nhs.uk/#/account/do-you-have-login">set one up</a></li-->
       </ul>
 
-      <form action="/repeat-prescriptions/start" method="post">
+      <p><b>To create an NHS login, you will need:</b></p>
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+        <li>a valid drivers licence at hand</li>
+        <li>to take a photo of yourself holding your license</li>
+        <li>to upload the photo </li>
+      </ul>
+
+      <form action="/repeat-prescriptions/rp-question-1" method="post">
 
         {{ button({
           "text": "Continue",

@@ -59,31 +59,73 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-u-margin-bottom-4">Order a repeat prescription</h1>
+      <h1>Repeat prescriptions</h1>
 
-      <p>You can use this service to:</p>
-      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-3">
+      <p>If you're regularly prescribed the same medicine, your GP may offer a prescription that can be repeated several times.</p>
+      <p>Repeat prescriptions is one of many NHS services available to you on the NHS App.</p>
+      <h3><b>The NHS app can enable you to:</b></h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
         <li>order a repeat prescription</li>
         <li>check the status of a prescription you have ordered</li>
       </ul>
 
-      <h2 class="nhsuk-u-margin-bottom-4">Who can use this service</h2>
-      <p>To use this service, you must:</p>
-      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
-        <li>be registered at a GP surgery in England</li>
-        <li>be aged 13 or older</li>
-        <li>already have a repeat prescription approved by your GP</li>
-        <!--li>have an NHS login - if you do not have one, we can help you <a href="https://account.login.nhs.uk/#/account/do-you-have-login">set one up</a></li-->
-      </ul>
+      <div class="nhsuk-inset-text nhsuk-u-margin-bottom-3">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>You will need an NHS login to use the NHS app.</p>
+      </div>
 
-      <form action="/repeat-prescriptions/start" method="post">
+    </div>
 
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
+  </div>
 
-      </form>
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-one-half">
+      <div class="nhsuk-panel">
+        <h3>I do NOT have an NHS login</h3>
+        <p>You do not have an NHS login and would like to register in order to request repeat prescriptions.</p>
+        <div class="nhsuk-action-link">
+          <a class="nhsuk-action-link__link" href="/repeat-prescriptions/">
+            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+            </svg>
+            <span class="nhsuk-action-link__text">Continue</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+      <div class="nhsuk-panel">
+        <h3>I have an NHS login</h3>
+        <p>You can go straight to the NHS App, log in with your credentials and check your repeat prescription details.</p>
+        <div class="nhsuk-action-link">
+          <a class="nhsuk-action-link__link" href="https://nhs-cid.herokuapp.com/create-account/v19/login-nhs">
+            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+            </svg>
+            <span class="nhsuk-action-link__text">Log in</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>What is an NHS login?</h2>
+      <p>NHS login is a new way to log in to health websites and apps. If you do not have an NHS login you will need to set one up, and enter some information to prove who you are. This is to keep your health information secure.</p>
+      <p>We may take 12 hours to check your information because lots of people are using the service.</p>
+      <p>When you have an NHS login, you can use it to access health websites and apps with the NHS login button.</p>
+
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
 
     </div>
 

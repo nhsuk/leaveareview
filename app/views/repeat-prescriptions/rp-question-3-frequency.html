@@ -46,7 +46,7 @@ Repeat prescriptions
 
           <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Has your GP asked you to continue with any of the medications you want to order and are they listed on your repeat slip?
+              How often do you get your prescription?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
@@ -54,19 +54,43 @@ Repeat prescriptions
               Please select an option
             </span>
             <span class="nhsuk-hint">
-              Your repeat slip is the the white half on the right hand side of your prescription.
+              Hint text..
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-1" name="onslip" type="radio" value="Yes"{{checked("onslip","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-1">
-                  Yes
+                <input class="nhsuk-radios__input" id="frequency-1" name="frequency" type="radio" value="Several times a month"{{checked("frequency","Several times a month")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-1">
+                  Several times a month
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-2" name="onslip" type="radio" value="No"{{checked("onslip","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-2">
-                  No
+                <input class="nhsuk-radios__input" id="frequency-2" name="frequency" type="radio" value="Once a month"{{checked("frequency","Once a month")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-2">
+                  Once a month
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-3" name="frequency" type="radio" value="Once every 2 months"{{checked("frequency","Once every 2 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-3">
+                  Once every 2 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-4" name="frequency" type="radio" value="Once every 3 months"{{checked("frequency","Once every 3 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-4">
+                  Once every 3 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-5" name="frequency" type="radio" value="Once every 6 months"{{checked("frequency","Once every 6 months")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-5">
+                  Once every 6 months
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="frequency-6" name="frequency" type="radio" value="Once a year"{{checked("frequency","Once a year")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="frequency-6">
+                  Once a year
                 </label>
               </div>
             </div>
