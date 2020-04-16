@@ -60,18 +60,51 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1 class="nhsuk-u-margin-bottom-4">Before you start</h1>
+
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+      <p>To order repeat prescriptions online, you will need an NHS login. In order to register and create an NHS login you will need one of the following at hand:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
+      <p>You will need to take a photo of yourself holding your license and will then need to upload the photo.</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-bottom-4">
+      <img src="/images/s300_Eng_Full_Front_Flag.png" alt="Driving Licence" width="250" height="163">
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
       <p>By answering a few eligibility questions now we will be able to let you know if you can order a repeat prescription online, before going through the process of registering for an NHS login.</p>
-      <p>If you do not want to check your eligibility now, you can go ahead and <a href="https://account.demo.signin.nhs.uk/#/account/register">set up an NHS login</a>.</p>
+      <p>If you do not want to check your eligibility, you can go ahead and <a href="https://account.demo.signin.nhs.uk/#/account/register">set up an NHS login</a>.</p>
     
 
-      <form action="/repeat-prescriptions/rp-question-1" method="post">
-
+      <form action="/repeat-prescriptions/rp-question-1" method="post" style="float: left; padding-right: 20px;">
         {{ button({
           "text": "Check my eligibility",
           "id": "btn_submit"
         }) }}
-
       </form>
+
+      <form action="https://account.demo.signin.nhs.uk/#/account/register" method="get">
+        <button class="nhsuk-button nhsuk-button--secondary" type="submit">
+          Setup an NHS login
+        </button>
+      </form>
+
 
       {{ backLink({
       "href": "/repeat-prescriptions",
