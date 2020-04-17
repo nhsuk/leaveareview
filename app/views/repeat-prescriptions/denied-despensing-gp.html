@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-1",
+    href: "/repeat-prescriptions/rp-question-5",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,27 +38,14 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 6</span>
+      <h1>You cannot use this service to order a repeat prescription online</h1>
 
-      <form action="/rpq3" method="post">
+      <form action="/repeat-prescriptions/" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              We need to know where your GP is
-            </legend>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter the GP surgery name
-            </span>
-
-            <span class="nhsuk-hint" id="surgery-hint">
-              Enter the GP surgery name
-            </span>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="surgery" type="text" aria-describedby="surgery-hint">
-          </fieldset>
+          <p>Unfortunately our online repeat prescription service does not yet include your GP surgery.</p> 
+          <p>For more information and help, please contact your GP.</p>
 
         </div>
 
@@ -70,7 +57,7 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-1",
+      "href": "rp-question-3",
       "text": "Back"
       }) }}
 
