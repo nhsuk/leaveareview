@@ -38,7 +38,7 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 4</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 6</span>
 
       <form action="/rpq3" method="post">
 
@@ -46,30 +46,18 @@ Repeat prescriptions
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Do you already have a repeat prescription from your GP?
+              We need to know where your GP is
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
+              Please enter a postcode, town or GP surgery name
             </span>
-            <span class="nhsuk-hint">
-              It may be a prescription you collect from your GP surgery or pharmacy.
+
+            <span class="nhsuk-hint" id="surgery-hint">
+              Enter the postcode, town or GP surgery name.
             </span>
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-1" name="existingrepeat" type="radio" value="Yes"{{checked("existingrepeat","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-2" name="existingrepeat" type="radio" value="No"{{checked("existingrepeat","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-2">
-                  No
-                </label>
-              </div>
-            </div>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="surgery" type="text" aria-describedby="surgery-hint">
           </fieldset>
 
         </div>

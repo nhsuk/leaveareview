@@ -713,14 +713,22 @@ router.post('/rpq2', function(req, res) {
     res.redirect('/repeat-prescriptions/rp-question-1?error=true');
   } else if (england == 'No') {
     res.redirect('/repeat-prescriptions/denied-no-england');
-  } else if (england == 'Not sure') {
-    res.redirect('/repeat-prescriptions/find');
   } else {
     res.redirect('/repeat-prescriptions/rp-question-2');
   }
 });
 
 router.post('/rpq3', function(req, res) {
+  let surgery = req.body.surgery;
+
+  if (!surgery) {
+    res.redirect('/repeat-prescriptions/rp-question-2?error=true');
+  } else {
+    res.redirect('/repeat-prescriptions/rp-question-3');
+  }
+});
+
+router.post('/rpq5', function(req, res) {
   let existingrepeat = req.body.existingrepeat;
 
   if (!existingrepeat) {
@@ -728,11 +736,11 @@ router.post('/rpq3', function(req, res) {
   } else if (existingrepeat == 'No') {
     res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
   } else {
-    res.redirect('/repeat-prescriptions/rp-question-3');
+    res.redirect('/repeat-prescriptions/rp-question-5');
   }
 });
 
-router.post('/rpq4', function(req, res) {
+router.post('/rpq6', function(req, res) {
   let onslip = req.body.onslip;
 
   if (!onslip) {

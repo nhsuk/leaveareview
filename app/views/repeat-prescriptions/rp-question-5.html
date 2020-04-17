@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "start",
+    href: "/repeat-prescriptions/rp-question-4",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,41 +38,45 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 6</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 5 of 6</span>
 
-      <form action="/rpq2" method="post">
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/rpq6" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+          <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Has your GP asked you to continue with any of the medications you want to order and are they listed on your repeat slip?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-
+            <span class="nhsuk-hint">
+              Your repeat slip is the the white half on the right hand side of your prescription.
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
+                <input class="nhsuk-radios__input" id="onslip-1" name="onslip" type="radio" value="Yes"{{checked("onslip","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="onslip-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
+                <input class="nhsuk-radios__input" id="onslip-2" name="onslip" type="radio" value="No"{{checked("onslip","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="onslip-2">
                   No
                 </label>
               </div>
-              <!--div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-3" name="england" type="radio" value="Not sure"{{checked("england","Not sure")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
-                  Not sure
-                </label>
-              </div-->
             </div>
           </fieldset>
 
@@ -86,10 +90,14 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "start",
+      "href": "rp-question-4",
       "text": "Back"
       }) }}
 
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+      <img src="/images/rp.png" alt="Prescription slip" width="275" height="228">
     </div>
 
   </div>
@@ -109,7 +117,7 @@ Repeat prescriptions
         "label": "Our policies"
       },
       {
-        "URL": "/examples/passing-data/clear-data",
+        "URL": "/frequencys/passing-data/clear-data",
         "label": "Clear data"
       }
     ]

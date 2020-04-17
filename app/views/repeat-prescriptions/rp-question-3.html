@@ -38,54 +38,456 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 4</span>
-
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 6</span>
 
       <form action="/rpq4" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Has your GP asked you to continue with any of the medications you want to order and are they listed on your repeat slip?
+              Select your GP
             </legend>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
-            </span>
-            <span class="nhsuk-hint">
-              Your repeat slip is the the white half on the right hand side of your prescription.
-            </span>
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-1" name="onslip" type="radio" value="Yes"{{checked("onslip","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-2" name="onslip" type="radio" value="No"{{checked("onslip","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-2">
-                  No
-                </label>
-              </div>
-            </div>
           </fieldset>
 
-        </div>
+          <h2 class="nhsuk-body-l"><span role="text">We found <span class="results__count">25</span> GP surgeries using <span class="results__search__term">'shadwell lane'</span>.</span></h2>
 
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
+          <p role="text">If your surgery is not here, check your spelling and <a class="results__search__again" href="/repeat-prescriptions/rp-question-2">search again</a>.</p>
+
+
+          <div>
+            <ol class="nhsuk-list inline-list" role="list">
+              
+                <li class="nhsuk-c-panel results__item" data-index="1" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text"><span class="highlight">Shadwell</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">137 <span class="highlight">Shadwell</span> <span class="highlight">Lane</span>, Leeds, West Yorkshire, LS17 8AE</p>
+          
+          
+          <p><a class="results__gp__selection" href="/repeat-prescriptions/rp-question-4?surgery=Shadwell Medical Centre">
+            <span class="nhsuk-u-visually-hidden">Shadwell Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="2" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Sandy <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Sandy <span class="highlight">Lane</span> Health Centre, Sandy <span class="highlight">Lane</span>, Rugeley, Staffordshire, WS15 2LB</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463258&amp;gpquery=shadwell%20lane&amp;gpname=Sandy%20Lane%20Surgery&amp;lat=52.756744384765625&amp;lon=-1.9370882511138916">
+            <span class="nhsuk-u-visually-hidden">Sandy Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="3" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Clay <span class="highlight">Lane</span> Medical Practice</span></h3>
+          
+          
+            <p class="results__address" role="text">Clay <span class="highlight">Lane</span> Medical Practice, 5 Clay <span class="highlight">Lane</span>, Coventry, West Midlands, CV2 4LJ</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463259&amp;gpquery=shadwell%20lane&amp;gpname=Clay%20Lane%20Medical%20Practice&amp;lat=52.4120979309082&amp;lon=-1.4829980134963987">
+            <span class="nhsuk-u-visually-hidden">Clay Lane Medical Practice</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="4" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Matson <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Matson <span class="highlight">Lane</span> Surgery, Taylor House 4 Matson <span class="highlight">Lane</span>, Matson, Gloucestershire, GL4 6DX</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463095&amp;gpquery=shadwell%20lane&amp;gpname=Matson%20Lane%20Surgery&amp;lat=51.83674240112305&amp;lon=-2.221137046813965">
+            <span class="nhsuk-u-visually-hidden">Matson Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="5" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Park <span class="highlight">Lane</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">Park <span class="highlight">Lane</span> Medical Centre, 82 Park <span class="highlight">Lane</span>, Bedhampton, Havant, Hampshire, PO9 3HN</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=462955&amp;gpquery=shadwell%20lane&amp;gpname=Park%20Lane%20Medical%20Centre&amp;lat=50.86288833618164&amp;lon=-0.9990895390510558">
+            <span class="nhsuk-u-visually-hidden">Park Lane Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="6" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Church <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Church <span class="highlight">Lane</span> Surgery, Braintree College, Church <span class="highlight">Lane</span>, Braintree, Essex, CM7 5SN</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463318&amp;gpquery=shadwell%20lane&amp;gpname=Church%20Lane%20Surgery&amp;lat=51.88982391357422&amp;lon=0.5578262805938721">
+            <span class="nhsuk-u-visually-hidden">Church Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="7" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Robin <span class="highlight">Lane</span> Health and Wellbeing Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">Robin <span class="highlight">Lane</span> Medical Centre, Robin <span class="highlight">Lane</span>, Pudsey, West Yorkshire, LS28 7DE</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=8837005&amp;gpquery=shadwell%20lane&amp;gpname=Robin%20Lane%20Health%20and%20Wellbeing%20Centre&amp;lat=53.795013427734375&amp;lon=-1.6612963676452637">
+            <span class="nhsuk-u-visually-hidden">Robin Lane Health and Wellbeing Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="8" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Cook <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Cook <span class="highlight">Lane</span> Surgery, Cook <span class="highlight">Lane</span>, Heckmondwike, West Yorkshire, WF16 9JG</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=462915&amp;gpquery=shadwell%20lane&amp;gpname=Cook%20Lane%20Surgery&amp;lat=53.710487365722656&amp;lon=-1.6767466068267822">
+            <span class="nhsuk-u-visually-hidden">Cook Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="9" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Shay <span class="highlight">Lane</span> Medical Centre (Patel)</span></h3>
+          
+          
+            <p class="results__address" role="text">Shay <span class="highlight">Lane</span> Medical Centre, Shay <span class="highlight">Lane</span>, Hale Barns, Altrincham, Cheshire, WA15 8NZ</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463270&amp;gpquery=shadwell%20lane&amp;gpname=Shay%20Lane%20Medical%20Centre%20(Patel)&amp;lat=53.3721923828125&amp;lon=-2.3155455589294434">
+            <span class="nhsuk-u-visually-hidden">Shay Lane Medical Centre (Patel)</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="10" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Dr Htun Nay Lin, Mattock <span class="highlight">Lane</span> Health Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">Mattock <span class="highlight">Lane</span> Health Centre, 78 Mattock <span class="highlight">Lane</span>, Ealing, London, Greater London, W13 9NZ</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=462931&amp;gpquery=shadwell%20lane&amp;gpname=Dr%20Htun%20Nay%20Lin%2C%20Mattock%20Lane%20Health%20Centre&amp;lat=51.50994491577149&amp;lon=-0.31520605087280273">
+            <span class="nhsuk-u-visually-hidden">Dr Htun Nay Lin, Mattock Lane Health Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="11" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Garden <span class="highlight">Lane</span> Medical Ctr.</span></h3>
+          
+          
+            <p class="results__address" role="text">Garden <span class="highlight">Lane</span> Medical Centre, 19 Garden <span class="highlight">Lane</span>, Chester, Cheshire, CH1 4EN</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463273&amp;gpquery=shadwell%20lane&amp;gpname=Garden%20Lane%20Medical%20Ctr.&amp;lat=53.19527816772461&amp;lon=-2.8963446617126465">
+            <span class="nhsuk-u-visually-hidden">Garden Lane Medical Ctr.</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="12" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Mere <span class="highlight">Lane</span> Group Practice</span></h3>
+          
+          
+            <p class="results__address" role="text">Mere <span class="highlight">Lane</span> Neighbourhood Health Centre, 49-51 Mere <span class="highlight">Lane</span>, Liverpool, Merseyside, L5 0QW</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463115&amp;gpquery=shadwell%20lane&amp;gpname=Mere%20Lane%20Group%20Practice&amp;lat=53.4267463684082&amp;lon=-2.966909408569336">
+            <span class="nhsuk-u-visually-hidden">Mere Lane Group Practice</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="13" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Johnson (Sheen <span class="highlight">Lane</span>)</span></h3>
+          
+          
+            <p class="results__address" role="text">Sheen <span class="highlight">Lane</span> Health Centre, Sheen <span class="highlight">Lane</span>, East Sheen, London, Greater London, SW14 8LP</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463330&amp;gpquery=shadwell%20lane&amp;gpname=Johnson%20(Sheen%20Lane)&amp;lat=51.46584701538086&amp;lon=-0.2672479748725891">
+            <span class="nhsuk-u-visually-hidden">Johnson (Sheen Lane)</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="14" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Primrose <span class="highlight">Lane</span> Practice</span></h3>
+          
+          
+            <p class="results__address" role="text">Primrose <span class="highlight">Lane</span> Health Ctr, Primrose <span class="highlight">Lane</span>, Low Hill, Wolverhampton, West Midlands, WV10 8RN</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463033&amp;gpquery=shadwell%20lane&amp;gpname=Primrose%20Lane%20Practice&amp;lat=52.612701416015625&amp;lon=-2.100796937942505">
+            <span class="nhsuk-u-visually-hidden">Primrose Lane Practice</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="15" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Squires <span class="highlight">Lane</span> Medical Practice</span></h3>
+          
+          
+            <p class="results__address" role="text">2 Squires <span class="highlight">Lane</span>, Finchley, London, Greater London, N3 2AU</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463041&amp;gpquery=shadwell%20lane&amp;gpname=Squires%20Lane%20Medical%20Practice&amp;lat=51.60249328613281&amp;lon=-0.17496293783187866">
+            <span class="nhsuk-u-visually-hidden">Squires Lane Medical Practice</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="16" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Mill <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Mill <span class="highlight">Lane</span>, Grampound, Truro, Cornwall, TR2 4RU</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463096&amp;gpquery=shadwell%20lane&amp;gpname=Mill%20Lane%20Surgery&amp;lat=50.30081558227539&amp;lon=-4.901819229125977">
+            <span class="nhsuk-u-visually-hidden">Mill Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="17" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Horse Fair Practice Group</span></h3>
+          
+          
+            <p class="results__address" role="text">Sandy <span class="highlight">Lane</span> Health Centre, Sandy <span class="highlight">Lane</span>, Rugeley, Staffordshire, WS15 2LB</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463258&amp;gpquery=shadwell%20lane&amp;gpname=Horse%20Fair%20Practice%20Group&amp;lat=52.756744384765625&amp;lon=-1.9370882511138916">
+            <span class="nhsuk-u-visually-hidden">Horse Fair Practice Group</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="18" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Upton <span class="highlight">Lane</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">75-77 Upton <span class="highlight">Lane</span>, London, Greater London, E7 9PB</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463328&amp;gpquery=shadwell%20lane&amp;gpname=Upton%20Lane%20Medical%20Centre&amp;lat=51.54309844970703&amp;lon=0.026408180594444275">
+            <span class="nhsuk-u-visually-hidden">Upton Lane Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="19" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Quakers <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Quakers <span class="highlight">Lane</span>, Richmond, North Yorkshire, DL10 4BB</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463249&amp;gpquery=shadwell%20lane&amp;gpname=Quakers%20Lane%20Surgery&amp;lat=54.40635681152344&amp;lon=-1.7416912317276">
+            <span class="nhsuk-u-visually-hidden">Quakers Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="20" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Weston <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">Weston <span class="highlight">Lane</span>, Southampton, Hampshire, SO19 9GH</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=462959&amp;gpquery=shadwell%20lane&amp;gpname=Weston%20Lane%20Surgery&amp;lat=50.88822555541992&amp;lon=-1.3706892728805542">
+            <span class="nhsuk-u-visually-hidden">Weston Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="21" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Far <span class="highlight">Lane</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">1 Far <span class="highlight">Lane</span>, Sheffield, South Yorkshire, S6 4FA</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463351&amp;gpquery=shadwell%20lane&amp;gpname=Far%20Lane%20Medical%20Centre&amp;lat=53.409320831298835&amp;lon=-1.5076760053634644">
+            <span class="nhsuk-u-visually-hidden">Far Lane Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="22" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Kirkstall <span class="highlight">Lane</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">216 Kirkstall <span class="highlight">Lane</span>, Leeds, West Yorkshire, LS6 3DS</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=8837005&amp;gpquery=shadwell%20lane&amp;gpname=Kirkstall%20Lane%20Medical%20Centre&amp;lat=53.81694412231445&amp;lon=-1.5873175859451294">
+            <span class="nhsuk-u-visually-hidden">Kirkstall Lane Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="23" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Broad <span class="highlight">Lane</span> Surgery</span></h3>
+          
+          
+            <p class="results__address" role="text">71 Broad <span class="highlight">Lane</span>, Hampton, Middlesex, TW12 3AX</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463330&amp;gpquery=shadwell%20lane&amp;gpname=Broad%20Lane%20Surgery&amp;lat=51.422874450683594&amp;lon=-0.3681327402591706">
+            <span class="nhsuk-u-visually-hidden">Broad Lane Surgery</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="24" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Gun <span class="highlight">Lane</span> Medical Centre Surgery St</span></h3>
+          
+          
+            <p class="results__address" role="text">Gun <span class="highlight">Lane</span>, Strood, Rochester, Kent, ME2 4UW</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463232&amp;gpquery=shadwell%20lane&amp;gpname=Gun%20Lane%20Medical%20Centre%20Surgery%20St&amp;lat=51.39739608764648&amp;lon=0.49320346117019653">
+            <span class="nhsuk-u-visually-hidden">Gun Lane Medical Centre Surgery St</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+                <li class="nhsuk-c-panel results__item" data-index="25" role="listitem">
+                  <hr>
+                  <div>
+                    <h3 class="results__name"><span role="text">Holes <span class="highlight">Lane</span> Medical Centre</span></h3>
+          
+          
+            <p class="results__address" role="text">28 Holes <span class="highlight">Lane</span>, Woolston, Warrington, Cheshire, WA1 4NE</p>
+          
+          
+          <p><a class="results__gp__selection" href="/service-search/find-a-psychological-therapies-service/results?type=iapt&amp;ccgid=463272&amp;gpquery=shadwell%20lane&amp;gpname=Holes%20Lane%20Medical%20Centre&amp;lat=53.400936126708984&amp;lon=-2.5452232360839844">
+            <span class="nhsuk-u-visually-hidden">Holes Lane Medical Centre</span>
+            <span aria-hidden="true">This</span> is my GP</a>
+          </p>
+          
+                  </div>
+                </li>
+              
+            </ol>
+          </div>
+
+
+        </div>
 
       </form>
 
@@ -94,10 +496,6 @@ Repeat prescriptions
       "text": "Back"
       }) }}
 
-    </div>
-
-    <div class="nhsuk-grid-column-one-third">
-      <img src="/images/rp.png" alt="Prescription slip" width="275" height="228">
     </div>
 
   </div>
@@ -117,7 +515,7 @@ Repeat prescriptions
         "label": "Our policies"
       },
       {
-        "URL": "/frequencys/passing-data/clear-data",
+        "URL": "/examples/passing-data/clear-data",
         "label": "Clear data"
       }
     ]
