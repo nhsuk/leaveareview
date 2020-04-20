@@ -38,18 +38,19 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You cannot use this service to order a repeat prescription online</h1>
+      <h1>You are unable to use this service</h1>
 
-      <form action="/repeat-prescriptions/" method="post">
+      <form action="https://www.nhs.uk/service-search" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>This service is only available to patients who currently have at least one repeat prescription from a GP.</p>
+          <p>This service is only available to people who have at least 1 active GP repeat prescription.</p>
+          <p>If you think you need 1 of your medicines as a repeat prescription, then you should contact your GP surgery. </p>
 
         </div>
 
         {{ button({
-          "text": "Continue",
+          "text": "Contact your GP surgery",
           "id": "btn_submit"
         }) }}
 

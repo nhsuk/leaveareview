@@ -732,7 +732,7 @@ router.post('/rpq5', function(req, res) {
   let existingrepeat = req.body.existingrepeat;
 
   if (!existingrepeat) {
-    res.redirect('/repeat-prescriptions/rp-question-2?error=true');
+    res.redirect('/repeat-prescriptions/rp-question-4?error=true');
   } else if (existingrepeat == 'No') {
     res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
   } else {

@@ -38,18 +38,25 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You cannot use this service to order a repeat prescription online</h1>
+      <h1>You are unable to use this service</h1>
 
-      <form action="/repeat-prescriptions/" method="post">
+      <form action="https://www.nhs.uk" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>This service is only available to patients who are registered at a GP surgery in England. It's not available in Scotland, Wales or Northern Ireland.</p>
+          <p>This service is only available to people who are registered at a GP surgery in England. It's not available in Scotland, Wales or Northern Ireland.</p>
+          
+          <p>If your registered GP surgery is in:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Scotland - you will need to contact your GP surgery</li>
+            <li>Wales - visit the <a href="">My Health Online website</a></li>
+            <li>Northern Ireland - visit the <a href="">nidirect website</a></li>
+          </ul>
 
         </div>
 
         {{ button({
-          "text": "Continue",
+          "text": "Continue to NHS.UK",
           "id": "btn_submit"
         }) }}
 

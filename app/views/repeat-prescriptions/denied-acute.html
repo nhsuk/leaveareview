@@ -38,19 +38,18 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You cannot use this service to order a repeat prescription online</h1>
+      <h1>You are unable to use this service</h1>
 
-      <form action="/repeat-prescriptions/" method="post">
+      <form action="https://www.nhs.uk/service-search" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you have been getting the same prescription on a regular basis but it does not appear on your repeat slip it could be a short-term acute repeat.</p> 
-          <p>These types of prescriptions are not available to order online. You will need to contact your GP.</p>
+          <p>You will need to contact your GP surgery if the medication you would like to order is not on your repeat slip or you do not have a repeat slip.</p> 
 
         </div>
 
         {{ button({
-          "text": "Continue",
+          "text": "Contact your GP surgery",
           "id": "btn_submit"
         }) }}
 
