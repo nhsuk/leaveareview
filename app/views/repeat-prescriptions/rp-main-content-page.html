@@ -1,0 +1,146 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Services</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">NHS Services</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three/level-four">Pharmacies</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Pharmacies</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>How to order repeat prescriptions online</h1>
+
+      <p>Most prescriptions are now electronic, which means you do not have to go into your GP surgery to get a repeat prescription.</p>
+      <p>You can order your medicine online and get it delivered to you or collect it from a pharmacy.</p>
+      <p>You can do this in 3 simple steps.</p>
+
+      <h2>1.	Register with an online prescription service</h2>
+
+      <h3>Using this website</h3>
+      <p>The NHS website now allows you to order repeat prescriptions online. To make use of this service you will need to:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>be registered at a GP surgery in England</li>
+        <li>be aged 13 or older</li>
+        <li>already have a current repeat prescription approved by your GP</li>
+      </ul>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>You will also need an NHS login. If you do not have an NHS login then the <a href="/repeat-prescriptions/rp-landing">repeat prescription service</a> will explain how you register for one.</p>
+      </div>
+
+      <p><a href="">Read more about how you register for the GP repeat prescription service</a>.</p>
+
+      <h3>Using other services</h3>
+      <p class="nhsuk-u-margin-bottom-6">There are lots of <a href="">other</a> apps and websites you can use to order repeat prescriptions. Some may also let you see your medical record and book GP appointments.</p>
+      
+      <p class="nhsuk-u-font-weight-bold">You can:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>use the NHS App</li>
+        <li>use another online health service linked to your GP surgery. — check your GP surgery website to see which services you can use</li>
+        <li>search online for pharmacies that have an online repeat prescription service</li>
+      </ul>
+
+      <p class="nhsuk-u-margin-bottom-6">When you've chosen a service to use, you'll need to register to create an account.</p>
+
+      <p class="nhsuk-u-font-weight-bold">You may be able to:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+        <li>get your medicine delivered to you</li>
+        <li>get your medicine sent to a specific pharmacy (nominated pharmacy) — they'll let you know when it's ready to collect</li>
+        <li>go to any pharmacy to collect your medicine — you may get a paper copy of your prescription to bring with you, or the pharmacy may be able to find your prescription using your NHS number</li>
+      </ul>
+
+      <p class="nhsuk-u-font-weight-bold">Do not go to a pharmacy to collect medicines if:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>you have symptoms of coronavirus (a high temperature or a new, continuous cough)</li>
+        <li>you live with someone who has symptoms</li>
+        <li>you are at very high risk of coronavirus</li>
+      </ul>
+
+      <div class="nhsuk-review-date">
+        <p class="nhsuk-body-s">
+          Page last reviewed: 15 April 2020<br>
+          Next review due: 15 April 2020
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <ul class="nhsuk-footer__list nhsuk-footer__list--three-columns">
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/nhs-sites/">NHS sites</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/">About us</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/contact-us/">Contact us</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/personalisation/login.aspx">Profile editor login</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/accessibility/">Accessibility</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/cookies-policy/">Cookies</a></li>
+      </ul>
+      
+      <p class="nhsuk-footer__copyright">© Crown copyright</p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
