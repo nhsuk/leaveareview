@@ -57,7 +57,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
 
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
 
       <h1 class="nhsuk-u-margin-bottom-4">Before you start</h1>
       <p>To order repeat prescriptions online, you will need an NHS login.</p>
@@ -66,33 +66,13 @@
       <h2>What you will need</h2>
       <p>In order to register for an NHS login you will need one of the following at hand:</p>
 
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-one-third">
       <ul class="nhsuk-list nhsuk-list--bullet">
         <li>a valid drivers licence</li>
         <li>a valid passport</li>
         <li>an EU identity card</li>
       </ul>
-    </div>
-
-    <div class="nhsuk-grid-column-one-third">
-      <img src="/images/s300_Eng_Full_Front_Flag.png" alt="Driving Licence" width="230" height="150">
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-      <div class="nhsuk-inset-text nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-6">
-        <span class="nhsuk-u-visually-hidden">Information: </span>
-        <p>You will need to take photos of the chosen ID and of yourself. You will then need to upload them.</p>
-      </div>
+      <p><img src="/images/s300_Eng_Full_Front_Flag.png" alt="Driving Licence" width="230" height="150"></p>
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
     </div>
 
   </div>
@@ -103,13 +83,13 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h2>Can I use this service?</h2>
-      <p>Not everyone is eligible to order repeat prescriptions online. So we will need to ask you a few questions to check if you are eligible, before taking you through the process of registering for an NHS login.</p>
+      <p>Not everyone is eligible to order repeat prescriptions online. So before taking you through the process of registering for an NHS login, we would like to ask you a few questions. This could save you time.</p>
       <p>If you do not want to check your eligibility, you can go ahead and <a href="https://account.demo.signin.nhs.uk/#/account/register">register for an NHS login</a>.</p>
     
 
       <form action="/repeat-prescriptions/rp-question-1" method="post" style="float: left; padding-right: 20px;">
         {{ button({
-          "text": "Check my eligibility",
+          "text": "Check before registering",
           "id": "btn_submit"
         }) }}
       </form>
