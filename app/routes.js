@@ -705,6 +705,17 @@ module.exports = {
 /* REPEAT PRESCRIPTIONS */
 /************************/
 
+router.post('/registered', function(req, res) {
+  let emailaddress = req.body.emailaddress;
+
+  if (!emailaddress) {
+    res.redirect('/repeat-prescriptions/rp-emailcheck?error=true');
+  } else if (emailaddress == 'name@domain.com') {
+    res.redirect('/repeat-prescriptions/denied-no-registered');
+  } else {
+    res.redirect('/repeat-prescriptions');
+  }
+});
 
 router.post('/rpq2', function(req, res) {
   let england = req.body.england;
