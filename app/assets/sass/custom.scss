@@ -976,7 +976,13 @@ dd {
     width:65% !important;
   }
 
-  .caption{
-    font-size: 16px;
-    color:#4c6272;
+  .topborder {
+    border-top: 2px solid #005EB8;
+  }
+  .caption-top{
+    font-weight: bold;
+    font-size: 22px;
+    color:#212B32;
+    padding-top: 8px;
+    margin-bottom: 10px;
   }

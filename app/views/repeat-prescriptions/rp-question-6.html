@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-4",
+    href: "/repeat-prescriptions/rp-question-5",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,23 +38,15 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 5 of 6</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 6 of 7</span>
 
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <form action="/rpq6" method="post">
+      <form action="/rpq7" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Are any of the medications you want to order listed on a repeat slip? 
+              Do you request each issue of your prescription from your GP surgery?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
@@ -62,25 +54,19 @@ Repeat prescriptions
               Please select an option
             </span>
             <span class="nhsuk-hint">
-              A repeat slip is the the white half on the right hand side of a prescription.
+              
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-1" name="onslip" type="radio" value="Yes"{{checked("onslip","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-1">
-                  They are listed on my latest repeat slip
+                <input class="nhsuk-radios__input" id="requestrepeat-1" name="requestrepeat" type="radio" value="Yes"{{checked("requestrepeat","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-1">
+                  Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-2" name="onslip" type="radio" value="No"{{checked("onslip","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-2">
-                  They are NOT listed on my latest repeat slip
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-3" name="onslip" type="radio" value="I do not have a repeat slip"{{checked("onslip","I do not have a repeat slip")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-3">
-                  I never received a repeat slip
+                <input class="nhsuk-radios__input" id="requestrepeat-2" name="requestrepeat" type="radio" value="No"{{checked("requestrepeat","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-2">
+                  No
                 </label>
               </div>
             </div>
@@ -96,15 +82,10 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-4",
+      "href": "rp-question-5",
       "text": "Back"
       }) }}
 
-    </div>
-
-    <div class="nhsuk-grid-column-one-third topborder">
-      <p class="caption-top">Example repeat slip</p>
-      <img src="/images/repeat-slip2.png" alt="Prescription slip" width="100%" height="auto">
     </div>
 
   </div>

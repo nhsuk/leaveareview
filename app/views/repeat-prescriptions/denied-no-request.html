@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-5",
+    href: "/repeat-prescriptions/rp-question-6",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -44,7 +44,8 @@ Repeat prescriptions
 
         <div class="nhsuk-form-group">
 
-          <p>You will need to contact your GP surgery if the medication you would like to order is not on your repeat slip.</p> 
+          <p>It looks like you may be receiving a repeat dispensing prescription and not a standard repeat prescription.</p>
+          <p>This service is only for standard repeat prescriptons.</p> 
 
         </div>
 
@@ -56,7 +57,7 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-5",
+      "href": "rp-question-6",
       "text": "Back"
       }) }}
 

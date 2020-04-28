@@ -38,7 +38,11 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if data["requestrepeat"] == 'Yes' %}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 7 of 7</span>
+      {%else%}
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 6 of 6</span>
+      {%endif%}
 
 
       <!--form action="https://account.demo.signin.nhs.uk/#/account/register" method="get"-->
@@ -96,7 +100,7 @@ Repeat prescriptions
             
               <div class="nhsuk-summary-list__row">
                 <dt class="nhsuk-summary-list__key">
-                  Are any of the medications you want to order listed on your repeat slip?
+                  Are any of the medications you want to order listed on listed on a repeat slip?
                 </dt>
                 <dd class="nhsuk-summary-list__value">
                   {{data["onslip"]}}
@@ -108,6 +112,22 @@ Repeat prescriptions
                 </dd>
               </div>
             
+              {% if data["requestrepeat"] == 'Yes' %}
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Do you request each issue of your prescription from your GP surgery?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["requestrepeat"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-5">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+              {%endif%}
+
             </dl>
 
           </fieldset>

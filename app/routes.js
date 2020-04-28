@@ -755,9 +755,23 @@ router.post('/rpq6', function(req, res) {
   let onslip = req.body.onslip;
 
   if (!onslip) {
-    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
+    res.redirect('/repeat-prescriptions/rp-question-5?error=true');
+  } else if (onslip == 'Yes') {
+    res.redirect('/repeat-prescriptions/confirmation');
   } else if (onslip == 'No') {
     res.redirect('/repeat-prescriptions/denied-acute');
+  } else {
+    res.redirect('/repeat-prescriptions/rp-question-6');
+  }
+});
+
+router.post('/rpq7', function(req, res) {
+  let requestrepeat = req.body.requestrepeat;
+
+  if (!requestrepeat) {
+    res.redirect('/repeat-prescriptions/rp-question-6?error=true');
+  } else if (requestrepeat == 'No') {
+    res.redirect('/repeat-prescriptions/denied-no-request');
   } else {
     res.redirect('/repeat-prescriptions/confirmation');
   }
