@@ -1,56 +1,36 @@
-<!-- This layout is setup for NHS.UK pages -->
+<!-- This layout is setup for transactional pages -->
 
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends "layout.html" %}
 
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Repeat prescriptions
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
-      "showNav": "true",
-      "showSearch": "true",
-      "primaryLinks": [
-        {
-          "url"  : "#",
-          "label" : "Health A-Z"
-        },
-        {
-          'url' : '#',
-          'label' : 'Live Well'
-        },
-        {
-          'url'  : '#',
-          'label' : 'Care and support'
-        },
-        {
-          'url'  : '#',
-          'label' : 'Health news'
-        },
-        {
-          'url' : '#',
-          'label' : 'Services near you'
-        }
-      ]
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
     })
   }}
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Services near you</a></li>
-      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li-->
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Services near you</a></p>
-  </div>
-</nav>
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-device",
+    text: "< Back"
+  }) }}
 {% endblock %}
 
 
@@ -59,20 +39,27 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-u-margin-bottom-4">You are not registered for NHS login</h1>
+      <h1 class="nhsuk-u-margin-bottom-4">Registering for an NHS login using a laptop or desktop PC</h1>
 
-      <p>To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
+      <p class="nhsuk-body-l">To register for your NHS login, you will need to prove who you are by uploading photos of an ID document and a video.</p>
+      <p>This is easier to do with a mobile or tablet device than with a laptop or PC. Because the camera on your laptop or PC is currently not supported to take high quality photos we suggest that you do one of the following:</p>
 
-      <h2>What you will need</h2>
-      <p>In order to register for an NHS login you will need one of the following at hand:</p>
+      <h2>Option 1</h2>
+      <p>Go to the NHS login registration page: <a href="https://account.demo.signin.nhs.uk/#/account/login">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome, Firefox or Internet Explorer. Proceed with the registration on your device and upload the required photos and video.</p>
+
+      <h2>Option 2</h2>
+      <p>Register for an NHS login with your laptop or PC - <a href="https://account.demo.signin.nhs.uk/#/account/login">www.nhsuk/register</a></p>
+      <p>After registering you will need to prove your identity using a driving license or a passport.</p>
+      <p>As you will not be able to do this on your device, you will need some registration details from your GP surgery.</p>
+      <p><b>You will be given the following details:</b></p>
 
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>a valid drivers licence</li>
-        <li>a valid passport</li>
-        <li>an EU identity card</li>
+        <li>Linkage Key (could also be called Passphrase)</li>
+        <li>O.D.S. Code (could also be called Organisation Code or Practice I.D.)</li>
+        <li>Account I.D.</li>
       </ul>
-      <p><img src="/images/s300_Eng_Full_Front_Flag.png" alt="Driving Licence" width="230" height="150"></p>
-      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
+
+      <p>When you have all 3 details, go back to <a href="www.nhsuk/prescriptions">www.nhsuk/prescriptions</a> to login to online services and use the 3 registration details to prove who you are.</p>
 
     </div>
 
@@ -82,17 +69,8 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/repeat-prescriptions/start" method="post">
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
-
       {{ backLink({
-      "href": "/repeat-prescriptions/rp-emailcheck",
+      "href": "/repeat-prescriptions/rp-question-device",
       "text": "Back"
       }) }}
 

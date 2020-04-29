@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-6",
+    href: "/repeat-prescriptions/rp-emailcheck",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,26 +38,26 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You are unable to use this service</h1>
+      <h1>You are registered with NHS login</h1>
 
-      <form action="https://www.nhs.uk/service-search" method="post">
+      <form action="https://account.demo.signin.nhs.uk/#/account/login" method="get">
 
         <div class="nhsuk-form-group">
 
-          <p>It looks like your current batch of prescriptions are managed by your pharmacy. You do not need to contact your GP surgery to order more medicine from this batch.</p>
-          <p>Contact your pharmacy for more information.</p>
+          <p class="nhsuk-body-l">Good news!</p>
+          <p>It looks like you are already registered with NHS login. You can continue straight to the log in page.</p>
 
         </div>
 
         {{ button({
-          "text": "Contact your pharmacy",
+          "text": "Continue to log in",
           "id": "btn_submit"
         }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-6",
+      "href": "rp-emailcheck",
       "text": "Back"
       }) }}
 

@@ -777,6 +777,30 @@ router.post('/rpq7', function(req, res) {
   }
 });
 
+router.post('/rpdevice', function(req, res) {
+  let device = req.body.device;
+
+  if (!device) {
+    res.redirect('/repeat-prescriptions/rp-question-device?error=true');
+  } else if (device == 'mobile') {
+    res.redirect('/repeat-prescriptions/rp-question-weborapp');
+  } else {
+    res.redirect('/repeat-prescriptions/rp-question-device-desktop');
+  }
+});
+
+router.post('/rpweborapp', function(req, res) {
+  let weborapp = req.body.weborapp;
+
+  if (!weborapp) {
+    res.redirect('/repeat-prescriptions/rp-question-weborapp?error=true');
+  } else if (weborapp == 'app') {
+    res.redirect('https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/');
+  } else {
+    res.redirect('https://account.login.nhs.uk/#/account/register');
+  }
+});
+
 /* FREQUENCY QUESTION - Archived
 router.post('/rpq4', function(req, res) {
   let frequency = req.body.frequency;

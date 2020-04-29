@@ -46,7 +46,7 @@ Repeat prescriptions
 
 
       <!--form action="https://account.demo.signin.nhs.uk/#/account/register" method="get"-->
-      <form action="/repeat-prescriptions/finish" method="get">
+      <form action="/repeat-prescriptions/rp-question-device" method="get">
       
 
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
@@ -134,10 +134,8 @@ Repeat prescriptions
 
           <p>From the answers that you have given we believe you may be able to use this service.</p>
 
-          <p>You can continue to the NHS Login registration page.</p>
-
         {{ button({
-          "text": "Register with NHS Login",
+          "text": "Continue",
           "id": "btn_submit"
         }) }}
 

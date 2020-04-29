@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-6",
+    href: "/repeat-prescriptions/confirmation",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,26 +38,49 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You are unable to use this service</h1>
-
-      <form action="https://www.nhs.uk/service-search" method="post">
+      <form action="/rpdevice" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>It looks like your current batch of prescriptions are managed by your pharmacy. You do not need to contact your GP surgery to order more medicine from this batch.</p>
-          <p>Contact your pharmacy for more information.</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              What device are you currently using to view this page?
+            </legend>
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+            <span class="nhsuk-hint">
+              
+            </span>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="device-1" name="device" type="radio" value="mobile"{{checked("device","mobile")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="device-1">
+                  a mobile phone or tablet
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="device-2" name="device" type="radio" value="desktop"{{checked("device","desktop")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="device-2">
+                  a laptop or desktop computer
+                </label>
+              </div>
+            </div>
+          </fieldset>
 
         </div>
 
         {{ button({
-          "text": "Contact your pharmacy",
+          "text": "Continue",
           "id": "btn_submit"
         }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-6",
+      "href": "confirmation",
       "text": "Back"
       }) }}
 
