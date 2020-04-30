@@ -801,6 +801,32 @@ router.post('/rpweborapp', function(req, res) {
   }
 });
 
+router.post('/camera', function(req, res) {
+  let camera = req.body.camera;
+
+  if (!camera) {
+    res.redirect('/repeat-prescriptions/rp-question-device-camera?error=true');
+  } else if (camera == 'Yes') {
+    res.redirect('/repeat-prescriptions/rp-question-device-confident');
+  } else {
+    res.redirect('/repeat-prescriptions/denied-no-camera');
+  }
+});
+
+router.post('/confident', function(req, res) {
+  let confident = req.body.confident;
+
+  if (!confident) {
+    res.redirect('/repeat-prescriptions/rp-question-device-confident?error=true');
+  } else if (confident == 'Yes') {
+    res.redirect('/repeat-prescriptions/rp-goto-register');
+  } else {
+    res.redirect('/repeat-prescriptions/denied-no-skillz');
+  }
+});
+
+
+
 /* FREQUENCY QUESTION - Archived
 router.post('/rpq4', function(req, res) {
   let frequency = req.body.frequency;

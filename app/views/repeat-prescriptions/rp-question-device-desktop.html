@@ -38,29 +38,47 @@ Repeat prescriptions
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+      
+      <form action="/camera" method="post">
 
-      <h1 class="nhsuk-u-margin-bottom-4">Registering for an NHS login using a laptop or desktop PC</h1>
+        <div class="nhsuk-form-group">
 
-      <p class="nhsuk-body-l">To register for your NHS login, you will need to prove who you are by uploading photos of an ID document and a video.</p>
-      <p>This is easier to do with a mobile or tablet device than with a laptop or PC. Because the camera on your laptop or PC is currently not supported to take high quality photos we suggest that you do one of the following:</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              Do you have a camera on your laptop or desktop?
+            </legend>
 
-      <h2>Option 1</h2>
-      <p>Go to the NHS login registration page: <a href="https://account.demo.signin.nhs.uk/#/account/login">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome, Firefox or Internet Explorer. Proceed with the registration on your device and upload the required photos and video.</p>
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+            <span class="nhsuk-hint">
+              
+            </span>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="camera-1" name="camera" type="radio" value="Yes"{{checked("camera","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="camera-1">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="camera-2" name="camera" type="radio" value="No"{{checked("camera","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="camera-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
 
-      <h2>Option 2</h2>
-      <p>Register for an NHS login with your laptop or PC - <a href="https://account.demo.signin.nhs.uk/#/account/login">www.nhsuk/register</a></p>
-      <p>After registering you will need to prove your identity using a driving license or a passport.</p>
-      <p>As you will not be able to do this on your device, you will need some registration details from your GP surgery.</p>
-      <p><b>You will be given the following details:</b></p>
+        </div>
 
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Linkage Key (could also be called Passphrase)</li>
-        <li>O.D.S. Code (could also be called Organisation Code or Practice I.D.)</li>
-        <li>Account I.D.</li>
-      </ul>
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
 
-      <p>When you have all 3 details, go back to <a href="www.nhsuk/prescriptions">www.nhsuk/prescriptions</a> to login to online services and use the 3 registration details to prove who you are.</p>
-
+      </form>
     </div>
 
   </div>
@@ -78,38 +96,24 @@ Repeat prescriptions
 
   </div>
 
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <hr>
-
-      <p><a href="">Report an issue with the information on this page</a></p>
-
-    </div>
-
-  </div>
 {% endblock %}
 
 <!-- Footer goes inside this block -->
 {% block footer %}
-<footer role="contentinfo">
-  <div class="nhsuk-footer" id="nhsuk-footer">
-    <div class="nhsuk-width-container">
-      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list nhsuk-footer__list--three-columns">
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/nhs-sites/">NHS sites</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/">About us</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/contact-us/">Contact us</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/personalisation/login.aspx">Profile editor login</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/accessibility/">Accessibility</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/cookies-policy/">Cookies</a></li>
-      </ul>
-      
-      <p class="nhsuk-footer__copyright">© Crown copyright</p>
-    </div>
-  </div>
-</footer>
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
 {% endblock %}

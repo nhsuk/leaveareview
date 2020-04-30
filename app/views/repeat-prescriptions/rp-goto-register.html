@@ -1,0 +1,91 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-device-confident",
+    text: "< Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>You will now start NHS login registration</h1>
+
+      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+
+        <div class="nhsuk-form-group">
+
+          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
+          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+
+        </div>
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}
