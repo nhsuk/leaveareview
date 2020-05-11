@@ -26,17 +26,22 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/rp-question-1",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "rp-question-1",
+      "text": "Back"
+      }) }}      
 
       <h1>You cannot use this service</h1>
 
@@ -47,7 +52,7 @@ Repeat prescriptions
           <p>This service is only available to people who are registered at a GP surgery in England. It's not available in Scotland, Wales or Northern Ireland.</p>
           
           <p>If your registered GP surgery is in:</p>
-          <ul class="nhsuk-list nhsuk-list--bullet">
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
             <li>Scotland - contact your GP surgery</li>
             <li>Wales - visit the <a href="">My Health Online website</a></li>
             <li>Northern Ireland - visit the <a href="">nidirect website</a></li>
