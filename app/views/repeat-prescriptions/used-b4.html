@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {#{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "index",
     text: "< Back"
   }) }}
 {% endblock %}#}
@@ -39,18 +39,40 @@ Repeat prescriptions
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+        "href": "index",
+        "text": "Back"
+        }) }}
 
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <form action="/usedb4" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              Have you used this service before?
+            </legend>
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
+            </span>
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="usedb4-1" name="usedb4" type="radio" value="Yes"{{checked("usedb4","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="usedb4-1">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="usedb4-2" name="usedb4" type="radio" value="No"{{checked("usedb4","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="usedb4-2">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
 
         </div>
 
@@ -62,9 +84,9 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "index",
       "text": "Back"
-      }) }}      
+      }) }}
 
     </div>
 

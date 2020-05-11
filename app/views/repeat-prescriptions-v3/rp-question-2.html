@@ -26,31 +26,39 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/rp-question-1",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 6</span>
 
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <form action="/rpq3" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              Which GP surgery are you registered with?
+            </legend>
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please enter the GP surgery name or street name
+            </span>
+
+            <span class="nhsuk-hint" id="surgery-hint">
+              Enter the GP surgery name or street name
+            </span>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="surgery" type="text" aria-describedby="surgery-hint">
+          </fieldset>
 
         </div>
 
@@ -62,9 +70,9 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "rp-question-1",
       "text": "Back"
-      }) }}      
+      }) }}
 
     </div>
 

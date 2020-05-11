@@ -26,53 +26,53 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "start",
+    href: "/repeat-prescriptions/rp-question-device-desktop",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
-
-      {{ backLink({
-        "href": "triage-intro",
-        "text": "Back"
-        }) }}
-
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 4</span>
-
-      <form action="/rpq2" method="post">
+      
+      <form action="/confident" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Are you a confident laptop or desktop PC user?
             </legend>
+            <p>Can you:</p>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+              <li>Take and upload photos of ID documents?</li>
+              <li>Record video using your device's camera?</li>
+            </ul>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-
+            <span class="nhsuk-hint">
+              
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
+                <input class="nhsuk-radios__input" id="confident-1" name="confident" type="radio" value="Yes"{{checked("confident","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
+                <input class="nhsuk-radios__input" id="confident-2" name="confident" type="radio" value="No"{{checked("confident","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-2">
                   No
                 </label>
               </div>
-
             </div>
           </fieldset>
 
@@ -84,19 +84,27 @@ Repeat prescriptions
         }) }}
 
       </form>
+    </div>
+
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
+      "href": "/repeat-prescriptions/rp-question-device-desktop",
       "text": "Back"
       }) }}
 
     </div>
 
   </div>
+
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
-
 {% block footer %}
   {{ footer({
     "links": [
@@ -114,12 +122,4 @@ Repeat prescriptions
       }
     ]
   })}}
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

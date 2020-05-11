@@ -26,45 +26,40 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/rp-emailcheck",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+      <h1>You are registered with NHS login</h1>
 
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <form action="https://account.login.nhs.uk/" method="get">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+          <p class="nhsuk-body-l">Good news!</p>
+          <p>It looks like you are already registered with NHS login. You can continue straight to the log in page.</p>
 
         </div>
 
         {{ button({
-          "text": "Continue",
+          "text": "Continue to log in",
           "id": "btn_submit"
         }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "rp-emailcheck",
       "text": "Back"
-      }) }}      
+      }) }}
 
     </div>
 

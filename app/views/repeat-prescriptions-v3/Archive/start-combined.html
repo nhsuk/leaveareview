@@ -44,11 +44,11 @@
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Services near you</a></li>
-      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li-->
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">link</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Services near you</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to link</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -59,29 +59,31 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>We need to check if you already have an NHS login</h1>
+      <h1 class="nhsuk-u-margin-bottom-4">Order a repeat prescription</h1>
 
-      <form action="/registered" method="post">
+      <p>You can use this service to:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-3">
+        <li>order a repeat prescription</li>
+        <li>check the status of a prescription you have ordered</li>
+      </ul>
 
-        <div class="nhsuk-form-group">
+      <h2 class="nhsuk-u-margin-bottom-4">Before you start</h2>
+      <p><b>To use this service, you must:</b></p>
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+        <li>be registered at a GP surgery in England</li>
+        <li>be aged 13 or older</li>
+        <li>already have a repeat prescription approved by your GP</li>
+        <!--li>have an NHS login - if you do not have one, we can help you <a href="https://account.login.nhs.uk/#/account/do-you-have-login">set one up</a></li-->
+      </ul>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+      <p><b>To create an NHS login, you will need:</b></p>
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+        <li>a valid drivers licence at hand</li>
+        <li>to take a photo of yourself holding your license</li>
+        <li>to upload the photo </li>
+      </ul>
 
-            <p>Your email address will not be used for any other purpose.</p>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter your email address
-            </span>
-
-            <label class="nhsuk-label" for="emailaddress">
-              Enter your email address
-            </label>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="emailaddress" type="text" aria-describedby="surgery-hint">
-            
-          </fieldset>
-
-        </div>
+      <form action="/repeat-prescriptions/rp-question-1" method="post">
 
         {{ button({
           "text": "Continue",
@@ -90,16 +92,9 @@
 
       </form>
 
-      {{ backLink({
-      "href": "/repeat-prescriptions/rp-landing",
-      "text": "Back"
-      }) }}
-
     </div>
 
   </div>
-
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -123,13 +118,4 @@
     </div>
   </div>
 </footer>
-
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

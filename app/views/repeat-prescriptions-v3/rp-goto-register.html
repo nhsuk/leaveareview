@@ -26,22 +26,17 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/rp-question-device-confident",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
-
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
 
       <h1>You will now start NHS login registration</h1>
 
@@ -60,11 +55,6 @@ Repeat prescriptions
         }) }}
 
       </form>
-
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}      
 
     </div>
 

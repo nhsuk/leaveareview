@@ -16,23 +16,23 @@
       "primaryLinks": [
         {
           "url"  : "#",
-          "label" : "Health A-Z"
+          "label" : "Symptoms"
         },
         {
           'url' : '#',
-          'label' : 'Live Well'
+          'label' : 'Appointments'
         },
         {
           'url'  : '#',
-          'label' : 'Care and support'
+          'label' : 'Repeat prescriptions'
         },
         {
           'url'  : '#',
-          'label' : 'Health news'
+          'label' : 'Your GP medical record'
         },
         {
           'url' : '#',
-          'label' : 'Services near you'
+          'label' : 'More'
         }
       ]
     })
@@ -45,10 +45,10 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/">Your repeat prescriptions</a></li>
       <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">link</a></li-->
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Services near you</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/">Back to Your repeat prescriptions</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -59,47 +59,31 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>We need to check if you already have an NHS login</h1>
+      <h1>Your prescription has been ordered</h1>
 
-      <form action="/registered" method="post">
+      <p>The order status will be updated once it's been reviewed by your GP.</p>
+      <p><a href="">Go to your prescriptions</a></p>
 
-        <div class="nhsuk-form-group">
+      <h3>If you need another repeat prescription</h3>
+      <p>Use this web address:</p>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-
-            <p>Your email address will not be used for any other purpose.</p>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter your email address
-            </span>
-
-            <label class="nhsuk-label" for="emailaddress">
-              Enter your email address
-            </label>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="emailaddress" type="text" aria-describedby="surgery-hint">
-            
-          </fieldset>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
-
-      {{ backLink({
-      "href": "/repeat-prescriptions/rp-landing",
-      "text": "Back"
-      }) }}
+      <div class="nhsuk-panel-important">
+        <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><a href="/repeat-prescriptions/rp-landing">NHS.UK/repeatprescriptions</a></p>
+      </div>
 
     </div>
 
   </div>
 
 
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+    </div>
+
+  </div>
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -123,13 +107,4 @@
     </div>
   </div>
 </footer>
-
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

@@ -26,19 +26,24 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/rp-question-1",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 6</span>
+      {{ backLink({
+        "href": "rp-question-1",
+        "text": "Back"
+        }) }}
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 4</span>
 
       <form action="/rpq3" method="post">
 
@@ -46,18 +51,30 @@ Repeat prescriptions
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Which GP surgery are you registered with?
+              Do you already have a repeat prescription from your GP?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter the GP surgery name or street name
+              Please select an option
             </span>
-
-            <span class="nhsuk-hint" id="surgery-hint">
-              Enter the GP surgery name or street name
+            <span class="nhsuk-hint">
+              A repeat prescription is a medicine that you are regularly prescribed. It is likely to be a medicine you will have to take for some time.
             </span>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="surgery" type="text" aria-describedby="surgery-hint">
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="existingrepeat-1" name="existingrepeat" type="radio" value="Yes"{{checked("existingrepeat","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-1">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="existingrepeat-2" name="existingrepeat" type="radio" value="No"{{checked("existingrepeat","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-2">
+                  No
+                </label>
+              </div>
+            </div>
           </fieldset>
 
         </div>

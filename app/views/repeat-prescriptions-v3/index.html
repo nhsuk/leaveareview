@@ -59,29 +59,30 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>We need to check if you already have an NHS login</h1>
+      <h1 class="nhsuk-u-margin-bottom-4">You are not registered for NHS login</h1>
 
-      <form action="/registered" method="post">
+      <p class="nhsuk-u-margin-bottom-2">To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
 
-        <div class="nhsuk-form-group">
+      <h2>What you will need</h2>
+      <p>In order to register for an NHS login you will need one of the following at hand:</p>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
+      <!--p><img src="/images/s300_Eng_Full_Front_Flag.png" alt="Driving Licence" width="230" height="150"></p-->
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
 
-            <p>Your email address will not be used for any other purpose.</p>
+    </div>
 
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter your email address
-            </span>
+  </div>
 
-            <label class="nhsuk-label" for="emailaddress">
-              Enter your email address
-            </label>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="emailaddress" type="text" aria-describedby="surgery-hint">
-            
-          </fieldset>
+  <div class="nhsuk-grid-row">
 
-        </div>
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/repeat-prescriptions/start" method="post">
 
         {{ button({
           "text": "Continue",
@@ -91,7 +92,7 @@
       </form>
 
       {{ backLink({
-      "href": "/repeat-prescriptions/rp-landing",
+      "href": "/repeat-prescriptions/rp-emailcheck",
       "text": "Back"
       }) }}
 
@@ -123,13 +124,4 @@
     </div>
   </div>
 </footer>
-
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

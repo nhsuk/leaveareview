@@ -26,45 +26,40 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/rp-question-6",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+      <h1>You are unable to use this service</h1>
 
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <form action="https://www.nhs.uk/service-search" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+          <p>It looks like your current batch of prescriptions are managed by your pharmacy. You do not need to contact your GP surgery to order more medicine from this batch.</p>
+          <p>Contact your pharmacy for more information.</p>
 
         </div>
 
         {{ button({
-          "text": "Continue",
+          "text": "Contact your pharmacy",
           "id": "btn_submit"
         }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "rp-question-6",
       "text": "Back"
-      }) }}      
+      }) }}
 
     </div>
 

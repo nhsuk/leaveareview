@@ -28,10 +28,11 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {#{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "start",
     text: "< Back"
   }) }}
 {% endblock %}#}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -39,40 +40,42 @@ Repeat prescriptions
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
-
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
-
-        <div class="nhsuk-form-group">
-
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
+        "href": "/repeat-prescriptions/used-b4",
+        "text": "Back"
         }) }}
 
-      </form>
+      <h1 class="nhsuk-u-margin-bottom-4">Can I order repeat prescriptions online?</h1>
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}      
+      <p>We would like to ask you a few questions before taking you through the process of registering for an NHS login.</p>
 
     </div>
 
   </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/repeat-prescriptions/rp-question-1" method="post">
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+      </form>
+
+      {{ backLink({
+      "href": "/repeat-prescriptions/used-b4",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
-
 {% block footer %}
   {{ footer({
     "links": [
@@ -90,12 +93,4 @@ Repeat prescriptions
       }
     ]
   })}}
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

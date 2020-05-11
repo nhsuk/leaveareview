@@ -26,31 +26,25 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/rp-question-3",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+      <h1>You cannot use this service to order a repeat prescription online</h1>
 
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <form action="/repeat-prescriptions/" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+          <p>If you get your prescription once a year, it's unlikely to be a repeat prescription. This service is only available to patients who currently have at least one repeat prescription from a GP.</p>
 
         </div>
 
@@ -62,9 +56,9 @@ Repeat prescriptions
       </form>
 
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "rp-question-3",
       "text": "Back"
-      }) }}      
+      }) }}
 
     </div>
 

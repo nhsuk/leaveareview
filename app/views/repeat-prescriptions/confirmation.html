@@ -26,113 +26,48 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-5",
+    href: "/repeat-prescriptions/rp-question-3",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
+      {{ backLink({
+        "href": "rp-question-3",
+        "text": "Back"
+        }) }}
+
       {% if data["requestrepeat"] == 'Yes' %}
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 7 of 7</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 5 of 5</span>
       {%else%}
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 6 of 6</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
       {%endif%}
 
+      <h1>Based on your answers you should be able to order prescriptions online</h1>
 
-      <!--form action="https://account.demo.signin.nhs.uk/#/account/register" method="get"-->
+      <p class="nhsuk-u-margin-bottom-2">To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
+
+      <h2>What you will need</h2>
+      <p>In order to register for an NHS login you will need one of the following at hand:</p>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
+
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
+
+      <h3>What to do if you have no ID</h3>
+      <p>Your GP surgery will be able to give you some registration details. <a href="denied-no-smartphone-camera">Find out how to do this</a>.</p>
+
       <form action="/repeat-prescriptions/rp-question-device" method="get">
-      
-
-        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
-            Your answers
-          </legend>
-          <dl class="nhsuk-summary-list">
-
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key dtwidth">
-                  Is the GP surgery you're registered with in England?
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["england"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="/repeat-prescriptions/rp-question-1">
-                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
-                  </a>
-                </dd>
-              </div>
-
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Your GP surgery is
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["surgery"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="/repeat-prescriptions/rp-question-2">
-                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
-                  </a>
-                </dd>
-              </div>
-            
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Do you already have a repeat prescription from your GP?
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["existingrepeat"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="/repeat-prescriptions/rp-question-4">
-                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
-                  </a>
-                </dd>
-              </div>
-            
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Are any of the medications you want to order listed on listed on a repeat slip?
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["onslip"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="/repeat-prescriptions/rp-question-5">
-                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
-                  </a>
-                </dd>
-              </div>
-            
-              {% if data["requestrepeat"] == 'Yes' %}
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Do you request each issue of your prescription from your GP surgery?
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["requestrepeat"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="/repeat-prescriptions/rp-question-5">
-                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
-                  </a>
-                </dd>
-              </div>
-              {%endif%}
-
-            </dl>
-
-          </fieldset>
-
-          <p>From the answers that you have given we believe you may be able to use this service.</p>
 
         {{ button({
           "text": "Continue",
@@ -141,9 +76,8 @@ Repeat prescriptions
 
       </form>
 
-
       {{ backLink({
-      "href": "rp-question-5",
+      "href": "rp-question-3",
       "text": "Back"
       }) }}
 

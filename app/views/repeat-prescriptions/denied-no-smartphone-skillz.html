@@ -26,18 +26,23 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/denied-no-skillz",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "/repeat-prescriptions/denied-no-skillz",
+      "text": "Back"
+      }) }}
 
       <h1 class="nhsuk-u-margin-bottom-4">How to register for NHS Login without having to upload ID documents</h1>
 
@@ -53,14 +58,6 @@ Repeat prescriptions
       </ul>
 
       <p>When you have all 3 details, go back to <a href="www.nhsuk/prescriptions">www.nhsuk/prescriptions</a> to login to online services and use the 3 registration details to prove who you are.</p>
-
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
       "href": "/repeat-prescriptions/denied-no-skillz",

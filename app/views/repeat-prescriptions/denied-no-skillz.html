@@ -26,17 +26,22 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/rp-question-device-confident",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "rp-question-device-confident",
+      "text": "Back"
+      }) }}
 
       <h1>You need to be able to use your camera on your device and upload photos</h1>
 
@@ -45,7 +50,6 @@ Repeat prescriptions
       <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
       <h2>I do not have a smartphone</h2>
       <p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-skillz">without having to upload ID documents.</a></p>
-
 
       {{ backLink({
       "href": "rp-question-device-confident",

@@ -26,53 +26,54 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/denied-no-skillz",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}
+      <h1 class="nhsuk-u-margin-bottom-4">How to register for NHS Login without having to upload ID documents</h1>
 
-      <h1>You will now start NHS login registration</h1>
+      <p>Register for an NHS login with your laptop or PC - <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a></p>
+      <p>After registering you will need to prove your identity using a driving license or a passport.</p>
+      <p>As you will not be able to do this on your device, you will need some registration details from your GP surgery.</p>
+      <p><b>You will be given the following details:</b></p>
 
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Linkage Key (could also be called Passphrase)</li>
+        <li>O.D.S. Code (could also be called Organisation Code or Practice I.D.)</li>
+        <li>Account I.D.</li>
+      </ul>
 
-        <div class="nhsuk-form-group">
-
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
-
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}      
+      <p>When you have all 3 details, go back to <a href="www.nhsuk/prescriptions">www.nhsuk/prescriptions</a> to login to online services and use the 3 registration details to prove who you are.</p>
 
     </div>
 
   </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "/repeat-prescriptions/denied-no-skillz",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
-
 {% block footer %}
   {{ footer({
     "links": [
@@ -90,12 +91,4 @@ Repeat prescriptions
       }
     ]
   })}}
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}

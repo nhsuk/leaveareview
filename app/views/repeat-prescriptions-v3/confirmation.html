@@ -1,0 +1,182 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-5",
+    text: "< Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% if data["requestrepeat"] == 'Yes' %}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 7 of 7</span>
+      {%else%}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 6 of 6</span>
+      {%endif%}
+
+
+      <!--form action="https://account.demo.signin.nhs.uk/#/account/register" method="get"-->
+      <form action="/repeat-prescriptions/rp-question-device" method="get">
+      
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
+            Your answers
+          </legend>
+          <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key dtwidth">
+                  Is the GP surgery you're registered with in England?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["england"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-1">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Your GP surgery is
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["surgery"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-2">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Do you already have a repeat prescription from your GP?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["existingrepeat"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-4">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Are any of the medications you want to order listed on listed on a repeat slip?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["onslip"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-5">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+            
+              {% if data["requestrepeat"] == 'Yes' %}
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Do you request each issue of your prescription from your GP surgery?
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data["requestrepeat"]}}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="/repeat-prescriptions/rp-question-5">
+                    Change<span class="nhsuk-u-visually-hidden"> answer</span>
+                  </a>
+                </dd>
+              </div>
+              {%endif%}
+
+            </dl>
+
+          </fieldset>
+
+          <p>From the answers that you have given we believe you may be able to use this service.</p>
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+
+      {{ backLink({
+      "href": "rp-question-5",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

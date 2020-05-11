@@ -28,36 +28,30 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-4",
+    href: "/repeat-prescriptions/rp-question-2",
     text: "< Back"
   }) }}
 {% endblock %}
-
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You are unable to use this service</h1>
+      <h1>You cannot use this service</h1>
 
       <form action="https://www.nhs.uk/service-search" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>This service is only available to people who have at least 1 active GP repeat prescription.</p>
-          <p>If you think you need 1 of your medicines as a repeat prescription, then you should contact your GP surgery. </p>
+          <p>You can only use this service if you have at least 1 current repeat prescription from your GP</p>
+          <p>If you think you need 1 of your medicines as a repeat prescription <a href="">find your GP surgery phone number</a>.</p>
 
         </div>
-
-        {{ button({
-          "text": "Contact your GP surgery",
-          "id": "btn_submit"
-        }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-4",
+      "href": "rp-question-2",
       "text": "Back"
       }) }}
 

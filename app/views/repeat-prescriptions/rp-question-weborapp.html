@@ -26,17 +26,22 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
+{#{% block beforeContent %}
   {{ breadcrumb({
     href: "/repeat-prescriptions/rp-question-device",
     text: "< Back"
   }) }}
-{% endblock %}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "rp-question-device",
+      "text": "Back"
+      }) }}
 
       <form action="/rpweborapp" method="post">
 
@@ -44,10 +49,10 @@ Repeat prescriptions
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Would you like to use the NHS app to continue this journey?
+              Would you like to use the NHS App on a smartphone or tablet to continue?
             </legend>
 
-            <p>The NHS app sits on your smartphone or tablet and lets you quickly access and manage your online NHS health services.</p>
+            <p>The NHS App lets you quickly access and manage NHS online services.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -60,13 +65,13 @@ Repeat prescriptions
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="weborapp-1" name="weborapp" type="radio" value="app"{{checked("weborapp","app")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="weborapp-1">
-                  take me to the app
+                  Yes - take me to the app
                 </label>
               </div>
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="weborapp-2" name="weborapp" type="radio" value="web"{{checked("weborapp","web")}}>
                 <label class="nhsuk-label nhsuk-radios__label" for="weborapp-2">
-                  i would like to continue on the website
+                  No - i would like to continue on the website
                 </label>
               </div>
             </div>

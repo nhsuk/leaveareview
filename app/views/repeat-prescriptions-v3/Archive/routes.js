@@ -705,18 +705,6 @@ module.exports = {
 /* REPEAT PRESCRIPTIONS */
 /************************/
 
-router.post('/usedb4', function(req, res) {
-  let usedb4 = req.body.usedb4;
-
-  if (!usedb4) {
-    res.redirect('/repeat-prescriptions/rp-emailcheck?error=true');
-  } else if (usedb4 == 'No') {
-    res.redirect('/repeat-prescriptions/triage-intro');
-  } else {
-    res.redirect('https://account.login.nhs.uk');
-  }
-});
-
 router.post('/registered', function(req, res) {
   let emailaddress = req.body.emailaddress;
 
@@ -742,36 +730,46 @@ router.post('/rpq2', function(req, res) {
 });
 
 router.post('/rpq3', function(req, res) {
-  let existingrepeat = req.body.existingrepeat;
+  let surgery = req.body.surgery;
 
-  if (!existingrepeat) {
+  if (!surgery) {
     res.redirect('/repeat-prescriptions/rp-question-2?error=true');
-  } else if (existingrepeat == 'No') {
-    res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
   } else {
     res.redirect('/repeat-prescriptions/rp-question-3');
   }
 });
 
-router.post('/rpq4', function(req, res) {
+router.post('/rpq5', function(req, res) {
+  let existingrepeat = req.body.existingrepeat;
+
+  if (!existingrepeat) {
+    res.redirect('/repeat-prescriptions/rp-question-4?error=true');
+  } else if (existingrepeat == 'No') {
+    res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
+  } else {
+    res.redirect('/repeat-prescriptions/rp-question-5');
+  }
+});
+
+router.post('/rpq6', function(req, res) {
   let onslip = req.body.onslip;
 
   if (!onslip) {
-    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
+    res.redirect('/repeat-prescriptions/rp-question-5?error=true');
   } else if (onslip == 'Yes') {
     res.redirect('/repeat-prescriptions/confirmation');
   } else if (onslip == 'No') {
     res.redirect('/repeat-prescriptions/denied-acute');
   } else {
-    res.redirect('/repeat-prescriptions/rp-question-4');
+    res.redirect('/repeat-prescriptions/rp-question-6');
   }
 });
 
-router.post('/rpq5', function(req, res) {
+router.post('/rpq7', function(req, res) {
   let requestrepeat = req.body.requestrepeat;
 
   if (!requestrepeat) {
-    res.redirect('/repeat-prescriptions/rp-question-4?error=true');
+    res.redirect('/repeat-prescriptions/rp-question-6?error=true');
   } else if (requestrepeat == 'No') {
     res.redirect('/repeat-prescriptions/denied-no-request');
   } else {
@@ -826,3 +824,19 @@ router.post('/confident', function(req, res) {
     res.redirect('/repeat-prescriptions/denied-no-skillz');
   }
 });
+
+
+
+/* FREQUENCY QUESTION - Archived
+router.post('/rpq4', function(req, res) {
+  let frequency = req.body.frequency;
+
+  if (!frequency) {
+    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
+  } else if (frequency == 'Once a year') {
+    res.redirect('/repeat-prescriptions/denied-no-frequency');
+  } else {
+    res.redirect('/repeat-prescriptions/confirmation');
+  }
+});
+*/

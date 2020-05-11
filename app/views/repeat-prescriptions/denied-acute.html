@@ -28,7 +28,7 @@ Repeat prescriptions
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-5",
+    href: "/repeat-prescriptions/rp-question-3",
     text: "< Back"
   }) }}
 {% endblock %}
@@ -38,25 +38,21 @@ Repeat prescriptions
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>You are unable to use this service</h1>
+      <h1>You cannot use this service</h1>
 
       <form action="https://www.nhs.uk/service-search" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>You will need to contact your GP surgery if the medication you would like to order is not on your repeat slip.</p> 
+          <p>If you want to order a medicine that is not on your paper prescription, you will need to contact your GP surgery.</p> 
+          <p><a href="">Find your GP surgery phone number</a></p>
 
         </div>
-
-        {{ button({
-          "text": "Contact your GP surgery",
-          "id": "btn_submit"
-        }) }}
 
       </form>
 
       {{ backLink({
-      "href": "rp-question-5",
+      "href": "rp-question-3",
       "text": "Back"
       }) }}
 

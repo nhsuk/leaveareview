@@ -26,45 +26,31 @@ Repeat prescriptions
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
+{% block beforeContent %}
   {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
+    href: "/repeat-prescriptions/rp-question-device-desktop",
     text: "< Back"
   }) }}
-{% endblock %}#}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1>A camera is required for registering with NHS Login</h1>
+
+      <p>If you have a smartphone we suggest that you register with this device.</p>
+      <h2>Register with a smartphone</h2>
+      <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
+      <h2>I do not have a smartphone</h2>
+      <p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-camera">without having to upload ID documents.</a></p>
+
+
       {{ backLink({
-      "href": "rp-question-device-confident",
+      "href": "rp-question-device-desktop",
       "text": "Back"
       }) }}
-
-      <h1>You will now start NHS login registration</h1>
-
-      <form action="https://account.login.nhs.uk/#/account/register" method="get">
-
-        <div class="nhsuk-form-group">
-
-          <p>If you experience any problems registering on your laptop or desktop, try registering on your smartphone instead.</p>
-          <p>To do this, go to the NHS login registration page <a href="https://account.login.nhs.uk/#/account/register">www.nhsuk/register</a> on your mobile or tablet using a browser such as Safari, Chrome or Firefox.</p>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
-
-      {{ backLink({
-      "href": "rp-question-device-confident",
-      "text": "Back"
-      }) }}      
 
     </div>
 
