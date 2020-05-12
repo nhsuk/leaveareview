@@ -709,7 +709,7 @@ router.post('/usedb4', function(req, res) {
   let usedb4 = req.body.usedb4;
 
   if (!usedb4) {
-    res.redirect('/repeat-prescriptions/rp-emailcheck?error=true');
+    res.redirect('/repeat-prescriptions/used-b4?error=true');
   } else if (usedb4 == 'No') {
     res.redirect('/repeat-prescriptions/triage-intro');
   } else {
@@ -807,7 +807,7 @@ router.post('/camera', function(req, res) {
   let camera = req.body.camera;
 
   if (!camera) {
-    res.redirect('/repeat-prescriptions/rp-question-device-camera?error=true');
+    res.redirect('/repeat-prescriptions/rp-question-device-desktop?error=true');
   } else if (camera == 'Yes') {
     res.redirect('/repeat-prescriptions/rp-question-device-confident');
   } else {

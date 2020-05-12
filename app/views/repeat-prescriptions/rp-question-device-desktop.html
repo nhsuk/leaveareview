@@ -115,3 +115,10 @@ Repeat prescriptions
     ]
   })}}
 {% endblock %}
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}
