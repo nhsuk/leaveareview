@@ -713,7 +713,7 @@ router.post('/usedb4', function(req, res) {
   } else if (usedb4 == 'No') {
     res.redirect('/repeat-prescriptions/triage-intro');
   } else {
-    res.redirect('https://nhs-login.herokuapp.com/set-up/v7/enter-email');
+    res.redirect('https://nhs-login.herokuapp.com/set-up/demo/enter-email');
   }
 });
 
