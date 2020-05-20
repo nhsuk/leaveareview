@@ -31,17 +31,17 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
-      "text": "Back"
-      }) }}
+        "href": "index",
+        "text": "Back"
+        }) }}
 
-      <form action="/rpq2" method="post">
+      <form action="/usedb4" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Have you ordered repeat prescriptions through the NHS website or the NHS App before?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
@@ -51,14 +51,14 @@ Order a repeat prescription
 
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
+                <input class="nhsuk-radios__input" id="usedb4-1" name="usedb4" type="radio" value="Yes"{{checked("usedb4","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="usedb4-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
+                <input class="nhsuk-radios__input" id="usedb4-2" name="usedb4" type="radio" value="No"{{checked("usedb4","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="usedb4-2">
                   No
                 </label>
               </div>

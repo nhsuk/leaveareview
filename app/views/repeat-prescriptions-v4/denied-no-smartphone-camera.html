@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,39 +25,38 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/denied-no-camera",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-        "href": "/repeat-prescriptions/rp-emailcheck",
-        "text": "Back"
-        }) }}
+      "href": "/repeat-prescriptions/denied-no-camera",
+      "text": "Back"
+      }) }}
 
-      <h1 class="nhsuk-u-margin-bottom-6">You are not registered with NHS login</h1>
+      <h1 class="nhsuk-u-margin-bottom-4">How to prove your identity without uploading a photo of your ID</h1>
 
-      <p>We would like to ask you a few questions before taking you through the process of registering for an NHS login.</p>
+      <p>You can prove your identity by using a 3-stage process:</p>
 
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <form action="/repeat-prescriptions/rp-question-1" method="post">
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-      </form>
+      <ul class="nhsuk-list nhsuk-list--number">
+        <li><p>You will first need to sign up for an NHS login with your laptop or desktop - <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a></p></li>
+        <li><p>Once you have an NHS login go to the Repeat Prescription section.</p></li>
+        <li><p>Click the link ‘How to prove who you are without sending a photo of your ID’ and follow the instructions.</p></li>
+      </ul>
 
     </div>
 
   </div>
-
 
 {% endblock %}
 

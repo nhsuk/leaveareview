@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,45 +25,39 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-1",
+    text: "< Back"
+  }) }}
+{% endblock %}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-      "href": "triage-intro",
-      "text": "Back"
-      }) }}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 6</span>
 
-      <form action="/rpq2" method="post">
+      <form action="/rpq3" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Which GP surgery are you registered with?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
+              Please enter the GP surgery name or street name
             </span>
 
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
-                  No
-                </label>
-              </div>
-
-            </div>
+            <span class="nhsuk-hint" id="surgery-hint">
+              Enter the GP surgery name or street name
+            </span>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="surgery" type="text" aria-describedby="surgery-hint">
           </fieldset>
 
         </div>
@@ -74,6 +68,11 @@ Order a repeat prescription
         }) }}
 
       </form>
+
+      {{ backLink({
+      "href": "rp-question-1",
+      "text": "Back"
+      }) }}
 
     </div>
 

@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,44 +25,53 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/confirmation",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
+      "href": "confirmation",
       "text": "Back"
       }) }}
 
-      <form action="/rpq2" method="post">
+      <form action="/rpdevice" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              What device are you currently using to view this page?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-
+            <span class="nhsuk-hint">
+              
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
-                  Yes
+                <input class="nhsuk-radios__input" id="device-1" name="device" type="radio" value="mobile"{{checked("device","mobile")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="device-1">
+                  a mobile phone or tablet
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
-                  No
+                <input class="nhsuk-radios__input" id="device-2" name="device" type="radio" value="desktop"{{checked("device","desktop")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="device-2">
+                  a laptop or desktop computer
                 </label>
               </div>
-
             </div>
           </fieldset>
 

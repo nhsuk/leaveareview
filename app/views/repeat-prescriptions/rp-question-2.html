@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -24,14 +24,6 @@ Repeat prescriptions
     })
   }}
 {% endblock %}
-
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-1",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -42,8 +34,6 @@ Repeat prescriptions
         "href": "rp-question-1",
         "text": "Back"
         }) }}
-
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 4</span>
 
       <form action="/rpq3" method="post">
 

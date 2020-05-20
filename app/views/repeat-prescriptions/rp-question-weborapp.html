@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -24,14 +24,6 @@ Repeat prescriptions
     })
   }}
 {% endblock %}
-
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -49,7 +41,7 @@ Repeat prescriptions
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Would you like to use the NHS App on a smartphone or tablet to continue?
+              Would you like to use the NHS App to use this service?
             </legend>
 
             <p>The NHS App lets you quickly access and manage NHS online services.</p>

@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,43 +25,39 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-device-desktop",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-        "href": "/repeat-prescriptions/rp-emailcheck",
-        "text": "Back"
-        }) }}
+      "href": "rp-question-device-desktop",
+      "text": "Back"
+      }) }}
 
-      <h1 class="nhsuk-u-margin-bottom-6">You are not registered with NHS login</h1>
+      <h1>A camera is required for registering with NHS Login</h1>
 
-      <p>We would like to ask you a few questions before taking you through the process of registering for an NHS login.</p>
-
-    </div>
-
-  </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <form action="/repeat-prescriptions/rp-question-1" method="post">
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-      </form>
+      <p>If you have a smartphone we suggest that you use it to register.</p>
+      <h2>Switch to your smartphone</h2>
+      <p>To do this, go to the NHS login registration page <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a> on your mobile or tablet.</p>
+      <h2>I do not have a smartphone</h2>
+      <p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-camera">without having to upload ID documents.</a></p>
 
     </div>
 
   </div>
-
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
@@ -79,4 +75,12 @@ Order a repeat prescription
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

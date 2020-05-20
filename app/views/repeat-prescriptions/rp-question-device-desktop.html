@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,22 +25,13 @@ Repeat prescriptions
   }}
 {% endblock %}
 
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
-
-
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "/repeat-prescriptions/rp-question-device",
+      "href": "/repeat-prescriptions/rp-question-device-confident",
       "text": "Back"
       }) }}
       
@@ -58,7 +49,7 @@ Repeat prescriptions
               Please select an option
             </span>
             <span class="nhsuk-hint">
-              
+              This would be the built-in camera on a laptop or an external webcam on a desktop.
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">

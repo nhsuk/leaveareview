@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -24,14 +24,6 @@ Repeat prescriptions
     })
   }}
 {% endblock %}
-
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-2",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -43,41 +35,33 @@ Repeat prescriptions
         "text": "Back"
         }) }}
 
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 4</span>
-
-      <form action="/rpq4" method="post">
+      <form action="/rpq5" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="frequency-hint">
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Are any of the medicines you want to order listed on the paper copy of your prescription? 
+              Do you ask for each issue of your prescription from your GP surgery?
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-            <span class="nhsuk-hint">
-              You can find your repeat prescriptions on the right side of the paper prescription.
+            <span class="nhsuk-hint"> 
+              
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-1" name="onslip" type="radio" value="Yes"{{checked("onslip","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-1">
-                  Yes - they are listed on my latest paper prescription 
+                <input class="nhsuk-radios__input" id="requestrepeat-1" name="requestrepeat" type="radio" value="Yes"{{checked("requestrepeat","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-1">
+                  Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-2" name="onslip" type="radio" value="No"{{checked("onslip","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-2">
-                  No - they are not listed on my latest paper prescription
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="onslip-3" name="onslip" type="radio" value="I do not have a repeat slip"{{checked("onslip","I do not have a repeat slip")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="onslip-3">
-                  I  do not have a paper prescription
+                <input class="nhsuk-radios__input" id="requestrepeat-2" name="requestrepeat" type="radio" value="No"{{checked("requestrepeat","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-2">
+                  No
                 </label>
               </div>
             </div>
@@ -93,11 +77,6 @@ Repeat prescriptions
       </form>
 
     </div>
-
-    <!--div class="nhsuk-grid-column-one-third topborder">
-      <p class="caption-top">Example repeat slip</p>
-      <img src="/images/repeat-slip2.png" alt="Prescription slip" width="100%" height="auto">
-    </div-->
 
   </div>
 {% endblock %}

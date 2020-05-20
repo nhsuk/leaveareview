@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,34 +25,42 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-1",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "rp-question-device-desktop",
+      "href": "rp-question-1",
       "text": "Back"
-      }) }}
+      }) }}      
 
-      <h1>You will now start the sign-up process for an NHS login</h1>
+      <h1>You cannot use this service</h1>
 
-      <!--form action="https://nhs-contact.herokuapp.com/app/logged-out-homescreen/download-app" method="post"-->
-
-      <form action="https://nhs-login.herokuapp.com/set-up/demo/enter-email" method="post">
+      <form action="https://www.nhs.uk" method="post">
 
         <div class="nhsuk-form-group">
 
-          <p>If you experience any problems registering on your laptop or desktop PC, try registering at <a href="https://nhs-login.herokuapp.com/set-up/v7/enter-email">www.nhs.uk/register</a> on your smartphone instead.</p>
+          <p>This service is only available to people who are registered at a GP surgery in England. It's not available in Scotland, Wales or Northern Ireland.</p>
+          
+          <p>If your registered GP surgery is in:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+            <li>Scotland - contact your GP surgery</li>
+            <li>Wales - visit the <a href="">My Health Online website</a></li>
+            <li>Northern Ireland - visit the <a href="">nidirect website</a></li>
+          </ul>
 
         </div>
 
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>    
+      </form>
 
     </div>
 

@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,22 +25,13 @@ Repeat prescriptions
   }}
 {% endblock %}
 
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-desktop",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
-
-
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "/repeat-prescriptions/rp-question-device-desktop",
+      "href": "/repeat-prescriptions/rp-question-device",
       "text": "Back"
       }) }}
       
@@ -52,7 +43,7 @@ Repeat prescriptions
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
               Can you transfer photos from a digital camera or mobile phone to your laptop or desktop PC?
             </legend>
-            <p>This could be via WiFi, cable connection, email or a cloud storage service such as iCloud or Google Drive.</p>
+            <p>You will need to upload images of ID documents. This could be via WiFi, cable connection, email or a cloud storage service.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 

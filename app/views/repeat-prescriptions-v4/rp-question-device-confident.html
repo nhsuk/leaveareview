@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,44 +25,55 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-device-desktop",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
+      "href": "/repeat-prescriptions/rp-question-device-desktop",
       "text": "Back"
       }) }}
-
-      <form action="/rpq2" method="post">
+      
+      <form action="/confident" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Can you transfer photos from a digital camera or mobile phone to your laptop or desktop PC?
             </legend>
+            <p>This could be via WiFi, cable connection, email or a cloud storage service such as iCloud or Google Drive.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-
+            <span class="nhsuk-hint">
+              
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
+                <input class="nhsuk-radios__input" id="confident-1" name="confident" type="radio" value="Yes"{{checked("confident","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
+                <input class="nhsuk-radios__input" id="confident-2" name="confident" type="radio" value="No"{{checked("confident","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-2">
                   No
                 </label>
               </div>
-
             </div>
           </fieldset>
 
@@ -78,10 +89,10 @@ Order a repeat prescription
     </div>
 
   </div>
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
-
 {% block footer %}
   {{ footer({
     "links": [
@@ -100,7 +111,6 @@ Order a repeat prescription
     ]
   })}}
 {% endblock %}
-
 {% block pageScripts %}
 <script>
 if (window.location.search.indexOf('error=true') > -1) {

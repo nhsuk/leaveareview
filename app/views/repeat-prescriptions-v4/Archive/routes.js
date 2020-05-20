@@ -723,9 +723,9 @@ router.post('/registered', function(req, res) {
   if (!emailaddress) {
     res.redirect('/repeat-prescriptions/rp-emailcheck?error=true');
   } else if (emailaddress == 'name@domain.com') {
-    res.redirect('/repeat-prescriptions/already-registered');
+    res.redirect('/repeat-prescriptions/denied-no-registered');
   } else {
-    res.redirect('/repeat-prescriptions/triage-intro');
+    res.redirect('/repeat-prescriptions');
   }
 });
 
@@ -753,7 +753,7 @@ router.post('/rpq3', function(req, res) {
   }
 });
 
-/** router.post('/rpq4', function(req, res) {
+router.post('/rpq4', function(req, res) {
   let onslip = req.body.onslip;
 
   if (!onslip) {
@@ -765,7 +765,7 @@ router.post('/rpq3', function(req, res) {
   } else {
     res.redirect('/repeat-prescriptions/rp-question-4');
   }
-}); **/
+});
 
 router.post('/rpq5', function(req, res) {
   let requestrepeat = req.body.requestrepeat;

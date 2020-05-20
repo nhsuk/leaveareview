@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,44 +25,55 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-device",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
+      "href": "rp-question-device",
       "text": "Back"
       }) }}
 
-      <form action="/rpq2" method="post">
+      <form action="/rpweborapp" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
+              Would you like to use the NHS App on a smartphone or tablet to continue?
             </legend>
+
+            <p>The NHS App lets you quickly access and manage NHS online services.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               Please select an option
             </span>
-
+            <span class="nhsuk-hint">
+              
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
-                  Yes
+                <input class="nhsuk-radios__input" id="weborapp-1" name="weborapp" type="radio" value="app"{{checked("weborapp","app")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="weborapp-1">
+                  Yes - take me to the app
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
-                  No
+                <input class="nhsuk-radios__input" id="weborapp-2" name="weborapp" type="radio" value="web"{{checked("weborapp","web")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="weborapp-2">
+                  No - I would like to continue on the website
                 </label>
               </div>
-
             </div>
           </fieldset>
 

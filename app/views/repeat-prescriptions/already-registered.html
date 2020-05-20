@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -31,45 +31,18 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
+      "href": "rp-emailcheck",
       "text": "Back"
       }) }}
 
-      <form action="/rpq2" method="post">
+      <h1 class="nhsuk-u-margin-bottom-6">You are registered with NHS login</h1>
+      <p class="nhsuk-body-l">Good news!</p>
+      <p>It looks like you are already registered with NHS login. You can continue straight to the log in page.</p>
 
-        <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              Is the GP surgery you're registered with in England?
-            </legend>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
-            </span>
-
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
-                  No
-                </label>
-              </div>
-
-            </div>
-          </fieldset>
-
-        </div>
+      <form action="https://nhs-login.herokuapp.com/set-up/demo/enter-email" method="get">
 
         {{ button({
-          "text": "Continue",
+          "text": "Continue to log in",
           "id": "btn_submit"
         }) }}
 

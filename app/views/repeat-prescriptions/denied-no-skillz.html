@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Repeat prescriptions
+Order a repeat prescription
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Repeat prescriptions",
+        "name": "Order a repeat prescription",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -24,14 +24,6 @@ Repeat prescriptions
     })
   }}
 {% endblock %}
-
-<!-- Breadcrumb goes inside this block -->
-{#{% block beforeContent %}
-  {{ breadcrumb({
-    href: "/repeat-prescriptions/rp-question-device-confident",
-    text: "< Back"
-  }) }}
-{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -45,11 +37,14 @@ Repeat prescriptions
 
       <h1>You need to be able to transfer photos to your laptop or desktop PC</h1>
 
-      <p>If you have a smartphone we suggest that you use it to register.</p>
-      <h2>Switch to your smartphone</h2>
-      <p>To do this, go to the NHS login registration page <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a> on your mobile or tablet.</p>
-      <h2>I do not have a smartphone</h2>
-      <p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-skillz">without having to upload ID documents.</a></p>
+      <p>If you have a smartphone we suggest that you use it to signup.</p>
+      <h2>Switch to your smartphone or tablet</h2>
+      <p>You will not need to transfer photos using this device.</p>
+      <p>Visit <b>www.nhs.uk/register</b> on your mobile or tablet to continue the sign-up process.</p>
+      <!--p>To do this, go to the NHS login registration page <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a> on your mobile or tablet.</p-->
+      <h2>I don't have a smartphone or tablet</h2>
+      <p><a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">Proceed with the device that you are currently using</a>. You will receive instructions on how to sign-up for the service without having to upload ID documents.</p>
+      <!--p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-skillz">without having to upload ID documents.</a></p-->
 
     </div>
 

@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -24,6 +24,14 @@ Order a repeat prescription
     })
   }}
 {% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-3",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -35,10 +43,29 @@ Order a repeat prescription
         "text": "Back"
         }) }}
 
-      <h1 class="nhsuk-u-margin-bottom-6">Based on your answers you should be able to order prescriptions online</h1>
+      {% if data["requestrepeat"] == 'Yes' %}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 5 of 5</span>
+      {%else%}
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
+      {%endif%}
 
-      <p>To use the repeat prescription online service you will need to sign-up for an NHS login. This makes it easier for you to use NHS online services.</p>
-      <p>We're now going to ask you up to 3 questions to make sure you're on the best possible device to sign-up for an NHS login.</p>
+      <h1>Based on your answers you should be able to order prescriptions online</h1>
+
+      <p class="nhsuk-u-margin-bottom-2">To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
+
+      <h2>What you will need</h2>
+      <p>In order to register for an NHS login you will need one of the following at hand:</p>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
+
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
+
+      <h3>What to do if you have no ID</h3>
+      <p>Your GP surgery will be able to give you some registration details. <a href="denied-no-smartphone-camera">Find out how to do this</a>.</p>
 
       <form action="/repeat-prescriptions/rp-question-device" method="get">
 

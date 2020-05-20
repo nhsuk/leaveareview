@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,43 +25,44 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-2",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-        "href": "/repeat-prescriptions/rp-emailcheck",
-        "text": "Back"
-        }) }}
+      "href": "rp-question-2",
+      "text": "Back"
+      }) }}      
 
-      <h1 class="nhsuk-u-margin-bottom-6">You are not registered with NHS login</h1>
+      <h1>You cannot use this service</h1>
 
-      <p>We would like to ask you a few questions before taking you through the process of registering for an NHS login.</p>
+      <form action="https://www.nhs.uk/service-search" method="post">
 
-    </div>
+        <div class="nhsuk-form-group nhsuk-u-margin-bottom-6">
 
-  </div>
+          <p>You can only use this service if you have at least 1 current repeat prescription from your GP</p>
+          <p>If you think you need 1 of your medicines as a repeat prescription <a href="">find your GP surgery phone number</a>.</p>
 
-  <div class="nhsuk-grid-row">
+        </div>
 
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <form action="/repeat-prescriptions/rp-question-1" method="post">
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
       </form>
 
     </div>
 
   </div>
-
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->
+
 {% block footer %}
   {{ footer({
     "links": [
@@ -79,4 +80,12 @@ Order a repeat prescription
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Order a repeat prescription
+Repeat prescriptions
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Order a repeat prescription",
+        "name": "Repeat prescriptions",
         "href": "/repeat-prescriptions"
       },
       "showNav": "false",
@@ -25,34 +25,49 @@ Order a repeat prescription
   }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-3",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
 {% block content %}
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "rp-question-device-desktop",
-      "text": "Back"
-      }) }}
+        "href": "rp-question-3",
+        "text": "Back"
+        }) }}
 
-      <h1>You will now start the sign-up process for an NHS login</h1>
+      <h1>Based on your answers you should be able to order prescriptions online</h1>
 
-      <!--form action="https://nhs-contact.herokuapp.com/app/logged-out-homescreen/download-app" method="post"-->
+      <p class="nhsuk-u-margin-bottom-2">To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
 
-      <form action="https://nhs-login.herokuapp.com/set-up/demo/enter-email" method="post">
+      <h2>In order to register for an NHS login you will need one of the following at hand:</h2>
 
-        <div class="nhsuk-form-group">
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
 
-          <p>If you experience any problems registering on your laptop or desktop PC, try registering at <a href="https://nhs-login.herokuapp.com/set-up/v7/enter-email">www.nhs.uk/register</a> on your smartphone instead.</p>
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
 
-        </div>
+      <h2>What to do if you have no ID</h2>
+      <p>Your GP surgery will be able to give you some registration details. <a href="denied-no-smartphone-camera">Find out how to do this</a>.</p>
+
+      <form action="/repeat-prescriptions/rp-question-device" method="get">
 
         {{ button({
           "text": "Continue",
           "id": "btn_submit"
         }) }}
 
-      </form>    
+      </form>
 
     </div>
 

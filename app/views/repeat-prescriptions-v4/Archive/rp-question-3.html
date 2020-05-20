@@ -1,0 +1,227 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-2",
+    text: "< Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 6</span>
+
+      <form action="/rpq4" method="post" class="nhsuk-u-margin-bottom-6">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              Select your GP
+            </legend>
+          </fieldset>
+
+          <h2 class="nhsuk-body-m"><span role="text">We found <span class="results__count">10</span> GP surgeries using <span class="results__search__term">'shadwell lane'</span>.</span></h2>
+
+          <p role="text">If your surgery is not here, check your spelling and <a class="results__search__again" href="/repeat-prescriptions/rp-question-2">search again</a>.</p>
+
+
+          <div>
+            <ol class="nhsuk-list inline-list" role="list">
+            
+              <li class="nhsuk-c-panel results__item" data-index="3" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Clay <span class="highlight">Lane</span> Medical Practice</span></h3>
+                  <p class="results__address" role="text">Clay <span class="highlight">Lane</span> Medical Practice, 5 Clay <span class="highlight">Lane</span>, Coventry, West Midlands, CV2 4LJ</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Clay Lane Medical Practice</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="4" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Matson <span class="highlight">Lane</span> Surgery</span></h3>
+                  <p class="results__address" role="text">Matson <span class="highlight">Lane</span> Surgery, Taylor House 4 Matson <span class="highlight">Lane</span>, Matson, Gloucestershire, GL4 6DX</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Matson Lane Surgery</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+
+              <li class="nhsuk-c-panel results__item" data-index="1" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text"><span class="highlight">Shadwell</span> Medical Centre</span></h3>
+                  <p class="results__address" role="text">137 <span class="highlight">Shadwell</span> <span class="highlight">Lane</span>, Leeds, West Yorkshire, LS17 8AE</p>
+                  <p><a class="results__gp__selection" href="/repeat-prescriptions/rp-question-4?surgery=Shadwell Medical Centre">
+                    <span class="nhsuk-u-visually-hidden">Shadwell Medical Centre</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="5" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Park <span class="highlight">Lane</span> Medical Centre</span></h3>
+                  <p class="results__address" role="text">Park <span class="highlight">Lane</span> Medical Centre, 82 Park <span class="highlight">Lane</span>, Bedhampton, Havant, Hampshire, PO9 3HN</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Park Lane Medical Centre</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="6" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Church <span class="highlight">Lane</span> Surgery</span></h3>
+                  <p class="results__address" role="text">Church <span class="highlight">Lane</span> Surgery, Braintree College, Church <span class="highlight">Lane</span>, Braintree, Essex, CM7 5SN</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Church Lane Surgery</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="7" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Robin <span class="highlight">Lane</span> Health and Wellbeing Centre</span></h3>
+                  <p class="results__address" role="text">Robin <span class="highlight">Lane</span> Medical Centre, Robin <span class="highlight">Lane</span>, Pudsey, West Yorkshire, LS28 7DE</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Robin Lane Health and Wellbeing Centre</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="2" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Sandy <span class="highlight">Lane</span> Surgery</span></h3>
+                  <p class="results__address" role="text">Sandy <span class="highlight">Lane</span> Health Centre, Sandy <span class="highlight">Lane</span>, Rugeley, Staffordshire, WS15 2LB</p>
+                  <p><a class="results__gp__selection" href="/repeat-prescriptions/denied-despensing-gp">
+                    <span class="nhsuk-u-visually-hidden">Sandy Lane Surgery</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+              
+              <li class="nhsuk-c-panel results__item" data-index="8" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Cook <span class="highlight">Lane</span> Surgery</span></h3>
+                  <p class="results__address" role="text">Cook <span class="highlight">Lane</span> Surgery, Cook <span class="highlight">Lane</span>, Heckmondwike, West Yorkshire, WF16 9JG</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Cook Lane Surgery</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="9" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Shay <span class="highlight">Lane</span> Medical Centre (Patel)</span></h3>
+                  <p class="results__address" role="text">Shay <span class="highlight">Lane</span> Medical Centre, Shay <span class="highlight">Lane</span>, Hale Barns, Altrincham, Cheshire, WA15 8NZ</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Shay Lane Medical Centre (Patel)</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+            
+              <li class="nhsuk-c-panel results__item" data-index="10" role="listitem">
+                <hr>
+                <div>
+                  <h3 class="results__name"><span role="text">Dr Htun Nay Lin, Mattock <span class="highlight">Lane</span> Health Centre</span></h3>
+                  <p class="results__address" role="text">Mattock <span class="highlight">Lane</span> Health Centre, 78 Mattock <span class="highlight">Lane</span>, Ealing, London, Greater London, W13 9NZ</p>
+                  <p><a class="results__gp__selection" href="">
+                    <span class="nhsuk-u-visually-hidden">Dr Htun Nay Lin, Mattock Lane Health Centre</span>
+                    <span aria-hidden="true">This</span> is my GP</a>
+                  </p>
+                </div>
+              </li>
+
+            </ol>
+          </div>
+
+        </div>
+
+      </form>
+
+      <hr>
+
+      {{ backLink({
+      "href": "rp-question-2",
+      "text": "Back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}
