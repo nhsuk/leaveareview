@@ -27,37 +27,16 @@ Order a repeat prescription
 
 {% block content %}
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
-
       {{ backLink({
         "href": "/repeat-prescriptions/rp-emailcheck",
         "text": "Back"
         }) }}
-
       <h1 class="nhsuk-u-margin-bottom-6">You do not have an NHS&nbsp;login</h1>
-
       <p>Before you set up an NHS login, we would like to ask you a few questions to check you can use this service. </p>
-
+      <a class="nhsuk-button" href="/repeat-prescriptions/rp-question-1">Continue</a>
     </div>
-
   </div>
-
-  <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <form action="/repeat-prescriptions/rp-question-1" method="post">
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-      </form>
-
-    </div>
-
-  </div>
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->
