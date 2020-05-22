@@ -34,26 +34,9 @@ Order a repeat prescription
       "href": "rp-question-device-desktop",
       "text": "Back"
       }) }}
-
-      <h1>You will now start the sign up process for an NHS login</h1>
-
-      <!--form action="https://nhs-contact.herokuapp.com/app/logged-out-homescreen/download-app" method="post"-->
-
-      <form action="https://nhs-login.herokuapp.com/set-up/demo/enter-email" method="post">
-
-        <div class="nhsuk-form-group">
- 
-          <p>If you have problems signing up on your laptop or desktop PC, try signing up at <b>www.nhs.uk/nhslogin</b> on your smartphone or tablet instead.</p>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>    
-
+      <h1 class="nhsuk-u-margin-bottom-6">You will now start the sign up process for an NHS login</h1>
+      <p>If you experience any problems registering on your laptop or desktop PC, try signing up at <span class="nhsuk-u-font-weight-bold">www.nhs.uk/register</span> on your smartphone or tablet instead.</p>
+      <a class="nhsuk-button" role="button" href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">Continue</a>
     </div>
 
   </div>
