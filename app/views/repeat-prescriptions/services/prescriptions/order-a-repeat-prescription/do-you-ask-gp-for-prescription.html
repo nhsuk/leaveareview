@@ -31,40 +31,39 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "triage-intro",
-      "text": "Back"
-      }) }}
+        "href": "do-you-already-have-a-repeat-prescription",
+        "text": "Back"
+        }) }}
 
-      <form action="/rpq2" method="post">
+      <form action="/do-you-ask-gp-for-prescription" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">Is the GP surgery you're registered with in England?</h1>
+              <h1 class="nhsuk-fieldset__heading">Do you ask for each issue of your prescription from your GP surgery?</h1>
             </legend>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span>
-              <ul>
-                <li>Please select an option
-              </ul> 
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              Please select an option
             </span>
-
+            <span class="nhsuk-hint"> 
+              
+            </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-1" name="england" type="radio" value="Yes"{{checked("england","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-1">
+                <input class="nhsuk-radios__input" id="requestrepeat-1" name="requestrepeat" type="radio" value="Yes"{{checked("requestrepeat","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="england-2" name="england" type="radio" value="No"{{checked("england","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="england-2">
+                <input class="nhsuk-radios__input" id="requestrepeat-2" name="requestrepeat" type="radio" value="No"{{checked("requestrepeat","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="requestrepeat-2">
                   No
                 </label>
               </div>
-
             </div>
           </fieldset>
 

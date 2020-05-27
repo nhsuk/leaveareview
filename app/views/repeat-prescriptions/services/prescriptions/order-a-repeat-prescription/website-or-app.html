@@ -31,19 +31,20 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "/repeat-prescriptions/rp-question-device",
+      "href": "select-device",
       "text": "Back"
       }) }}
-      
-      <form action="/confident" method="post">
+
+      <form action="/website-or-app" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">Can you transfer photos from a digital device such as a camera or smartphone to your laptop or desktop PC?</h1>
+              <h1 class="nhsuk-fieldset__heading">Would you like to use the repeat prescription service on the NHS App?</h1>
             </legend>
-            <p>You will need to transfer images of ID documents. This could be via WiFi, cable connection, email or a cloud storage service.</p>
+
+            <p>The NHS App lets you quickly access and manage NHS online services.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -54,15 +55,15 @@ Order a repeat prescription
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="confident-1" name="confident" type="radio" value="Yes"{{checked("confident","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="confident-1">
+                <input class="nhsuk-radios__input" id="weborapp-1" name="weborapp" type="radio" value="app"{{checked("weborapp","app")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="weborapp-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="confident-2" name="confident" type="radio" value="No"{{checked("confident","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="confident-2">
-                  No
+                <input class="nhsuk-radios__input" id="weborapp-2" name="weborapp" type="radio" value="web"{{checked("weborapp","web")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="weborapp-2">
+                  No, I want to continue on the website
                 </label>
               </div>
             </div>
@@ -80,7 +81,6 @@ Order a repeat prescription
     </div>
 
   </div>
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->

@@ -31,14 +31,28 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "rp-emailcheck",
+      "href": "is-gp-in-england",
       "text": "Back"
-      }) }}
+      }) }}      
 
-      <h1 class="nhsuk-u-margin-bottom-6">You already have an NHS&nbsp;login</h1>
-      <p>You can now sign in to check your repeat prescriptions.</p>
+      <h1 class="nhsuk-u-margin-bottom-6">You cannot use this service</h1>
 
-      <a class="nhsuk-button" href="https://nhs-login.herokuapp.com/set-up/demo/enter-email" role="button">Continue</a>
+      <form action="https://www.nhs.uk" method="post">
+
+        <div class="nhsuk-form-group">
+
+          <p>This service is only available to people who are registered at a GP surgery in England. It's not available in Scotland, Wales or Northern Ireland.</p>
+          
+          <p>If your registered GP surgery is in:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+            <li>Scotland: <a href="https://www.nhsinform.scot/scotlands-service-directory/gp-practices">contact your GP surgery</a></li>
+            <li>Wales: <a href="https://www.myhealthonline-inps2.wales.nhs.uk/welcome">go to My Health Online</a></li>
+            <li>Northern Ireland: <a href="https://www.nidirect.gov.uk/articles/gp-online-services">go to nidirect</a></li>
+          </ul>
+
+        </div>
+
+      </form>
 
     </div>
 
