@@ -717,73 +717,71 @@ router.post('/usedb4', function(req, res) {
   }
 });
 
-router.post('/registered', function(req, res) {
+router.post('/already-registered', function(req, res) {
   let emailaddress = req.body.emailaddress;
 
   if (!emailaddress) {
-    res.redirect('/repeat-prescriptions/rp-emailcheck?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-nhs-login?error=true');
   } else if (emailaddress == 'name@domain.com') {
-    res.redirect('/repeat-prescriptions/already-registered');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/already-registered');
   } else {
-    res.redirect('/repeat-prescriptions/triage-intro');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-i-use-this-service');
   }
 });
 
-router.post('/rpq2', function(req, res) {
+router.post('/is-gp-in-england', function(req, res) {
   let england = req.body.england;
 
   if (!england) {
-    res.redirect('/repeat-prescriptions/rp-question-1?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/is-gp-in-england?error=true');
   } else if (england == 'No') {
-    res.redirect('/repeat-prescriptions/denied-no-england');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-gp-not-in-england');
   } else {
-    res.redirect('/repeat-prescriptions/rp-question-2');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-already-have-a-repeat-prescription');
   }
 });
 
-router.post('/rpq3', function(req, res) {
+router.post('/do-you-already-have-a-repeat-prescription', function(req, res) {
   let existingrepeat = req.body.existingrepeat;
 
   if (!existingrepeat) {
-    res.redirect('/repeat-prescriptions/rp-question-2?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-already-have-a-repeat-prescription?error=true');
   } else if (existingrepeat == 'No') {
-    res.redirect('/repeat-prescriptions/denied-no-existing-repeat');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-no-current-repeat-prescription');
   } else {
-    res.redirect('/repeat-prescriptions/rp-question-3');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-ask-gp-for-prescription');
   }
 });
 
-/** router.post('/rpq4', function(req, res) {
-  let onslip = req.body.onslip;
-
-  if (!onslip) {
-    res.redirect('/repeat-prescriptions/rp-question-3?error=true');
-  } else if (onslip == 'Yes') {
-    res.redirect('/repeat-prescriptions/confirmation');
-  } else if (onslip == 'No') {
-    res.redirect('/repeat-prescriptions/denied-acute');
-  } else {
-    res.redirect('/repeat-prescriptions/rp-question-4');
-  }
-}); **/
-
-router.post('/rpq5', function(req, res) {
+router.post('/do-you-ask-gp-for-prescription', function(req, res) {
   let requestrepeat = req.body.requestrepeat;
 
   if (!requestrepeat) {
-    res.redirect('/repeat-prescriptions/rp-question-4?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-ask-gp-for-prescription?error=true');
   } else if (requestrepeat == 'No') {
-    res.redirect('/repeat-prescriptions/denied-no-request');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-do-not-ask-gp-for-prescription');
   } else {
-    res.redirect('/repeat-prescriptions/confirmation');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/could-order-prescription-online');
   }
 });
 
-router.post('/rpweborapp', function(req, res) {
+router.post('/select-device', function(req, res) {
+  let device = req.body.device;
+
+  if (!device) {
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/select-device?error=true');
+  } else if (device == 'mobile') {
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/website-or-app');
+  } else {
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-you-transfer-photos');
+  }
+});
+
+router.post('/website-or-app', function(req, res) {
   let weborapp = req.body.weborapp;
 
   if (!weborapp) {
-    res.redirect('/repeat-prescriptions/rp-question-weborapp?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/website-or-app?error=true');
   } else if (weborapp == 'app') {
     res.redirect('https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/');
   } else {
@@ -791,39 +789,27 @@ router.post('/rpweborapp', function(req, res) {
   }
 });
 
-router.post('/rpdevice', function(req, res) {
-  let device = req.body.device;
-
-  if (!device) {
-    res.redirect('/repeat-prescriptions/rp-question-device?error=true');
-  } else if (device == 'mobile') {
-    res.redirect('/repeat-prescriptions/rp-question-weborapp');
-  } else {
-    res.redirect('/repeat-prescriptions/rp-question-device-confident');
-  }
-});
-
-router.post('/confident', function(req, res) {
+router.post('/can-you-transfer-photos', function(req, res) {
   let confident = req.body.confident;
 
   if (!confident) {
-    res.redirect('/repeat-prescriptions/rp-question-device-confident?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-you-transfer-photos?error=true');
   } else if (confident == 'Yes') {
-    res.redirect('/repeat-prescriptions/rp-question-device-desktop');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-a-camera');
   } else {
-    res.redirect('/repeat-prescriptions/denied-no-skillz');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-cannot-transfer-photos');
   }
 });
 
-router.post('/camera', function(req, res) {
+router.post('/do-you-have-a-camera', function(req, res) {
   let camera = req.body.camera;
 
   if (!camera) {
-    res.redirect('/repeat-prescriptions/rp-question-device-desktop?error=true');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-a-camera?error=true');
   } else if (camera == 'Yes') {
-    res.redirect('/repeat-prescriptions/rp-goto-register');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/start-nhs-login-sign-up-process');
   } else {
-    res.redirect('/repeat-prescriptions/denied-no-camera');
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-no-camera');
   }
 });
 

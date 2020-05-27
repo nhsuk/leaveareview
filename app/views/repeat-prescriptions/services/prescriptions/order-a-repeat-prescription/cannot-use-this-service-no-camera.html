@@ -31,46 +31,23 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "index",
+      "href": "do-you-have-a-camera",
       "text": "Back"
       }) }}
 
-      <h1 class="nhsuk-u-margin-bottom-6">We need to check if you already have an NHS login</h1>
+      <h1 class="nhsuk-u-margin-bottom-6">A camera is required for registering with NHS Login</h1>
 
-      <form action="/registered" method="post">
-
-        <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-
-            <p>Your email address will not be used for any other purpose.</p>
-
-            <span id="error-message" class="nhsuk-error-message" style="display: none;">
-              <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please enter your email address
-            </span>
-
-            <label class="nhsuk-label" for="emailaddress">
-              Enter your email address
-            </label>
-            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="emailaddress" type="text" aria-describedby="surgery-hint">
-            
-          </fieldset>
-
-        </div>
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
+      <p>If you have a smartphone we suggest that you use it to sign up.</p>
+      <h2>Switch to your smartphone or tablet</h2>
+      <p>Visit <b>www.nhs.uk/nhslogin</b> on your smartphone or tablet to continue the sign up process.</p>
+      <!--p>To do this, go to the NHS login registration page <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a> on your mobile or tablet.</p-->
+      <h2>I don't have a smartphone or tablet</h2>
+      <p><a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">Continue with the device you're using</a>. You will receive instructions on how to sign up for the service without having to upload ID documents.</p>
+      <!--p>How to register for NHS Login <a href="/repeat-prescriptions/denied-no-smartphone-camera">without having to upload ID documents.</a></p-->
 
     </div>
 
   </div>
-
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->

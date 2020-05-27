@@ -31,40 +31,30 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-        "href": "rp-question-1",
-        "text": "Back"
-        }) }}
+      "href": "index",
+      "text": "Back"
+      }) }}
 
-      <form action="/rpq3" method="post">
+      <h1 class="nhsuk-u-margin-bottom-6">We need to check if you already have an NHS login</h1>
+
+      <form action="/already-registered" method="post">
 
         <div class="nhsuk-form-group">
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">Do you get a repeat prescription from your GP?</h1>
-            </legend>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+
+            <p>Your email address will not be used for any other purpose.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
-              Please select an option
+              Please enter your email address
             </span>
-            <span class="nhsuk-hint">
-              A repeat prescription is a medicine that you are regularly prescribed. It is likely to be a medicine you will have to take for some time.
-            </span>
-            <div class="nhsuk-radios">
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-1" name="existingrepeat" type="radio" value="Yes"{{checked("existingrepeat","Yes")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-1">
-                  Yes
-                </label>
-              </div>
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="existingrepeat-2" name="existingrepeat" type="radio" value="No"{{checked("existingrepeat","No")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="existingrepeat-2">
-                  No
-                </label>
-              </div>
-            </div>
+
+            <label class="nhsuk-label" for="emailaddress">
+              Enter your email address
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="surgery" name="emailaddress" type="text" aria-describedby="surgery-hint">
+            
           </fieldset>
 
         </div>
@@ -79,6 +69,8 @@ Order a repeat prescription
     </div>
 
   </div>
+
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->

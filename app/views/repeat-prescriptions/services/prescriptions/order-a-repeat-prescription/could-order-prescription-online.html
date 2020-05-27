@@ -27,15 +27,19 @@ Order a repeat prescription
 
 {% block content %}
   <div class="nhsuk-grid-row">
+
     <div class="nhsuk-grid-column-two-thirds">
+
       {{ backLink({
-        "href": "/repeat-prescriptions/rp-emailcheck",
+        "href": "do-you-ask-gp-for-prescription",
         "text": "Back"
         }) }}
-      <h1 class="nhsuk-u-margin-bottom-6">You do not have an NHS&nbsp;login</h1>
-      <p>Before you set up an NHS login, we would like to ask you a few questions to check you can use this service. </p>
-      <a class="nhsuk-button" href="/repeat-prescriptions/rp-question-1">Continue</a>
+      <h1 class="nhsuk-u-margin-bottom-6">Based on your answers, you could order repeat prescriptions online</h1>
+      <p>To use the repeat prescription online service, you will need to sign up for an NHS login. You need an NHS login to use online services.</p>
+      <p>We're now going to ask you up to 3 questions to check you're using the best device to sign up for an NHS login.</p>
+      <a class="nhsuk-button" role="button" href="select-device">Continue</a>
     </div>
+
   </div>
 {% endblock %}
 
@@ -53,4 +57,12 @@ Order a repeat prescription
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

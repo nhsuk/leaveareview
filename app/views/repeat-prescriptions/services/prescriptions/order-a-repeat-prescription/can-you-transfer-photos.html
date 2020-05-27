@@ -31,18 +31,19 @@ Order a repeat prescription
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ backLink({
-      "href": "confirmation",
+      "href": "select-device",
       "text": "Back"
       }) }}
-
-      <form action="/rpdevice" method="post">
+      
+      <form action="/can-you-transfer-photos" method="post">
 
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">What device are you currently using to view this page?</h1>
+              <h1 class="nhsuk-fieldset__heading">Can you transfer photos from a digital device such as a camera or smartphone to your laptop or desktop PC?</h1>
             </legend>
+            <p>You will need to transfer images of ID documents. This could be via WiFi, cable connection, email or a cloud storage service.</p>
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -53,15 +54,15 @@ Order a repeat prescription
             </span>
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="device-1" name="device" type="radio" value="mobile"{{checked("device","mobile")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="device-1">
-                  a smartphone or tablet
+                <input class="nhsuk-radios__input" id="confident-1" name="confident" type="radio" value="Yes"{{checked("confident","Yes")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-1">
+                  Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="device-2" name="device" type="radio" value="desktop"{{checked("device","desktop")}}>
-                <label class="nhsuk-label nhsuk-radios__label" for="device-2">
-                  a laptop or desktop computer
+                <input class="nhsuk-radios__input" id="confident-2" name="confident" type="radio" value="No"{{checked("confident","No")}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="confident-2">
+                  No
                 </label>
               </div>
             </div>
@@ -79,6 +80,7 @@ Order a repeat prescription
     </div>
 
   </div>
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
