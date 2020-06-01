@@ -729,6 +729,18 @@ router.post('/already-registered', function(req, res) {
   }
 });
 
+router.post('/do-you-have-an-nhs-login', function(req, res) {
+  const havenhslogin = req.body.havenhslogin;
+
+  if (!havenhslogin) {
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-an-nhs-login?error=true');
+  } else if (havenhslogin === 'no') {
+    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-i-use-this-service');
+  } else {
+    res.redirect('https://nhs-login.herokuapp.com/set-up/demo/enter-email');
+  }
+});
+
 router.post('/is-gp-in-england', function(req, res) {
   let england = req.body.england;
 
