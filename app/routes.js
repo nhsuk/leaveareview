@@ -737,7 +737,7 @@ router.post('/do-you-have-an-nhs-login', function(req, res) {
   } else if (havenhslogin === 'no') {
     res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-i-use-this-service');
   } else {
-    res.redirect('https://nhs-login.herokuapp.com/set-up/demo/enter-email');
+    res.redirect('https://www.nhsapp.service.nhs.uk/login');
   }
 });
 
