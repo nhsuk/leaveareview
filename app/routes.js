@@ -797,7 +797,7 @@ router.post('/website-or-app', function(req, res) {
   } else if (weborapp == 'app') {
     res.redirect('https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/');
   } else {
-    res.redirect('https://nhs-contact.herokuapp.com/app/logged-out-homescreen/download-app');
+    res.redirect('https://www.nhsapp.service.nhs.uk/login');
   }
 });
 
