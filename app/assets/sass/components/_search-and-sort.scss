@@ -2,15 +2,20 @@ $color_nhsuk-white: #fff;
 $nhsuk-border-color: #d8dde0;
 
 .search-sort {
+  margin-bottom: 40px;
   align-items: center;
   background-color: $color_nhsuk-white;
   display: flex;
   justify-content: space-between;
   padding: .5em;
+  border-bottom: 4px solid #d8dde0;
 
   .search-bar {
     align-items: center;
     display: flex;
+    height: 60px;
+    padding: 0 0 0 10px;
+
   }
 
   .search-input {
@@ -34,3 +39,13 @@ $nhsuk-border-color: #d8dde0;
     }
   }
 }
+
+
+.nhsuk-search__submit {
+  background-color: #00662f !important;
+}
+
+.nhsuk-icon__search {
+  fill: #fff !important;
+}
+

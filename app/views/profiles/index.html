@@ -23,10 +23,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       <h1>
-        Choose a profile
+        Choose a profile to edit
       </h1>
+
       <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
-        <form action="/search-pharmacy" method="POST">
+        
+        <!--form action="/search-pharmacy" method="POST">
           <label class="nhsuk-label" for="search">Search by ODS code</label>
           <div class="search-sort">
             <div class="search-bar">
@@ -34,16 +36,40 @@
               <button type="submit" class="nhsuk-button search-button nhsuk-u-margin-bottom-0">Search</button>
             </div>
           </div>
+        </form-->
+
+        <form id="search" action="/search-pharmacy" method="POST" role="search">
+
+          <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="search">Search by Name, City or Postcode</label>
+
+          <div class="search-sort">
+            <div class="search-bar">
+
+              <label class="nhsuk-u-visually-hidden" for="search-field">Search for a profile</label>
+              <input class="nhsuk-input nhsuk-input--width-10" id="search-field" name="search-field" placeholder="Search" type="text">
+              
+              <button class="nhsuk-search__submit" type="submit">
+                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
+
+            </div>
+          </div>
+
         </form>
+
       </div>
       
+      
       {% if (searchTerm) %}
-      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.</p>
       {% else %}
       <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
       {% endif %}
 
-      <div class="nhsuk-table__panel-with-heading-tab">
+      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-2">
         <div class="nhsuk-table-responsive">
           <table class="nhsuk-table">
             <caption class="nhsuk-table__caption">Profile search results</caption>
@@ -51,8 +77,8 @@
               <tr class="nhsuk-table__row">
                 <th class="nhsuk-table__header">Name</th>
                 <th class="nhsuk-table__header">Address</th>
+                <th class="nhsuk-table__header">City</th>
                 <th class="nhsuk-table__header">Postcode</th>
-                <th class="nhsuk-table__header">ODS Code</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
@@ -60,8 +86,8 @@
               <tr class="nhsuk-table__row">
                 <td><a href="/editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.Line1}}</td>
-                <td>{{pharmacy.Postcode}}</td>
                 <td aria-label="{{ pharmacy.ODSCode.split('').join(' ')}}">{{pharmacy.ODSCode}}</td>
+                <td>{{pharmacy.Postcode}}</td>
               </tr>
               {% endfor %}
             </tbody>
