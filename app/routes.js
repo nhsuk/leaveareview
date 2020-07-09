@@ -634,9 +634,23 @@ router.get('/profiles/profiles-page3', (req, res) => {
 
 router.post('/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
-  const currentPharmacies = findByODS(searchTerm);
-  res.render('profiles/index', { currentPharmacies, pharmacies, searchTerm });
+  if (searchTerm.toLowerCase() === "leeds") {
+    res.redirect("/profiles/multiple-places");
+  } else {
+    res.render("profiles/no-results", { searchTerm });
+  }
 });
+
+function findLeeds(searchTerm) {
+  const searchResults = pharmacies.filter(pharm => pharm.city.toLowerCase() === searchTerm.toLowerCase());
+  return searchResults;
+}
+
+router.get('/profiles/profile-list-leeds', (req, res) => {
+  const currentPharmacies = findLeeds('Leeds');
+  const searchTerm = "Leeds";
+  res.render('profiles/profile-list-leeds', { currentPharmacies, searchTerm })
+})
 
 /* Profiles with comments */
 router.get('/profiles-comments', (req, res) => {

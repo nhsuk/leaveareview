@@ -1,6 +1,9 @@
 // Import NHS.UK frontend library
 @import "node_modules/nhsuk-frontend/packages/nhsuk";
 
+// Bug fixing NHS Frontend
+@import "components/nhsuk-input-fix";
+
 // Components that are not in the NHS.UK frontend library
 @import "components/panel-confirmation";
 @import "components/related-nav";

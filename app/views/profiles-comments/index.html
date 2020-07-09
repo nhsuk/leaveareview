@@ -41,7 +41,7 @@
       {% else %}
       <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
       {% endif %}
-      <div class="nhsuk-table__panel-with-heading-tab">
+      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
         <div class="nhsuk-table-responsive">
           <table class="nhsuk-table">
             <caption class="nhsuk-table__caption">Profile search results</caption>
@@ -50,8 +50,7 @@
                 <th class="nhsuk-table__header">Name</th>
                 <th class="nhsuk-table__header">Address</th>
                 <th class="nhsuk-table__header">City</th>
-                <th class="nhsuk-table__header">Postcode</th>
-                <th class="nhsuk-table__header">Comments</th>
+                <th class="nhsuk-table__header">Reviews</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
@@ -59,8 +58,7 @@
               <tr class="nhsuk-table__row">
                 <td><a href="/org-response"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.Line1}}</td>
-                <td>{{pharmacy.ODSCode}}</td>
-                <td></td>
+                <td>{{pharmacy.city}}</td>
                 <td>{{pharmacy.comments}}</td>
               </tr>
               {% endfor %}
