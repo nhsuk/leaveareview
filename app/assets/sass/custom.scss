@@ -337,7 +337,7 @@
     background-color: #ffffff;
     border: #bfc1c3 solid 1px;
     color: #212b32;
-
+    width: 100%;
   }
 }
 
@@ -736,6 +736,16 @@ dd {
   /*border-bottom: solid 4px #AEB7BD !important;*/
   border-bottom: solid 4px #d8dde0 !important;
   border-left: solid 16px #d5281b !important;
+}
+.nhsuk-notification-green {
+  margin-bottom: 40px !important;
+  margin-top: -16px !important;
+  padding: 16px !important;
+  /*background-color: #F1F3E2 !important;*/
+  background-color: #ffffff !important;
+  /*border-bottom: solid 4px #AEB7BD !important;*/
+  border-bottom: solid 4px #d8dde0 !important;
+  border-left: solid 16px #007f3b !important;
 }
 
 
