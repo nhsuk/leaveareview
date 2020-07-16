@@ -23,7 +23,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       <h1>
-        Choose a profile to edit
+        Choose a profile to review comments 
       </h1>
 
       <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
@@ -80,16 +80,16 @@
                 <th class="nhsuk-table__header">Name</th>
                 <th class="nhsuk-table__header">Address</th>
                 <th class="nhsuk-table__header">City or town</th>
-                <th class="nhsuk-table__header">Postcode</th>
+                <th class="nhsuk-table__header">Reviews</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
               {% for pharmacy in currentPharmacies %}
               <tr class="nhsuk-table__row">
-                <td><a href="/editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td><a href="/org-response"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.Line1}}</td>
                 <td>{{pharmacy.city}}</td>
-                <td>{{pharmacy.Postcode}}</td>
+                <td>{{pharmacy.comments}}</td>
               </tr>
               {% endfor %}
             </tbody>
