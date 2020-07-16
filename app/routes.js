@@ -660,7 +660,7 @@ router.get('/profiles-comments', (req, res) => {
 
 router.get('/profiles-comments/profiles-page2', (req, res) => {
   let currentPharmacies = pharmacies.slice(15, 30);
-  res.render('profiles/profiles-page2', { currentPharmacies, pharmacies });
+  res.render('profiles-comments/profiles-page2', { currentPharmacies, pharmacies });
 });
 
 router.post('/search-pharmacy-reviews', (req, res) => {
@@ -668,7 +668,7 @@ router.post('/search-pharmacy-reviews', (req, res) => {
   if (searchTerm.toLowerCase() === "leeds") {
     res.redirect("/profiles-comments/multiple-places");
   } else {
-    res.render("profiles-comments/no-results", { searchTerm });
+    res.redirect("profiles-comments/no-results");
   }
 });
 
