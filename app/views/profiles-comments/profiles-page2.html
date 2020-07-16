@@ -26,8 +26,8 @@
         Edit profiles 
       </h1>
       <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
-        <form action="/search-pharmacy" method="POST">
-          <label class="nhsuk-label" for="search">Search by ODS code</label>
+        <form action="/search-pharmacy-reviews" method="POST">
+          <label class="nhsuk-label" for="search">Search by city, town or postcode</label>
           <div class="search-sort">
             <div class="search-bar">
               <input id="search" type="text" name="search" class="nhsuk-input search-input" />
@@ -45,8 +45,8 @@
               <tr class="nhsuk-table__row">
                 <th class="nhsuk-table__header">Name</th>
                 <th class="nhsuk-table__header">Address</th>
-                <th class="nhsuk-table__header">ODS Code</th>
-                <th class="nhsuk-table__header">Comments</th>
+                <th class="nhsuk-table__header">City or town</th>
+                <th class="nhsuk-table__header">Reviews</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
@@ -54,7 +54,7 @@
               <tr class="nhsuk-table__row">
                 <td><a href=""><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.Line1}}</td>
-                <td>{{pharmacy.ODSCode}}</td>
+                <td>{{pharmacy.city}}</td>
                 <td>{{pharmacy.comments}}</td>
               </tr>
               {% endfor %}
