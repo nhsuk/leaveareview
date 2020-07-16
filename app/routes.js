@@ -663,15 +663,30 @@ router.get('/profiles-comments/profiles-page2', (req, res) => {
   res.render('profiles/profiles-page2', { currentPharmacies, pharmacies });
 });
 
-router.post('/search-pharmacy-with-comments', (req, res) => {
+router.post('/search-pharmacy-reviews', (req, res) => {
   let searchTerm = req.body.search;
-  const currentPharmacies = findByODS(searchTerm);
-  res.render('profiles-comments/index', {
-    currentPharmacies,
-    pharmacies,
-    searchTerm
-  });
+  if (searchTerm.toLowerCase() === "leeds") {
+    res.redirect("/profiles-comments/multiple-places");
+  } else {
+    res.render("profiles-comments/no-results", { searchTerm });
+  }
 });
+
+router.get('/profiles-comments/profile-list-leeds', (req, res) => {
+  const currentPharmacies = findLeeds('Leeds');
+  const searchTerm = "Leeds";
+  res.render('profiles-comments/profile-list-leeds', { currentPharmacies, searchTerm })
+})
+
+// router.post('/search-pharmacy-with-comments', (req, res) => {
+//   let searchTerm = req.body.search;
+//   const currentPharmacies = findByODS(searchTerm);
+//   res.render('profiles-comments/index', {
+//     currentPharmacies,
+//     pharmacies,
+//     searchTerm
+//   });
+// });
 
 function findByODS(searchTerm) {
   const searchResults = pharmacies.filter(pharm =>
