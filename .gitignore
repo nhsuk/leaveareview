@@ -64,4 +64,6 @@ jspm_packages/
 Thumbs.db
 
 # Localstorage
-/app/scratch/
+scratch/
+/scratch/
+scratch/tempChanges
