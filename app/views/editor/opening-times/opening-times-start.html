@@ -52,38 +52,26 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1>
-        <span role="text">
-          Opening times
-          <span class="nhsuk-page-heading__small">
-            <span class="visually-hidden"> -</span> 
-            {% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            Weldricks Pharmacy
-            {%else%}
-            {{data["displayname"]}}
-            {%endif%}
-          </span>
-        </span>
-      </h1>
-
+      <h1 class="nhsuk-u-margin-bottom-0">Opening times</h1>
+      <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Weldricks Pharmacy
+        {%else%}
+        {{data["displayname"]}}
+        {%endif%}
+      </span>
       <p class="nhsuk-u-margin-bottom-6">Update or validate your opening times including bank holidays and temporary changes.</p>
-
     </div>
-
   </div>
 
   <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
-    
     <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
       <div class="nhsuk-promo">
         <a class="nhsuk-promo__link-wrapper" href="days">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
-            <h3 class="nhsuk-promo__heading">Opening times</h3>
+            <h2 class="nhsuk-promo__heading">Opening times</h2>
             <p class="nhsuk-promo__description">Your weekly opening times.</p>
           </div>
         </a>
@@ -93,9 +81,8 @@
     <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
       <div class="nhsuk-promo">
         <a class="nhsuk-promo__link-wrapper" href="bank-holiday/days">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
-            <h3 class="nhsuk-promo__heading">Bank holidays</h3>
+            <h2 class="nhsuk-promo__heading">Bank holidays</h2>
             <p class="nhsuk-promo__description">Your bank holiday opening times. <strong>Easter Sunday</strong> should be edited in Temporary Changes.</p>
           </div>
         </a>
@@ -105,9 +92,8 @@
     <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
       <div class="nhsuk-promo">
         <a class="nhsuk-promo__link-wrapper" href="temporary-changes/temporary-changes">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
-            <h3 class="nhsuk-promo__heading">Temporary changes</h3>
+            <h2 class="nhsuk-promo__heading">Temporary changes</h2>
             <p class="nhsuk-promo__description">Changes to your weekly opening times.</p>
           </div>
         </a>

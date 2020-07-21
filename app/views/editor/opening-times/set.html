@@ -59,48 +59,46 @@
   <div class="nhsuk-grid-column-two-thirds">
     <form method="post" action="/editor/opening-times/days/{{dayObj.key}}/copy">
       <div id="enter-time" class="nhsuk-form-group">
+        <h1 class="nhsuk-u-margin-bottom-2">{% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          What time is Weldricks Pharmacy open on {{dayObj.display}}?
+          {%else%}
+          What time is {{data["displayname"]}} open on {{dayObj.display}}?
+          {%endif%}
+        </h1>
+
+        <!--h3>How to enter your opening times</h3-->
+        <div class="nhsuk-do-dont-list nhsuk-u-margin-bottom-4">
+          <h2 class="nhsuk-do-dont-list__label">Enter opening times in the 24 hour format</h2>
+          <ul class="nhsuk-list nhsuk-list--tick">
+            <li>
+              <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+              </svg>
+              For midnight use 00:00 and for midday use 12:00
+            </li>
+            <li>
+              <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+              </svg>
+              Opening times must close at 23:59
+            </li>
+          </ul>
+        </div>
+
+        <p class="nhsuk-u-margin-bottom-2">Times must not overlap over 2 days. For example, if on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
+        <p class="nhsuk-hint nhsuk-u-margin-bottom-6">19:00 - 23:59 for Wednesday and then 00:00 - 02:00 in a seperate entry for Thursday</p>
+
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend">
-            <h1 class="nhsuk-u-margin-bottom-2">{% set displayname = 'alias0' %}
+            <h2 class="nhsuk-u-margin-bottom-4">{% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
               What time is Weldricks Pharmacy open on {{dayObj.display}}?
               {%else%}
               What time is {{data["displayname"]}} open on {{dayObj.display}}?
-              {%endif%}</h1>
+              {%endif%}
+            </h2>
           </legend>
-
-          <!--h3>How to enter your opening times</h3-->
-          <div class="nhsuk-do-dont-list nhsuk-u-margin-bottom-4">
-            <h3 class="nhsuk-do-dont-list__label">Enter opening times in the 24 hour format</h3>
-            <ul class="nhsuk-list nhsuk-list--tick">
-              <li>
-                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
-                </svg>
-                For midnight use 00:00 and for midday use 12:00
-              </li>
-              <li>
-                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
-                </svg>
-                Opening times must close at 23:59
-              </li>
-            </ul>
-          </div>
-
-          <p class="nhsuk-u-margin-bottom-2">Times must not overlap over 2 days.</p>
-
-          <h2>Example</h2>
-          <p>If on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
-          <p class="nhsuk-hint nhsuk-u-margin-bottom-6">19:00 - 23:59 for Wednesday and then 00:00 - 02:00 in a seperate entry for Thursday</p>
-
-          <h3 class="nhsuk-u-margin-bottom-4">{% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            What time(s) is Weldricks Pharmacy open on {{dayObj.display}}?
-            {%else%}
-            What time(s) is {{data["displayname"]}} open on {{dayObj.display}}?
-            {%endif%}</h3>
-            
           <div id="openingTimes" class="nhsuk-u-margin-bottom-6">
             <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
               <div class="nhsuk-date-input__item">

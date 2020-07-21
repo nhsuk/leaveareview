@@ -61,19 +61,22 @@
       {% for id, value in times %}
           <input type="hidden" name="{{id}}" value="{{value}}" />
       {% endfor %}
-      <legend>
-        <h1>Copy {{dayObj.display}}'s opening times to another day?</h1>
-      </legend>
-      <div class="nhsuk-u-margin-bottom-5">
-          <div class="nhsuk-checkboxes">
-          {% for key, value in daysToDisplay %}
-              <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" id="{{value.key}}" class="nhsuk-checkboxes__input" name="{{value.key}}" value="{{value.key}}" />
-                <label for="{{value.key}}" class="nhsuk-label nhsuk-checkboxes__label">{{value.display}}</label>
-              </div>
-          {% endfor %}
+      <fieldset class="nhsuk-fieldset" aira-describedby="copy-hint">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          <h1 class="nhsuk-fieldset__heading">Copy {{dayObj.display}}'s opening times to another day?</h1>
+        </legend>
+        <span class="nhsuk-hint" id="copy-hint">Select all days you would like to copy {{ dayObj.display }} to</span>
+        <div class="nhsuk-u-margin-bottom-5">
+            <div class="nhsuk-checkboxes">
+            {% for key, value in daysToDisplay %}
+                <div class="nhsuk-checkboxes__item">
+                  <input type="checkbox" id="{{value.key}}" class="nhsuk-checkboxes__input" name="{{value.key}}" value="{{value.key}}" />
+                  <label for="{{value.key}}" class="nhsuk-label nhsuk-checkboxes__label">{{value.display}}</label>
+                </div>
+            {% endfor %}
+          </div>
         </div>
-      </div>
+      </fieldset>
       <button type="submit" class="nhsuk-button">Continue</button>
     </form>
   </div>
