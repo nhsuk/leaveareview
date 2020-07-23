@@ -268,6 +268,13 @@ router.post('/private-services', function(req, res) {
 
 
 
+router.post('/acceptingby-check', function(req, res) {
+  localStorage.setItem(
+    'contactDetailsUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('/editor/manage-profile');
+});
 
 
 router.get('/editor/manage-profile', function(req, res) {
@@ -298,6 +305,38 @@ router.get('/editor/manage-profile', function(req, res) {
     servicesLastUpdatedDate,
   });
 });
+
+
+
+////////////////////////////
+// Accepting new patients //
+////////////////////////////
+
+router.post('/acceptingby', function(req, res) {
+  let acceptingby = req.body.acceptingby;
+
+  if (!acceptingby) {
+    res.redirect('/editor/availability/availability-1?error=true');
+  } else if (acceptingby == 'Referral only') {
+    res.redirect('/editor/availability/availability-confirm');
+  } else {
+    res.redirect('/editor/availability/availability-2');
+  }
+});
+
+router.post('/direct', function(req, res) {
+  let patienttype1 = req.body.patienttype1;
+  let patienttype2 = req.body.patienttype2;
+  let patienttype3 = req.body.patienttype3;
+
+  if (!patienttype1) {
+    res.redirect('/editor/availability/availability-2?error=true');
+  } else {
+    res.redirect('/editor/availability/availability-confirm');
+  }
+});
+
+
 
 // Branching - Ask a doctor a question
 
