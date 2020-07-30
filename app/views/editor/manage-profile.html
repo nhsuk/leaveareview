@@ -1,0 +1,169 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-6">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-u-margin-bottom-0">Edit profile</h1>
+      <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Weldricks Pharmacy
+        {%else%}
+        {{data["displayname"]}}
+        {%endif%}
+      </span>
+      <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
+    </div>
+  </div>
+
+  <!--div class="nhsuk-grid-row nhsuk-u-margin-bottom-6">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p>Use these links to edit the various content sections of this profile.</p>
+    </div>
+  </-->
+
+  <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
+    
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="org-name-start">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h2 class="nhsuk-promo__heading">Organisation name</h2>
+            <p class="nhsuk-promo__description">Change the organisation name for your profile.</p>
+            <hr>
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">Weldricks Pharmacy</b></p>
+            {%else%}
+            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">{{data["displayname"]}}</b></p>
+            {%endif%}
+          </div>
+        </a>
+      </div>
+    </div>
+            
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="contact-details-start">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h2 class="nhsuk-promo__heading">Contact details</h2>
+            <p class="nhsuk-promo__description">Update or validate your telephone, website and email details.</p>
+            <hr>
+            <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br>  <b class="nhsuk-body-m">{{ contactDetailsLastUpdatedDate }}</b></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <div class="nhsuk-promo">
+        <a class="nhsuk-promo__link-wrapper" href="opening-times/opening-times-start">
+        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+          <div class="nhsuk-promo__content">
+            <h2 class="nhsuk-promo__heading">Opening times</h2>
+            <p class="nhsuk-promo__description">Update or validate your opening times including bank holidays and temporary changes.</p>
+            <hr>
+            <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ openingTimesLastUpdatedDate }}</b></p>
+          </div>
+        </a>
+      </div>
+    </div>
+            
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
+    
+      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+        <div class="nhsuk-promo">
+          <a class="nhsuk-promo__link-wrapper" href="facilities/facilities-edit">
+          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+            <div class="nhsuk-promo__content">
+              <h2 class="nhsuk-promo__heading">Facilities</h2>
+              <p class="nhsuk-promo__description">Update or validate your customer facilities.</p>
+              <hr>
+              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ facilitiesLastUpdatedDate }}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+              
+      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+        <div class="nhsuk-promo">
+          <a class="nhsuk-promo__link-wrapper" href="services/index">
+          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+            <div class="nhsuk-promo__content">
+              <h2 class="nhsuk-promo__heading">Services</h2>
+              <p class="nhsuk-promo__description">Update or validate your service information.</p>
+              <hr>
+              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ servicesLastUpdatedDate }}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+        <div class="nhsuk-promo">
+          <a class="nhsuk-promo__link-wrapper" href="availability/index">
+          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+            <div class="nhsuk-promo__content">
+              <h2 class="nhsuk-promo__heading">Accepting new NHS patients</h2>
+              <p class="nhsuk-promo__description">Set your availability for accepting Children and Adults as NHS patients.</p>
+              <hr>
+              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ availabilityLastUpdatedDate }}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+              
+    </div>
+
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+let displayname = req.body.displayname;
+</script>
+{% endblock %}

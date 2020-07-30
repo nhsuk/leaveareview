@@ -11,8 +11,19 @@ const app = require('../app');
 const localStorage = new LocalStorage('./scratch');
 
 router.get('/profiles/', (req, res) => {
-  let currentPharmacies = pharmacies;
+  let currentPharmacies = pharmacies.slice(0, 15);
   res.render('proof-of-concept/profiles/index', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles/profiles-page2', (req, res) => {
+  console.log('TEST')
+  let currentPharmacies = pharmacies.slice(15, 30);
+  res.render('proof-of-concept/profiles/profiles-page2', { currentPharmacies, pharmacies });
+});
+
+router.get('/profiles/profiles-page3', (req, res) => {
+  let currentPharmacies = pharmacies.slice(31, 45);
+  res.render('proof-of-concept/profiles/profiles-page3', { currentPharmacies, pharmacies });
 });
 
 router.get('/profiles/editor/manage-profile', function(req, res) {
@@ -32,7 +43,7 @@ router.post('/profiles/search', (req, res) => {
   if (searchTerm.toLowerCase() === "leeds") {
     res.redirect("/proof-of-concept/profiles/multiple-places");
   } else {
-    res.render("/proof-of-concept/profiles/no-results", { searchTerm });
+    res.render("proof-of-concept/profiles/no-results", { searchTerm });
   }
 });
 

@@ -1,5 +1,5 @@
 <!-- Extends the layout from /docs/views/layout.html -->
-{% extends 'layout-app-header.html' %}
+{% extends 'poc-layout-app-header.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -39,7 +39,7 @@
         </form-->
 
         <form id="search" action="/proof-of-concept/profiles/search" method="POST" role="search">
-          <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="search">Search by city or postcode</label>
+          <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="search">Search by city or town</label>
           <div class="search-sort">
             <div class="search-bar">
               <input class="nhsuk-input nhsuk-input--width-10 search-input" id="search" name="search" placeholder="Search" type="text">
@@ -63,13 +63,13 @@
             <thead class="nhsuk-table__head">
               <tr class="nhsuk-table__row">
                 <th class="nhsuk-table__header">Name</th>
-                <th class="nhsuk-table__header">City</th>
+                <th class="nhsuk-table__header">Town or city</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
               {% for pharmacy in currentPharmacies %}
               <tr class="nhsuk-table__row">
-                <td><a href="/editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td><a href="./editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
                 <td>{{pharmacy.city}}</td>
               </tr>
               {% endfor %}
