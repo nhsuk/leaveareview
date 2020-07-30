@@ -1,0 +1,209 @@
+
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/proof-of-concept/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/proof-of-concept/profiles/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Weldricks Pharmacy
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+    </ol>
+  </div>
+</nav>
+{% endblock %}
+
+{% block back %}
+  {{ backLink({
+  "href": "../manage-profile",
+  "text": "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <!--span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 1</span-->
+      <h1>Facilities</h1>
+      <p class="nhsuk-u-margin-bottom-6">Use the boxes to choose which facilities you would like to display on your profile.</p>
+    </div>
+  </div>
+  
+  <form action="/proof-of-concept/profiles/editor/facilities/facilities-edit" method="post">
+
+    <div class="nhsuk-grid-row">
+      
+      <div class="nhsuk-grid-column-one-half">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Accessibility
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-1" name="facilities" type="checkbox" value="brailleTranslationService" {{ checked("facilities", "brailleTranslationService") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-1">
+                  Braille translation service
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-2" name="facilities" type="checkbox" value="disabledCarParking" {{ checked("facilities", "disabledCarParking") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
+                  Disabled car parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-3" name="facilities" type="checkbox" value="disabledWC" {{ checked("facilities", "disabledWC") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
+                  Disabled toilet
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-4" name="facilities" type="checkbox" value="inductionLoop" {{ checked("facilities", "inductionLoop") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-4">
+                  Induction loop
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-5" name="facilities" type="checkbox" value="textRelay" {{ checked("facilities", "textRelay") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-5">
+                  Text relay
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-6" name="facilities" type="checkbox" value="signingService" {{ checked("facilities", "signingService") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-6">
+                  Signing service
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-7" name="facilities" type="checkbox" value="wheelchairAccess" {{ checked("facilities", "wheelchairAccess") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-7">
+                  Wheelchair access
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-8" name="facilities" type="checkbox" value="stepFreeAccess" {{ checked("facilities", "stepFreeAccess") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-8">
+                  Step-free access
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Customer facilities
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-9" name="facilities" type="checkbox" value="carParking" {{ checked("facilities", "carParking") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
+                  Car parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-10" name="facilities" type="checkbox" value="cycleParking" {{ checked("facilities", "cycleParking") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-10">
+                  Cycle parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-11" name="facilities" type="checkbox" value="babyChangingFacilities" {{ checked("facilities", "babyChangingFacilities") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-11">
+                  Baby changing facilities
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-12" name="facilities" type="checkbox" value="customerToilet" {{ checked("facilities", "customerToilet") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-12">
+                  Customer toilet
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+              <h3 class="nhsuk-fieldset__heading">
+                Consultations
+              </h3>
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-13" name="facilities" type="checkbox" value="consultationRoom" {{ checked("facilities", "consultationRoom") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-13">
+                  Consultation room available
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        
+        </div>
+
+      </div>
+    </div>
+
+    {{ button({
+    "text": "Save and confirm",
+    "id": "btn_submit"
+    }) }}
+
+</form>
+
+  
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
