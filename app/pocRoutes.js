@@ -16,7 +16,6 @@ router.get('/profiles/', (req, res) => {
 });
 
 router.get('/profiles/profiles-page2', (req, res) => {
-  console.log('TEST')
   let currentPharmacies = pharmacies.slice(15, 30);
   res.render('proof-of-concept/profiles/profiles-page2', { currentPharmacies, pharmacies });
 });
@@ -40,12 +39,16 @@ router.get('/profiles/editor/manage-profile', function(req, res) {
 
 router.post('/profiles/search', (req, res) => {
   let searchTerm = req.body.search;
-  if (searchTerm.toLowerCase() === "leeds") {
-    res.redirect("/proof-of-concept/profiles/multiple-places");
-  } else {
-    res.render("proof-of-concept/profiles/no-results", { searchTerm });
-  }
+  let currentPharmacies = findByPostCode(searchTerm)
+  res.render('proof-of-concept/profiles/index', { currentPharmacies, searchTerm })
 });
+
+function findByPostCode(searchTerm) {
+  const searchResults = pharmacies.filter(pharm =>
+    pharm.Postcode.toLowerCase().replace(/ /g,'').includes(searchTerm.toLowerCase().replace(/ /g,''))
+  );
+  return searchResults;
+}
 
 function findLeeds(searchTerm) {
   const searchResults = pharmacies.filter(pharm => pharm.city.toLowerCase() === searchTerm.toLowerCase());
