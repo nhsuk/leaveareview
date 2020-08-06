@@ -21,18 +21,24 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h1>
-        We can not find '{{data["search"]}}'
-      </h1>
-      <p>If the place you searched for is in England, you could:</p>
-      <ul>
-        <li>check your spelling and try again</li>
-        <li>try a different place name</li>
-      </ul>
-      <p><a href="./">Back to all results</a></p>
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-bottom-5">
+      <h1 class="nhsuk-u-margin-bottom-0">Profile manager</h1>
+      <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
+        Alan Smith
+      </span>
     </div>
   </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h2>You have no profiles</h2>
+      <p>To add profiles to your account contact the service desk or profile administrator
+    </div>
+  </div>
+
+  
+
+
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -54,4 +60,10 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+let displayname = req.body.displayname;
+</script>
 {% endblock %}
