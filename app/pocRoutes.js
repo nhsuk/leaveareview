@@ -40,7 +40,11 @@ router.get('/profiles/editor/manage-profile', function(req, res) {
 router.post('/profiles/search', (req, res) => {
   let searchTerm = req.body.search;
   let currentPharmacies = findByPostCode(searchTerm)
-  res.render('proof-of-concept/profiles/index', { currentPharmacies, searchTerm })
+  if (currentPharmacies.length === 0) {
+    res.redirect('/proof-of-concept/profiles/no-results')
+  } else {
+    res.render('proof-of-concept/profiles/index', { currentPharmacies, searchTerm })
+  }
 });
 
 function findByPostCode(searchTerm) {
