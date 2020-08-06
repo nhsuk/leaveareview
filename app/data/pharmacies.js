@@ -35,7 +35,7 @@ module.exports = [
     Line1: '55a Newbiggin',
     Line2: 'Hornsea',
     city: 'Leeds',
-    Postcode: 'HU18 1AB',
+    Postcode: 'LS2 1AB',
     comments: 3
   },
   {
