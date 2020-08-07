@@ -48,6 +48,8 @@
             <thead class="nhsuk-table__head">
               <tr class="nhsuk-table__row">
                 <th class="nhsuk-table__header">Name</th>
+                <th class="nhsuk-table__header">Address</th>
+                <th class="nhsuk-table__header">City or town</th>
                 <th class="nhsuk-table__header">Postcode</th>
               </tr>
             </thead>
@@ -55,6 +57,8 @@
               {% for pharmacy in currentPharmacies %}
               <tr class="nhsuk-table__row">
                 <td><a href="editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td>{{pharmacy.Line1}}</td>
+                <td>{{pharmacy.city}}</td>
                 <td>{{pharmacy.Postcode}}</td>
               </tr>
               {% endfor %}
