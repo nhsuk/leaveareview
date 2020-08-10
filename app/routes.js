@@ -312,7 +312,7 @@ router.get('/editor/manage-profile', function(req, res) {
 // Accepting new patients //
 ////////////////////////////
 
-router.post('/acceptingby', function(req, res) {
+/* router.post('/acceptingby', function(req, res) {
   let acceptingby = req.body.acceptingby;
 
   if (!acceptingby) {
@@ -321,6 +321,31 @@ router.post('/acceptingby', function(req, res) {
     res.redirect('/editor/availability/availability-confirm');
   } else {
     res.redirect('/editor/availability/availability-2');
+  }
+});
+
+router.post('/direct', function(req, res) {
+  let patienttype1 = req.body.patienttype1;
+  let patienttype2 = req.body.patienttype2;
+  let patienttype3 = req.body.patienttype3;
+
+  if (!patienttype1) {
+    res.redirect('/editor/availability/availability-2?error=true');
+  } else {
+    res.redirect('/editor/availability/availability-confirm');
+  }
+}); */
+
+
+router.post('/accepting', function(req, res) {
+  let contact = req.body.contact;
+
+  if (!contact) {
+    res.redirect('/editor/availability/index?error=true');
+  } else if (contact == 'referral') {
+    res.redirect('/editor/manage-profile?accepting=referral');
+  } else {
+    res.redirect('/editor/manage-profile?accepting=direct');
   }
 });
 

@@ -43,34 +43,110 @@
       Back to Edit Weldricks Pharmacy
       {%else%}
       Back to Edit {{data["displayname"]}}
-      {%endif%}</a></p>
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
 
+  <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>
-        <span role="text">
-          Accepting new NHS patients
-          <span class="nhsuk-page-heading__small">
-            <span class="visually-hidden"> -</span> 
-            {% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            Weldricks Pharmacy
-            {%else%}
-            {{data["displayname"]}}
-            {%endif%}
-          </span>
-        </span>
-      </h1>
+      <form action="/accepting" method="post">
+        <div class="nhsuk-form-group">
 
-      <p>Set your availability for accepting Children and Adults as NHS patients.</p>
+          <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                New NHS patients
+              </h1>
+            </legend>
+          
+            <span class="nhsuk-hint" id="contact-hint">
+              By what method do you accept new NHS patients?
+            </span>
 
-      <form action="availability-1" method="post">
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              You must choose an option
+            </span>
+
+            <div class="nhsuk-radios nhsuk-radios--conditional">
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="referral" aria-controls="conditional-contact-1" aria-expanded="false" {{ checked("contact", "referral") }}>
+                <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                  Referral only
+                </label>
+              </div>
+              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">     
+                <p>Patients need a referral for treatment.</p>
+              </div>
+              
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="direct" aria-controls="conditional-contact-2" {%if checked%} aria-expanded="true" {%else%} aria-expanded="false" {%endif%} {{ checked("contact", "direct") }}>
+                <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                  Direct bookings by patients
+                </label>
+              </div>
+              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                <p class="nhsuk-u-margin-top-4">Which NHS patient groups are you currently accepting?</p>
+                <div class="nhsuk-form-group">
+
+                  <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="patienttype-1" name="patienttype1" type="checkbox" value="Children (up to the age of 18)" {{ checked("patienttype1", "Children (up to the age of 18)") }}>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-1">
+                        Children (up to the age of 18)
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="patienttype-2" name="patienttype2" type="checkbox" value="Adults (18 and over)" {{ checked("patienttype2", "Adults (18 and over)") }}>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-2">
+                        Adults (18 and over)
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="patienttype-3" name="patienttype3" type="checkbox" value="Adults entitled to free dental care" {{ checked("patienttype3", "Adults entitled to free dental care") }}>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-3">
+                        Adults entitled to free dental care
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="patienttype-4" name="patienttype4" type="checkbox" value="No patients" {{ checked("patienttype4", "No patients") }}>
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-4">
+                        Not currently accepting any new patients
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              
+              
+              <!--div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+                  Text message
+                </label>
+              </div>
+              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-3">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label" for="mobile">
+                    Mobile phone number
+                  </label>
+                  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
+                </div>
+              </div-->
+              
+            </div>
+
+          </fieldset>
+        
+        </div>
 
         {{ button({
           "text": "Continue",
@@ -80,13 +156,13 @@
       </form>
 
       {{ backLink({
-      "href": "/editor/manage-profile",
+      "href": "availability-1",
       "text": "Back"
       }) }}
 
     </div>
-
   </div>
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -108,4 +184,12 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}
