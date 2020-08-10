@@ -1,0 +1,57 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'poc-layout-app-header.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        We can not find '{{data["search"]}}'
+      </h1>
+      <p>If the place you searched for is in England, you could:</p>
+      <ul>
+        <li>check your spelling and try again</li>
+        <li>try a different place name</li>
+      </ul>
+      <p><a href="./">Back to all results</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

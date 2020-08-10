@@ -1,0 +1,102 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'poc-layout-app-header.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>
+        Choose a profile to edit
+      </h1>
+      <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
+        <form id="search" action="/search-pharmacy" method="POST" role="search">
+          <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="search">Search by city or town</label>
+          <div class="search-sort">
+            <div class="search-bar">
+              <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="search" name="search" placeholder="Search" type="text">
+              <button class="nhsuk-search__submit" type="submit">
+                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>Showing <span class="nhsuk-u-font-weight-bold">16-30 results of {{pharmacies.length}}</span>.</p>
+      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+        <div class="nhsuk-table-responsive">
+          <table class="nhsuk-table">
+            <caption class="nhsuk-table__caption">Profile search results</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header">Name</th>
+                <th class="nhsuk-table__header">Address</th>
+                <th class="nhsuk-table__header">City or town</th>
+                <th class="nhsuk-table__header">Postcode</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              {% for pharmacy in currentPharmacies %}
+              <tr class="nhsuk-table__row">
+                <td><a href="/editor/manage-profile"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
+                <td>{{pharmacy.Line1}}</td>
+                <td>{{pharmacy.city}}</td>
+                <td>{{pharmacy.Postcode}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="./">Previous <span class="nhsuk-u-visually-hidden">page</span></a></li>
+          <li class="page-item"><a class="page-link" href="./"><span class="nhsuk-u-visually-hidden">Page </span>1</a></li>
+          <li class="page-item"><span class="page-link active"><span class="nhsuk-u-visually-hidden">Page </span>2</span></li>
+          <li class="page-item"><a href="./profiles-page3" class="page-link"><span class="nhsuk-u-visually-hidden">Page </span>3</a></li>
+          <li class="page-item"><a class="page-link" href="./profiles-page3">Next <span class="nhsuk-u-visually-hidden">page</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

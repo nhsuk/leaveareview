@@ -26,8 +26,8 @@
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/proof-of-concept/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/proof-of-concept/profiles/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
         Edit Weldricks Pharmacy
@@ -35,18 +35,16 @@
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
-      {% set displayname = 'alias0' %}
-      {% if data["displayname"] == alias0 %}
-      Back to Edit Weldricks Pharmacy
-      {%else%}
-      Back to Edit {{data["displayname"]}}
-      {%endif%}
-    </a></p>
   </div>
 </nav>
 {% endblock %}
 
+{% block back %}
+  {{ backLink({
+  "href": "../manage-profile",
+  "text": "Back"
+  }) }}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -57,7 +55,7 @@
     </div>
   </div>
   
-  <form action="/facilities-edit" method="post">
+  <form action="/proof-of-concept/profiles/editor/facilities/facilities-edit" method="post">
 
     <div class="nhsuk-grid-row">
       
@@ -67,9 +65,9 @@
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
+              <h2 class="nhsuk-fieldset__heading">
                 Accessibility
-              </h3>
+              </h2>
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -125,9 +123,9 @@
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
+              <h2 class="nhsuk-fieldset__heading">
                 Customer facilities
-              </h3>
+              </h2>
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -159,9 +157,9 @@
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
+              <h2 class="nhsuk-fieldset__heading">
                 Consultations
-              </h3>
+              </h2>
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -176,15 +174,6 @@
         </div>
 
       </div>
-
-      <div class="nhsuk-grid-column-one-half">
-
-        <div class="nhsuk-form-group">
-
-        </div>
-
-      </div>
-
     </div>
 
     {{ button({
@@ -194,10 +183,6 @@
 
 </form>
 
-{{ backLink({
-"href": "index",
-"text": "Back"
-}) }}
   
 
 {% endblock %}
