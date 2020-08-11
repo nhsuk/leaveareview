@@ -11,7 +11,7 @@
   {{ header({
     "transactionalService": {
         "name": "Profile Manager",
-        "href": "/"
+        "href": "/editor"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -24,12 +24,7 @@
     <div class="nhsuk-grid-column-full">
       <h1 class="nhsuk-u-margin-bottom-0">Profile manager</h1>
       <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
-        {% set displayname = 'alias0' %}
-        {% if data["displayname"] == alias0 %}
-        Weldricks Pharmacy
-        {%else%}
-        {{data["displayname"]}}
-        {%endif%}
+        John Smith
       </span>
     </div>
   </div>

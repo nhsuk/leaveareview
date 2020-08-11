@@ -11,7 +11,7 @@
   {{ header({
     "transactionalService": {
         "name": "Profile Manager",
-        "href": "/"
+        "href": "/editor"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -132,6 +132,25 @@
               <hr>
               <p class="nhsuk-promo__description nhsuk-body-s">Current status:<br> <b class="nhsuk-body-m">{{ availabilityStatus }}</b></p>
               <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ availabilityLastUpdatedDate }}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
+
+      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+        <div class="nhsuk-promo">
+          <a class="nhsuk-promo__link-wrapper" href="new-patients/index">
+          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+            <div class="nhsuk-promo__content">
+              <h2 class="nhsuk-promo__heading">New patient registration</h2>
+              <p class="nhsuk-promo__description">Are you accepting new patient registrations?</p>
+              <hr>
+              <p class="nhsuk-promo__description nhsuk-body-s">Accepting new patients:<br> <b class="nhsuk-body-m">{{ newpatientstatus }}</b></p>
+              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ newpatientLastUpdatedDate }}</b></p>
             </div>
           </a>
         </div>

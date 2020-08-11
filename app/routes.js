@@ -232,11 +232,23 @@ router.post('/address', function(req, res) {
   }
 });
 
+// Branching - Contact Details
+
 router.post('/contact-details', function(req, res) {
   let telephone = req.body.telephone;
 
   if (!telephone) {
-    res.redirect('/editor/contact-details-edit?error=true');
+    res.redirect('/editor/contact-details-phone-edit?error=true');
+  } else {
+    res.redirect('/editor/contact-details-online-edit');
+  }
+});
+
+router.post('/contact-details-2', function(req, res) {
+  let website = req.body.website;
+
+  if (!website) {
+    res.redirect('/editor/contact-details-online-edit?error=true');
   } else {
     res.redirect('/editor/contact-details-check');
   }
@@ -249,6 +261,9 @@ router.post('/contact-details-check', function(req, res) {
   );
   res.redirect('/editor/manage-profile');
 });
+
+
+
 
 router.post('/facilities-edit', function(req, res) {
   localStorage.setItem(
@@ -265,7 +280,6 @@ router.post('/private-services', function(req, res) {
   );
   res.redirect('/editor/manage-profile');
 });
-
 
 
 router.post('/acceptingby-check', function(req, res) {
@@ -361,6 +375,17 @@ router.post('/direct', function(req, res) {
   }
 });
 
+router.post('/newpatients', function(req, res) {
+  let newpatients = req.body.newpatients;
+
+  if (!newpatients) {
+    res.redirect('/editor/new-patients/index?error=true');
+  } else if (newpatients == 'yes') {
+    res.redirect('/editor/manage-profile?newpatientstatus=yes');
+  } else {
+    res.redirect('/editor/manage-profile?newpatientstatus=no');
+  }
+});
 
 
 // Branching - Ask a doctor a question

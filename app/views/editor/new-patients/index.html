@@ -6,7 +6,7 @@
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
 
 <!-- Set the page title inside this block -->
-{% block pageTitle %} 
+{% block pageTitle %}
   Profile Manager
 {% endblock %}
 
@@ -50,28 +50,54 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
 
+  <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>
-        <span role="text">
-          Contact details 
-          <span class="nhsuk-page-heading__small">
-            <span class="visually-hidden"> -</span> 
-            {% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            Weldricks Pharmacy
-            {%else%}
-            {{data["displayname"]}}
-            {%endif%}
-          </span>
-        </span>
-      </h1>
+      <form action="/newpatients" method="post">
+        <div class="nhsuk-form-group">
 
-      <p>You cannot use this tool to edit your address.</p><p>To update your profile's address, <a href="">email the NHS Business Services Authority</a>.</p>
+          <div class="nhsuk-form-group">
 
-      <form action="contact-details-phone-edit" method="post">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                Are you accepting new patient registrations?
+              </legend>
+            
+              <span class="nhsuk-hint" id="example-hint">
+                Choose yes or no.
+              </span>
+
+              <span id="error-message" class="nhsuk-error-message" style="display: none;">
+                <span class="nhsuk-u-visually-hidden">Error:</span> 
+                You must choose an option
+              </span>
+            
+              <div class="nhsuk-radios">
+                
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="newpatients" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Yes
+                  </label>
+                </div>
+                
+                
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="newpatients" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    No
+                  </label>
+                </div>
+                
+              </div>
+
+            </fieldset>
+          
+          </div>
+        
+        </div>
 
         {{ button({
           "text": "Continue",
@@ -81,13 +107,13 @@
       </form>
 
       {{ backLink({
-      "href": "manage-profile",
+      "href": "/editor/manage-profile",
       "text": "Back"
       }) }}
 
     </div>
-
   </div>
+
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -109,4 +135,12 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
 {% endblock %}

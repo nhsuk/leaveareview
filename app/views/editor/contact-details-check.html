@@ -15,7 +15,7 @@
   {{ header({
     "transactionalService": {
         "name": "Profile Manager",
-        "href": "/"
+        "href": "/editor"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -53,7 +53,7 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 3</span>
 
       <form action="/contact-details-check" method="post">
 
@@ -62,53 +62,82 @@
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
             Confirm your phone and online details
           </legend>
+
           <dl class="nhsuk-summary-list">
 
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Telephone
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["telephone"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="contact-details-edit">
-                    Change<span class="nhsuk-u-visually-hidden"> telephone</span>
-                  </a>
-                </dd>
-              </div>
-            
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Website
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["website"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="contact-details-edit">
-                    Change<span class="nhsuk-u-visually-hidden"> website</span>
-                  </a>
-                </dd>
-              </div>
-            
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Email
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{data["email"]}}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a href="contact-details-edit">
-                    Change<span class="nhsuk-u-visually-hidden"> email</span>
-                  </a>
-                </dd>
-              </div>
-            
-            </dl>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Telephone
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["telephone"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="contact-details-phone-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> telephone</span>
+                </a>
+              </dd>
+            </div>
 
-          </fieldset>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Telephone 2
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["telephone2"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="contact-details-phone-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> telephone 2</span>
+                </a>
+              </dd>
+            </div>
+            
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Website
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["website"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="contact-details-online-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> website</span>
+                </a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Email
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["email"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="contact-details-online-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> email</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Online consultation URL
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["onlineconsultation"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="contact-details-online-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> online consultation</span>
+                </a>
+              </dd>
+            </div>
+            
+          </dl>
+
+        </fieldset>
 
         {{ button({
           "text": "Save and confirm",
@@ -118,7 +147,7 @@
       </form>
 
       {{ backLink({
-      "href": "contact-details-edit",
+      "href": "contact-details-online-edit",
       "text": "Back"
       }) }}
 
