@@ -250,6 +250,16 @@ router.post('/contact-details-2', function(req, res) {
   if (!website) {
     res.redirect('/editor/contact-details-online-edit?error=true');
   } else {
+    res.redirect('/editor/contact-details-consultation-edit');
+  }
+});
+
+router.post('/contact-details-3', function(req, res) {
+  let offer = req.body.offer;
+
+  if (!offer) {
+    res.redirect('/editor/contact-details-consultation-edit?error=true');
+  } else {
     res.redirect('/editor/contact-details-check');
   }
 });
