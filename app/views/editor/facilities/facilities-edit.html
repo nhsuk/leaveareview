@@ -57,7 +57,7 @@
     </div>
   </div>
   
-  <form action="/facilities-edit" method="post">
+  <form action="/facilities-check" method="post">
 
     <div class="nhsuk-grid-row">
       
@@ -73,49 +73,49 @@
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-1" name="facilities" type="checkbox" value="brailleTranslationService" {{ checked("facilities", "brailleTranslationService") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-1" name="brailleTranslationService" type="checkbox" value="yes" {{ checked("brailleTranslationService", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-1">
                   Braille translation service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-2" name="facilities" type="checkbox" value="disabledCarParking" {{ checked("facilities", "disabledCarParking") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" {{ checked("disabledCarParking", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
                   Disabled car parking
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-3" name="facilities" type="checkbox" value="disabledWC" {{ checked("facilities", "disabledWC") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-3" name="disabledWC" type="checkbox" value="yes" {{ checked("disabledWC", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
                   Disabled toilet
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-4" name="facilities" type="checkbox" value="inductionLoop" {{ checked("facilities", "inductionLoop") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-4" name="inductionLoop" type="checkbox" value="yes" {{ checked("inductionLoop", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-4">
                   Induction loop
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-5" name="facilities" type="checkbox" value="textRelay" {{ checked("facilities", "textRelay") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-5" name="textRelay" type="checkbox" value="yes" {{ checked("textRelay", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-5">
                   Text relay
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-6" name="facilities" type="checkbox" value="signingService" {{ checked("facilities", "signingService") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-6" name="signingService" type="checkbox" value="yes" {{ checked("signingService", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-6">
                   Signing service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-7" name="facilities" type="checkbox" value="wheelchairAccess" {{ checked("facilities", "wheelchairAccess") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-7" name="wheelchairAccess" type="checkbox" value="yes" {{ checked("wheelchairAccess", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-7">
                   Wheelchair access
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-8" name="facilities" type="checkbox" value="stepFreeAccess" {{ checked("facilities", "stepFreeAccess") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-8" name="stepFreeAccess" type="checkbox" value="yes" {{ checked("stepFreeAccess", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-8">
                   Step-free access
                 </label>
@@ -131,25 +131,25 @@
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-9" name="facilities" type="checkbox" value="carParking" {{ checked("facilities", "carParking") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" {{ checked("carParking", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
                   Car parking
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-10" name="facilities" type="checkbox" value="cycleParking" {{ checked("facilities", "cycleParking") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-10" name="cycleParking" type="checkbox" value="yes" {{ checked("cycleParking", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-10">
                   Cycle parking
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-11" name="facilities" type="checkbox" value="babyChangingFacilities" {{ checked("facilities", "babyChangingFacilities") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-11" name="babyChangingFacilities" type="checkbox" value="yes" {{ checked("babyChangingFacilities", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-11">
                   Baby changing facilities
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-12" name="facilities" type="checkbox" value="customerToilet" {{ checked("facilities", "customerToilet") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-12" name="customerToilet" type="checkbox" value="yes" {{ checked("customerToilet", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-12">
                   Customer toilet
                 </label>
@@ -165,7 +165,7 @@
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-13" name="facilities" type="checkbox" value="consultationRoom" {{ checked("facilities", "consultationRoom") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-13" name="consultationRoom" type="checkbox" value="yes" {{ checked("consultationRoom", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-13">
                   Consultation room available
                 </label>
@@ -188,7 +188,7 @@
     </div>
 
     {{ button({
-    "text": "Save and confirm",
+    "text": "Continue",
     "id": "btn_submit"
     }) }}
 

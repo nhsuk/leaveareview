@@ -273,15 +273,18 @@ router.post('/contact-details-check', function(req, res) {
 });
 
 
-
-
-router.post('/facilities-edit', function(req, res) {
+// Branching - Facilities
+router.post('/facilities-check', function(req, res) {
   localStorage.setItem(
     'facilitiesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
   res.redirect('/editor/manage-profile');
 });
+
+
+
+
 
 router.post('/private-services', function(req, res) {
   localStorage.setItem(
