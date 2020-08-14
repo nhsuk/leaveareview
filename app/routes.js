@@ -274,6 +274,13 @@ router.post('/contact-details-check', function(req, res) {
 
 
 // Branching - Facilities
+
+router.post('/facilities-edit', function(req, res) {
+ 
+    res.redirect('/editor/facilities/facilities-check');
+  
+});
+
 router.post('/facilities-check', function(req, res) {
   localStorage.setItem(
     'facilitiesLastUpdatedDate',
