@@ -773,6 +773,9 @@ router.get('/profiles/profiles-page3', (req, res) => {
 router.post('/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
   let currentPharmacies = findByPostCode(searchTerm)
+  if (searchTerm.toLowerCase() === "leeds") {
+    res.redirect("/profiles/multiple-places");
+  } 
   if (currentPharmacies.length === 0) {
     res.redirect('/editor/no-results')
   } else {
