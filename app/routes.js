@@ -316,6 +316,9 @@ router.get('/editor/manage-profile', function(req, res) {
   let openingTimesLastUpdatedDate = '12 December 2019';
   let facilitiesLastUpdatedDate = '12 December 2019';
   let servicesLastUpdatedDate = '12 December 2019';
+  let newpatientLastUpdatedDate = '12 December 2019';
+  let availabilityLastUpdatedDate = '12 December 2019';
+ 
   if (localStorage.getItem('contactDetailsUpdatedDate')) {
     contactDetailsLastUpdatedDate = localStorage.getItem(
       'contactDetailsUpdatedDate'
@@ -332,11 +335,19 @@ router.get('/editor/manage-profile', function(req, res) {
   if (localStorage.getItem('servicesLastUpdatedDate')) {
     servicesLastUpdatedDate = localStorage.getItem('servicesLastUpdatedDate');
   }
+  if (localStorage.getItem('availabilityLastUpdatedDate')) {
+    availabilityLastUpdatedDate = localStorage.getItem('availabilityLastUpdatedDate');
+  }
+  if (localStorage.getItem('newpatientLastUpdatedDate')) {
+    newpatientLastUpdatedDate = localStorage.getItem('newpatientLastUpdatedDate');
+  }
   res.render('editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
     facilitiesLastUpdatedDate,
     servicesLastUpdatedDate,
+    availabilityLastUpdatedDate,
+    newpatientLastUpdatedDate,
   });
 });
 
@@ -373,7 +384,10 @@ router.post('/direct', function(req, res) {
 
 router.post('/accepting', function(req, res) {
   let contact = req.body.contact;
-
+  localStorage.setItem(
+    'availabilityLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
   if (!contact) {
     res.redirect('/editor/availability/index?error=true');
   } else if (contact == 'Referral only') {
@@ -397,7 +411,10 @@ router.post('/direct', function(req, res) {
 
 router.post('/newpatients', function(req, res) {
   let newpatients = req.body.newpatients;
-
+  localStorage.setItem(
+    'newpatientLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
   if (!newpatients) {
     res.redirect('/editor/new-patients/index?error=true');
   } else if (newpatients == 'Yes') {
