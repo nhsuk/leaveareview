@@ -772,15 +772,23 @@ router.get('/profiles/profiles-page3', (req, res) => {
 
 router.post('/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
-  if (searchTerm.toLowerCase() === "leeds") {
-    res.redirect("/profiles/multiple-places");
+  let currentPharmacies = findByPostCode(searchTerm)
+  if (currentPharmacies.length === 0) {
+    res.redirect('/editor/no-results')
   } else {
-    res.render("profiles/no-results", { searchTerm });
+    res.render('profiles/index', { currentPharmacies, searchTerm })
   }
 });
 
 function findLeeds(searchTerm) {
   const searchResults = pharmacies.filter(pharm => pharm.city.toLowerCase() === searchTerm.toLowerCase());
+  return searchResults;
+}
+
+function findByPostCode(searchTerm) {
+  const searchResults = pharmacies.filter(pharm =>
+    pharm.Postcode.toLowerCase().replace(/ /g,'').includes(searchTerm.toLowerCase().replace(/ /g,''))
+  );
   return searchResults;
 }
 
