@@ -202,6 +202,11 @@ router.post('/process-response', function(req, res) {
 
 // Branching - Profile Editor
 
+router.get('/editor/org-name-start', (req, res) => {
+  recentChangeMade = false;
+  res.render('editor/org-name-start');
+})
+
 router.post('/org-name', function(req, res) {
   let alias1 = req.body.alias1;
 
@@ -222,6 +227,11 @@ router.post('/display-name-2', function(req, res) {
   }
 });
 
+router.post('/confirm-name', (req, res) => {
+  recentChangeMade = true;
+  res.redirect('/editor/manage-profile');
+})
+
 router.post('/address', function(req, res) {
   let address1 = req.body.address1;
 
@@ -233,6 +243,11 @@ router.post('/address', function(req, res) {
 });
 
 // Branching - Contact Details
+
+router.get('/editor/contact-details-start', (req, res) => {
+  recentChangeMade = false;
+  res.render('editor/contact-details-start');
+})
 
 router.post('/contact-details', function(req, res) {
   let telephone = req.body.telephone;
@@ -269,16 +284,19 @@ router.post('/contact-details-check', function(req, res) {
     'contactDetailsUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
+  recentChangeMade = true;
   res.redirect('/editor/manage-profile');
 });
 
 
-// Branching - Facilities
+router.get('/editor/facilities/facilities-edit', function(req, res) {
+  recentChangeMade = false;
+  res.render('editor/facilities/facilities-edit')
+})
+
 
 router.post('/facilities-edit', function(req, res) {
- 
-    res.redirect('/editor/facilities/facilities-check');
-  
+  res.redirect('/editor/facilities/facilities-check');
 });
 
 router.post('/facilities-check', function(req, res) {
@@ -286,6 +304,7 @@ router.post('/facilities-check', function(req, res) {
     'facilitiesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
+  recentChangeMade = true;
   res.redirect('/editor/manage-profile');
 });
 
@@ -298,18 +317,9 @@ router.post('/private-services', function(req, res) {
     'servicesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
+  recentChangeMade = true;
   res.redirect('/editor/manage-profile');
 });
-
-
-router.post('/acceptingby-check', function(req, res) {
-  localStorage.setItem(
-    'contactDetailsUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  res.redirect('/editor/manage-profile');
-});
-
 
 router.get('/editor/manage-profile', function(req, res) {
   let contactDetailsLastUpdatedDate = '12 December 2019';
@@ -348,9 +358,9 @@ router.get('/editor/manage-profile', function(req, res) {
     servicesLastUpdatedDate,
     availabilityLastUpdatedDate,
     newpatientLastUpdatedDate,
+    recentChangeMade,
   });
 });
-
 
 
 ////////////////////////////
@@ -476,8 +486,9 @@ router.post('/nhs-services', function(req, res) {
   res.redirect('/editor/services/private-services');
 });
 
-router.post('/private-services', function(req, res) {
-  res.redirect('/editor/manage-profile');
+router.get('/editor/services/index', function(req, res) {
+  recentChangeMade = false;
+  res.render('editor/services/index')
 });
 
 // Branching - Facilities
@@ -517,6 +528,8 @@ const days = {
 };
 
 const getDay = req => days[req.params.day.toUpperCase()];
+let recentChangeMade = false;
+let changeMade = ''
 
 // Create default opening times
 const emptyOpeningTimes = Object.keys(days).map(key => ({
@@ -608,7 +621,6 @@ router.post('/editor/opening-times/days', (req, res) => {
   localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
   const dateNow = moment().format('DD MMMM YYYY');
   localStorage.setItem('lastUpdatedOn', dateNow);
-  console.log(newOpeningTimes);
   // Redirect to page which will display times from new localstorage
   res.redirect('/editor/opening-times/confirm-opening-times');
 });
@@ -637,7 +649,7 @@ router.post('/editor/opening-times/bank-holiday/opening-time', (req, res) => {
   res.render('editor/opening-times/bank-holiday/days', {
     firstTime,
     secondTime,
-    thirdTime
+    thirdTime,
   });
 });
 
