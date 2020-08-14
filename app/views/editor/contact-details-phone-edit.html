@@ -32,7 +32,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Weldricks Pharmacy
+        Edit Practice 1
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -40,7 +40,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Weldricks Pharmacy
+      Back to Edit Practice 1
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
@@ -70,7 +70,7 @@
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="telephone">
-              Telephone
+              Reception
             </label>
             <input class="nhsuk-input" id="telephone" name="telephone" type="text" aria-describedby="input" value="{{data["telephone"]}}">
           </div>
@@ -78,7 +78,7 @@
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="telephone2">
-              Telephone 2
+              Repeat prescriptions
             </label>
             <input class="nhsuk-input" id="telephone2" name="telephone2" type="text" aria-describedby="input" value="{{data["telephone2"]}}">
           </div>

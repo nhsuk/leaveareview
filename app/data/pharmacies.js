@@ -1,21 +1,21 @@
 module.exports = [
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 1',
     Line1: '10a/b Bentalls Shopping Centre',
     Line2: 'Colchester Road',
-    city: 'Maldon',
-    Postcode: 'CM9 4GD',
+    city: 'Leeds',
+    Postcode: 'LS9 4GD',
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 2',
     Line1: '49-51 Merrion Ctr',
     city: 'Leeds',
     Postcode: 'LS2 8PJ',
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 3',
     Line1: '100 Whitehorse Lane',
     Line2: 'Stepney',
     city: 'London',
@@ -23,7 +23,7 @@ module.exports = [
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 4',
     Line1: 'Headcorn Surgery',
     Line2: 'Grigg Lane',
     city: 'Kent',
@@ -31,7 +31,7 @@ module.exports = [
     comments: 5
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 5',
     Line1: '55a Newbiggin',
     Line2: 'Hornsea',
     city: 'Leeds',
@@ -39,7 +39,7 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 6',
     Line1: '294 London Road',
     Line2: 'North End',
     city: 'Hampshire',
@@ -47,15 +47,15 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 7',
     Line1: '54 Bridgegate',
     Line2: 'Retford',
     city: 'Leeds',
-    Postcode: 'DN22 7UZ',
+    Postcode: 'LS22 7UZ',
     comments: 8
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 8',
     Line1: 'Dereham Terrace',
     Line2: 'Stakeford',
     city: 'Northumberland',
@@ -63,22 +63,22 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 9',
     Line1: '1-5 Palace Avenue',
     city: 'Paignton',
     Postcode: 'TQ3 3EF',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 10',
     Line1: '20 Great Whyte',
     Line2: 'Ramsey',
     city: 'Leeds',
-    Postcode: 'PE26 1HA',
+    Postcode: 'LS26 1HA',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 11',
     Line1: '1 Heysham Road',
     Line2: 'Heysham',
     city: 'Morecambe',
@@ -86,7 +86,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 12',
     Line1: '185 Lower Clapton Road',
     Line2: 'Upper Clapton',
     city: 'London',
@@ -94,7 +94,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 13',
     Line1: 'Green Lanes Surgery',
     Line2: '808 Green Lanes',
     city: 'London',
@@ -102,7 +102,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 14',
     Line1: 'Tesco Pharmacy',
     Line2: 'Bridge Road',
     city: 'Rainham',
@@ -110,22 +110,22 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 15',
     Line1: '73 PICCADILLY',
     city: 'London',
     Postcode: 'W1J 8HS',
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 16',
     Line1: 'William Frost Way',
     Line2: 'New Costessey',
     city: 'Leeds',
-    Postcode: 'NR5 0JS',
+    Postcode: 'LS5 0JS',
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 17',
     Line1: '119 Brimstage Road',
     Line2: 'Heswall',
     city: 'Wirral',
@@ -133,7 +133,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 18',
     Line1: 'Festival Way',
     Line2: 'Festival Park',
     city: 'Stoke-on-Trent',
@@ -141,7 +141,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 19',
     Line1: '2 Jubilee Parade',
     Line2: 'Snakes Lane',
     city: 'Woodford Green, Essex',
@@ -149,7 +149,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 20',
     Line1: 'Singlewell Pharmacy',
     Line2: '133 Singlewell Road',
     city: 'Gravesend',
@@ -157,14 +157,14 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 21',
     Line1: '1 Coopers Square',
     city: 'Burton-on-Trent',
     Postcode: 'DE14 1DG',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 22',
     Line1: '140 King Street',
     Line2: 'Stonehouse',
     city: 'Devon',
@@ -172,7 +172,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 23',
     Line1: 'Tower Retail Park',
     Line2: 'Crayford Road, Crayford',
     city: 'Dartford',
@@ -180,7 +180,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 24',
     Line1: '396 Long Lane',
     Line2: 'Rowley Regis',
     city: 'Warley',
@@ -188,7 +188,7 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 25',
     Line1: 'Crowhurst Road',
     Line2: 'Off Carden Avenue',
     city: 'Hollingbury,Brighton',
@@ -196,7 +196,7 @@ module.exports = [
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 26',
     Line1: '56 Hessel Street',
     Line2: 'Tower Hamlets',
     city: 'London',
@@ -204,7 +204,7 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 27',
     Line1: '10 Arnolds Crescent',
     Line2: 'Newbold Verdon',
     city: 'Leicester',
@@ -212,22 +212,22 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 28',
     Line1: '312 Holderness Road',
     city: 'Hull',
     Postcode: 'HU9 3DA',
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 29',
     Line1: '1 - 15 The Brewery',
     Line2: 'Waterloo Road',
     city: 'Leeds',
-    Postcode: 'RM1 1AU',
+    Postcode: 'LS16 1AU',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 30',
     Line1: 'Lawson Street Health Centre',
     Line2: 'Lawson Street',
     city: 'Stockton on Tees',
@@ -235,14 +235,14 @@ module.exports = [
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 31',
     Line1: '55 Vicarage Rd',
     city: 'St. Agnes',
     Postcode: 'TR5 0TH',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 32',
     Line1: '70 Manchester Road',
     Line2: 'Broadheath',
     city: 'Cheshire',
@@ -250,7 +250,7 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 33',
     Line1: '13-17 Brixham Drive',
     Line2: 'Coventry',
     city: 'West Midlands',
@@ -258,7 +258,7 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 34',
     Line1: '18 Medway Parade',
     Line2: 'Medway Village',
     city: 'Greenford',
@@ -266,7 +266,7 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 35',
     Line1: '126 Day Lewis',
     Line2: 'Kentish Town Road',
     city: 'London',
@@ -274,7 +274,7 @@ module.exports = [
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 36',
     Line1: '8 High Street',
     Line2: 'Eccleshall',
     city: 'Stafford',
@@ -282,23 +282,23 @@ module.exports = [
     comments: 3
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 37',
     Line1: '74 Buchanan Road',
     Line2: 'Parson Cross',
     city: 'Leeds',
-    Postcode: 'S5 8AL',
+    Postcode: 'LS5 8AL',
     comments: 1
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 38',
     Line1: '71 Magdalen Road',
     Line2: '',
     city: 'Leeds',
-    Postcode: 'EX2 4TA',
+    Postcode: 'LS2 4TA',
     comments: 0
   },
   {
-    Name: 'Weldricks Pharmacy',
+    Name: 'Practice 39',
     Line1: '28 Blackwell Road ',
     Line2: 'Carlisle ',
     city: 'Cumbria',

@@ -376,10 +376,10 @@ router.post('/accepting', function(req, res) {
 
   if (!contact) {
     res.redirect('/editor/availability/index?error=true');
-  } else if (contact == 'referral') {
-    res.redirect('/editor/manage-profile?accepting=referral');
+  } else if (contact == 'Referral only') {
+    res.redirect('/editor/manage-profile?accepting=Referral only');
   } else {
-    res.redirect('/editor/manage-profile?accepting=direct');
+    res.redirect('/editor/manage-profile?accepting=Direct bookings');
   }
 });
 
@@ -400,10 +400,10 @@ router.post('/newpatients', function(req, res) {
 
   if (!newpatients) {
     res.redirect('/editor/new-patients/index?error=true');
-  } else if (newpatients == 'yes') {
-    res.redirect('/editor/manage-profile?newpatientstatus=yes');
+  } else if (newpatients == 'Yes') {
+    res.redirect('/editor/manage-profile?newpatientstatus=Yes');
   } else {
-    res.redirect('/editor/manage-profile?newpatientstatus=no');
+    res.redirect('/editor/manage-profile?newpatientstatus=No');
   }
 });
 

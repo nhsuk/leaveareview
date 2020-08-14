@@ -26,7 +26,7 @@
       <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Weldricks Pharmacy
+        Practice 1
         {%else%}
         {{data["displayname"]}}
         {%endif%}
@@ -49,11 +49,11 @@
         <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
             <h2 class="nhsuk-promo__heading">Organisation name</h2>
-            <p class="nhsuk-promo__description">Change the organisation name for your profile.</p>
-            <hr>
+            <!--p class="nhsuk-promo__description">Change the organisation name for your profile.</p-->
+            <hr class="nhsuk-u-margin-top-4">
             {% set displayname = 'alias0' %}
             {% if data["displayname"] == alias0 %}
-            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">Weldricks Pharmacy</b></p>
+            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">Practice 1</b></p>
             {%else%}
             <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">{{data["displayname"]}}</b></p>
             {%endif%}
@@ -68,8 +68,8 @@
         <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
             <h2 class="nhsuk-promo__heading">Contact details</h2>
-            <p class="nhsuk-promo__description">Update or validate your telephone, website and email details.</p>
-            <hr>
+            <!--p class="nhsuk-promo__description">Update or validate your telephone, website and email details.</p-->
+            <hr class="nhsuk-u-margin-top-4">
             <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br>  <b class="nhsuk-body-m">{{ contactDetailsLastUpdatedDate }}</b></p>
           </div>
         </a>
@@ -82,8 +82,8 @@
         <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
           <div class="nhsuk-promo__content">
             <h2 class="nhsuk-promo__heading">Opening times</h2>
-            <p class="nhsuk-promo__description">Update or validate your opening times including bank holidays and temporary changes.</p>
-            <hr>
+            <!--p class="nhsuk-promo__description">Update or validate your opening times including bank holidays and temporary changes.</p-->
+            <hr class="nhsuk-u-margin-top-4">
             <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ openingTimesLastUpdatedDate }}</b></p>
           </div>
         </a>
@@ -100,18 +100,18 @@
           <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
             <div class="nhsuk-promo__content">
               <h2 class="nhsuk-promo__heading">Facilities</h2>
-              <p class="nhsuk-promo__description">Update or validate your customer facilities.</p>
-              <hr>
+              <!--p class="nhsuk-promo__description">Update or validate your customer facilities.</p-->
+              <hr class="nhsuk-u-margin-top-4">
               <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ facilitiesLastUpdatedDate }}</b></p>
             </div>
           </a>
         </div>
       </div>
               
-      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+      <!--div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
         <div class="nhsuk-promo">
           <a class="nhsuk-promo__link-wrapper" href="services/index">
-          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+
             <div class="nhsuk-promo__content">
               <h2 class="nhsuk-promo__heading">Services</h2>
               <p class="nhsuk-promo__description">Update or validate your service information.</p>
@@ -120,7 +120,7 @@
             </div>
           </a>
         </div>
-      </div>
+      </div-->
 
       <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
         <div class="nhsuk-promo">
@@ -128,10 +128,25 @@
           <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
             <div class="nhsuk-promo__content">
               <h2 class="nhsuk-promo__heading">Accepting new patients</h2>
-              <p class="nhsuk-promo__description">Set your availability information for accepting new patients.</p>
-              <hr>
-              <p class="nhsuk-promo__description nhsuk-body-s">Current status:<br> <b class="nhsuk-body-m">{{ availabilityStatus }}</b></p>
+              <!--p class="nhsuk-promo__description">Set your availability information for accepting new patients.</p-->
+              <hr class="nhsuk-u-margin-top-4">
+              <p class="nhsuk-promo__description nhsuk-body-s">Current status:<br> <b class="nhsuk-body-m">{{data["accepting"]}}</b></p>
               <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ availabilityLastUpdatedDate }}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
+        <div class="nhsuk-promo">
+          <a class="nhsuk-promo__link-wrapper" href="new-patients/index">
+          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
+            <div class="nhsuk-promo__content">
+              <h2 class="nhsuk-promo__heading">New patient registration (GPs)</h2>
+              <!--p class="nhsuk-promo__description">Are you accepting new patient registrations?</p-->
+              <hr class="nhsuk-u-margin-top-4">
+              <p class="nhsuk-promo__description nhsuk-body-s">Accepting new patients:<br> <b class="nhsuk-body-m">{{data["newpatientstatus"]}}</b></p>
+              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ newpatientLastUpdatedDate }}</b></p>
             </div>
           </a>
         </div>
@@ -141,20 +156,6 @@
 
     <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
 
-      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-        <div class="nhsuk-promo">
-          <a class="nhsuk-promo__link-wrapper" href="new-patients/index">
-          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
-            <div class="nhsuk-promo__content">
-              <h2 class="nhsuk-promo__heading">New patient registration</h2>
-              <p class="nhsuk-promo__description">Are you accepting new patient registrations?</p>
-              <hr>
-              <p class="nhsuk-promo__description nhsuk-body-s">Accepting new patients:<br> <b class="nhsuk-body-m">{{ newpatientstatus }}</b></p>
-              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ newpatientLastUpdatedDate }}</b></p>
-            </div>
-          </a>
-        </div>
-      </div>
               
     </div>
 

@@ -32,7 +32,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Weldricks Pharmacy
+        Edit Practice 1
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -40,7 +40,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Weldricks Pharmacy
+      Back to Edit Practice 1
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
@@ -76,7 +76,7 @@
             <div class="nhsuk-radios nhsuk-radios--conditional">
               
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="referral" aria-controls="conditional-contact-1" aria-expanded="false" {{ checked("contact", "referral") }}>
+                <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="Referral only" aria-controls="conditional-contact-1" aria-expanded="false" {{ checked("contact", "Referral only") }}>
                 <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
                   Referral only
                 </label>
@@ -87,9 +87,9 @@
               
               
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="direct" aria-controls="conditional-contact-2" {%if checked%} aria-expanded="true" {%else%} aria-expanded="false" {%endif%} {{ checked("contact", "direct") }}>
+                <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="Direct bookings" aria-controls="conditional-contact-2" {%if checked%} aria-expanded="true" {%else%} aria-expanded="false" {%endif%} {{ checked("contact", "Direct bookings") }}>
                 <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-                  Direct bookings by patients
+                  Direct bookings
                 </label>
               </div>
               <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
@@ -156,7 +156,7 @@
       </form>
 
       {{ backLink({
-      "href": "availability-1",
+      "href": "/editor/manage-profile",
       "text": "Back"
       }) }}
 
