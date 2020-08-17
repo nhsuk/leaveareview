@@ -15,7 +15,7 @@
   {{ header({
     "transactionalService": {
         "name": "Profile Manager",
-        "href": "/"
+        "href": "/editor"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -32,7 +32,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Weldricks Pharmacy
+        Edit Practice 1
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -42,7 +42,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Weldricks Pharmacy
+      Back to Edit Practice 1
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
@@ -59,7 +59,7 @@
         <h1>
           {% set displayname = 'alias0' %}
           {% if data["displayname"] == alias0 %}
-          What time is Weldricks Pharmacy open on 26 December 2020?
+          What time is Practice 1 open on 26 December 2020?
           {%else%}
           What time is {{data["displayname"]}} open on 26 December 2020?
           {%endif%}
@@ -88,7 +88,7 @@
             <h2 class="nhsuk-u-margin-bottom-4">
               {% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
-              What time is Weldricks Pharmacy open on 26 December 2020?
+              What time is Practice 1 open on 26 December 2020?
               {%else%}
               What time is {{data["displayname"]}} open on 26 December 2020?
               {%endif%}
