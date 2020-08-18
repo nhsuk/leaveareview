@@ -308,10 +308,6 @@ router.post('/facilities-check', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-
-
-
-
 router.post('/private-services', function(req, res) {
   localStorage.setItem(
     'servicesLastUpdatedDate',
@@ -328,6 +324,7 @@ router.get('/editor/manage-profile', function(req, res) {
   let servicesLastUpdatedDate = '12 December 2019';
   let newpatientLastUpdatedDate = '12 December 2019';
   let availabilityLastUpdatedDate = '12 December 2019';
+  console.log(availabilityLastUpdatedDate)
  
   if (localStorage.getItem('contactDetailsUpdatedDate')) {
     contactDetailsLastUpdatedDate = localStorage.getItem(
@@ -391,20 +388,29 @@ router.post('/direct', function(req, res) {
   }
 }); */
 
-
+let whichPatients = [];
+let newPatients;
 router.post('/accepting', function(req, res) {
-  let contact = req.body.contact;
+  newPatients = req.body.newPatients;
+  whichPatients = req.body.whichPatients
   localStorage.setItem(
     'availabilityLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-  if (!contact) {
+  if (!newPatients) {
     res.redirect('/editor/availability/index?error=true');
-  } else if (contact == 'Referral only') {
-    res.redirect('/editor/manage-profile?accepting=Referral only');
   } else {
-    res.redirect('/editor/manage-profile?accepting=Direct bookings');
+    res.redirect('/editor/manage-profile');
   }
+});
+
+router.get('/editor/availability/index', (req, res) => {
+  if(newPatients === 'referral') whichPatients = [];
+  let acceptingChildren = whichPatients.includes('children')
+  let acceptingAdultsOver = whichPatients.includes('adults')
+  let acceptingAdultsDental = whichPatients.includes('adultsDental')
+  let notAccepting = whichPatients.includes('notAccepting')
+  res.render('editor/availability/index', { acceptingChildren, acceptingAdultsOver, acceptingAdultsDental, notAccepting })
 });
 
 router.post('/direct', function(req, res) {

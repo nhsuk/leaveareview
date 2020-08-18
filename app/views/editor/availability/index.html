@@ -1,6 +1,9 @@
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
+{% from 'radios/macro.njk' import radios %}
+{% from 'input/macro.njk' import input %}
+
 <!-- Adds a custom class to the <main> wrapper -->
 <!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
@@ -53,106 +56,81 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <form action="/accepting" method="post">
         <div class="nhsuk-form-group">
-
           <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">
-                By what method do you accept new NHS patients?
-              </h1>
-            </legend>
-          
-            <!--span class="nhsuk-hint" id="contact-hint">
-              By referral only or direct booking?
-            </span-->
-
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
               You must choose an option
             </span>
+            {% set directHtml %}
+              {{ checkboxes({
+                "idPrefix": "whichPatients",
+                "name": "whichPatients",
+                "fieldset": {
+                  "legend": {
+                    "text": "Which NHS patient groups are you currently accepting?",
+                    "classes": "nhsuk-fieldset__legend--s",
+                    isPageHeading: true
+                  }
+                },
+                "items": [
+                  {
+                    "value": "children",
+                    "text": "Children (up to the age of 18)",
+                    "checked": acceptingChildren 
+                  },
+                  {
+                    "value": "adults",
+                    "text": "Adults (18 and over)",
+                    "checked": acceptingAdultsOver
+                  },
+                  {
+                    "value": "adultsDental",
+                    "text": "Adults entitled to free dental care",
+                    "checked": acceptingAdultsDental 
+                  },
+                  {
+                    "value": "notAccepting",
+                    "text": "Not current accepting any new patients",
+                    "checked": notAccepting 
+                  }
+                ]
+              }) }}
+            {% endset -%}
 
-            <div class="nhsuk-radios nhsuk-radios--conditional">
-              
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="Referral only" aria-controls="conditional-contact-1" aria-expanded="false" {{ checked("contact", "Referral only") }}>
-                <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-                  Referral only
-                </label>
-              </div>
-              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">     
-                <p>Patients need a referral for treatment.</p>
-              </div>
-              
-              
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="Direct bookings" aria-controls="conditional-contact-2" {%if checked%} aria-expanded="true" {%else%} aria-expanded="false" {%endif%} {{ checked("contact", "Direct bookings") }}>
-                <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-                  Patients can book appointments
-                </label>
-              </div>
-              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-                <p class="nhsuk-u-margin-top-4">Which NHS patient groups are you currently accepting?</p>
-                <div class="nhsuk-form-group">
-
-                  <div class="nhsuk-checkboxes">
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="patienttype-1" name="patienttype1" type="checkbox" value="Children (up to the age of 18)" {{ checked("patienttype1", "Children (up to the age of 18)") }}>
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-1">
-                        Children (up to the age of 18)
-                      </label>
-                    </div>
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="patienttype-2" name="patienttype2" type="checkbox" value="Adults (18 and over)" {{ checked("patienttype2", "Adults (18 and over)") }}>
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-2">
-                        Adults (18 and over)
-                      </label>
-                    </div>
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="patienttype-3" name="patienttype3" type="checkbox" value="Adults entitled to free dental care" {{ checked("patienttype3", "Adults entitled to free dental care") }}>
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-3">
-                        Adults entitled to free dental care
-                      </label>
-                    </div>
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="patienttype-4" name="patienttype4" type="checkbox" value="No patients" {{ checked("patienttype4", "No patients") }}>
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="patienttype-4">
-                        Not currently accepting any new patients
-                      </label>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              
-              
-              <!--div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
-                <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
-                  Text message
-                </label>
-              </div>
-              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-3">
-                <div class="nhsuk-form-group">
-                  <label class="nhsuk-label" for="mobile">
-                    Mobile phone number
-                  </label>
-                  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
-                </div>
-              </div-->
-              
-            </div>
-
+            {{ radios({
+              "idPrefix": "newPatients",
+              "name": "newPatients",
+              "fieldset": {
+                "legend": {
+                  "text": "By what method do you accept new NHS patients?",
+                  "classes": "nhsuk-fieldset__legend--l",
+                  "isPageHeading": "true"
+                }
+              },
+              "items": [
+                {
+                  "value": "referral",
+                  "text": "Referral only",
+                  "checked": data['newPatients'] === 'referral'
+                },
+                {
+                  "value": "direct",
+                  "text": "Patients can book appointments",
+                  "checked": data['newPatients'] === 'direct',
+                  "conditional": {
+                    "html": directHtml 
+                  }
+                }
+              ]
+            }) }}
           </fieldset>
-        
         </div>
-
         {{ button({
           "text": "Continue",
           "id": "btn_submit"
         }) }}
-
       </form>
 
       {{ backLink({
