@@ -60,13 +60,13 @@
           <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
               <h1 class="nhsuk-fieldset__heading">
-                New NHS patients
+                By what method do you accept new NHS patients?
               </h1>
             </legend>
           
-            <span class="nhsuk-hint" id="contact-hint">
-              By what method do you accept new NHS patients?
-            </span>
+            <!--span class="nhsuk-hint" id="contact-hint">
+              By referral only or direct booking?
+            </span-->
 
             <span id="error-message" class="nhsuk-error-message" style="display: none;">
               <span class="nhsuk-u-visually-hidden">Error:</span> 
@@ -89,7 +89,7 @@
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="Direct bookings" aria-controls="conditional-contact-2" {%if checked%} aria-expanded="true" {%else%} aria-expanded="false" {%endif%} {{ checked("contact", "Direct bookings") }}>
                 <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-                  Direct bookings
+                  Patients can book appointments
                 </label>
               </div>
               <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
