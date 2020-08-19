@@ -104,7 +104,7 @@
               "name": "newPatients",
               "fieldset": {
                 "legend": {
-                  "text": "By what method do you accept new NHS patients?",
+                  "text": "Can patients book appointments directly with your practice?",
                   "classes": "nhsuk-fieldset__legend--l",
                   "isPageHeading": "true"
                 }
@@ -112,12 +112,12 @@
               "items": [
                 {
                   "value": "referral",
-                  "text": "Referral only",
+                  "text": "No, we are a referral only practice",
                   "checked": data['newPatients'] === 'referral'
                 },
                 {
                   "value": "direct",
-                  "text": "Patients can book appointments",
+                  "text": "Yes, they can book appointments by telephone, in person or online",
                   "checked": data['newPatients'] === 'direct',
                   "conditional": {
                     "html": directHtml 

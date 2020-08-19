@@ -70,15 +70,19 @@
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="telephone">
-              Reception
+              Reception telephone number
             </label>
+            {% if data["telephone"] %}
             <input class="nhsuk-input" id="telephone" name="telephone" type="text" aria-describedby="input" value="{{data["telephone"]}}">
+            {% else %}
+              <input class="nhsuk-input" id="telephone" name="telephone" type="text" aria-describedby="input" value="0123456789">
+            {% endif %}
           </div>
 
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="telephone2">
-              Repeat prescriptions
+              Repeat prescriptions telephone number
             </label>
             <input class="nhsuk-input" id="telephone2" name="telephone2" type="text" aria-describedby="input" value="{{data["telephone2"]}}">
           </div>

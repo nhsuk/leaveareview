@@ -79,7 +79,11 @@
             <label class="nhsuk-label" for="email">
               Email
             </label>
-            <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="input" value="{{data["email"]}}">
+            {% if data["email"] %}
+              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="input" value="{{data["email"]}}">
+            {% else %}
+              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="input" value="practice@nhs.net">
+            {% endif %}
           </div>
 
         </fieldset>
