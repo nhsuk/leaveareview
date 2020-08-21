@@ -54,120 +54,110 @@
     </div>
   </div>
 
-  <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
+  <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-6">
     
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-      <div class="nhsuk-promo">
-        <a class="nhsuk-promo__link-wrapper" href="org-name-start">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
-          <div class="nhsuk-promo__content">
-            <h2 class="nhsuk-promo__heading">Organisation name</h2>
-            <!--p class="nhsuk-promo__description">Change the organisation name for your profile.</p-->
-            <hr class="nhsuk-u-margin-top-4">
-            {% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">Practice 1</b></p>
-            {%else%}
-            <p class="nhsuk-promo__description nhsuk-body-s">Current organisation name:<br> <b class="nhsuk-body-m">{{data["displayname"]}}</b></p>
-            {%endif%}
-          </div>
-        </a>
+    <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>Organisation name</h3>
+        <div class="options">
+          <span class="edit-link"><a href="org-name-start">Edit</a></span>
+        </div>
+        <!--div class="lastupdated">
+          {% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          <p class="nhsuk-body-s">Current organisation name:<br> <span class="nhsuk-u-font-weight-bold">Practice 1</span></p>
+          {%else%}
+          <p class="nhsuk-body-s">Current organisation name:<br> <span class="nhsuk-u-font-weight-bold">{{data["displayname"]}}</span></p>
+          {%endif%}
+        </div-->
       </div>
     </div>
             
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-      <div class="nhsuk-promo">
-        <a class="nhsuk-promo__link-wrapper" href="contact-details-start">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
-          <div class="nhsuk-promo__content">
-            <h2 class="nhsuk-promo__heading">Contact details</h2>
-            <!--p class="nhsuk-promo__description">Update or validate your telephone, website and email details.</p-->
-            <hr class="nhsuk-u-margin-top-4">
-            <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br>  <b class="nhsuk-body-m">{{ contactDetailsLastUpdatedDate }}</b></p>
-          </div>
-        </a>
+    <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
+      <div class="nhsuk-panel editor">
+        <h3>Contact details</h3>
+        <div class="options">
+          <span class="edit-link"><a href="contact-details-start">Edit</a></span> <span class="validate-link"><a href="contact-details-check">Validate</a></span>
+        </div>
+        <div class="lastupdated">
+          <p class="nhsuk-body-s">Last updated:<br><span class="nhsuk-u-font-weight-bold">{{ contactDetailsLastUpdatedDate }}</span></p>
+        </div>
       </div>
     </div>
 
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-      <div class="nhsuk-promo">
-        <a class="nhsuk-promo__link-wrapper" href="opening-times/opening-times-start">
-        <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
-          <div class="nhsuk-promo__content">
-            <h2 class="nhsuk-promo__heading">Opening times</h2>
-            <!--p class="nhsuk-promo__description">Update or validate your opening times including bank holidays and temporary changes.</p-->
-            <hr class="nhsuk-u-margin-top-4">
-            <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ openingTimesLastUpdatedDate }}</b></p>
-          </div>
-        </a>
+    <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>Opening times</h3>
+        <div class="options">
+          <span class="edit-link"><a href="opening-times/opening-times-start">Edit</a></span> <!--span class="validate-link"><a href="opening-times/days">Validate</a></span-->
+        </div>
+        <div class="lastupdated">
+          <p class="nhsuk-body-s">Last updated:<br><span class="nhsuk-u-font-weight-bold">{{ openingTimesLastUpdatedDate }}</span></p>
+        </div>
       </div>
     </div>
             
   </div>
 
-  <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
-    
-      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-        <div class="nhsuk-promo">
-          <a class="nhsuk-promo__link-wrapper" href="facilities/facilities-edit">
-          <!--img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt=""-->
-            <div class="nhsuk-promo__content">
-              <h2 class="nhsuk-promo__heading">Facilities</h2>
-              <!--p class="nhsuk-promo__description">Update or validate your customer facilities.</p-->
-              <hr class="nhsuk-u-margin-top-4">
-              <p class="nhsuk-promo__description nhsuk-body-s" style="vertical-align:bottom;">Last updated:<br> <b class="nhsuk-body-m">{{ facilitiesLastUpdatedDate }}</b></p>
-            </div>
-          </a>
+  <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-6">
+
+    <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>Facilities</h3>
+        <div class="options">
+          <span class="edit-link"><a href="facilities/facilities-edit">Edit</a></span> <span class="validate-link"><a href="facilities/facilities-check">Validate</a></span>
+        </div>
+        <div class="lastupdated">
+          <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
         </div>
       </div>
-              
-      <!--div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-        <div class="nhsuk-promo">
-          <a class="nhsuk-promo__link-wrapper" href="services/index">
-
-            <div class="nhsuk-promo__content">
-              <h2 class="nhsuk-promo__heading">Services</h2>
-              <p class="nhsuk-promo__description">Update or validate your service information.</p>
-              <hr>
-              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ servicesLastUpdatedDate }}</b></p>
-            </div>
-          </a>
+    </div>
+            
+    <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>New patient registration</h3>
+        <div class="options">
+          <span class="edit-link"><a href="new-patients/index">Edit</a></span> <!--span class="validate-link"><a href="new-patients/index">Validate</a></span-->
         </div>
-      </div-->
-
-      <!-- <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-        <div class="nhsuk-promo">
-          <a class="nhsuk-promo__link-wrapper" href="availability/index">
-            <div class="nhsuk-promo__content">
-              <h2 class="nhsuk-promo__heading">Accepting new patients</h2>
-              <hr class="nhsuk-u-margin-top-4">
-              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ availabilityLastUpdatedDate }}</b></p>
-            </div>
-          </a>
-        </div>
-      </div> -->
-
-      <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">  
-        <div class="nhsuk-promo">
-          <a class="nhsuk-promo__link-wrapper" href="new-patients/index">
-            <div class="nhsuk-promo__content">
-              <h2 class="nhsuk-promo__heading">New patient registration</h2>
-              <hr class="nhsuk-u-margin-top-4">
-              {% if data["newpatientstatus"] %}
-              <p class="nhsuk-promo__description nhsuk-body-s">Accepting new patients:<br> <b class="nhsuk-body-m">{{data["newpatientstatus"]}}</b></p>
-              {% endif %}
-              <p class="nhsuk-promo__description nhsuk-body-s">Last updated:<br> <b class="nhsuk-body-m">{{ newpatientLastUpdatedDate }}</b></p>
-            </div>
-          </a>
+        <!--p class="nhsuk-body-s">Accepting new patients:<br> <span class="nhsuk-u-font-weight-bold">{{data["newpatientstatus"]}}</span></p-->
+        <div class="lastupdated">
+          <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ newpatientLastUpdatedDate }}</span></p>
         </div>
       </div>
-
     </div>
 
-    <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-6">
 
-              
-    </div>
+    <!--div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>Services</h3>
+        <div class="options">
+          <span class="edit-link"><a href="services/index">Edit</a></span> <span class="validate-link"><a href="services/services-check">Validate</a></span>
+        </div>
+        <div class="lastupdated">  
+          <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ servicesLastUpdatedDate }}</span></p>
+        </div>
+      </div>
+    </div-->
+
+    <!--div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">  
+      <div class="nhsuk-panel editor">
+        <h3>Accepting new patients</h3>
+        <div class="options">
+          <span class="edit-link"><a href="availability/index">Edit</a></span> <span class="validate-link"><a href="availability/index">Validate</a></span>
+        </div>
+        <div class="lastupdated">
+          <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ availabilityLastUpdatedDate }}</span></p>
+        </div>
+      </div>
+    </div-->
+
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-6">
+
+
+
+  </div>
 
 
 {% endblock %}
