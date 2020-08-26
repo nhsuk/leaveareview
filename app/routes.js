@@ -981,3 +981,9 @@ router.post('/do-you-have-a-camera', function(req, res) {
   }
 });
 
+
+router.get('/editor/validate', (_, res) => {
+  res.render('editor/validate', {
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes'))
+  });
+});

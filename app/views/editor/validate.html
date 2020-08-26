@@ -1,0 +1,352 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/editor"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-u-margin-bottom-0">Validate profile</h1>
+      <span class="nhsuk-page-heading__small nhsuk-u-margin-bottom-4">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Practice 1
+        {%else%}
+        {{data["displayname"]}}
+        {%endif%}
+      </span>
+      <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
+    </div>
+  </div>
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h2>Contact details</h2>
+      <form action="/contact-details-check" method="post">
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Reception telephone
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["telephone"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-phone-edit">
+                Change<span class="nhsuk-u-visually-hidden"> reception telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Repeat prescriptions telephone
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["telephone2"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-phone-edit">
+                Change<span class="nhsuk-u-visually-hidden"> repeat prescriptions telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["website"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> website</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["email"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> email</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Online consultation URL
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["onlineconsultation"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-consultation-edit">
+                Change<span class="nhsuk-u-visually-hidden"> online consultation</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <h2>Opening times</h2>
+        <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
+          {% for day in openingTimes %}
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                {{ day.name }}
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {% if day.times.length %}
+                  {% set cls = cycler(" to ", "") %}
+                  {%- for time in day.times | batch(2) -%}
+                  <p>
+                    {%- for times in time -%}
+                      {{ times }}{{cls.next()}}
+                    {%- endfor -%}
+                  </p>
+                  {%- endfor %}
+                {% else %}
+                  Closed
+                {% endif %}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="/editor/opening-times/days/{{ day.name | lower}}">
+                  Change<span class="nhsuk-u-visually-hidden"> {{ day.name }}</span>
+                </a>
+              </dd>
+            </div>
+          {% endfor %}
+        </dl>
+        <h2>Facilities</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Braille translation service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["brailleTranslationService"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> braille translation services</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Disabled car parking
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["disabledCarParking"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> disabled car parking</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Disabled WC
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["disabledWC"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> disabled wc</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Induction loop
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["inductionLoop"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> induction loop</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Text relay
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["textRelay"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> text relay</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Signing service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["signingService"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> signing service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Wheelchair access
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["wheelchairAccess"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> wheelchair access</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Step-free access
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["stepFreeAccess"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> step-free access</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <h3>Patient facilities</h3>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Car parking
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["carParking"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> car parking</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Cycle parking
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["cycleParking"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> cycle parking</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Baby changing facilities
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["babyChangingFacilities"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> baby changing facilities</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Customer toilet
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["customerToilet"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> customer toilet</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <h2>New patients</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Accepting new patients 
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Yes
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="facilities-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> new patients</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+        {{ button({
+          "text": "Save and confirm",
+          "id": "btn_submit"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+let displayname = req.body.displayname;
+</script>
+{% endblock %}

@@ -8,6 +8,10 @@
   border-color: #007f3b;
 }
 
+.nhsuk-alert--warning {
+  border-color: #d5281b;
+}
+
 .nhsuk-alert__icon {
   height: 34px;
   left: 18px;
@@ -22,4 +26,9 @@
 
 .nhsuk-icon__tick {
   stroke: #007f3b;
+}
+
+.nhsuk-icon__warning {
+  fill: #d5281b;
+  padding: 4px;
 }
