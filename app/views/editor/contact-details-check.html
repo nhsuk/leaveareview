@@ -53,15 +53,22 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
 
-      <form   action="/contact-details-check" method="post">
+      <span id="steps" class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 4 of 4</span>
+
+      <form action="/contact-details-check" method="post">
 
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
-            Confirm your phone and online details
+          <legend id="val-title" class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
+            Your contact details
           </legend>
+
+          <legend id="con-title"class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
+            Confirm your contact details
+          </legend>
+
+          <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
 
           <dl class="nhsuk-summary-list">
 
@@ -175,4 +182,21 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  if (window.location.search.indexOf('validate=true') > -1) 
+  {
+    document.getElementById("val-title").style.display = "block";
+    document.getElementById("con-title").style.display = "none";
+    document.getElementById("steps").style.display = "none";
+  }
+  else
+  {
+    document.getElementById("val-title").style.display = "none";
+    document.getElementById("con-title").style.display = "block";
+    document.getElementById("edit-all").style.display = "none";
+  }
+  </script>
 {% endblock %}

@@ -288,7 +288,6 @@ router.post('/contact-details-check', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-
 router.get('/editor/facilities/facilities-edit', function(req, res) {
   recentChangeMade = false;
   res.render('editor/facilities/facilities-edit')
