@@ -1,0 +1,68 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Order a repeat prescription
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Order a repeat prescription",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+      "href": "/repeat-prescriptions/denied-no-skillz",
+      "text": "Back"
+      }) }}
+
+      <h1 class="nhsuk-u-margin-bottom-4">How to prove your identity without uploading a photo of your ID</h1>
+
+      <p>You can prove your identity by using a 3-stage process:</p>
+
+      <ul class="nhsuk-list nhsuk-list--number">
+        <li><p>You will first need to sign up for an NHS login with your laptop or desktop - <a href="https://nhs-login.herokuapp.com/set-up/demo/enter-email">www.nhs.uk/register</a></p></li>
+        <li><p>Once you have an NHS login go to the Repeat Prescription section.</p></li>
+        <li><p>Click the link ‘How to prove who you are without sending a photo of your ID’ and follow the instructions.</p></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
+      },
+      {
+        "URL": "",
+        "label": "Accessibility statement"
+      }
+    ]
+  })}}
+{% endblock %}

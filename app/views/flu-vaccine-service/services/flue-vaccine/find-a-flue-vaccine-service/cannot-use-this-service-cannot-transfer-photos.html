@@ -1,0 +1,68 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Order a repeat prescription
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Order a repeat prescription",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ backLink({
+      "href": "can-you-transfer-photos",
+      "text": "Back"
+      }) }}
+      <h1 class="nhsuk-u-margin-bottom-6">You will need to transfer photos to your laptop or desktop computer</h1>
+      <p>If you have a smartphone or tablet we suggest you use it to sign up.</p>
+      <h2>Switch to your smartphone or tablet</h2>
+      <p>Visit <span class="nhsuk-u-font-weight-bold">www.nhs.uk/nhslogin</span> on your smartphone or tablet to continue the sign up process.</p>
+      <h2>I do not have a smartphone or tablet</h2>
+      <p><a href="https://www.nhsapp.service.nhs.uk/login">Continue with the device you're using</a>. You will receive instructions on how to sign up for the service without having to upload ID documents.</p>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
+      },
+      {
+        "URL": "",
+        "label": "Accessibility statement"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

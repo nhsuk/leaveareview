@@ -1,0 +1,104 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Repeat prescriptions
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Repeat prescriptions",
+        "href": "/repeat-prescriptions"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{#{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/repeat-prescriptions/rp-question-3",
+    text: "< Back"
+  }) }}
+{% endblock %}#}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+        "href": "rp-question-3",
+        "text": "Back"
+        }) }}
+
+      <h1>Based on your answers you should be able to order prescriptions online</h1>
+
+      <p class="nhsuk-u-margin-bottom-2">To use the repeat prescription online service you will need to register for a NHS login. This makes it easier for you to use NHS online services.</p>
+
+      <h2>In order to register for an NHS login you will need one of the following at hand:</h2>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>a valid drivers licence</li>
+        <li>a valid passport</li>
+        <li>an EU identity card</li>
+      </ul>
+
+      <p>You will need to take photos of the chosen ID, of yourself and you will need to upload the images.</p>
+
+      <h2>What to do if you have no ID</h2>
+      <p>Your GP surgery will be able to give you some registration details. <a href="denied-no-smartphone-camera">Find out how to do this</a>.</p>
+
+      <form action="/repeat-prescriptions/rp-question-device" method="get">
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}
