@@ -12,7 +12,7 @@ const localStorage = new LocalStorage('./scratch');
 
 moment.locale('en-GB');
 // Documentation router
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   // Save default opening times to local storage
   localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
   res.render('index');
@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 
 // Branching - Leave a review
 
-router.post('/rating-review', function(req, res) {
+router.post('/rating-review', function (req, res) {
   let month = req.body.month;
   let year = req.body.year;
 
@@ -33,7 +33,7 @@ router.post('/rating-review', function(req, res) {
   }
 });
 
-router.post('/q1', function(req, res) {
+router.post('/q1', function (req, res) {
   let familyfriends = req.body.familyfriends;
 
   if (!familyfriends) {
@@ -43,7 +43,7 @@ router.post('/q1', function(req, res) {
   }
 });
 
-router.post('/q2', function(req, res) {
+router.post('/q2', function (req, res) {
   let title = req.body.title;
   let details = req.body.details;
 
@@ -56,7 +56,7 @@ router.post('/q2', function(req, res) {
   }
 });
 
-router.post('/q3', function(req, res) {
+router.post('/q3', function (req, res) {
   let email = req.body.email;
   let confirmemail = req.body.confirmemail;
   let displayname = req.body.displayname;
@@ -72,7 +72,7 @@ router.post('/q3', function(req, res) {
   }
 });
 
-router.post('/q4', function(req, res) {
+router.post('/q4', function (req, res) {
   let furtherratings = req.body.furtherratings;
 
   if (!furtherratings) {
@@ -84,7 +84,7 @@ router.post('/q4', function(req, res) {
   }
 });
 
-router.post('/q5', function(req, res) {
+router.post('/q5', function (req, res) {
   let appointmentwaitingtime = req.body.appointmentwaitingtime;
 
   if (!appointmentwaitingtime) {
@@ -94,7 +94,7 @@ router.post('/q5', function(req, res) {
   }
 });
 
-router.post('/q6', function(req, res) {
+router.post('/q6', function (req, res) {
   let dignityrespect = req.body.dignityrespect;
 
   if (!dignityrespect) {
@@ -104,7 +104,7 @@ router.post('/q6', function(req, res) {
   }
 });
 
-router.post('/q7', function(req, res) {
+router.post('/q7', function (req, res) {
   let treatmentdecisions = req.body.treatmentdecisions;
 
   if (!treatmentdecisions) {
@@ -114,7 +114,7 @@ router.post('/q7', function(req, res) {
   }
 });
 
-router.post('/q8', function(req, res) {
+router.post('/q8', function (req, res) {
   let treatmentcostsinfo = req.body.treatmentcostsinfo;
 
   if (!treatmentcostsinfo) {
@@ -124,7 +124,7 @@ router.post('/q8', function(req, res) {
   }
 });
 
-router.post('/q9', function(req, res) {
+router.post('/q9', function (req, res) {
   let treatmentoutcome = req.body.treatmentoutcome;
 
   if (!treatmentoutcome) {
@@ -136,7 +136,7 @@ router.post('/q9', function(req, res) {
 
 // Branching - Report a comment
 
-router.post('/rcq1', function(req, res) {
+router.post('/rcq1', function (req, res) {
   let reportreason = req.body.reportreason;
 
   if (!reportreason) {
@@ -154,7 +154,7 @@ router.post('/rcq1', function(req, res) {
   }
 });
 
-router.post('/rcq2', function(req, res) {
+router.post('/rcq2', function (req, res) {
   let moredetail = req.body.moredetail;
 
   if (!moredetail) {
@@ -164,7 +164,7 @@ router.post('/rcq2', function(req, res) {
   }
 });
 
-router.post('/rcq3', function(req, res) {
+router.post('/rcq3', function (req, res) {
   let emailaddress = req.body.emailaddress;
   let confirmemailaddress = req.body.confirmemailaddress;
 
@@ -178,7 +178,7 @@ router.post('/rcq3', function(req, res) {
   }
 });
 
-router.post('/confirmation', function(req, res) {
+router.post('/confirmation', function (req, res) {
   let moredetail = req.body.moredetail;
 
   if (!moredetail) {
@@ -190,7 +190,7 @@ router.post('/confirmation', function(req, res) {
 
 // Branching - Org Response Tool
 
-router.post('/process-response', function(req, res) {
+router.post('/process-response', function (req, res) {
   let response = req.body.yourresponse;
 
   if (response == '') {
@@ -205,9 +205,9 @@ router.post('/process-response', function(req, res) {
 router.get('/editor/org-name-start', (req, res) => {
   recentChangeMade = false;
   res.render('editor/org-name-start');
-})
+});
 
-router.post('/org-name', function(req, res) {
+router.post('/org-name', function (req, res) {
   let alias1 = req.body.alias1;
 
   if (!alias1) {
@@ -217,7 +217,7 @@ router.post('/org-name', function(req, res) {
   }
 });
 
-router.post('/display-name-2', function(req, res) {
+router.post('/display-name-2', function (req, res) {
   let displayname = req.body.displayname;
 
   if (!displayname) {
@@ -230,9 +230,9 @@ router.post('/display-name-2', function(req, res) {
 router.post('/confirm-name', (req, res) => {
   recentChangeMade = true;
   res.redirect('/editor/manage-profile');
-})
+});
 
-router.post('/address', function(req, res) {
+router.post('/address', function (req, res) {
   let address1 = req.body.address1;
 
   if (!address1) {
@@ -247,9 +247,9 @@ router.post('/address', function(req, res) {
 router.get('/editor/contact-details-start', (req, res) => {
   recentChangeMade = false;
   res.render('editor/contact-details-start');
-})
+});
 
-router.post('/contact-details', function(req, res) {
+router.post('/contact-details', function (req, res) {
   let telephone = req.body.telephone;
 
   if (!telephone) {
@@ -259,7 +259,7 @@ router.post('/contact-details', function(req, res) {
   }
 });
 
-router.post('/contact-details-2', function(req, res) {
+router.post('/contact-details-2', function (req, res) {
   let email = req.body.email;
 
   if (!email) {
@@ -269,7 +269,7 @@ router.post('/contact-details-2', function(req, res) {
   }
 });
 
-router.post('/contact-details-3', function(req, res) {
+router.post('/contact-details-3', function (req, res) {
   let offer = req.body.offer;
 
   if (!offer) {
@@ -279,7 +279,7 @@ router.post('/contact-details-3', function(req, res) {
   }
 });
 
-router.post('/contact-details-check', function(req, res) {
+router.post('/contact-details-check', function (req, res) {
   localStorage.setItem(
     'contactDetailsUpdatedDate',
     moment().format('DD MMMM YYYY')
@@ -288,17 +288,16 @@ router.post('/contact-details-check', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-router.get('/editor/facilities/facilities-edit', function(req, res) {
+router.get('/editor/facilities/facilities-edit', function (req, res) {
   recentChangeMade = false;
-  res.render('editor/facilities/facilities-edit')
-})
+  res.render('editor/facilities/facilities-edit');
+});
 
-
-router.post('/facilities-edit', function(req, res) {
+router.post('/facilities-edit', function (req, res) {
   res.redirect('/editor/facilities/facilities-check');
 });
 
-router.post('/facilities-check', function(req, res) {
+router.post('/facilities-check', function (req, res) {
   localStorage.setItem(
     'facilitiesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
@@ -307,7 +306,7 @@ router.post('/facilities-check', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-router.post('/private-services', function(req, res) {
+router.post('/private-services', function (req, res) {
   localStorage.setItem(
     'servicesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
@@ -316,15 +315,15 @@ router.post('/private-services', function(req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-router.get('/editor/manage-profile', function(req, res) {
+router.get('/editor/manage-profile', function (req, res) {
   let contactDetailsLastUpdatedDate = '12 December 2019';
   let openingTimesLastUpdatedDate = '12 December 2019';
   let facilitiesLastUpdatedDate = '12 December 2019';
   let servicesLastUpdatedDate = '12 December 2019';
   let newpatientLastUpdatedDate = '12 December 2019';
   let availabilityLastUpdatedDate = '12 December 2019';
-  console.log(availabilityLastUpdatedDate)
- 
+  console.log(availabilityLastUpdatedDate);
+
   if (localStorage.getItem('contactDetailsUpdatedDate')) {
     contactDetailsLastUpdatedDate = localStorage.getItem(
       'contactDetailsUpdatedDate'
@@ -342,10 +341,14 @@ router.get('/editor/manage-profile', function(req, res) {
     servicesLastUpdatedDate = localStorage.getItem('servicesLastUpdatedDate');
   }
   if (localStorage.getItem('availabilityLastUpdatedDate')) {
-    availabilityLastUpdatedDate = localStorage.getItem('availabilityLastUpdatedDate');
+    availabilityLastUpdatedDate = localStorage.getItem(
+      'availabilityLastUpdatedDate'
+    );
   }
   if (localStorage.getItem('newpatientLastUpdatedDate')) {
-    newpatientLastUpdatedDate = localStorage.getItem('newpatientLastUpdatedDate');
+    newpatientLastUpdatedDate = localStorage.getItem(
+      'newpatientLastUpdatedDate'
+    );
   }
   res.render('editor/manage-profile', {
     contactDetailsLastUpdatedDate,
@@ -358,12 +361,11 @@ router.get('/editor/manage-profile', function(req, res) {
   });
 });
 
-
 let whichPatients = [];
 let newPatients;
-router.post('/accepting', function(req, res) {
+router.post('/accepting', function (req, res) {
   newPatients = req.body.newPatients;
-  whichPatients = req.body.whichPatients
+  whichPatients = req.body.whichPatients;
   localStorage.setItem(
     'availabilityLastUpdatedDate',
     moment().format('DD MMMM YYYY')
@@ -376,15 +378,20 @@ router.post('/accepting', function(req, res) {
 });
 
 router.get('/editor/availability/index', (req, res) => {
-  if(newPatients === 'referral') whichPatients = [];
-  let acceptingChildren = whichPatients.includes('children')
-  let acceptingAdultsOver = whichPatients.includes('adults')
-  let acceptingAdultsDental = whichPatients.includes('adultsDental')
-  let notAccepting = whichPatients.includes('notAccepting')
-  res.render('editor/availability/index', { acceptingChildren, acceptingAdultsOver, acceptingAdultsDental, notAccepting })
+  if (newPatients === 'referral') whichPatients = [];
+  let acceptingChildren = whichPatients.includes('children');
+  let acceptingAdultsOver = whichPatients.includes('adults');
+  let acceptingAdultsDental = whichPatients.includes('adultsDental');
+  let notAccepting = whichPatients.includes('notAccepting');
+  res.render('editor/availability/index', {
+    acceptingChildren,
+    acceptingAdultsOver,
+    acceptingAdultsDental,
+    notAccepting,
+  });
 });
 
-router.post('/direct', function(req, res) {
+router.post('/direct', function (req, res) {
   let patienttype1 = req.body.patienttype1;
   let patienttype2 = req.body.patienttype2;
   let patienttype3 = req.body.patienttype3;
@@ -396,7 +403,7 @@ router.post('/direct', function(req, res) {
   }
 });
 
-router.post('/newpatients', function(req, res) {
+router.post('/newpatients', function (req, res) {
   let newpatients = req.body.newpatients;
   localStorage.setItem(
     'newpatientLastUpdatedDate',
@@ -411,10 +418,9 @@ router.post('/newpatients', function(req, res) {
   }
 });
 
-
 // Branching - Ask a doctor a question
 
-router.post('/aaq2', function(req, res) {
+router.post('/aaq2', function (req, res) {
   let practicename = req.body.practicename;
 
   if (!practicename) {
@@ -424,7 +430,7 @@ router.post('/aaq2', function(req, res) {
   }
 });
 
-router.post('/aaq3', function(req, res) {
+router.post('/aaq3', function (req, res) {
   let name = req.body.name;
   let day = req.body.day;
   let month = req.body.month;
@@ -459,59 +465,59 @@ router.post('/aaq3', function(req, res) {
 });
 
 // Branching - Services
-router.post('/nhs-services', function(req, res) {
+router.post('/nhs-services', function (req, res) {
   res.redirect('/editor/services/private-services');
 });
 
-router.get('/editor/services/index', function(req, res) {
+router.get('/editor/services/index', function (req, res) {
   recentChangeMade = false;
-  res.render('editor/services/index')
+  res.render('editor/services/index');
 });
 
 // Branching - Facilities
-router.post('/facilities', function(req, res) {
+router.post('/facilities', function (req, res) {
   res.redirect('/editor/manage-profile');
 });
 
 const days = {
   MONDAY: {
     key: 'monday',
-    display: 'Monday'
+    display: 'Monday',
   },
   TUESDAY: {
     key: 'tuesday',
-    display: 'Tuesday'
+    display: 'Tuesday',
   },
   WEDNESDAY: {
     key: 'wednesday',
-    display: 'Wednesday'
+    display: 'Wednesday',
   },
   THURSDAY: {
     key: 'thursday',
-    display: 'Thursday'
+    display: 'Thursday',
   },
   FRIDAY: {
     key: 'friday',
-    display: 'Friday'
+    display: 'Friday',
   },
   SATURDAY: {
     key: 'saturday',
-    display: 'Saturday'
+    display: 'Saturday',
   },
   SUNDAY: {
     key: 'sunday',
-    display: 'Sunday'
-  }
+    display: 'Sunday',
+  },
 };
 
-const getDay = req => days[req.params.day.toUpperCase()];
+const getDay = (req) => days[req.params.day.toUpperCase()];
 let recentChangeMade = false;
-let changeMade = ''
+let changeMade = '';
 
 // Create default opening times
-const emptyOpeningTimes = Object.keys(days).map(key => ({
+const emptyOpeningTimes = Object.keys(days).map((key) => ({
   name: days[key].display,
-  times: []
+  times: [],
 }));
 
 // Save default opening times to local storage
@@ -521,13 +527,13 @@ localStorage.setItem('lastUpdatedOn', '23 March 2019');
 router.get('/editor/opening-times/days', (_, res) => {
   res.render('editor/opening-times/days', {
     openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
-    lastUpdatedOn: localStorage.getItem('lastUpdatedOn')
+    lastUpdatedOn: localStorage.getItem('lastUpdatedOn'),
   });
 });
 
 router.get('/editor/opening-times/confirm-opening-times', (_, res) => {
   res.render('editor/opening-times/confirm-opening-times', {
-    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes'))
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
   });
 });
 
@@ -543,7 +549,7 @@ router.post('/editor/opening-times/days/:day/set', (req, res) => {
   );
   const dayObj = getDay(req);
   const currentDay = dayObj.display;
-  const getOpeningTimes = localOpeningTimes.filter(times => {
+  const getOpeningTimes = localOpeningTimes.filter((times) => {
     return times.name == currentDay;
   });
   const currentDayOpeningTimes = getOpeningTimes[0].times;
@@ -553,7 +559,7 @@ router.post('/editor/opening-times/days/:day/set', (req, res) => {
   } else {
     const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
       name,
-      times: dayObj.display === name ? [] : times
+      times: dayObj.display === name ? [] : times,
     }));
     console.log(newOpeningTimes);
 
@@ -572,7 +578,7 @@ router.post('/editor/opening-times/days/:day/copy', (req, res) => {
   res.render('editor/opening-times/copy', {
     dayObj,
     daysToDisplay,
-    times: req.body
+    times: req.body,
   });
 });
 
@@ -584,14 +590,14 @@ router.post('/editor/opening-times/days', (req, res) => {
 
   // Get an array of opening times from the request body
   const newTimes = Object.keys(req.body)
-    .filter(key => !days[key.toUpperCase()])
-    .map(timeKey => req.body[timeKey])
+    .filter((key) => !days[key.toUpperCase()])
+    .map((timeKey) => req.body[timeKey])
     .filter(Boolean);
 
   // Build opening times object by adding times to all days sent in the request body
   const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
     name,
-    times: req.body[name.toLowerCase()] ? newTimes : times
+    times: req.body[name.toLowerCase()] ? newTimes : times,
   }));
 
   // Set localstorage times to new times
@@ -642,7 +648,7 @@ router.get(
       );
     } else {
       res.render('editor/opening-times/temporary-changes/temporary-changes', {
-        tempChanges
+        tempChanges,
       });
     }
   }
@@ -664,7 +670,7 @@ router.get(
   (req, res) => {
     let temporaryDate = req.query.date;
     res.render('editor/opening-times/temporary-changes/temporary-change-open', {
-      temporaryDate
+      temporaryDate,
     });
   }
 );
@@ -681,12 +687,12 @@ router.post(
     } else {
       let tempChange = {
         date: req.body.tempDateHidden,
-        time: 'Closed'
+        time: 'Closed',
       };
       const newChanges = [...tempChanges, tempChange];
       localStorage.setItem('tempChanges', JSON.stringify(newChanges));
       res.render('editor/opening-times/temporary-changes/temporary-changes', {
-        tempChanges: newChanges
+        tempChanges: newChanges,
       });
     }
   }
@@ -722,12 +728,12 @@ router.post(
     }
     let tempChange = {
       date: req.body.tempDateHidden,
-      time: getTime()
+      time: getTime(),
     };
     const newChanges = [...tempChanges, tempChange];
     localStorage.setItem('tempChanges', JSON.stringify(newChanges));
     res.render('editor/opening-times/temporary-changes/temporary-changes', {
-      tempChanges: newChanges
+      tempChanges: newChanges,
     });
   }
 );
@@ -749,34 +755,38 @@ router.get('/profiles/profiles-page3', (req, res) => {
 
 router.post('/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
-  let currentPharmacies = findByPostCode(searchTerm)
-  if (searchTerm.toLowerCase() === "leeds") {
-    res.redirect("/profiles/multiple-places");
-  } 
+  let currentPharmacies = findByPostCode(searchTerm);
+  if (searchTerm.toLowerCase() === 'leeds') {
+    res.redirect('/profiles/multiple-places');
+  }
   if (currentPharmacies.length === 0) {
-    res.redirect('/editor/no-results')
+    res.redirect('/editor/no-results');
   } else {
-    res.render('profiles/index', { currentPharmacies, searchTerm })
+    res.render('profiles/index', { currentPharmacies, searchTerm });
   }
 });
 
 function findLeeds(searchTerm) {
-  const searchResults = pharmacies.filter(pharm => pharm.city.toLowerCase() === searchTerm.toLowerCase());
+  const searchResults = pharmacies.filter(
+    (pharm) => pharm.city.toLowerCase() === searchTerm.toLowerCase()
+  );
   return searchResults;
 }
 
 function findByPostCode(searchTerm) {
-  const searchResults = pharmacies.filter(pharm =>
-    pharm.Postcode.toLowerCase().replace(/ /g,'').includes(searchTerm.toLowerCase().replace(/ /g,''))
+  const searchResults = pharmacies.filter((pharm) =>
+    pharm.Postcode.toLowerCase()
+      .replace(/ /g, '')
+      .includes(searchTerm.toLowerCase().replace(/ /g, ''))
   );
   return searchResults;
 }
 
 router.get('/profiles/profile-list-leeds', (req, res) => {
   const currentPharmacies = findLeeds('Leeds');
-  const searchTerm = "Leeds";
-  res.render('profiles/profile-list-leeds', { currentPharmacies, searchTerm })
-})
+  const searchTerm = 'Leeds';
+  res.render('profiles/profile-list-leeds', { currentPharmacies, searchTerm });
+});
 
 /* Profiles with comments */
 router.get('/profiles-comments', (req, res) => {
@@ -786,23 +796,29 @@ router.get('/profiles-comments', (req, res) => {
 
 router.get('/profiles-comments/profiles-page2', (req, res) => {
   let currentPharmacies = pharmacies.slice(15, 30);
-  res.render('profiles-comments/profiles-page2', { currentPharmacies, pharmacies });
+  res.render('profiles-comments/profiles-page2', {
+    currentPharmacies,
+    pharmacies,
+  });
 });
 
 router.post('/search-pharmacy-reviews', (req, res) => {
   let searchTerm = req.body.search;
-  if (searchTerm.toLowerCase() === "leeds") {
-    res.redirect("/profiles-comments/multiple-places");
+  if (searchTerm.toLowerCase() === 'leeds') {
+    res.redirect('/profiles-comments/multiple-places');
   } else {
-    res.redirect("profiles-comments/no-results");
+    res.redirect('profiles-comments/no-results');
   }
 });
 
 router.get('/profiles-comments/profile-list-leeds', (req, res) => {
   const currentPharmacies = findLeeds('Leeds');
-  const searchTerm = "Leeds";
-  res.render('profiles-comments/profile-list-leeds', { currentPharmacies, searchTerm })
-})
+  const searchTerm = 'Leeds';
+  res.render('profiles-comments/profile-list-leeds', {
+    currentPharmacies,
+    searchTerm,
+  });
+});
 
 // router.post('/search-pharmacy-with-comments', (req, res) => {
 //   let searchTerm = req.body.search;
@@ -815,7 +831,7 @@ router.get('/profiles-comments/profile-list-leeds', (req, res) => {
 // });
 
 function findByODS(searchTerm) {
-  const searchResults = pharmacies.filter(pharm =>
+  const searchResults = pharmacies.filter((pharm) =>
     pharm.ODSCode.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return searchResults;
@@ -824,8 +840,8 @@ function findByODS(searchTerm) {
 /* Sort and and full search no longer required for mvp */
 
 function findService(query) {
-  const servicesFound = pharmacies.filter(pharm =>
-    Object.values(pharm).find(val =>
+  const servicesFound = pharmacies.filter((pharm) =>
+    Object.values(pharm).find((val) =>
       val.toLowerCase().includes(query.toLowerCase())
     )
   );
@@ -850,133 +866,5 @@ router.get('/profiles/sort-city', (req, res) => {
 
 module.exports = {
   router: router,
-  localStorage: localStorage
+  localStorage: localStorage,
 };
-
-
-
-
-/************************/
-/* REPEAT PRESCRIPTIONS */
-/************************/
-
-router.post('/usedb4', function(req, res) {
-  let usedb4 = req.body.usedb4;
-
-  if (!usedb4) {
-    res.redirect('/repeat-prescriptions/used-b4?error=true');
-  } else if (usedb4 == 'No') {
-    res.redirect('/repeat-prescriptions/triage-intro');
-  } else {
-    res.redirect('https://nhs-login.herokuapp.com/set-up/demo/enter-email');
-  }
-});
-
-router.post('/already-registered', function(req, res) {
-  let emailaddress = req.body.emailaddress;
-
-  if (!emailaddress) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-nhs-login?error=true');
-  } else if (emailaddress == 'name@domain.com') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/already-registered');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-i-use-this-service');
-  }
-});
-
-router.post('/do-you-have-an-nhs-login', function(req, res) {
-  const havenhslogin = req.body.havenhslogin;
-
-  if (!havenhslogin) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-an-nhs-login?error=true');
-  } else if (havenhslogin === 'no') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-i-use-this-service');
-  } else {
-    res.redirect('https://www.nhsapp.service.nhs.uk/login');
-  }
-});
-
-router.post('/is-gp-in-england', function(req, res) {
-  let england = req.body.england;
-
-  if (!england) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/is-gp-in-england?error=true');
-  } else if (england == 'No') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-gp-not-in-england');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-already-have-a-repeat-prescription');
-  }
-});
-
-router.post('/do-you-already-have-a-repeat-prescription', function(req, res) {
-  let existingrepeat = req.body.existingrepeat;
-
-  if (!existingrepeat) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-already-have-a-repeat-prescription?error=true');
-  } else if (existingrepeat == 'No') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-no-current-repeat-prescription');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-ask-gp-for-prescription');
-  }
-});
-
-router.post('/do-you-ask-gp-for-prescription', function(req, res) {
-  let requestrepeat = req.body.requestrepeat;
-
-  if (!requestrepeat) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-ask-gp-for-prescription?error=true');
-  } else if (requestrepeat == 'No') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-do-not-ask-gp-for-prescription');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/could-order-prescription-online');
-  }
-});
-
-router.post('/select-device', function(req, res) {
-  let device = req.body.device;
-
-  if (!device) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/select-device?error=true');
-  } else if (device == 'mobile') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/website-or-app');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-you-transfer-photos');
-  }
-});
-
-router.post('/website-or-app', function(req, res) {
-  let weborapp = req.body.weborapp;
-
-  if (!weborapp) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/website-or-app?error=true');
-  } else if (weborapp == 'app') {
-    res.redirect('https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/');
-  } else {
-    res.redirect('https://www.nhsapp.service.nhs.uk/login');
-  }
-});
-
-router.post('/can-you-transfer-photos', function(req, res) {
-  let confident = req.body.confident;
-
-  if (!confident) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/can-you-transfer-photos?error=true');
-  } else if (confident == 'Yes') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-a-camera');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-cannot-transfer-photos');
-  }
-});
-
-router.post('/do-you-have-a-camera', function(req, res) {
-  let camera = req.body.camera;
-
-  if (!camera) {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/do-you-have-a-camera?error=true');
-  } else if (camera == 'Yes') {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/start-nhs-login-sign-up-process');
-  } else {
-    res.redirect('/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/cannot-use-this-service-no-camera');
-  }
-});
-
