@@ -60,9 +60,9 @@
           <legend class="nhsuk-fieldset__legend">
             <h1>{% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
-              Is Practice 1 open on {{ temporaryDate }}?
+              Is Practice 1 open on open between 1 June 2021 and 3 June 2021?
               {%else%}
-              Is {{data["displayname"]}} open on {{ temporaryDate }}?
+              Is {{data["displayname"]}} open between 1 June 2021 and 3 June 2021?
               {%endif%}</h1>
           </legend>
           <input type="text" hidden id="tempDateHidden" name="tempDateHidden" value="{{temporaryDate}}" />

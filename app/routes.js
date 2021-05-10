@@ -654,37 +654,42 @@ router.get(
   }
 );
 
+// router.post(
+//   '/editor/opening-times/temporary-changes/temporary-changes-date',
+//   (req, res) => {
+//     let tempDate = `${req.body.tempChangeYear}-${req.body.tempChangeMonth}-${req.body.tempChangeDay}`;
+//     tempDate = moment(tempDate).format('DD MMMM YYYY');
+//     let tempDay = req.body.tempChangeDay
+//     res.redirect(
+//       `/editor/opening-times/temporary-changes/temporary-changes-open?date=${tempDate}`
+//     );
+//   }
+// );
+
 router.post(
   '/editor/opening-times/temporary-changes/temporary-changes-date',
   (req, res) => {
-    let tempDate = `${req.body.tempChangeYear}-${req.body.tempChangeMonth}-${req.body.tempChangeDay}`;
-    tempDate = moment(tempDate).format('DD MMMM YYYY');
-    let tempDay = req.body.tempChangeDay
-    res.redirect(
-      `/editor/opening-times/temporary-changes/temporary-changes-open?date=${tempDate}`
-    );
+    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-question');
   }
 );
 
-router.get(
-  '/editor/opening-times/temporary-changes/temporary-changes-open',
-  (req, res) => {
-    let temporaryDate = req.query.date;
-    res.render('editor/opening-times/temporary-changes/temporary-changes-open', {
-      temporaryDate
-    });
-  }
-);
 
 router.post(
   '/editor/opening-times/temporary-changes/temporary-change-open', (req, res) => {
     if (req.body.open === 'yes') {
-      res.render(
-        `editor/opening-times/temporary-changes/temporary-changes-time`,
-        { temporaryDate: req.body.tempDateHidden }
-      );
+      res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time`);
     } else {
-      res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-question')
+      res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-multiple-days')
+    }
+  }
+)
+
+router.post(
+  '/editor/opening-times/temporary-changes/temporary-change-open-one-day', (req, res) => {
+    if (req.body.open === 'yes') {
+      res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time`);
+    } else {
+      res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-one-day')
     }
   }
 )
@@ -712,21 +717,6 @@ router.post(
 //     }
 //   }
 // );
-
-router.get(
-  '/editor/opening-times/temporary-changes/temporary-changes-time',
-  (req, res) => {
-    let temporaryDate = req.query.date;
-    res.render(
-      'editor/opening-times/temporary-changes/temporary-changes-time',
-      { temporaryDate }
-    );
-  }
-);
-
-router.post( '/editor/opening-times/temporary-changes/temporary-changes-time', (req, res) => {
-  res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-question?open=yes')
-});
 
 // Old fancy way
 // router.post(
@@ -758,21 +748,16 @@ router.post( '/editor/opening-times/temporary-changes/temporary-changes-time', (
 //   }
 // );
 
-router.get('/editor/opening-times/temporary-changes/temporary-changes-range-question', (req, res) => {
-  let open = req.query.open
-  res.render('editor/opening-times/temporary-changes/temporary-changes-range-question', { open: open });
-});
-
 router.post('/editor/opening-times/temporary-changes/temporary-changes-range-question', (req, res) => {
   if (req.body.multipleDays === 'yes') {
     res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-end');
   } else {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-one-day');
+    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open-one-day');
   }
 });
 
 router.post('/editor/opening-times/temporary-changes/temporary-changes-range-end', (req, res) => {
-  res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-multiple-days');
+  res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open');
 });
 
 router.get('/profiles', (req, res) => {

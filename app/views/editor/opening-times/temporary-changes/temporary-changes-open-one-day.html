@@ -37,7 +37,7 @@
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes">Temporary changes</a></li>
+      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes</a></li-->
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
@@ -54,20 +54,25 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <form method="post" action="/editor/opening-times/temporary-changes/temporary-changes-range-question">
-      <input type="hidden" name="open" value="{{open}}" />
+    <form method="post" action="/editor/opening-times/temporary-changes/temporary-change-open-one-day">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
           <legend class="nhsuk-fieldset__legend">
-            <h1>Does the temporary change occur for multiple days?</h1>
+            <h1>{% set displayname = 'alias0' %}
+              {% if data["displayname"] == alias0 %}
+              Is Practice 1 open on open on 1 June 2021?
+              {%else%}
+              Is {{data["displayname"]}} open on 1 June 2021?
+              {%endif%}</h1>
           </legend>
+          <input type="text" hidden id="tempDateHidden" name="tempDateHidden" value="{{temporaryDate}}" />
           <div class="nhsuk-radios nhsuk-radios--inline">
             <div class="nhsuk-radios__item">
-              <input id="open" class="nhsuk-radios__input" type="radio" value="yes" name="multipleDays">
+              <input id="open" class="nhsuk-radios__input" type="radio" value="yes" name="open">
               <label for="open" class="nhsuk-label nhsuk-radios__label">Yes</label>
             </div>
             <div class="nhsuk-radios__item">
-              <input id="closed" class="nhsuk-radios__input" type="radio" value="no" name="multipleDays">
+              <input id="closed" class="nhsuk-radios__input" type="radio" value="no" name="open">
               <label for="closed" class="nhsuk-label nhsuk-radios__label">No</label>
             </div>
           </div>
@@ -75,6 +80,12 @@
         <button type="submit" class="nhsuk-button">Continue</button>
       </div>
     </form>
+
+    {{ backLink({
+    "href": "/editor/opening-times/temporary-changes/temporary-changes-date",
+    "text": "Back"
+    }) }}
+
   </div>
 </div>
 
@@ -100,4 +111,3 @@
     ]
   })}}
 {% endblock %}
-
