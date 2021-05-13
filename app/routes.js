@@ -749,8 +749,8 @@ router.post(
 // );
 
 router.post('/editor/opening-times/temporary-changes/temporary-changes-range-question', (req, res) => {
-  if (req.body.multipleDays === 'yes') {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-end');
+  if (req.body.tempChangeMultiDay === 'yes') {
+    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open');
   } else {
     res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open-one-day');
   }
@@ -758,6 +758,10 @@ router.post('/editor/opening-times/temporary-changes/temporary-changes-range-que
 
 router.post('/editor/opening-times/temporary-changes/temporary-changes-range-end', (req, res) => {
   res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open');
+});
+
+router.post('/editor/opening-times/temporary-changes/temporary-changes-done-multiple-days', (req, res) => {
+  res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done');
 });
 
 router.get('/profiles', (req, res) => {

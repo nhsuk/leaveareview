@@ -59,51 +59,14 @@
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-            <h1 class="nhsuk-fieldset__heading">Does the temporary change last for more than 1 day?</h1>
+            <h1 class="nhsuk-fieldset__heading">Is the temporary change the same on all days?</h1>
           </legend>
-          <p>If the temporary change is different on certain days, you must enter this as a seperate change.</p>
-          <div class="nhsuk-radios nhsuk-radios--conditional">
+          <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="tempChangeMultiDay-yes" name="tempChangeMultiDay" type="radio" value="yes" aria-controls="conditional-end-date" aria-expanded="false">
+              <input class="nhsuk-radios__input" id="tempChangeMultiDay-yes" name="tempChangeMultiDay" type="radio" value="yes">
               <label class="nhsuk-label nhsuk-radios__label" for="tempChangeMultiDay-yes">
                 Yes 
               </label>
-            </div>
-            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-end-date">
-              <fieldset class="nhsuk-fieldset" aria-describedby="end-date-hint" role="group">
-                <legend class="nhsuk-fieldset__legend nhsuk-label--m">
-                  When is the end date?
-                </legend>
-                <span id="end-date-hint" class="nhsuk-hint">
-                  For example, 31 12 2020 
-                </span>
-                <div class="nhsuk-date-input nhsuk-u-margin-bottom-5">
-                  <div class="nhsuk-date-input__item">
-                    <div class="nhsuk-form-group">
-                      <label class="nhsuk-label nhsuk-date-input__label" for="tempChangeEndDay">
-                        Day
-                      </label>
-                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="tempChangeEndDay" name="tempChangeDay" type="number" pattern="[0-9]*">
-                    </div>
-                  </div>
-                  <div class="nhsuk-date-input__item">
-                    <div class="nhsuk-form-group">
-                      <label class="nhsuk-label nhsuk-date-input__label" for="tempChangeEndMonth">
-                        Month
-                      </label>
-                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="tempChangeEndMonth" name="tempChangeMonth" type="number" pattern="[0-9]*">
-                    </div>
-                  </div>
-                  <div class="nhsuk-date-input__item">
-                    <div class="nhsuk-form-group">
-                      <label class="nhsuk-label nhsuk-date-input__label" for="tempChangeEndYear">
-                        Year
-                      </label>
-                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" id="tempChangeEndYear" name="tempChangeYear" type="number" pattern="[0-9]*">
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
             </div>
             <div class="nhsuk-radios__item">
               <input class="nhsuk-radios__input" id="tempChangeMultiDay-no" name="tempChangeMultiDay" type="radio" value="no">
