@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Profile Manager
+  When does the temporary change start? - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -53,16 +53,16 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <div class="nhsuk-form-group">
-      <form action="/editor/opening-times/temporary-changes/temporary-changes-date" method="POST">
+    <form action="/editor/opening-times/temporary-changes/temporary-changes-date" method="POST">
+      <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
-          <legend class="nhsuk-fieldset__legend">
-            <h1>What is the date of the temporary change?</h1>
+          <legend class="nhsuk-fieldset__legend nhsuk-label--xl">
+            <h1 class="nhsuk-fieldset__heading">When does the temporary change start?</h1>
           </legend>
           <span class="nhsuk-hint">
             For example, 31 12 2020 
           </span>
-          <div class="nhsuk-date-input nhsuk-u-margin-bottom-5">
+          <div class="nhsuk-date-input">
             <div class="nhsuk-date-input__item">
               <div class="nhsuk-form-group">
                 <label class="nhsuk-label nhsuk-date-input__label" for="tempChangeDay">
@@ -89,9 +89,9 @@
             </div>
           </div>
         </fieldset>
-        <button type="submit" class="nhsuk-button">Continue</button>
-      </form>
-    </div>
+      </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
+    </form>
     {{ backLink({
     "href": "/editor/opening-times/opening-times-start",
     "text": "Back"

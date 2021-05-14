@@ -37,7 +37,7 @@
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
-      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes</a></li-->
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes">Temporary changes</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
@@ -54,39 +54,31 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Temporary changes to reception opening times</h1>
-    {% if tempChanges.length > 0 %}
-      <dl class="nhsuk-summary-list opening-times nhsuk-u-margin-bottom-5">
-        {% for singleTempChange in tempChanges %}
-          <div class="nhsuk-summary-list__row">
-            <dt class="nhsuk-summary-list__key">
-              {{ singleTempChange.date }} 
-            </dt>
-            <dd class="nhsuk-summary-list__value">
-            {% if singleTempChange.time === 'Closed' %}
-              <span>{{ singleTempChange.time }}</span>
-            {% else %}
-              {% for tempChangeTime in singleTempChange.time %}
-                <p>{{ tempChangeTime }}</p>
-              {% endfor %}
-            {% endif %}
-            </dd>
-            <dd class="nhsuk-summary-list__actions">
-              <a href="#">
-                Change<span class="nhsuk-u-visually-hidden"> {{ singleTempChange.date }}</span>
-              </a>
-            </dd>
+    <form method="post" action="/editor/opening-times/temporary-changes/temporary-changes-range-question">
+      <input type="hidden" name="open" value="{{open}}" />
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+            <h1 class="nhsuk-fieldset__heading">Is the temporary change the same on all days?</h1>
+          </legend>
+          <div class="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="tempChangeMultiDay-yes" name="tempChangeMultiDay" type="radio" value="yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="tempChangeMultiDay-yes">
+                Yes 
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="tempChangeMultiDay-no" name="tempChangeMultiDay" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="tempChangeMultiDay-no">
+                No 
+              </label>
+            </div>
           </div>
-        {% endfor %}
-      </dl>
-    {% endif %}
-    <p class="nhsuk-u-margin-bottom-8"><a href="temporary-changes-date">Add another temporary change</a></p>
-
-    {{ backLink({
-    "href": "/editor/opening-times/opening-times-start",
-    "text": "Back"
-    }) }}
-
+        </fieldset>
+      </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
+    </form>
   </div>
 </div>
 
@@ -112,3 +104,4 @@
     ]
   })}}
 {% endblock %}
+

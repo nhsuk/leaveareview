@@ -3,9 +3,9 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 // External dependencies
 const express = require('express');
 const router = express.Router();
-const pharmacies = require('./data/pharmacies');
+const pharmacies = require('../data/pharmacies');
 const moment = require('moment');
-const app = require('../app');
+const app = require('../../app');
 
 // Create local storage for opening times
 const localStorage = new LocalStorage('./scratch');
