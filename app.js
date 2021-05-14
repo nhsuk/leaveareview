@@ -24,7 +24,7 @@ const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js');
 
 const openingTimesRoutes = require('./app/routes/openingTimes').router;
-const pocRoutes = require('./app/pocRoutes').router;
+const pocRoutes = require('./app/routes/pocRoutes').router;
 const localStorage = require('./app/routes').localStorage;
 
 // Set configuration variables
