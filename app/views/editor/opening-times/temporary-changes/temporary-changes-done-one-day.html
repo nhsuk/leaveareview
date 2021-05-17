@@ -1,3 +1,4 @@
+
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
@@ -7,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Profile Manager
+  Confirm your temporary changes - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -37,7 +38,6 @@
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
-      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes</a></li-->
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
@@ -54,32 +54,23 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Temporary changes to reception opening times</h1>
-    {% if tempChanges.length > 0 %}
+    <h1>Confirm your temporary changes</h1>
       <dl class="nhsuk-summary-list opening-times nhsuk-u-margin-bottom-5">
-        {% for singleTempChange in tempChanges %}
-          <div class="nhsuk-summary-list__row">
-            <dt class="nhsuk-summary-list__key">
-              {{ singleTempChange.date }} 
-            </dt>
-            <dd class="nhsuk-summary-list__value">
-            {% if singleTempChange.time === 'Closed' %}
-              <span>{{ singleTempChange.time }}</span>
-            {% else %}
-              {% for tempChangeTime in singleTempChange.time %}
-                <p>{{ tempChangeTime }}</p>
-              {% endfor %}
-            {% endif %}
-            </dd>
-            <dd class="nhsuk-summary-list__actions">
-              <a href="#">
-                Change<span class="nhsuk-u-visually-hidden"> {{ singleTempChange.date }}</span>
-              </a>
-            </dd>
-          </div>
-        {% endfor %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            1 June 2021 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden">1 June 2021</span>
+            </a>
+          </dd>
+        </div>
       </dl>
-    {% endif %}
+      <button class="nhsuk-button">Save and confirm</button>
     <p class="nhsuk-u-margin-bottom-8"><a href="temporary-changes-date">Add another temporary change</a></p>
 
     {{ backLink({

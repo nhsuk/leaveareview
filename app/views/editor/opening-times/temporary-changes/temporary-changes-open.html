@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Profile Manager
+  Open or closed? - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -60,9 +60,9 @@
           <legend class="nhsuk-fieldset__legend">
             <h1>{% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
-              Is Practice 1 open on {{ temporaryDate }}?
+              Is Practice 1 open on 1&nbsp;June&nbsp;2021?
               {%else%}
-              Is {{data["displayname"]}} open on {{ temporaryDate }}?
+              Is {{data["displayname"]}} open on 1&nbsp;June&nbsp;2021?
               {%endif%}</h1>
           </legend>
           <input type="text" hidden id="tempDateHidden" name="tempDateHidden" value="{{temporaryDate}}" />
