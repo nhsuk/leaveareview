@@ -96,7 +96,6 @@ router.post('/days/:day/set', (req, res) => {
       name,
       times: dayObj.display === name ? [] : times,
     }));
-    console.log(newOpeningTimes);
 
     const dateNow = '31 December 2019';
     // Set localstorage times to new times
