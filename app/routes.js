@@ -317,7 +317,6 @@ router.get('/editor/manage-profile', function (req, res) {
   let servicesLastUpdatedDate = '12 December 2019';
   let newpatientLastUpdatedDate = '12 December 2019';
   let availabilityLastUpdatedDate = '12 December 2019';
-  console.log(availabilityLastUpdatedDate);
 
   if (localStorage.getItem('contactDetailsUpdatedDate')) {
     contactDetailsLastUpdatedDate = localStorage.getItem(
