@@ -57,16 +57,17 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
-    <div class="nhsuk-panel nhsuk-notification-amber">
-      <h3 class="nhsuk-u-margin-bottom-2">This department is closed</h3>
-      <p>See opening times in the information below. If you have an urgent medical problem and you’re not sure what to do, <a href="https://111.nhs.uk/">call 111</a> or <a href="http://111.nhs.uk">visit 111 online</a> </p>
+    <div class="nhsuk-card nhsuk-notification-amber">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">This department is closed</h3>
+        <p class="nhsuk-card__description">See opening times in the information below. If you have an urgent medical problem and you’re not sure what to do, <a href="https://111.nhs.uk/">call 111</a> or <a href="http://111.nhs.uk">visit 111 online</a> </p>
+      </div>
     </div>
   </div>
 </div>
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1>
         <span role="text">
           Minor injuries unit
@@ -117,32 +118,37 @@
     <div class="nhsuk-grid-column-full">
 
       <h2>Contact us</h2>
-      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Phone</h3>
-            <p><a href="">01732 470222</a> (ext. 1234)</p>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Phone</h3>
+              <p><a href="">01732 470222</a> (ext. 1234)</p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Online</h3>
-            <p><a href="https://www.kentcht.nhs.uk/service/minor-injury-units/">Visit this department's webpage</a></p>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Online 
+              </h3>
+              <p><a href="https://www.kentcht.nhs.uk/service/minor-injury-units/">Visit this department's webpage</a></p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Ratings and reviews</h3>
-            <p><a href="">Read reviews</a></p>
-            <p><a href="">Review this department</a></p>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Ratings and reviews
+              </h3>
+              <p><a href="">Read reviews</a></p>
+              <p><a href="">Review this department</a></p>
+            </div>
           </div>
-        </div>
-
-      </div>
-
+        </li>
+      </ul>
     </div>
   </div>
 
