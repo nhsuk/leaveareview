@@ -57,16 +57,16 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
-    <div class="nhsuk-panel nhsuk-notification-amber">
-      <p class="nhsuk-heading-m nhsuk-u-margin-bottom-2">This GP surgery is currently closed. Check opening times for more details.</p>
-      <p>If you think you have an urgent medical problem you can call <a href="https://111.nhs.uk/">111</a> or <a href="http://111.nhs.uk">visit 111 online</a></p>
+    <div class="nhsuk-card nhsuk-notification-amber">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">This GP surgery is currently closed. Check opening times for more details.</h2>
+        <p class="nhsuk-card__description">If you think you have an urgent medical problem you can call <a href="https://111.nhs.uk/">111</a> or <a href="http://111.nhs.uk">visit 111 online</a></p>
+      </div>
     </div>
   </div>
 </div>
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1>
         <span role="text">
           Overview
@@ -108,55 +108,48 @@
         </strong>
       </div>
 
-      <!--div class="nhsuk-grid-row nhsuk-u-margin-bottom-4">
-        <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-promo">
-            <a class="nhsuk-promo__link-wrapper" href="https://nhs-juliaengwell.webgp.com/">
-            <div class="nhsuk-promo__content">
-              <h3 class="nhsuk-promo__heading">Contact your GP surgery online</h3>
-              <p class="nhsuk-promo__description">Get advice, help or support from your GP surgery by using a secure online form and receive a response by text message, phone or video call</p>
-            </div>
-            </a>
-          </div>
-        </div>
-      </div-->
-
       <h2>Contact us</h2>
-      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Address</h3>
-            <p>Aylestone Hill<br>
-            Hereford<br>
-            Hertfordshire<br>
-            HR1 1HR</p>
-            <p><a href="https://www.google.com/maps/place/Aylestone+Hill+Surgery/@52.0606363,-2.7046445,15z/data=!4m5!3m4!1s0x0:0x5314dd362c5e50d7!8m2!3d52.0606363!4d-2.7046445">Get directions</a></p>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Address 
+              </h3>
+              <p>Aylestone Hill<br>
+              Hereford<br>
+              Hertfordshire<br>
+              HR1 1HR</p>
+              <p><a href="https://www.google.com/maps/place/Aylestone+Hill+Surgery/@52.0606363,-2.7046445,15z/data=!4m5!3m4!1s0x0:0x5314dd362c5e50d7!8m2!3d52.0606363!4d-2.7046445">Get directions</a></p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Phone</h3>
-            <p>Reception<br> <a href="">01432 263063</a></p>
-            <h3>Online</h3>
-            <p class="nhsuk-u-margin-bottom-2"><a href="https://www.herefordmedicalgroup.co.uk/">Visit GP surgery website</a></p class="nhsuk-u-margin-bottom-2">
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Phone
+              </h3>
+              <p>Reception<br> <a href="">01432 263063</a></p>
+              <h3>Online</h3>
+              <p class="nhsuk-u-margin-bottom-2"><a href="https://www.herefordmedicalgroup.co.uk/">Visit GP surgery website</a></p class="nhsuk-u-margin-bottom-2">
+              <p><a href="mailto:name@email.com">Email this GP surgery</a></p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Online 
+              </h3>
+            <p class="nhsuk-u-margin-bottom-4"><a href="https://www.herefordmedicalgroup.co.uk/">Visit GP surgery website</a></p>
+            <p><a href="https://www.facebook.com/pg/HMGHereford/posts/">GP surgery Facebook profile</a></p>
             <p><a href="mailto:name@email.com">Email this GP surgery</a></p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Online health and prescription services</h3>
-            <!--p><a href="https://www.nhs.uk/NHSEngland/online-services/Pages/gp-services-choice-1.aspx">Book online</a></p-->
-            <p>Log in with your usual website or app</p>
-            <p><a href="https://www.nhs.uk/using-the-nhs/nhs-services/gps/gp-online-services/">Start using online services</a></p>
-            <p>Sign up or log in using the <a href="https://www.nhsapp.service.nhs.uk/login">NHS App</a></p>
-          </div>
-        </div>
-
-      </div>
-
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -272,28 +265,44 @@
       <p>Latest reviews of this GP surgery.</p>
 
       <p><a href="/ratings-reviews/">Read all 19 reviews</a></p>
-
-      <div class="nhsuk-panel nhsuk-u-margin-top-2">
-        <h3>Good experience</h3>
-        <span class="starssmall">★★★★</span>
-        <p>I had need of a urgent appointment, I was seen within 3 hours of contacting the surgery. I had not been to this practice before. The staff ...</p>
-        <p class="nhsuk-panel__grey2">20 March 2019</p>
-      </div>
-
-      <div class="nhsuk-panel">
-        <h3>Friendly and professional service</h3>
-        <span class="starssmall">★★★★</span>
-        <p>I'm glad to have found a GP that provides such good service, particularly after much less favourable experiences with other practice ...</p>
-        <p class="nhsuk-panel__grey2">19 March 2019</p>
-      </div>
-
-      <div class="nhsuk-panel nhsuk-u-margin-bottom-4">
-        <h3>Really happy</h3> 
-        <span class="starssmall">★★★★</span>
-        <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w ...</p>
-        <p class="nhsuk-panel__grey2">21 November 2017</p>
-      </div> 
-
+      <ul class="nhsuk-card-group">
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Good experience
+              </h3>
+              <span class="starssmall">★★★★</span>
+              <p>I had need of a urgent appointment, I was seen within 3 hours of contacting the surgery. I had not been to this practice before. The staff ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Friendly and professional service
+              </h3>
+              <span class="starssmall">★★★★</span>
+              <p>I'm glad to have found a GP that provides such good service, particularly after much less favourable experiences with other practice ...</p>
+              <p class="nhsuk-u-secondary-text-color">21 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Really happy 
+              </h3>
+              <span class="starssmall">★★★★</span>
+              <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+      </ul>
       <p class="nhsuk-u-margin-bottom-8"><a href="/ratings-reviews/">Read all 19 reviews</a></p>
 
       <div class="nhsuk-action-link">
