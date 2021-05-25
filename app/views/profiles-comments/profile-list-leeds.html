@@ -72,29 +72,42 @@
       {% endif %}
 
       <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
-        <div class="nhsuk-table-responsive">
-          <table class="nhsuk-table">
-            <caption class="nhsuk-table__caption">Profile search results</caption>
-            <thead class="nhsuk-table__head">
-              <tr class="nhsuk-table__row">
-                <th class="nhsuk-table__header">Name</th>
-                <th class="nhsuk-table__header">Address</th>
-                <th class="nhsuk-table__header">City or town</th>
-                <th class="nhsuk-table__header">Reviews</th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              {% for pharmacy in currentPharmacies %}
-              <tr class="nhsuk-table__row">
-                <td><a href="/org-response"><span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}</a></td>
-                <td>{{pharmacy.Line1}}</td>
-                <td>{{pharmacy.city}}</td>
-                <td>{{pharmacy.comments}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+        <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" scope="col">Name</th>
+              <th role="columnheader" scope="col">Address</th>
+              <th role="columnheader" scope="col">City</th>
+              <th role="columnheader" scope="col">Postcode</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% for pharmacy in currentPharmacies %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Name </span>
+                <a href="/editor/manage-profile">
+                  <span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}
+                </a>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Address </span>
+                {{pharmacy.Line1}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">City </span>
+                {{pharmacy.city}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Postcode </span>
+                {{pharmacy.Postcode}}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
   </div>
