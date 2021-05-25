@@ -57,16 +57,17 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
-    <div class="nhsuk-panel nhsuk-notification-amber">
-      <h2 class="nhsuk-u-margin-bottom-2 nhsuk-u-font-size-24">This GP’s reception is now closed for the day</h2>
-      <p>If you think you have an urgent medical problem you can call <a href="https://111.nhs.uk/">111</a> or <a href="http://111.nhs.uk">visit 111 online</a></p>
+    <div class="nhsuk-card nhsuk-notification-amber">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">This GP’s reception is now closed for the day</h2>
+        <p class="nhsuk-card__description">If you think you have an urgent medical problem you can call <a href="https://111.nhs.uk/">111</a> or <a href="http://111.nhs.uk">visit 111 online</a></p>
+      </div>
     </div>
   </div>
 </div>
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-half">
-
       <h1>
         <span role="text">
           Overview
@@ -76,7 +77,6 @@
           </span>
         </span>
       </h1>
-
       <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-8" role="navigation" aria-label="Pages in this guide">
         <h2 class="nhsuk-u-visually-hidden">Contents</h2>
         <ol class="nhsuk-contents-list__list">
@@ -109,73 +109,10 @@
           </li>
         </ol>
       </nav>
-
-
-      <!-- OLD Contents List with no hidden nested sections-->
-      <!-- *********************************************** -->
-
-      <!--nav class="nhsuk-contents-list nhsuk-u-margin-bottom-6" role="navigation" aria-label="Pages in this guide">
-        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
-        <ol class="nhsuk-contents-list__list">
-          <li class="nhsuk-contents-list__item" aria-current="page">
-            <span class="nhsuk-contents-list__current">Overview</span>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/appointments/">Appointments</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/register/">Register with this GP surgery</a>
-          </li>     
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/clinics-services/">Clinics and services</a>
-          </li> 
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/prescriptions/">Prescriptions</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="/gps/ratings-reviews/">Ratings and reviews</a>
-          </li>
-        </ol>
-      </nav-->
-
-
-
-
-    </div>
-
-    <div class="nhsuk-grid-column-one-half">
-
-      <!--div class="nhsuk-panel nhsuk-panel-warning">
-        <h3>This GP surgery is now closed for the day</h3>
-        <p>If you have an urgent medical problem and you’re not sure what to do, <a href="https://111.nhs.uk/">call 111</a> or <a href="http://111.nhs.uk">visit 111 online</a> </p>
-      </div-->
-
-      <!--div class="nhsuk-panel nhsuk-panel-important">
-        <h5>This GP surgery is not currently accepting new patients.</h5>
-      </div-->
-
-    </div>
-
-  </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      
     </div>
   </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-
-    </div>
-  </div>
-
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-
       <div class="nhsuk-warning-text nhsuk-u-margin-bottom-8">
         <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="nhsuk-warning-text__text">
@@ -183,56 +120,49 @@
           This GP surgery is NOT currently accepting new patients.
         </strong>
       </div>
-
       <h2>Contact us</h2>
-      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Address</h3>
-            <p>Aylestone Hill<br>
-            Hereford<br>
-            Hertfordshire<br>
-            HR1 1HR</p>
-            <p><a href="https://www.google.com/maps/place/Aylestone+Hill+Surgery/@52.0606363,-2.7046445,15z/data=!4m5!3m4!1s0x0:0x5314dd362c5e50d7!8m2!3d52.0606363!4d-2.7046445">Get directions</a></p>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Address 
+              </h3>
+              <p>Aylestone Hill<br>
+              Hereford<br>
+              Hertfordshire<br>
+              HR1 1HR</p>
+              <p><a href="https://www.google.com/maps/place/Aylestone+Hill+Surgery/@52.0606363,-2.7046445,15z/data=!4m5!3m4!1s0x0:0x5314dd362c5e50d7!8m2!3d52.0606363!4d-2.7046445">Get directions</a></p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Phone</h3>
-            <p>Reception<br> <a href="">01432 263063</a></p>
-            <p>Appointments<br> <a href="">01432 272 175</a></p>
-            <p>Repeat prescriptions<br> <a href="">01432 263064</a></p>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Phone
+              </h3>
+              <p>Reception<br> <a href="">01432 263063</a></p>
+              <p>Appointments<br> <a href="">01432 272 175</a></p>
+              <p>Repeat prescriptions<br> <a href="">01432 263064</a></p>
+            </div>
           </div>
-        </div>
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Online</h3>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Online 
+              </h3>
             <p class="nhsuk-u-margin-bottom-4"><a href="https://www.herefordmedicalgroup.co.uk/">Visit GP surgery website</a></p>
             <p><a href="https://www.facebook.com/pg/HMGHereford/posts/">GP surgery Facebook profile</a></p>
             <p><a href="mailto:name@email.com">Email this GP surgery</a></p>
+            </div>
           </div>
-        </div>
-
-      </div>
-
+        </li>
+      </ul>
     </div>
   </div>
-
-  <!--div class="nhsuk-grid-row nhsuk-u-margin-bottom-4">
-    <div class="nhsuk-grid-column-two-thirds">
-      <div class="nhsuk-promo">
-        <a class="nhsuk-promo__link-wrapper" href="/gps/askaquestion/">
-        <div class="nhsuk-promo__content">
-          <h3 class="nhsuk-promo__heading">Online consultation</h3>
-          <p class="nhsuk-promo__description">Ask your GP a question online. Get a response within 2 working days.</p>
-        </div>
-        </a>
-      </div>
-    </div>
-  </div-->
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
@@ -253,7 +183,6 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h2>Reception opening times</h2>
-      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
         <table class="nhsuk-table">
           <caption class="nhsuk-table__caption">Reception opening times</caption>
           <thead class="nhsuk-table__head">
@@ -293,32 +222,28 @@
             </tr>
           </tbody>
         </table>
-      </div>
       <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
         <p class="nhsuk-body-s">Last updated: 12 February 2017</p>
       </div>
 
       <h2>Temporary changes to opening times</h2>
-      <div class="nhsuk-table-responsive">
-        <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Temporary changes to opening times</caption>
-          <thead class="nhsuk-table__head">
-            <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col">Day</th>
-              <th class="nhsuk-table__header" scope="col">Date</th>
-              <th class="nhsuk-table__header" scope="col">Opening hours</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Wednesday</td>
-              <td class="nhsuk-table__cell">27 November</td>
-              <td class="nhsuk-table__cell">Closed</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Temporary changes to opening times</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col">Day</th>
+            <th class="nhsuk-table__header" scope="col">Date</th>
+            <th class="nhsuk-table__header" scope="col">Opening hours</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Wednesday</td>
+            <td class="nhsuk-table__cell">27 November</td>
+            <td class="nhsuk-table__cell">Closed</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -373,28 +298,41 @@
       <p>Latest reviews of this GP surgery.</p>
 
       <p><a href="/ratings-reviews/">Read all 19 reviews</a></p>
-
-      <div class="nhsuk-panel nhsuk-u-margin-top-2">
-        <h3>Good experience</h3>
-        <span class="starssmall">★★★★</span>
-        <p>I had need of a urgent appointment, I was seen within 3 hours of contacting the surgery. I had not been to this practice before. The staff ...</p>
-        <p class="nhsuk-panel__grey2">20 March 2019</p>
-      </div>
-
-      <div class="nhsuk-panel">
-        <h3>Friendly and professional service</h3>
-        <span class="starssmall">★★★★</span>
-        <p>I'm glad to have found a GP that provides such good service, particularly after much less favourable experiences with other practice ...</p>
-        <p class="nhsuk-panel__grey2">19 March 2019</p>
-      </div>
-
-      <div class="nhsuk-panel nhsuk-u-margin-bottom-4">
-        <h3>Really happy</h3> 
-        <span class="starssmall">★★★★</span>
-        <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w ...</p>
-        <p class="nhsuk-panel__grey2">21 November 2017</p>
-      </div> 
-
+      <ul class="nhsuk-card-group">
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Good experience
+              </h3>
+              <p>I had need of a urgent appointment, I was seen within 3 hours of contacting the surgery. I had not been to this practice before. The staff ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Really happy
+              </h3>
+              <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w ..</p>
+              <p class="nhsuk-u-secondary-text-color">21 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Friendly and professional service
+              </h3>
+              <p>I'm glad to have found a GP that provides such good service, particularly after much less favourable experiences with other practice ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+      </ul>
       <p class="nhsuk-u-margin-bottom-8"><a href="/ratings-reviews/">Read all 19 reviews</a></p>
 
       <div class="nhsuk-action-link">

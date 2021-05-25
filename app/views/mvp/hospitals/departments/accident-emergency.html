@@ -57,9 +57,11 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
-    <div class="nhsuk-panel nhsuk-notification-red">
-      <h3 class="nhsuk-u-margin-bottom-2">A&E is very busy</h3>
-      <p>Please use an <a href="https://www.nhs.uk/service-search/other-services/Accident-and-emergency-services/LocationSearch/428">alternative A&E for emergencies</a>. The A&E department may not be able to treat you right now.</p>
+    <div class="nhsuk-card nhsuk-notification-red">
+      <div class="nhuk-card__content">
+        <h2 class="nhsuk-u-margin-bottom-2">A&E is very busy</h2>
+        <p>Please use an <a href="https://www.nhs.uk/service-search/other-services/Accident-and-emergency-services/LocationSearch/428">alternative A&E for emergencies</a>. The A&E department may not be able to treat you right now.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -101,30 +103,20 @@
     </div>
   </div>
 
+  <h2>Contact us</h2>
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-
-      <h2>Contact us</h2>
-      <div class="nhsuk-grid-row nhsuk-panel-group nhsuk-u-margin-bottom-8">
-
-        <div class="nhsuk-grid-column-one-third nhsuk-panel-group__item">
-          <div class="nhsuk-panel">
-            <h3>Phone</h3>
-            <p><a href="">01732 470222</a> (ext. 1234)</p>
-          </div>
+    <div class="nhsuk-grid-column-one-third">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3>Phone</h3>
+          <p><a href="">01732 470222</a> (ext. 1234)</p>
         </div>
-
       </div>
-      
     </div>
   </div>
   
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
-      <p><span class="red-square"></span><b>A&E is very busy</b></p>
-      <p>This A&E is for anyone aged 1 or over.</p>
-    </div>
-  </div>
+  <p><span class="red-square"></span><b>A&E is very busy</b></p>
+  <p>This A&E is for anyone aged 1 or over.</p>
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
@@ -150,47 +142,45 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h2>Opening times</h2>
-      <div class="nhsuk-table-responsive nhsuk-u-margin-bottom-4">
-        <table class="nhsuk-table">
-          <caption class="nhsuk-table__caption">Opening times</caption>
-          <thead class="nhsuk-table__head">
-            <tr class="nhsuk-table__row">
-              <th class="nhsuk-table__header" scope="col" width="35%">Day</th>
-              <th class="nhsuk-table__header" scope="col">Opening hours</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Monday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Tuesday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Wednesday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Thursday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Friday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Saturday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Sunday</td>
-              <td class="nhsuk-table__cell">8am to 8pm</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Opening times</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col" width="35%">Day</th>
+            <th class="nhsuk-table__header" scope="col">Opening hours</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Monday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Tuesday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Wednesday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Thursday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Friday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Saturday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Sunday</td>
+            <td class="nhsuk-table__cell">8am to 8pm</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
         <p class="nhsuk-body-s">Last updated: 12 November 2019</p>
       </div>
