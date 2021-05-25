@@ -260,7 +260,8 @@ router.post('/contact-details-2', function (req, res) {
   if (!email) {
     res.redirect('/editor/contact-details-online-edit?error=true');
   } else {
-    res.redirect('/editor/contact-details-consultation-edit');
+    // res.redirect('/editor/contact-details-consultation-edit');
+    res.redirect('/editor/contact-details-check');
   }
 });
 
