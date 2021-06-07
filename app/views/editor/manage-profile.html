@@ -42,7 +42,7 @@
   </-->
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      {% if recentChangeMade %}
+      <!--{% if recentChangeMade %}
         <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
           <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
           <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -50,10 +50,28 @@
           </svg>
           <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
         </div>
+      {% endif %}-->
+      {% if data["editType"] == "setup" %}
+      <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
+        <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
+        <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+        </svg>
+        <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully setup your contact details</p>
+      </div>
       {% endif %}
-    </div>
+      {% if data["editType"] == "edit" %}
+      <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
+        <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
+        <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+        </svg>
+        <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully updated your contact details</p>
+      </div>
+      {% endif %}
+    </div> 
   </div>
-
+ 
   <ul class="nhsuk-grid-row nhsuk-card-group">
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
@@ -65,21 +83,45 @@
         </div>
       </div>
     </li>
+
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Contact details
           </h2>
+          {% if data["editType"] == null %}
           <div class="options">
-            <span class="edit-link"><a href="contact-details-start">Setup</a></span> <!--span class="validate-link"><a href="contact-details-check?validate=true">Validate</a></span-->
+            <span class="edit-link"><a href="contact-details-start?editType=setup">Setup</a></span>
+          </div>
+          {% else %}
+          <div class="options">
+            <span class="validate-link"><a href="contact-details-check?editType=edit">Edit</a></span>
+          </div>
+          {% endif %}
+          <div class="lastupdated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ contactDetailsLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!--li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Contact details
+          </h2>
+          <div class="options">
+            <span class="validate-link"><a href="contact-details-check?validate=true">Verify data</a></span>
           </div>
           <div class="lastupdated">
             <p class="nhsuk-body-s">Last updated:<br><span class="nhsuk-u-font-weight-bold">{{ contactDetailsLastUpdatedDate }}</span></p>
           </div>
         </div>
       </div>
-    </li>
+    </li-->
+
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">

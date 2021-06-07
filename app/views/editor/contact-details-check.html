@@ -56,7 +56,7 @@
 
       <span id="steps" class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 3</span>
 
-      <form action="/contact-details-check" method="post">
+      <form action="/contact-details-check"  method="post">
 
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
@@ -148,7 +148,9 @@
 
         {{ button({
           "text": "Save and confirm",
-          "id": "btn_submit"
+          "id": "btn_submit",
+          "name": "editType",
+          "value": data['editType']
         }) }}
 
       </form>
@@ -186,7 +188,7 @@
 
 {% block pageScripts %}
 <script>
-  if (window.location.search.indexOf('validate=true') > -1) 
+  if (window.location.search.indexOf('editType=edit') > -1) 
   {
     document.getElementById("val-title").style.display = "block";
     document.getElementById("con-title").style.display = "none";

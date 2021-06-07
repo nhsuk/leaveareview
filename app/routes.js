@@ -11,6 +11,8 @@ const app = require('../app');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
+let contactDetailsEdit = false;
+let contactDetailsSetup = false;
 
 moment.locale('en-GB');
 // Branching - Leave a review
@@ -275,14 +277,39 @@ router.post('/contact-details-3', function (req, res) {
   }
 });
 
+
+//router.post('/contact-details-check', function (req, res) {
+//  localStorage.setItem(
+//    'contactDetailsUpdatedDate',
+//    moment().format('DD MMMM YYYY')
+//  );
+//  contactDetailsChanged = true;
+//  contactDetailsSetup = true;
+//  res.redirect('/editor/manage-profile');
+//});
+
 router.post('/contact-details-check', function (req, res) {
   localStorage.setItem(
     'contactDetailsUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-  recentChangeMade = true;
-  res.redirect('/editor/manage-profile');
-});
+
+  let editType = req.body.editType;
+
+if (!editType) {
+    res.redirect('/editor/manage-profile?editType=setup');
+  } else if (editType == 'setup') {
+    res.redirect('/editor/manage-profile?editType=setup');
+  } else if (editType == 'edit') {
+    res.redirect('/editor/manage-profile?editType=edit');
+  } else if (editType == 'validate') {
+    res.redirect('/editor/manage-profile?editType=validate');
+  } else {
+    res.redirect('/editor/manage-profile');
+  }
+
+}); 
+
 
 router.get('/editor/facilities/facilities-edit', function (req, res) {
   recentChangeMade = false;
@@ -353,6 +380,8 @@ router.get('/editor/manage-profile', function (req, res) {
     availabilityLastUpdatedDate,
     newpatientLastUpdatedDate,
     recentChangeMade,
+    contactDetailsSetup,
+    contactDetailsEdit,
   });
 });
 
