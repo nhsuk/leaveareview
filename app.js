@@ -25,6 +25,7 @@ const utils = require('./lib/utils.js');
 
 const openingTimesRoutes = require('./app/routes/openingTimes').router;
 const pocRoutes = require('./app/routes/pocRoutes').router;
+const editorLogin = require('./app/routes/editorLogin').router;
 const localStorage = require('./app/routes').localStorage;
 
 // Set configuration variables
@@ -194,6 +195,7 @@ if (onlyDocumentation == 'true') {
 app.use('/', routes);
 app.use('/proof-of-concept', pocRoutes);
 app.use('/editor/opening-times', openingTimesRoutes);
+app.use('/editor-login', editorLogin);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {

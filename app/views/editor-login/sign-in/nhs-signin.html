@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      font-weight: normal;
+      font-family: "Segoe UI" , "Segoe" , "SegoeUI-Regular-final", Tahoma, Helvetica, Arial, sans-serif;
+      min-width: 500px;
+    }
+
+    body {
+      font-size: 0.9em;
+    }
+
+    .header {
+      font-size: 2em;
+      font-weight: lighter;
+      font-family: "Segoe UI Light" , "Segoe" , "SegoeUI-Light-final", Tahoma, Helvetica, Arial, sans-serif;
+      padding-top: 90px;
+      margin-bottom: 60px;
+      min-height: 100px;
+      overflow: hidden;
+    }
+
+    .brandingWrapper { 
+      width: 100%;
+      height: 100%;
+      float: left
+    }
+
+    .branding {
+      height: 100%;
+      margin-right: 500px;
+      margin-left: 0px;
+      background-color: inherit;
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-background-size: cover;
+      background-image: url(/images/illustration.jpg);
+    }
+
+    .loginMessage { 
+      margin-bottom: 30px;
+    }
+
+    .contentWrapper {
+      position: relative;
+      width: 500px;
+      height: 100%;
+      overflow: auto;
+      background-color: #ffffff;
+      margin-left: -500px;
+      margin-right: 0px;
+      float: left
+    }
+
+    .content {
+      min-height: 100%;
+      height: auto !important;
+      margin: 0 auto -55px auto;
+      padding: 0px 150px 0px 50px;
+    }
+
+    input {
+      max-width: 100%;
+      font-family: inherit;
+      margin-bottom: 8px;
+      font-size: inherit;
+    }
+    .submit {
+      margin-top: 38px;
+      margin-bottom: 30px;
+    }
+    input.text {
+      height: 28px;
+      padding: 0px 3px 0px 3px;
+      border: solid 1px #BABABA;
+      width: 342px;
+    }
+    input[type="submit"] {
+      background-color: rgb(38, 114, 236);
+      border: none;
+      min-width: 80px;
+      width: auto;
+      height: 30px;
+      padding: 4px 20px 6px 20px;
+      border-style: solid;
+      border-width: 1px;
+      transition: background 0s;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      margin-bottom: 8px;
+      -ms-user-select: none;
+      -moz-transition: background 0s;
+      -webkit-transition: background 0s;
+      -o-transition: background 0s;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+    input[type="submit"]:hover {
+      background: rgb(212, 227, 251);
+    }
+    footer {
+      height: 40px;
+      padding: 10px 50px 0px 50px;
+      position: relative;
+      color: #666666;
+      font-size: 0.78em;
+    }
+
+    #footerLinks {
+      float: none;
+      padding-top: 10px;
+    }
+
+    #content {
+      min-height: 100%;
+      height: auto !important;
+      margin: 0 auto -55px auto;
+      padding: 0px 150px 0px 50px;
+    }
+
+    #copyright {
+      color: #696969;
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    .pageLink {
+      color: #000000;
+      padding-left: 16px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="brandingWrapper">
+    <div class="branding"></div>
+  </div>
+  <div class="contentWrapper">
+    <div id="content" class="content">
+      <div class="header">
+        <img src="/images/nhslogo.jpg" alt="NHS logo">
+      </div>
+      <main>
+        <div class="login">
+          <form action="/editor-login/sign-in/nhs-signin" method="POST">
+            <p class="loginMessage">Sign in with your NHSmail account</p>
+            <div>
+              <input class="text" type="email" name="email" id="email" placeholder="someone@example.com" value="@nhs.net">
+            </div>
+            <div>
+              <input class="text" type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="submit">
+              <input type="submit" value="Sign in">
+            </div>
+            <p><input type="checkbox" name="publicComputer"> This is a private computer</p>
+            <p>Unlock Account or Forgotten Password?<a href="https://portal.nhs.net/ForgotPassword/"> Click here.</a></p>
+          </form>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div id="footerLinks" class="floatReverse">
+        <div>
+          <span id="copyright">© 2018 Microsoft</span>
+          <a id="home" class="pageLink footerLink " href="https://portal.nhs.net/">Home</a>
+          <a id="helpDesk" class="pageLink footerLink" href="https://support.nhs.net">Help</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
