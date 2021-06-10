@@ -1,0 +1,42 @@
+
+{% from 'action-link/macro.njk' import actionLink %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Organsation Profiles and Profile Editor",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Welcome to the new Comment Response Tool</h1>
+      <h2>No organisations to manage</h2>
+      <p>Please <a href="">contact the NHS website service desk</a> and provide the ODS codes for each profile you require access to. Failure to provide the ODS codes may result in a day in processing your request.</p>
+    </div>
+  </div>
+{% endblock %}

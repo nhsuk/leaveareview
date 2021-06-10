@@ -1,0 +1,50 @@
+{% from 'action-link/macro.njk' import actionLink %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Organsation Profiles and Profile Editor",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Comment response tool</h1>
+      <p>This is a new tool to respond to comment published on your NHS website provider profile.</p>
+      <p>If this is your first time using the new comment response tool then you must register, even if you used the previous NHS Website Organisation Response tool.</p>
+      <p><a href="">Get help with this tool (opens in a new window or tab)</a>.</p>
+      {{ actionLink({
+        "text": "Sign in",
+        "href": "sign-in/sign-in-start"
+      }) }}
+      {{ actionLink({
+        "text": "Register",
+        "href": "register/start"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
