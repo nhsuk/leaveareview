@@ -11,7 +11,7 @@ router.post('/sign-in/sign-in-start', (req, res) => {
 });
 
 router.post('/sign-in/non-nhs-signin', (req, res) => {
-  res.redirect('/editor-login/crt-home');
+  res.redirect('/editor');
 });
 
 router.post('/register/start', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/register/start', (req, res) => {
 });
 
 router.post('/sign-in/nhs-signin', (req, res) => {
-  res.redirect('/editor-login/crt-home');
+  res.redirect('/editor');
 });
 
 module.exports = {
