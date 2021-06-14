@@ -22,6 +22,7 @@ const locals = require('./app/locals');
 const routes = require('./app/routes').router;
 const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js');
+const validation = require('./middleware/validation');
 
 const openingTimesRoutes = require('./app/routes/openingTimes').router;
 const pocRoutes = require('./app/routes/pocRoutes').router;
@@ -115,6 +116,8 @@ if (useAutoStoreData === 'true') {
   app.use(utils.autoStoreData);
   utils.addCheckedFunction(nunjucksAppEnv);
 }
+
+app.use(validation);
 
 // initial checks
 checkFiles();
