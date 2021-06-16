@@ -474,6 +474,7 @@ router.post('/facilities', function (req, res) {
 });
 
 router.get('/profiles', (req, res) => {
+  recentChangeMade = false;
   let currentPharmacies = pharmacies.slice(0, 15);
   res.render('profiles/index', { currentPharmacies, pharmacies });
 });
