@@ -11,6 +11,10 @@ const app = require('../app');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
+let contactDetailsConfirmed = false;
+let facilitiesConfirmed = false;
+let servicesConfirmed = false;
+
 
 moment.locale('en-GB');
 // Branching - Leave a review
@@ -274,14 +278,32 @@ router.post('/contact-details-3', function (req, res) {
   }
 });
 
+
+//router.post('/contact-details-check', function (req, res) {
+//  localStorage.setItem(
+//    'contactDetailsUpdatedDate',
+//    moment().format('DD MMMM YYYY')
+//  );
+//  recentChangeMade = true;
+//  res.redirect('/editor/manage-profile');
+//});
+
 router.post('/contact-details-check', function (req, res) {
   localStorage.setItem(
     'contactDetailsUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
+
   recentChangeMade = true;
+  contactDetailsConfirmed = true;
+
   res.redirect('/editor/manage-profile');
-});
+
+}); 
+
+//*********************** */
+// Branching - Facilities
+//*********************** */
 
 router.get('/editor/facilities/facilities-edit', function (req, res) {
   recentChangeMade = false;
@@ -298,17 +320,45 @@ router.post('/facilities-check', function (req, res) {
     moment().format('DD MMMM YYYY')
   );
   recentChangeMade = true;
+  facilitiesConfirmed = true;
   res.redirect('/editor/manage-profile');
 });
 
-router.post('/private-services', function (req, res) {
+
+//*********************** */
+// Branching - Services
+//*********************** */
+
+//router.post('/private-services', function (req, res) {
+//  localStorage.setItem(
+//    'servicesLastUpdatedDate',
+//    moment().format('DD MMMM YYYY')
+//  );
+//  recentChangeMade = true;
+//  res.redirect('/editor/manage-profile');
+//});
+
+
+router.get('/editor/services/services-edit', function (req, res) {
+  recentChangeMade = false;
+  res.render('editor/services/services-edit');
+});
+
+router.post('/services-edit', function (req, res) {
+  res.redirect('/editor/services/services-check');
+});
+
+router.post('/services-check', function (req, res) {
   localStorage.setItem(
     'servicesLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
   recentChangeMade = true;
+  servicesConfirmed = true;
   res.redirect('/editor/manage-profile');
 });
+
+
 
 router.get('/editor/manage-profile', function (req, res) {
   let contactDetailsLastUpdatedDate = '12 December 2019';
@@ -344,6 +394,11 @@ router.get('/editor/manage-profile', function (req, res) {
       'newpatientLastUpdatedDate'
     );
   }
+
+  console.log(contactDetailsConfirmed)
+  console.log(facilitiesConfirmed)
+  console.log(servicesConfirmed)
+
   res.render('editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
@@ -352,6 +407,9 @@ router.get('/editor/manage-profile', function (req, res) {
     availabilityLastUpdatedDate,
     newpatientLastUpdatedDate,
     recentChangeMade,
+    contactDetailsConfirmed,
+    facilitiesConfirmed,
+    servicesConfirmed,
   });
 });
 
@@ -459,8 +517,8 @@ router.post('/aaq3', function (req, res) {
 });
 
 // Branching - Services
-router.post('/nhs-services', function (req, res) {
-  res.redirect('/editor/services/private-services');
+router.post('/services-edit', function (req, res) {
+  res.redirect('/editor/services/services-check');
 });
 
 router.get('/editor/services/index', function (req, res) {
