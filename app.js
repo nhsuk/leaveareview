@@ -22,9 +22,11 @@ const locals = require('./app/locals');
 const routes = require('./app/routes').router;
 const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js');
+const validation = require('./middleware/validation');
 
 const openingTimesRoutes = require('./app/routes/openingTimes').router;
 const pocRoutes = require('./app/routes/pocRoutes').router;
+const editorLogin = require('./app/routes/editorLogin').router;
 const localStorage = require('./app/routes').localStorage;
 
 // Set configuration variables
@@ -115,6 +117,8 @@ if (useAutoStoreData === 'true') {
   utils.addCheckedFunction(nunjucksAppEnv);
 }
 
+app.use(validation);
+
 // initial checks
 checkFiles();
 
@@ -194,6 +198,7 @@ if (onlyDocumentation == 'true') {
 app.use('/', routes);
 app.use('/proof-of-concept', pocRoutes);
 app.use('/editor/opening-times', openingTimesRoutes);
+app.use('/editor-login', editorLogin);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {

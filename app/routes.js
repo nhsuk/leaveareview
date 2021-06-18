@@ -248,19 +248,18 @@ router.get('/editor/contact-details-start', (req, res) => {
   res.render('editor/contact-details-start');
 });
 
-router.post('/contact-details', function (req, res) {
-  let telephone = req.body.telephone;
+let primaryTelephone = 4111111
+router.get('/editor/contact-details-phone-edit', function (req, res) {
+  res.render('editor/contact-details-phone-edit', { primaryTelephone });
+});
 
-  if (!telephone) {
-    res.redirect('/editor/contact-details-phone-edit?error=true');
-  } else {
-    res.redirect('/editor/contact-details-online-edit');
-  }
+router.post('/editor/contact-details-phone-edit', function (req, res) {
+  primaryTelephone = req.body.telephone;
+  res.redirect('/editor/contact-details-online-edit');
 });
 
 router.post('/contact-details-2', function (req, res) {
   let email = req.body.email;
-
   if (!email) {
     res.redirect('/editor/contact-details-online-edit?error=true');
   } else {
@@ -533,6 +532,7 @@ router.post('/facilities', function (req, res) {
 });
 
 router.get('/profiles', (req, res) => {
+  recentChangeMade = false;
   let currentPharmacies = pharmacies.slice(0, 15);
   res.render('profiles/index', { currentPharmacies, pharmacies });
 });
