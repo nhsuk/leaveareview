@@ -40,9 +40,11 @@
       <p>Use these links to edit the various content sections of this profile.</p>
     </div>
   </-->
+
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <!--{% if recentChangeMade %}
+
+      {% if recentChangeMade %}
         <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
           <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
           <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -50,8 +52,10 @@
           </svg>
           <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
         </div>
-      {% endif %}-->
-      {% if data["editType"] == "setup" %}
+      {% endif %}
+
+      <!--
+      {% if data["contactDetailsEditType"] == "setup" %}
       <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
         <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
         <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -60,7 +64,7 @@
         <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully setup your contact details</p>
       </div>
       {% endif %}
-      {% if data["editType"] == "edit" %}
+      {% if data["contactDetailsEditType"] == "edit" %}
       <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
         <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
         <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -69,6 +73,8 @@
         <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully updated your contact details</p>
       </div>
       {% endif %}
+      -->
+
     </div> 
   </div>
  
@@ -79,7 +85,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Organisation name 
           </h2>
-          <span class="edit-link"><a href="org-name-start">Setup</a></span>
+          <span class="edit-link"><a href="org-name-start">Change</a></span>
         </div>
       </div>
     </li>
@@ -90,13 +96,14 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Contact details
           </h2>
-          {% if data["editType"] == null %}
+          <!--p>{{contactDetailsConfirmed}}</p-->
+          {% if contactDetailsConfirmed %}
           <div class="options">
-            <span class="edit-link"><a href="contact-details-start?editType=setup">Setup</a></span>
+            <p><a href="contact-details-check?contactDetailsConfirmed=true">Check your informtion</a></p>
           </div>
           {% else %}
           <div class="options">
-            <span class="validate-link"><a href="contact-details-check?editType=edit">Edit</a></span>
+            <span class="edit-link"><a href="contact-details-start">Setup</a></span>
           </div>
           {% endif %}
           <div class="lastupdated">
@@ -120,7 +127,7 @@
           </div>
         </div>
       </div>
-    </li-->
+    </li--> 
 
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
@@ -128,30 +135,44 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Facilities 
           </h2>
+          {% if facilitiesConfirmed %}
           <div class="options">
-            <span class="edit-link"><a href="facilities/facilities-edit">Setup</a></span> <span class="validate-link"><a href="facilities/facilities-check">Validate</a></span>
+            <p><a href="facilities/facilities-check">Check your information</a></p>
           </div>
+          {% else %}
+          <div class="options">
+            <span class="edit-link"><a href="facilities/facilities-edit">Setup</a></span>
+          </div>
+          {% endif %}
           <div class="lastupdated">
-            <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
           </div>
         </div>
       </div>
     </li>
+
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Services 
           </h2>
+          {% if servicesConfirmed %}
           <div class="options">
-            <span class="edit-link"><a href="services/index">Setup</a></span> <span class="validate-link"><a href="facilities/facilities-check">Validate</a></span>
+            <p><a href="services/services-check">Check your information</a></p>
           </div>
+          {% else %}
+          <div class="options">
+            <span class="edit-link"><a href="services/services-edit">Setup</a></span>
+          </div>
+          {% endif %}
           <div class="lastupdated">
-            <p class="nhsuk-body-s">Last updated:<br> <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ servicesLastUpdatedDate }}</span></p>
           </div>
         </div>
       </div>
     </li>
+
     <!--li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
@@ -169,6 +190,7 @@
         </div>
       </div>
     </li-->
+
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
@@ -179,7 +201,7 @@
             <span class="edit-link"><a href="opening-times/opening-times-start">Setup</a></span>
           </div>
           <div class="lastupdated">
-            <p class="nhsuk-body-s">Last updated:<br><span class="nhsuk-u-font-weight-bold">{{ openingTimesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ openingTimesLastUpdatedDate }}</span></p>
           </div>
         </div>
       </div>
