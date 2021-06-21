@@ -11,10 +11,9 @@ const app = require('../app');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
-let contactDetailsConfirmed = false;
-let facilitiesConfirmed = false;
-let servicesConfirmed = false;
-
+// let contactDetailsConfirmed = false;
+// let facilitiesConfirmed = false;
+// let servicesConfirmed = false;
 
 moment.locale('en-GB');
 // Branching - Leave a review
@@ -248,13 +247,14 @@ router.get('/editor/contact-details-start', (req, res) => {
   res.render('editor/contact-details-start');
 });
 
-let primaryTelephone = 4111111
+// let primaryTelephone = 4111111
 router.get('/editor/contact-details-phone-edit', function (req, res) {
+  let primaryTelephone = localStorage.getItem('primaryTelephone')
   res.render('editor/contact-details-phone-edit', { primaryTelephone });
 });
 
 router.post('/editor/contact-details-phone-edit', function (req, res) {
-  primaryTelephone = req.body.telephone;
+  localStorage.setItem('primaryTelephone', req.body.telephone);
   res.redirect('/editor/contact-details-online-edit');
 });
 
@@ -263,7 +263,6 @@ router.post('/contact-details-2', function (req, res) {
   if (!email) {
     res.redirect('/editor/contact-details-online-edit?error=true');
   } else {
-    // res.redirect('/editor/contact-details-consultation-edit');
     res.redirect('/editor/contact-details-check');
   }
 });
@@ -278,25 +277,13 @@ router.post('/contact-details-3', function (req, res) {
   }
 });
 
-
-//router.post('/contact-details-check', function (req, res) {
-//  localStorage.setItem(
-//    'contactDetailsUpdatedDate',
-//    moment().format('DD MMMM YYYY')
-//  );
-//  recentChangeMade = true;
-//  res.redirect('/editor/manage-profile');
-//});
-
 router.post('/contact-details-check', function (req, res) {
   localStorage.setItem(
     'contactDetailsUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-
   recentChangeMade = true;
-  contactDetailsConfirmed = true;
-
+  localStorage.setItem('contactDetailsConfirmed', true);
   res.redirect('/editor/manage-profile');
 
 }); 
@@ -316,7 +303,7 @@ router.post('/facilities-edit', function (req, res) {
 
 router.post('/facilities-check', function (req, res) {
   localStorage.setItem(
-    'facilitiesLastUpdatedDate',
+    'facilitiesUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
   recentChangeMade = true;
@@ -328,17 +315,6 @@ router.post('/facilities-check', function (req, res) {
 //*********************** */
 // Branching - Services
 //*********************** */
-
-//router.post('/private-services', function (req, res) {
-//  localStorage.setItem(
-//    'servicesLastUpdatedDate',
-//    moment().format('DD MMMM YYYY')
-//  );
-//  recentChangeMade = true;
-//  res.redirect('/editor/manage-profile');
-//});
-
-
 router.get('/editor/services/services-edit', function (req, res) {
   recentChangeMade = false;
   res.render('editor/services/services-edit');
@@ -350,7 +326,7 @@ router.post('/services-edit', function (req, res) {
 
 router.post('/services-check', function (req, res) {
   localStorage.setItem(
-    'servicesLastUpdatedDate',
+    'servicesUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
   recentChangeMade = true;
@@ -358,54 +334,25 @@ router.post('/services-check', function (req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-
-
 router.get('/editor/manage-profile', function (req, res) {
-  let contactDetailsLastUpdatedDate = '12 December 2019';
-  let openingTimesLastUpdatedDate = '12 December 2019';
-  let facilitiesLastUpdatedDate = '12 December 2019';
-  let servicesLastUpdatedDate = '12 December 2019';
-  let newpatientLastUpdatedDate = '12 December 2019';
-  let availabilityLastUpdatedDate = '12 December 2019';
+  let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
+  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
+  let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
+  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
+  let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
+  let servicesConfirmed = localStorage.getItem('servicesConfirmed');
 
-  if (localStorage.getItem('contactDetailsUpdatedDate')) {
-    contactDetailsLastUpdatedDate = localStorage.getItem(
-      'contactDetailsUpdatedDate'
-    );
-  }
-  if (localStorage.getItem('lastUpdatedOn')) {
-    openingTimesLastUpdatedDate = localStorage.getItem('lastUpdatedOn');
-  }
-  if (localStorage.getItem('facilitiesLastUpdatedDate')) {
-    facilitiesLastUpdatedDate = localStorage.getItem(
-      'facilitiesLastUpdatedDate'
-    );
-  }
-  if (localStorage.getItem('servicesLastUpdatedDate')) {
-    servicesLastUpdatedDate = localStorage.getItem('servicesLastUpdatedDate');
-  }
-  if (localStorage.getItem('availabilityLastUpdatedDate')) {
-    availabilityLastUpdatedDate = localStorage.getItem(
-      'availabilityLastUpdatedDate'
-    );
-  }
-  if (localStorage.getItem('newpatientLastUpdatedDate')) {
-    newpatientLastUpdatedDate = localStorage.getItem(
-      'newpatientLastUpdatedDate'
-    );
-  }
-
-  console.log(contactDetailsConfirmed)
-  console.log(facilitiesConfirmed)
-  console.log(servicesConfirmed)
+  // Setting values to booleans again due to localStorage using strings
+  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
+  facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
+  servicesConfirmed = JSON.parse(servicesConfirmed);
 
   res.render('editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
     facilitiesLastUpdatedDate,
     servicesLastUpdatedDate,
-    availabilityLastUpdatedDate,
-    newpatientLastUpdatedDate,
     recentChangeMade,
     contactDetailsConfirmed,
     facilitiesConfirmed,
@@ -533,7 +480,10 @@ router.post('/facilities', function (req, res) {
 
 router.get('/profiles', (req, res) => {
   recentChangeMade = false;
-  let currentPharmacies = pharmacies.slice(0, 15);
+  // contactDetailsConfirmed = false;
+  // facilitiesConfirmed = false;
+  // servicesConfirmed = false;
+  currentPharmacies = pharmacies.slice(0, 15);
   res.render('profiles/index', { currentPharmacies, pharmacies });
 });
 
