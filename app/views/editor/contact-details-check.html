@@ -184,19 +184,3 @@
   })}}
 {% endblock %}
 
-{% block pageScripts %}
-<script>
-  if (window.location.search.indexOf('contactDetailsConfirmed=true') > -1) 
-  {
-    document.getElementById("val-title").style.display = "block";
-    document.getElementById("con-title").style.display = "none";
-    document.getElementById("steps").style.display = "none";
-  }
-  else
-  {
-    document.getElementById("val-title").style.display = "none";
-    document.getElementById("con-title").style.display = "block";
-    document.getElementById("edit-all").style.display = "none";
-  }
-  </script>
-{% endblock %}

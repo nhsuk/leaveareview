@@ -251,11 +251,17 @@ if (useDocumentation || onlyDocumentation == 'true') {
 // Clear all data in session if you open /examples/passing-data/clear-data
 app.post('/examples/passing-data/clear-data', function(req, res) {
   req.session.data = {};
-  localStorage.setItem('contactDetailsUpdatedDate', '12 December 2019');
-  localStorage.setItem('lastUpdatedOn', '12 December 2019');
-  localStorage.setItem('facilitiesLastUpdatedDate', '12 December 2019');
-  localStorage.setItem('servicesLastUpdatedDate', '12 December 2019');
+  localStorage.setItem('contactDetailsUpdatedDate', '12 December 2020');
+  localStorage.setItem('facilitiesUpdatedDate', '12 December 2020');
+  localStorage.setItem('servicesUpdatedDate', '12 December 2020');
+  localStorage.setItem('openingTimesUpdatedDate', '12 December 2020');
+  localStorage.setItem('facilitiesLastUpdatedDate', '12 December 2020');
+  localStorage.setItem('servicesLastUpdatedDate', '12 December 2020');
   localStorage.setItem('tempChanges', JSON.stringify([]));
+  localStorage.setItem('primaryTelephone', '4222222');
+  localStorage.setItem('contactDetailsConfirmed', false);
+  localStorage.setItem('facilitiesConfirmed', false);
+  localStorage.setItem('servicesConfirmed', false);
   res.render('examples/passing-data/clear-data-success');
 });
 

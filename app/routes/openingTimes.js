@@ -57,12 +57,11 @@ const emptyOpeningTimes = Object.keys(days).map((key) => ({
 
 // Save default opening times to local storage
 localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
-localStorage.setItem('lastUpdatedOn', '23 March 2019');
 
 router.get('/days', (_, res) => {
   res.render('editor/opening-times/days', {
     openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
-    lastUpdatedOn: localStorage.getItem('lastUpdatedOn'),
+    openingTimesUpdatedDate: localStorage.getItem('openingTimesUpdatedDate'),
   });
 });
 
@@ -97,10 +96,11 @@ router.post('/days/:day/set', (req, res) => {
       times: dayObj.display === name ? [] : times,
     }));
 
-    const dateNow = '31 December 2019';
+    const dateNow = moment().format('DD MMMM YYYY') 
     // Set localstorage times to new times
     localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
-    localStorage.setItem('lastUpdatedOn', dateNow);
+    localStorage.setItem('openingTimesUpdatedDate', dateNow);
+    console.log(localStorage.getItem('openingTimesUpdatedDate'))
     res.redirect('/editor/opening-times/days');
   }
 });
@@ -137,7 +137,7 @@ router.post('/days', (req, res) => {
   // Set localstorage times to new times
   localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
   const dateNow = moment().format('DD MMMM YYYY');
-  localStorage.setItem('lastUpdatedOn', dateNow);
+  localStorage.setItem('openingTimesUpdatedDate', dateNow);
   // Redirect to page which will display times from new localstorage
   res.redirect('/editor/opening-times/confirm-opening-times');
 });
