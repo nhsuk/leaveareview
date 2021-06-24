@@ -298,6 +298,7 @@ router.get('/editor/facilities/facilities-edit', function (req, res) {
 });
 
 router.post('/facilities-edit', function (req, res) {
+  console.log('test', req.body.disabledCarParking)
   res.redirect('/editor/facilities/facilities-check');
 });
 
