@@ -79,13 +79,13 @@
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" checked>
+                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" {{ checked("disabledCarParking", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
                   Disabled car parking
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-3" name="disabledWC" type="checkbox" value="yes" checked>
+                <input class="nhsuk-checkboxes__input" id="facilities-3" name="disabledWC" type="checkbox" value="yes" {{ checked("disabledWC", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
                   Disabled toilet
                 </label>
@@ -131,7 +131,7 @@
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" {{ checked("carParking", "yes") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" checked>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
                   Car parking
                 </label>
