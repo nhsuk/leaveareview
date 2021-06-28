@@ -32,7 +32,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Practice 1
+        Edit Cohens
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -42,7 +42,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Practice 1
+      Back to Edit Cohens
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
@@ -54,7 +54,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Temporary changes to reception opening times</h1>
+    <h1>Temporary changes to pharmacy opening times</h1>
     {% if tempChanges.length > 0 %}
       <dl class="nhsuk-summary-list opening-times nhsuk-u-margin-bottom-5">
         {% for singleTempChange in tempChanges %}

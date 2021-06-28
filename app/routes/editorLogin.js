@@ -15,7 +15,14 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
 });
 
 router.post('/register/start', (req, res) => {
-  res.redirect('/editor-login/crt-home');
+  res.redirect('/editor-login/crt-home-no-profiles');
+});
+
+router.post('/register/register-start', (req, res) => {
+  if (req.body.signinMethod === 'nhs') {
+    res.redirect('../sign-in/nhs-signin');
+  }
+  res.redirect('start');
 });
 
 router.post('/sign-in/nhs-signin', (req, res) => {
