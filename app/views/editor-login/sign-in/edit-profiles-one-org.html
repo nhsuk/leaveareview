@@ -1,0 +1,113 @@
+{% from 'input/macro.njk' import input %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Organsation Profiles and Profile Editor",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Add the organisations you wish to edit</h1>
+      <form action="/editor-login/sign-in/use-system-for" method="POST">
+        {{ input({
+          "label": {
+            "text": "What is your name?"
+          },
+          "id": "name",
+          "name": "name",
+					"classes": "nhsuk-input--width-20",
+					"value": data["userOrgName"]
+        }) }}
+        <p>The NHS service desk will be able to process your request more quickly if you submit ODS codes for the organisations that you wish to manage. You can find them by using the ODS portal.</p>
+        <p>If you have a large number of organisations to manage, you may find it easier to <a href="#">contact the NHS service desk</a>.</p>
+        <h2>Your organisations</h2>
+				{{ summaryList({
+					rows: [
+						{
+							key: {
+								text: "Organisation"
+							},
+							value: {
+								text: "Cohens, Leeds, LS23 9DH, ORG123456789"
+							},
+							actions: {
+								items: [
+									{
+										href: "#",
+										text: "Remove",
+										visuallyHiddenText: "Cohens"
+									}
+								]
+							}
+						}
+					]
+				}) }}
+        <div class="org-form-list">
+					{{ input({
+						"label": {
+							"text": "Name"
+						},
+						"id": "org1-name",
+						"name": "org1-name",
+						"classes": "nhsuk-input--width-20"
+					}) }}
+					{{ input({
+						"label": {
+							"text": "Town or city"
+						},
+						"id": "org1-town-city",
+						"name": "org1-town-city",
+						"classes": "nhsuk-input--width-20"
+					}) }}
+					{{ input({
+						"label": {
+							"text": "Postcode"
+						},
+						"id": "org1-postcode",
+						"name": "org1-postcode",
+						"classes": "nhsuk-input--width-10"
+					}) }}
+					{{ input({
+						"label": {
+							"text": "ODS Code (optional)"
+						},
+						"id": "org1-ods-code",
+						"name": "org1-ods-code",
+						"classes": "nhsuk-input--width-10"
+					}) }}
+        </div>
+        <div>
+					<a class="nhsuk-button nhsuk-button--secondary" href="edit-profiles-one-org">Add organisation</a>
+				</div>
+					<a class="nhsuk-button" href="confirmation">Submit</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

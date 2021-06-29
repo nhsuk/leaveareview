@@ -57,107 +57,73 @@
       <span id="steps" class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 3</span>
 
       <form action="/contact-details-check"  method="post">
-
-        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-
-          <legend id="val-title" class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
-            Your contact details
-          </legend>
-
-          <legend id="con-title"class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
-            Confirm your contact details
-          </legend>
-
-          <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
-
-          <dl class="nhsuk-summary-list">
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Reception telephone
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["telephone"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="contact-details-phone-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> reception telephone</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Repeat prescriptions telephone
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["telephone2"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="contact-details-phone-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> repeat prescriptions telephone</span>
-                </a>
-              </dd>
-            </div>
-            
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Website
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["website"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="contact-details-online-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> website</span>
-                </a>
-              </dd>
-            </div>
-          
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Email
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["email"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="contact-details-online-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> email</span>
-                </a>
-              </dd>
-            </div>
-
-            <!--div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Online consultation URL
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["onlineconsultation"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="contact-details-consultation-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> online consultation</span>
-                </a>
-              </dd>
-            </div-->
-            
-          </dl>
-
-        </fieldset>
-
+        <h1 id="con-title"class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
+          Confirm your contact details
+        </h1>
+        <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Reception telephone
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["telephone"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-phone-edit">
+                Change<span class="nhsuk-u-visually-hidden"> reception telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Repeat prescriptions telephone
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["telephone2"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-phone-edit">
+                Change<span class="nhsuk-u-visually-hidden"> repeat prescriptions telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["website"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> website</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["email"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> email</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
         {{ button({
           "text": "Save and confirm",
           "id": "btn_submit"
         }) }}
-
       </form>
-
       {{ backLink({
       "href": "contact-details-online-edit",
       "text": "Back"
       }) }}
-
     </div>
 
   </div>
