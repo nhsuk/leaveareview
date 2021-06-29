@@ -100,7 +100,6 @@ router.post('/days/:day/set', (req, res) => {
     // Set localstorage times to new times
     localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
     localStorage.setItem('openingTimesUpdatedDate', dateNow);
-    console.log(localStorage.getItem('openingTimesUpdatedDate'))
     res.redirect('/editor/opening-times/days');
   }
 });

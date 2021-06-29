@@ -11,11 +11,34 @@ router.post('/sign-in/sign-in-start', (req, res) => {
 });
 
 router.post('/sign-in/non-nhs-signin', (req, res) => {
-  res.redirect('/editor');
+  res.redirect('/editor-login/sign-in/used-before');
+});
+
+router.post('/sign-in/used-before', (req, res) => {
+  if (req.body.usedBefore === "yes") {
+    res.redirect('/editor-login/crt-home-no-profiles');
+  }
+  res.redirect('/editor-login/sign-in/no-profiles');
+});
+
+router.post('/sign-in/use-system-for', (req, res) => {
+  if (req.body.useSystemFor === "edit") {
+    res.redirect('/editor-login/sign-in/edit-profiles');
+  } 
+  if (req.body.useSystemFor === "respond") {
+    res.redirect('/editor-login/sign-in/respond-to-comments');
+  }
+  if (req.body.useSystemFor === "both") {
+    res.redirect('/editor-login/sign-in/edit-and-respond');
+  }
+});
+
+router.post('/sign-in/edit-profiles', (req, res) => {
+  res.redirect('/editor-login/sign-in/edit-profiles-one-org');
 });
 
 router.post('/register/start', (req, res) => {
-  res.redirect('/editor-login/crt-home-no-profiles');
+  res.redirect('/editor-login/sign-in/used-before');
 });
 
 router.post('/register/register-start', (req, res) => {
