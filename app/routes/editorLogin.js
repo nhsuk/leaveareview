@@ -42,7 +42,7 @@ router.post('/register/start', (req, res) => {
 });
 
 router.post('/register/register-start', (req, res) => {
-  if (req.body.signinMethod === 'nhs') {
+  if (req.body.signInMethod === 'nhs') {
     res.redirect('../sign-in/nhs-signin');
   }
   res.redirect('start');

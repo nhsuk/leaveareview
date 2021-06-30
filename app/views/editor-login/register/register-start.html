@@ -35,33 +35,28 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <form action="/editor-login/register/register-start" method="POST">
-        {{ radios({
-          "idPrefix": "sign-in-method",
-          "name": "signinMethod",
-          "fieldset": {
-            "legend": {
-              "text": "How do you want to register?",
-              "classes": "nhsuk-fieldset__legend--xl",
-              "isPageHeading": true
-            }
-          },
-          "items": [
-            {
-              "value": "nhs",
-              "text": "NHS email address",
-              "hint": {
-                "text": "An email address ending in @nhs.net"
-              }
-            },
-            {
-              "value": "nonNhs",
-              "text": "Non NHS email address",
-              "hint": {
-                "text": "A registered email address that is not @nhs.net"
-              }
-            }
-          ]
-        }) }}
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+              <h1 class="nhsuk-fieldset__heading">Register an email address</h1>
+            </legend>
+            <p>If you have an NHSmail email address, use that to register for this service.</p>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="sign-in-method-1" name="signInMethod" type="radio" value="nhs">
+                <label class="nhsuk-label nhsuk-radios__label" for="sign-in-method-1">
+                  I have an NHSmail address, ending '@nhs.net' 
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="sign-in-method-2" name="signInMethod" type="radio" value="nonNhs">
+                <label class="nhsuk-label nhsuk-radios__label" for="sign-in-method-2">
+                  I have a different type of NHS email address, or personal address 
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
         {{ button({
           "text": "Continue"
         }) }}
