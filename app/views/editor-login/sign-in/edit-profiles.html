@@ -1,7 +1,7 @@
 {% from 'input/macro.njk' import input %}
 
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
-{% extends "layout-no-cookie.html" %}
+{% extends 'layout-header-no-permissions.html' %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 <!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
@@ -49,7 +49,7 @@
         <div class="org-form-list">
           {{ input({
             "label": {
-              "text": "Name"
+              "text": "Organisation name"
             },
             "id": "org1-name",
             "name": "org1-name",

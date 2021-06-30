@@ -18,7 +18,7 @@ router.post('/sign-in/used-before', (req, res) => {
   if (req.body.usedBefore === "yes") {
     res.redirect('/editor-login/crt-home-no-profiles');
   }
-  res.redirect('/editor-login/sign-in/no-profiles');
+  res.redirect('/editor-login/sign-in/use-system-for');
 });
 
 router.post('/sign-in/use-system-for', (req, res) => {
@@ -38,7 +38,7 @@ router.post('/sign-in/edit-profiles', (req, res) => {
 });
 
 router.post('/register/start', (req, res) => {
-  res.redirect('/editor-login/sign-in/used-before');
+  res.redirect('/editor-login/register/add-profiles-landing');
 });
 
 router.post('/register/register-start', (req, res) => {
