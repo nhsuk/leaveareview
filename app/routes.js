@@ -277,6 +277,11 @@ router.post('/contact-details-3', function (req, res) {
   }
 });
 
+router.get('/editor/contact-details-check', function (req, res) {
+  const showEditAll = req.query.hasOwnProperty('check')
+  res.render('editor/contact-details-check', { showEditAll})
+})
+
 router.post('/contact-details-check', function (req, res) {
   localStorage.setItem(
     'contactDetailsUpdatedDate',

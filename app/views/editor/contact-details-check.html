@@ -60,31 +60,20 @@
         <h1 id="con-title"class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
           Confirm your contact details
         </h1>
-        <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
+        {% if showEditAll %}
+          <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
+        {% endif %}
         <dl class="nhsuk-summary-list">
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
-              Reception telephone
+              Patient telephone
             </dt>
             <dd class="nhsuk-summary-list__value">
               {{data["telephone"]}}
             </dd>
             <dd class="nhsuk-summary-list__actions">
               <a href="contact-details-phone-edit">
-                Change<span class="nhsuk-u-visually-hidden"> reception telephone</span>
-              </a>
-            </dd>
-          </div>
-          <div class="nhsuk-summary-list__row">
-            <dt class="nhsuk-summary-list__key">
-              Repeat prescriptions telephone
-            </dt>
-            <dd class="nhsuk-summary-list__value">
-              {{data["telephone2"]}}
-            </dd>
-            <dd class="nhsuk-summary-list__actions">
-              <a href="contact-details-phone-edit">
-                Change<span class="nhsuk-u-visually-hidden"> repeat prescriptions telephone</span>
+                Change<span class="nhsuk-u-visually-hidden"> pharmacy telephone</span>
               </a>
             </dd>
           </div>
