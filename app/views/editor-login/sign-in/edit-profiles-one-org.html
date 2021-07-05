@@ -34,20 +34,18 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>Add the organisations you wish to edit</h1>
+			<h1>Request profile access</h1>
+      <p>Send a request to the NHS service desk to add profiles to your account.</p>
       <form action="/editor-login/sign-in/use-system-for" method="POST">
         {{ input({
           "label": {
-            "text": "What is your name?"
+            "text": "Full name"
           },
           "id": "name",
           "name": "name",
 					"classes": "nhsuk-input--width-20",
 					"value": data["userOrgName"]
         }) }}
-        <p>The NHS service desk will be able to process your request more quickly if you submit ODS codes for the organisations that you wish to manage. You can <a href="#">find them by using the ODS portal</a>.</p>
-        <p>If you have a large number of organisations to manage, you may find it easier to <a href="#">contact the NHS service desk</a>.</p>
-        <h2>Your organisations</h2>
 				<dl class="nhsuk-summary-list">
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">
@@ -63,10 +61,16 @@
 						</dd>
 					</div>
 				</dl>
+        <h2>Add your profiles</h2>
+        <p>Use this form more than once, to add one or more profiles.</p>
+        <p>If you have a large number of profiles to manage, you may find it easier to <a href="#">contact the NHS service desk</a>.</p>
         <div class="org-form-list">
 					{{ input({
 						"label": {
-              "text": "Organisation name"
+              "text": "Profile name"
+						},
+						"hint": {
+							"text": "For example, the name of your pharmacy, dental practice, or hospital"
 						},
 						"id": "org1-name",
 						"name": "org1-name",
@@ -88,6 +92,7 @@
 						"name": "org1-postcode",
 						"classes": "nhsuk-input--width-10"
 					}) }}
+          <!-- <p>The NHS service desk will process your request more quickly if you submit an ODS code for this profile.</p>
 					{{ input({
 						"label": {
 							"text": "ODS Code (optional)"
@@ -96,9 +101,10 @@
 						"name": "org1-ods-code",
 						"classes": "nhsuk-input--width-10"
 					}) }}
+          <p>You can <a href="#" target="_blank">find an ODS code by using the ODS portal (opens in a new window or tab)</a>.</p> -->
         </div>
         <div>
-					<a class="nhsuk-button nhsuk-button--secondary" href="edit-profiles-one-org">Add organisation</a>
+					<a class="nhsuk-button nhsuk-button--secondary" href="edit-profiles-one-org">Add another organisation</a>
 				</div>
 					<a class="nhsuk-button" href="confirmation">Submit</a>
       </form>
