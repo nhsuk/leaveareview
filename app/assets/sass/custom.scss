@@ -50,21 +50,6 @@
 .nhsuk-page-heading h1 {
   margin: 0;
 }
-.nhsuk-page-heading__small {
-  color: #425563;
-  display: block;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  margin-top: 8px;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-page-heading__small {
-    font-size: 32px;
-    line-height: 36px;
-  }
-}
-
 .visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
