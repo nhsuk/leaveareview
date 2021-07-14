@@ -46,21 +46,26 @@
 					"classes": "nhsuk-input--width-20",
 					"value": data["userOrgName"]
         }) }}
-				<dl class="nhsuk-summary-list">
-					<div class="nhsuk-summary-list__row">
-						<dt class="nhsuk-summary-list__key">
-							Name
-						</dt>
-						<dd class="nhsuk-summary-list__value">
-							{{ data["org1-name"] }}, {{ data["org1-town-city"] }}, {{ data["org1-postcode"] }}, {{ data["org1-ods-code"] }}
-						</dd>
-						<dd class="nhsuk-summary-list__actions">
-							<a href="#">
-								Remove<span class="nhsuk-u-visually-hidden"> name</span>
-							</a>
-						</dd>
+				<div class="nhsuk-card">
+					<div class="nhsuk-card__content">
+						<h2>Your profiles to add</h2>
+						<dl class="nhsuk-summary-list">
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">
+									{{ data["org1-name"] }}
+								</dt>
+								<dd class="nhsuk-summary-list__value">
+									{{ data["org1-town-city"] }}, {{ data["org1-postcode"] }}
+								</dd>
+								<dd class="nhsuk-summary-list__actions">
+									<a href="#">
+										Remove<span class="nhsuk-u-visually-hidden"> {{ data["org1-name"] }} at {{ data["org1-town-city"] }} {{ data["org1-postcode"] }} </span>
+									</a>
+								</dd>
+							</div>
+						</dl>
 					</div>
-				</dl>
+				</div>
         <h2>Add your profiles</h2>
         <p>Use this form more than once, to add one or more profiles.</p>
         <p>If you have a large number of profiles to manage, you may find it easier to <a href="#">contact the NHS service desk</a>.</p>
