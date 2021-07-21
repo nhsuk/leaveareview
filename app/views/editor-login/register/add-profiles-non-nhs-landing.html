@@ -1,0 +1,69 @@
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-header-no-permissions.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/editor"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-u-margin-bottom-0">Profile manager</h1>
+      <span class="nhsuk-caption-xl nhsuk-u-margin-bottom-8">
+        John Smith
+      </span>
+			<p>There are currently no permissions associated with your email address. This may be because you are a new user.</p>
+			<p>You need to add your profiles to your account.</p>
+    </div>
+  </div>
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      <div class="nhsuk-card nhsuk-card--clickable">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            <a class="nhsuk-card__link" href="/editor-login/sign-in/use-system-for">Add profiles</a>
+          </h2>
+					<p>Add profiles by sending a request to the NHS service desk.</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
