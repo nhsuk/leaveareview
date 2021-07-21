@@ -14,14 +14,8 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
   res.redirect('/editor-login/sign-in/used-before');
 });
 
-router.post('/sign-in/used-before', (req, res) => {
-  if (req.body.usedBefore === "yes") {
-    res.redirect('/editor-login/crt-home-no-profiles');
-  }
-  res.redirect('/editor-login/sign-in/use-system-for');
-});
 
-router.post('/sign-in/use-system-for', (req, res) => {
+router.post('/register/use-system-for', (req, res) => {
   if (req.body.useSystemFor === "edit") {
     res.redirect('/editor-login/sign-in/edit-profiles');
   } 
@@ -38,7 +32,7 @@ router.post('/sign-in/edit-profiles', (req, res) => {
 });
 
 router.post('/register/start', (req, res) => {
-  res.redirect('/editor-login/register/add-profiles-landing');
+  res.redirect('/editor-login/register/add-profiles-non-nhs-landing');
 });
 
 router.post('/register/register-start', (req, res) => {
@@ -48,8 +42,19 @@ router.post('/register/register-start', (req, res) => {
   res.redirect('start');
 });
 
+router.post('/register/used-before', (req, res) => {
+  if (req.body.usedBefore === "yes") {
+    res.redirect('/editor-login/register/previous-email');
+  }
+  res.redirect('/editor-login/register/use-system-for');
+});
+
+router.post('/register/previous-email', (req, res) => {
+  res.redirect('/editor-login/register/match-found');
+});
+
 router.post('/sign-in/nhs-signin', (req, res) => {
-  res.redirect('/editor');
+  res.redirect('/editor-login/register/add-profiles-nhs-landing');
 });
 
 module.exports = {
