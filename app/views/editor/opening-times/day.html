@@ -59,18 +59,78 @@
     <form method="post" action="/editor/opening-times/days/{{dayObj.key}}/set">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
-          <legend class="nhsuk-fieldset__legend">
-            <h1>{% set displayname = 'alias0' %}
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+            <h1 class="nhsuk-fieldset__heading">
+              {% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
               Is Cohens open on {{dayObj.display}}?
               {%else%}
               Is {{data["displayname"]}} open on {{dayObj.display}}?
-              {%endif%}</h1>
+              {%endif%}
+            </h1>
           </legend>
-          <div class="nhsuk-radios nhsuk-radios--inline">
+          <div class="nhsuk-radios nhsuk-radios--conditional">
             <div class="nhsuk-radios__item">
-              <input id="open" class="nhsuk-radios__input" type="radio" value="yes" name="open">
+              <input id="open" class="nhsuk-radios__input" type="radio" value="yes" name="open" aria-controls="conditional-opening-times">
               <label class="nhsuk-label nhsuk-radios__label" for="open">Yes</label>
+            </div>
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-opening-times">
+              <fieldset class="nhsuk-fieldset">
+                <legend class="nhsuk-fieldset__legend nhsuk-u-font-weight-bold">
+                  {% set displayname = 'alias0' %}
+                    {% if data["displayname"] == alias0 %}
+                    What time slots is Cohens open for on {{dayObj.display}}?
+                    {%else%}
+                    What time is {{data["displayname"]}} open on {{dayObj.display}}?
+                    {%endif%}
+                </legend>
+                <span class="nhsuk-hint">Enter opening times in the 24 hour format.</span>
+                <span class="nhsuk-hint">For 9am use 09:00 and for midday use 12:00.</span>
+                <div id="openingTimes" class="nhsuk-u-margin-bottom-2">
+                  <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="openTime1">Open</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="openTime1" type="text" id="openTime1" value={{currentDayOpeningTimes[0]}}>
+                      </div>
+                    </div>
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="closeTime1">Closed</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="closeTime1" type="text" id="closeTime1" value={{currentDayOpeningTimes[1]}}>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="openTime2">Open</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="openTime2" type="text" id="openTime2" value={{currentDayOpeningTimes[2]}}>
+                      </div>
+                    </div>
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="closeTime2">Closed</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime2" id="closeTime2" value={{currentDayOpeningTimes[3]}}>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="timeEntry3">
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="openTime3">Open</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="openTime3" id="openTime3" value={{currentDayOpeningTimes[4]}}>
+                      </div>
+                    </div>
+                    <div class="nhsuk-date-input__item">
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label nhsuk-date-input__label" for="closeTime3">Closed</label>
+                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="closeTime3" id="closeTime3" value={{currentDayOpeningTimes[5]}}>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
             </div>
             <div class="nhsuk-radios__item">
               <input id="closed" class="nhsuk-radios__input" type="radio" value="no" name="open">
