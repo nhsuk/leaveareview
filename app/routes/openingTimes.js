@@ -89,7 +89,17 @@ router.post('/days/:day/set', (req, res) => {
   const currentDayOpeningTimes = getOpeningTimes[0].times;
 
   if (req.body.open === 'yes') {
-    res.render('editor/opening-times/set', { dayObj, currentDayOpeningTimes });
+    const dayObj = getDay(req);
+    const daysToDisplay = { ...days };
+    delete daysToDisplay[dayObj.key.toUpperCase()];
+    const times = req.body;
+    delete times['open']
+    res.render('editor/opening-times/copy', {
+      dayObj,
+      daysToDisplay,
+      times,
+    });
+    // res.render('editor/opening-times/set', { dayObj, currentDayOpeningTimes });
   } else {
     const newOpeningTimes = localOpeningTimes.map(({ name, times }) => ({
       name,
