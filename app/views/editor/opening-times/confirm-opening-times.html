@@ -56,36 +56,39 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Confirm your new opening times</h1>
-    <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
-      {% for day in openingTimes %}
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-            {{ day.name }}
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {% if day.times.length %}
-              {% set cls = cycler(" to ", "") %}
-              {%- for time in day.times | batch(2) -%}
-              <p>
-                {%- for times in time -%}
-                  {{ times }}{{cls.next()}}
-                {%- endfor -%}
-              </p>
-              {%- endfor %}
-            {% else %}
-              Closed
-            {% endif %}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a href="/editor/opening-times/days/{{ day.name | lower}}">
-              Change<span class="nhsuk-u-visually-hidden">{{ day.name }}</span>
-            </a>
-          </dd>
-        </div>
-      {% endfor %}
-    </dl>
-    <a class="nhsuk-button" href="/editor/opening-times/opening-times-start">Save and confirm</a>
+    <h1>Your new opening times</h1>
+    <form method="POST" action="/editor/opening-times/confirm-opening-times">
+      <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
+        {% for day in openingTimes %}
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              {{ day.name }}
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {% if day.times.length %}
+                {% set cls = cycler(" to ", "") %}
+                {%- for time in day.times | batch(2) -%}
+                <p>
+                  {%- for times in time -%}
+                    {{ times }}{{cls.next()}}
+                  {%- endfor -%}
+                </p>
+                {%- endfor %}
+              {% else %}
+                Closed
+              {% endif %}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="/editor/opening-times/days/{{ day.name | lower}}">
+                Change<span class="nhsuk-u-visually-hidden">{{ day.name }}</span>
+              </a>
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+      <button class="nhsuk-button" type="submit">Save and confirm</button>
+    </form>
+    <!-- <a class="nhsuk-button" href="/editor/opening-times/opening-times-start">Save and confirm</a> -->
   </div>
 </div>
 

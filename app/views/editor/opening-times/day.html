@@ -76,7 +76,7 @@
             </div>
             <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-opening-times">
               <fieldset class="nhsuk-fieldset">
-                <legend class="nhsuk-fieldset__legend">
+                <legend class="nhsuk-fieldset__legend nhsuk-u-font-weight-bold">
                   {% set displayname = 'alias0' %}
                     {% if data["displayname"] == alias0 %}
                     What time slots is Cohens open for on {{dayObj.display}}?
@@ -84,6 +84,8 @@
                     What time is {{data["displayname"]}} open on {{dayObj.display}}?
                     {%endif%}
                 </legend>
+                <span class="nhsuk-hint">Enter opening times in the 24 hour format.</span>
+                <span class="nhsuk-hint">For 9am use 09:00 and for midday use 12:00.</span>
                 <div id="openingTimes" class="nhsuk-u-margin-bottom-2">
                   <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
                     <div class="nhsuk-date-input__item">

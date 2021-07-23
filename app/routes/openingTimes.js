@@ -4,6 +4,7 @@ const router = express.Router();
 const moment = require('moment');
 const app = require('../../app');
 const recentChangeMade = require('../routes').recentChangeMade;
+let recentOpeningTimesChange = false;
 
 // Create local storage for opening times
 const localStorage = new LocalStorage('./scratch');
@@ -71,8 +72,18 @@ router.get('/confirm-opening-times', (_, res) => {
   });
 });
 
+router.post('/confirm-opening-times', (_, res) => {
+  res.redirect('/editor/opening-times/opening-times-start');
+});
+
+router.get('/opening-times-start', (_, res) => {
+  console.log(recentOpeningTimesChange);
+  res.render('editor/opening-times/opening-times-start', { recentOpeningTimesChange});
+})
+
 router.get('/days/:day', (req, res) => {
   const dayObj = getDay(req);
+  recentOpeningTimesChange = false;
   res.render('editor/opening-times/day', { dayObj });
 });
 
@@ -197,6 +208,14 @@ router.get(
   }
 );
 
+
+router.get('/temporary-changes/temporary-changes-date',
+  (req, res) => {
+    recentOpeningTimesChange = false;
+    res.render('editor/opening-times/temporary-changes/temporary-changes-date');
+  }
+);
+
 router.post('/temporary-changes/temporary-changes-date',
   (req, res) => {
     res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open');
@@ -220,7 +239,8 @@ router.post('/temporary-changes/temporary-changes-range-question', (req, res) =>
 });
 
 router.post('/temporary-changes/temporary-changes-done-multiple-days', (req, res) => {
-  res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done');
+  recentOpeningTimesChange = true;
+  res.redirect('/editor/opening-times/opening-times-start');
 });
 
 // Old fancy way
