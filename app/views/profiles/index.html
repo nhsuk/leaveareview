@@ -25,11 +25,10 @@
       <h1>
         Your profiles
       </h1>
-
-      <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
+      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Search and filter">
         <form id="search" action="/search-pharmacy" method="POST" role="search">
-          <label class="nhsuk-label nhsuk-u-margin-bottom-2" for="search">Search by postcode</label>
-          <div class="search-sort">
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label nhsuk-u-margin-bottom-2" for="search">Search by name, postcode or ODS Code</label>
             <div class="search-bar">
               <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="search" name="search" type="text">
               <button class="nhsuk-profiles-search__submit" type="submit">
@@ -39,6 +38,35 @@
                 <span class="nhsuk-u-visually-hidden">Search</span>
               </button>
             </div>
+          </div>
+          <button id="show-filter-button" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" aria-expanded="false" aria-controls="filter">Show filter</button>
+          <div id="filter" class="filter nhsuk-u-margin-top-3" aria-label="Filter">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                Sector 
+              </legend>
+              <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="pharmacies" name="sector" type="checkbox" value="pharmacies">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                    Pharmacies 
+                  </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="dentists" name="sector" type="checkbox" value="dentists">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                    Dentists 
+                  </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="gp" name="sector" type="checkbox" value="gp">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3">
+                    GPs 
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <button type="submit" class="nhsuk-button">Search</button>
           </div>
         </form>
       </div>
@@ -57,8 +85,9 @@
             <tr role="row">
               <th role="columnheader" scope="col">Name</th>
               <th role="columnheader" scope="col">Address</th>
-              <th role="columnheader" scope="col">City</th>
-              <th role="columnheader" scope="col">Postcode</th>
+              <!-- <th role="columnheader" scope="col">City</th> -->
+              <!-- <th role="columnheader" scope="col">Postcode</th> -->
+              <th role="columnheader" scope="col">ODS Code</th>
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
@@ -72,15 +101,19 @@
               </td>
               <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Address </span>
-                {{pharmacy.Line1}}
+                {{pharmacy.Line1}}, {{ pharmacy.city }}, {{ pharmacy.Postcode }}
               </td>
-              <td role="cell" class="nhsuk-table__cell">
+              <!-- <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">City </span>
                 {{pharmacy.city}}
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
+              </td> -->
+              <!-- <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Postcode </span>
                 {{pharmacy.Postcode}}
+              </td> -->
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">ODS Code</span>
+                  FA{{ range(4000, 55000) | random }}
               </td>
             </tr>
             {% endfor %}

@@ -14,22 +14,37 @@ allNestestContents.forEach(link => {
 });
 
 // JS to handle the register journey hide/show
-const sendVerificationCodeButton = document.getElementById('send-verification-code');
-const verifyCodeButton = document.getElementById('verifyCodeButton');
-const verifyCodeDiv = document.getElementById('verify-code');
-const changeEmail = document.getElementById('change-email');
-const email = document.getElementById('email');
-sendVerificationCodeButton.addEventListener('click', e => {
-  email.disabled = true;
-  sendVerificationCodeButton.classList.add('verify-hidden');
-  verifyCodeDiv.classList.remove('verify-hidden')
-});
-verifyCodeButton.addEventListener('click', e => {
-  verifyCodeDiv.classList.add('verify-hidden');
-  changeEmail.classList.remove('verify-hidden');
-});
-changeEmail.addEventListener('click', e => {
-  email.disabled = false;
-  changeEmail.classList.add('verify-hidden');
-  sendVerificationCodeButton.classList.remove('verify-hidden');
-});
+if (document.getElementById('send-verification-code')) {
+  const sendVerificationCodeButton = document.getElementById('send-verification-code');
+  const verifyCodeButton = document.getElementById('verifyCodeButton');
+  const verifyCodeDiv = document.getElementById('verify-code');
+  const changeEmail = document.getElementById('change-email');
+  const email = document.getElementById('email');
+  sendVerificationCodeButton.addEventListener('click', e => {
+    email.disabled = true;
+    sendVerificationCodeButton.classList.add('verify-hidden');
+    verifyCodeDiv.classList.remove('verify-hidden')
+  });
+  verifyCodeButton.addEventListener('click', e => {
+    verifyCodeDiv.classList.add('verify-hidden');
+    changeEmail.classList.remove('verify-hidden');
+  });
+  changeEmail.addEventListener('click', e => {
+    email.disabled = false;
+    changeEmail.classList.add('verify-hidden');
+    sendVerificationCodeButton.classList.remove('verify-hidden');
+  });
+}
+
+const filterDiv = document.getElementById("filter");
+const showFilterButton = document.getElementById('show-filter-button')
+filterDiv.style.display = "none";
+showFilterButton.addEventListener('click', e => {
+  e.preventDefault();
+  if (showFilterButton.getAttribute('aria-expanded') === 'false') {
+    showFilterButton.setAttribute("aria-expanded", 'true'); 
+  } else {
+    showFilterButton.setAttribute("aria-expanded", 'false'); 
+  }
+  filterDiv.style.display = filterDiv.style.display === 'none' ? 'block' : 'none';
+})
