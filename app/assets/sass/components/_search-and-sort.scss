@@ -10,6 +10,12 @@ $nhsuk-border-color: #d8dde0;
   padding: 1em 2em;
   border-bottom: 4px solid #d8dde0;
 
+  .search-bar-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
   .search-bar {
     align-items: center;
     display: flex;
