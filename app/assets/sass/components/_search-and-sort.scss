@@ -3,19 +3,17 @@ $nhsuk-border-color: #d8dde0;
 
 .search-sort {
   margin-bottom: 40px;
-  align-items: center;
+  // align-items: center;
   background-color: $color_nhsuk-white;
-  display: flex;
-  justify-content: space-between;
-  padding: .5em;
+  // display: flex;
+  // justify-content: space-between;
+  padding: 1em 2em;
   border-bottom: 4px solid #d8dde0;
 
   .search-bar {
     align-items: center;
     display: flex;
     height: 60px;
-    padding: 0 0 0 10px;
-
   }
 
   .search-input {
