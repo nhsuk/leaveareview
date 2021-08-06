@@ -70,19 +70,25 @@
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="website">
-              Website
+              Website address
             </label>
-            <input class="nhsuk-input" id="website" name="website" type="text" aria-describedby="input" value="{{data["website"]}}">
+            <div class="nhsuk-hint" id="website-hint">
+              For example, www.nhs.uk
+            </div>
+            <input class="nhsuk-input" id="website" name="website" type="text" aria-describedby="website-hint" value="{{data["website"]}}">
           </div>
 
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="email">
-              Email
+              Email address
             </label>
+            <div class="nhsuk-hint" id="email-hint">
+              This will be shown on your live NHS profilek
+            </div>
             {% if data["email"] %}
-              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="input" value="{{data["email"]}}">
+              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="email-hint" value="{{data["email"]}}">
             {% else %}
-              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="input" value="practice@nhs.net">
+              <input class="nhsuk-input" id="email" name="email" type="text" aria-describedby="email-hint" value="practice@nhs.net">
             {% endif %}
           </div>
 
