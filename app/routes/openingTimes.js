@@ -77,7 +77,6 @@ router.post('/confirm-opening-times', (_, res) => {
 });
 
 router.get('/opening-times-start', (_, res) => {
-  console.log(recentOpeningTimesChange);
   res.render('editor/opening-times/opening-times-start', { recentOpeningTimesChange});
 })
 
