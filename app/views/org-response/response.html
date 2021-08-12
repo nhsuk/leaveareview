@@ -26,40 +26,75 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">Respond to the user comment below</h1>
-
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>I feel so much better</b></p>
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">I feel so much better</h2>
+      <p class="nhsuk-u-margin-bottom-2" aria-hidden="true">
+        <span class="stars">★★ </span>
+        out of 5
+      </p>
+      <p id="star-rating-1" class="nhsuk-u-visually-hidden">Rated 2 stars out of 5</p>
       <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 17/07/2017</span></p>
       <p>Two days ago I had the roots from a molar removed, which I was dreading, and i couldn't believe how quick and painless the whole procedure was. My dentist had removed the molar which had broken but the dentist couldn't get the roots out. I was referred to High Ash to see the dental surgeon and I was very impressed and now I am pain free. I can't thank you enough.</p>
       <p class="nhsuk-body-s">Visited 20/04/2019</p>
-
       <hr>
-
       <form action="/process-response" method="post">
-
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="your-response">
             Your response
           </label>
           <textarea class="nhsuk-textarea" id="your-response" name="yourresponse" rows="8" aria-describedby="your-response-hint"></textarea>
         </div>
-
         <button class="nhsuk-button" type="submit">
           Submit response
         </button>
-
       </form>
-
       {{ backLink({
       "href": "/org-response/",
       "text": "Back"
       }) }}
-      
     </div>
-    
+    <div class="nhsuk-grid-column-one-third">
+      <aside>
+        <h2>Top tips for responding</h2>
+        <details class="nhsuk-details">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              For positive reviews
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <ol>
+              <li>Respond within 7 days if possible</li>
+              <li>Thank them for their feedback</li>
+              <li>Tailor reponse (mention what they have referred to)</li>
+              <li>Offer to pass feedback to the staff</li>
+              <li>Sign off with name and role</li>
+            </ol>
+          </div>
+        </details>
+        <details class="nhsuk-details">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              For negative reviews 
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <ol>
+              <li>Respond within 7 days if possible</li>
+              <li>Thank them for their feedback</li>
+              <li>Tailor reponse (mention what they have referred to)</li>
+              <li>Offer to pass feedback to the staff</li>
+              <li>Sign off with name and role</li>
+            </ol>
+          </div>
+        </details>
+      </aside>
+    </div>
   </div>
 {% endblock %}
 
