@@ -1,0 +1,64 @@
+{% from 'input/macro.njk' import input %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends 'layout-header-no-permissions.html' %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Organsation Profiles and Profile Editor",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Request profile access</h1>
+      <form action="/editor-login/sign-in/use-system-for" method="POST">
+				<div class="nhsuk-card">
+					<div class="nhsuk-card__content">
+						<h2>Your profiles to add</h2>
+						<dl class="nhsuk-summary-list">
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">
+									{{ data["org1-name"] }}
+								</dt>
+								<dd class="nhsuk-summary-list__value">
+									{{ data["org1-town-city"] }}, {{ data["org1-postcode"] }}
+								</dd>
+								<dd class="nhsuk-summary-list__actions">
+									<a href="#">
+										Remove<span class="nhsuk-u-visually-hidden"> {{ data["org1-name"] }} at {{ data["org1-town-city"] }} {{ data["org1-postcode"] }} </span>
+									</a>
+								</dd>
+							</div>
+						</dl>
+					</div>
+				</div>
+        <p><a href="add-profile">Add another organisation</a></p>
+					<a class="nhsuk-button" href="confirmation">Submit</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

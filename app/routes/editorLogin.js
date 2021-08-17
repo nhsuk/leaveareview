@@ -1,7 +1,12 @@
 // External dependencies
+const LocalStorage = require('node-localstorage').LocalStorage;
 const express = require('express');
 const router = express.Router();
 const app = require('../../app');
+const localStorage = new LocalStorage('./scratch');
+
+// let newProfiles;
+// let profiles = JSON.parse(localStorage.getItem('profilesToAdd'));
 
 router.post('/sign-in/sign-in-start', (req, res) => {
   if (req.body.signinMethod === 'nhs') {
@@ -13,7 +18,6 @@ router.post('/sign-in/sign-in-start', (req, res) => {
 router.post('/sign-in/non-nhs-signin', (req, res) => {
   res.redirect('/editor-login/sign-in/used-before');
 });
-
 
 router.post('/register/use-system-for', (req, res) => {
   if (req.body.useSystemFor === "edit") {
@@ -55,6 +59,20 @@ router.post('/register/previous-email', (req, res) => {
 
 router.post('/sign-in/nhs-signin', (req, res) => {
   res.redirect('/editor-login/register/add-profiles-nhs-landing');
+});
+
+router.post('/add-profiles/your-name', (req, res) => {
+  res.redirect('/editor-login/add-profiles/add-profile');
+});
+
+router.post('/add-profiles/add-profile', (req, res) => {
+  // let tempProfiles = Array(req.body["org1-name"], req.body["org1-town-city"], req.body["org1-postcode"]);
+  // newProfiles = profiles.concat(tempProfiles);
+  // console.log('profiles ', profiles)
+  // console.log('tempProfiles ', tempProfiles)
+  // console.log('newProfiles ', newProfiles)
+  // localStorage.setItem('profilesToAdd', newProfiles);
+  res.redirect('/editor-login/add-profiles/add-profiles-confirm');
 });
 
 module.exports = {

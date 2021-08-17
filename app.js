@@ -262,6 +262,7 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('servicesConfirmed', false);
   localStorage.setItem('disabledCarParking', 'yes');
   localStorage.setItem('carParking', 'yes');
+  localStorage.setItem('profilesToAdd', JSON.stringify([]));
   res.render('examples/passing-data/clear-data-success');
 });
 
