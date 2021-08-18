@@ -14,7 +14,7 @@ router.post('/sign-in/sign-in-start', (req, res) => {
 });
 
 router.post('/sign-in/non-nhs-signin', (req, res) => {
-  res.redirect('/editor-login/sign-in/used-before');
+  res.redirect('/editor-login/no-profiles-landing');
 });
 
 router.post('/register/use-system-for', (req, res) => {
@@ -34,7 +34,7 @@ router.post('/sign-in/edit-profiles', (req, res) => {
 });
 
 router.post('/register/start', (req, res) => {
-  res.redirect('/editor-login/register/add-profiles-non-nhs-landing');
+  res.redirect('/editor-login/no-profiles-landing');
 });
 
 router.post('/register/register-start', (req, res) => {
@@ -56,7 +56,7 @@ router.post('/register/previous-email', (req, res) => {
 });
 
 router.post('/sign-in/nhs-signin', (req, res) => {
-  res.redirect('/editor-login/register/add-profiles-nhs-landing');
+  res.redirect('/editor-login/no-profiles-landing');
 });
 
 router.post('/add-profiles/your-name', (req, res) => {
