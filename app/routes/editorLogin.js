@@ -87,6 +87,11 @@ router.post('/add-profiles/remove-profile', (req, res) => {
   res.render('editor-login/add-profiles/add-profiles-confirm', { newProfiles });
 });
 
+router.get('/add-profiles/add-profiles-complete', (req, res) => {
+  localStorage.setItem('profilesToAdd', JSON.stringify([]));
+  res.render('editor-login/add-profiles/add-profiles-complete');
+})
+
 module.exports = {
   router: router,
 };
