@@ -202,52 +202,71 @@
                 </fieldset>
               </div>
             </div>
-            <button type="submit" class="nhsuk-button">Apply</button>
-            <button type="submit" class="nhsuk-button nhsuk-button--secondary">Clear all</button>
+            <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-0">Apply</button>
+            <button type="submit" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0">Clear all</button>
           </div>
         </form>
       </div>
-
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent Service</b></p>
-      <p>by Vikram Shinde <span class="nhsuk-body-s" style="display:inline">- Posted on 24/04/2019</span></p>
-      <p>I have registered my 2 daughters as a new patients. The reception was polite while registering. She gave us all required information and helped us to get first assessment appointment. The dentists also was very friendly and helpful. The children didnt scared at all. Dentist made them comfortable. I would highly recommend this Dentist practice.</p>
-      <p class="nhsuk-body-s">Visited 20/04/2019</p>
-      <p><a href="/org-response/response">Respond to this comment</a></p>
-      <hr>
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Good Experience</b></p>
-      <p>by Cheryl Wogan <span class="nhsuk-body-s" style="display:inline">- Posted on 20/03/2019</span></p>
-      <p>I had need of a urgent appointment, I was seen within 1 hour of contacting the surgery. I had not been to this practice before.The staff were very friendly and professional I cannot recommend this practice enough.</p>
-      <p class="nhsuk-body-s">Visited 20/04/2019</p>
-      <p><a href="/org-response/response">Respond to this comment</a></p>
-      <hr>
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Friendly and professional service</b></p>
-      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 19/03/2019</span></p>
-      <p>I'm glad to have found a dentist that provides such good service, particularly after much less favourable experiences with other practices in North Leeds. Waiting times for routine appontments may take a little longer than I'd like, but emergency appontments are possible and there's even adequate parking nearby.</p>
-      <p class="nhsuk-body-s">Visited 20/04/2019</p>
-      <p><a href="/org-response/response">Respond to this comment</a></p>
-      <hr>
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Really happy</b></p>
-      <p>by T Patel <span class="nhsuk-body-s" style="display:inline">- Posted on 20/11/2017</span></p>
-      <p>Really happy with the service High Ash Dental Surgery. Staff are very friendly and professional. Receptionist is really nice and welcoming. The new Dental Hygienist is fantastic. Explained what was going to be done from start to finish and there was definitely visible patient care demonstrated. Just waiting for the books to open up again so i can get by family registered at this Surgery. Thanks</p>
-      <p class="nhsuk-body-s">Visited 20/11/2017</p>
-      <p><a href="/org-response/response">Respond to this comment</a></p>
-      <hr>
-      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Friendly and efficient</b></p>
-      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 21/11/2017</span></p>
-      <p>All staff have been very helpful and informative. Their kindness was especially appreciated when I received some unwelcome news; they all went into action very quickly to ensure I receive the best treatment. Thank you</p>
-      <p class="nhsuk-body-s">Visited 21/11/2017</p>
-      <p><a href="/org-response/response">Respond to this comment</a></p>
-      <hr>
-
-      {% from 'pagination/macro.njk' import pagination %}
-
-      {{ pagination({
-        "nextUrl": "/org-response/comments-p2",
-        "nextPage": "Page 2"
-      }) }}
-      
+      <div id="profileslist">
+        <div class="profile-list-pagination-counter">
+          <p>Showing <span class="nhsuk-u-font-weight-bold">1-25 of 62</span> Reviews</p>
+          <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
+        </div>
+        <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+          <table role="table" class="nhsuk-table-responsive">
+            <caption class="nhsuk-table__caption">Your profiles</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row">
+                <th role="columnheader" scope="col">Review title</th>
+                <th role="columnheader" scope="col">Date posted</th>
+                <th role="columnheader" scope="col">Date visited</th>
+                <th role="columnheader" scope="col">Star rating</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              {% for review in reviews %}
+              <tr role="row" class="nhsuk-table__row">
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Review title </span>
+                  <a href="org-response/response" aria-label="View review titled Excellent service">
+                    {{ review.title }} 
+                  </a>
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Date posted </span>
+                  {{ review.datePosted }}
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Date visited</span>
+                  {{ review.dateVisited }}
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Star rating</span>
+                  <span class="stars stars--small">
+                    {% for i in range(0, review.starRating) %}★{% endfor %}
+                  </span>
+                  <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item">
+            <span class="page-link active" aria-current="page">1 of 3</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page2" aria-label="Go to next page">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to last page">Last</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-
   </div>
 {% endblock %}
 

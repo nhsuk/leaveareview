@@ -46,5 +46,6 @@ showFilterButton.addEventListener('click', e => {
   } else {
     showFilterButton.setAttribute("aria-expanded", 'false'); 
   }
+  showFilterButton.textContent = showFilterButton.textContent === 'Filter and sort' ? 'Close filter' : 'Filter and sort';
   filterDiv.style.display = filterDiv.style.display === 'none' ? 'block' : 'none';
 })

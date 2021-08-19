@@ -4,6 +4,7 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 const express = require('express');
 const router = express.Router();
 const pharmacies = require('./data/pharmacies');
+const reviews = require('./data/reviews');
 const moment = require('moment');
 const app = require('../app');
 
@@ -611,6 +612,10 @@ router.get('/profiles/sort-city', (req, res) => {
     a.Town.localeCompare(b.Town)
   );
   res.render('profiles/sort-name', { currentPharmacies, pharmacies });
+});
+
+router.get('/org-response', (req, res) => {
+  res.render('org-response/index', { reviews });
 });
 
 module.exports = {
