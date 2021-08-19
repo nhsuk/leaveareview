@@ -22,61 +22,191 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-
-    <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-u-margin-bottom-4">User Comments</h1>
-
-      <p class="nhsuk-body-l">Review and respond to the user comments below.</p>
-      <div class="nhsuk-body-m page">Page <b>1</b> of <b>2</b></div>
-      <div class="nhsuk-body-m records">Displaying <b>1 - 5</b> of <b>9</b> Comments</div>
-
-      <hr style="clear: both;">
-
-
-      <!--details class="nhsuk-details">
-        <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
-          <span class="nhsuk-details__summary-text">
-            Filter comments
-          </span>
-        </summary>
-
-        <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
-
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="input-with-hint-text">
-              Search
-            </label>
-            <span class="nhsuk-hint" id="input-with-hint-text-hint">
-              by city, name, postcode, ODS or Trust code.
-            </span>
-            <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
-          </div>
-
-          <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-4">
-            <div class="nhsuk-checkboxes__item">
-              <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
-                Option 1
-              </label>
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-u-margin-bottom-4">User reviews </h1>
+      <p>10a/b Bentalls Shopping Centre, Leeds, LS9 4GD</p>
+      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Comment search and filter">
+        <form id="search" action="/search-pharmacy" method="POST" role="search">
+          <label class="nhsuk-label" for="searchBar">Search by title</label>
+          <div class="search-bar-buttons">
+            <div class="search-bar">
+              <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+              <button class="nhsuk-profiles-search__submit" type="submit">
+                <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
             </div>
-            <div class="nhsuk-checkboxes__item">
-              <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-              <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
-                Option 2
-              </label>
+            <div class="filter-buttons">
+              <button id="show-filter-button" class="nhsuk-button nhsuk-button--small nhsuk-u-margin-bottom-0" aria-expanded="false" aria-controls="filter">Filter and sort</button>
+              <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear all</button>
             </div>
           </div>
-          
-          {{ button({
-          "text": "Apply filter",
-          "id": "btn_submit"
-          }) }}
-
-        </div>
-
-      </details-->
-
+          <div id="filter" class="filter nhsuk-u-margin-top-3" aria-label="Profiles filter">
+            <h2>Filter by</h2>
+            <div class="filter-container">
+              <div class="nhsuk-form-group filter-block">
+                <fieldset class="nhsuk-fieldset">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                    Star rating 
+                  </legend>
+                  <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="one-star" name="star-rating" type="checkbox" value="pharmacies">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="one-star">
+                        1 Star
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="two-star" name="star-rating" type="checkbox" value="dentists">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="two-star">
+                        2 Star 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="three-star" name="star-rating" type="checkbox" value="gp">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="three-star">
+                        3 Star 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="four-star" name="star-rating" type="checkbox" value="gp">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="four-star">
+                        4 Star 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="five-star" name="star-rating" type="checkbox" value="gp">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="five-star">
+                        5 Star 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="nhsuk-form-group filter-block">
+                <fieldset class="nhsuk-fieldset">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                    Date posted 
+                  </legend>
+                  <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-posted-7-days" name="filter-date-posted" type="checkbox" value="last7days">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-posted-7-days">
+                        Last 7 days 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-posted-month" name="filter-date-posted" type="checkbox" value="thisMonth">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-posted-month">
+                        This month 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-posted-3-months" name="filter-date-posted" type="checkbox" value="threeMonths">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-posted-3-months">
+                        Last 3 months 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-posted-6-months" name="filter-date-posted" type="checkbox" value="sixMonths">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-posted-6-months">
+                        Last 6 months 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="nhsuk-form-group filter-block">
+                <fieldset class="nhsuk-fieldset">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                    Date visted 
+                  </legend>
+                  <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-visited-7-days" name="filter-date-visted" type="checkbox" value="last7days">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-visited-7-days">
+                        Last 7 days 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-visited-month" name="filter-date-visted" type="checkbox" value="thisMonth">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-visited-month">
+                        This month 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-visited-3-months" name="filter-date-visted" type="checkbox" value="threeMonths">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-visited-3-months">
+                        Last 3 months 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="filter-visited-6-months" name="filter-date-visted" type="checkbox" value="sixMonths">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="filter-visited-6-months">
+                        Last 6 months 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="filter-container">
+              <div class="nhsuk-form-group filter-block">
+                <fieldset class="nhsuk-fieldset">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                    Sort by 
+                  </legend>
+                  <div class="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="star-rating" name="sort-by" type="radio" value="starRating">
+                      <label class="nhsuk-label nhsuk-radios__label" for="star-rating">
+                        Star rating 
+                      </label>
+                    </div>
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="date-posted" name="sort-by" type="radio" value="datePosted">
+                      <label class="nhsuk-label nhsuk-radios__label" for="date-posted">
+                        Date posted 
+                      </label>
+                    </div>
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="date-visited" name="sort-by" type="radio" value="dateVisited">
+                      <label class="nhsuk-label nhsuk-radios__label" for="date-visted">
+                        Date visited 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="nhsuk-form-group filter-block">
+                <fieldset class="nhsuk-fieldset">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                    Sort order 
+                  </legend>
+                  <div class="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="ascending" name="sort-order" type="radio" value="ascending">
+                      <label class="nhsuk-label nhsuk-radios__label" for="ascending">
+                        Ascending 
+                      </label>
+                    </div>
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="descending" name="sort-order" type="radio" value="descending">
+                      <label class="nhsuk-label nhsuk-radios__label" for="descending">
+                        Descending 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <button type="submit" class="nhsuk-button">Apply</button>
+            <button type="submit" class="nhsuk-button nhsuk-button--secondary">Clear all</button>
+          </div>
+        </form>
+      </div>
 
       <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent Service</b></p>
       <p>by Vikram Shinde <span class="nhsuk-body-s" style="display:inline">- Posted on 24/04/2019</span></p>
