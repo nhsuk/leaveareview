@@ -62,9 +62,14 @@ $color_nhsuk-grey-5: #f0f4f5;
   button:first-child {
     margin-right: .5em;
   }
+  
+  button:last-child {
+    margin-right: 0;
+  }
 
   @media (max-width:768px) {
     display: block;
+    margin-bottom: .5em;
   }
 }
 
