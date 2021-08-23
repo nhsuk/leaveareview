@@ -3,7 +3,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Profile Manager
+Choose a profile for reviews - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -25,13 +25,21 @@
       <h1>
         Choose a profile for reviews 
       </h1>
-      <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
-        <form action="/search-pharmacy-reviews" method="POST">
-          <label class="nhsuk-label" for="search">Search by city, town or postcode</label>
-          <div class="search-sort">
+      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Profile search">
+        <form id="search" action="/search-pharmacy" method="POST" role="search">
+          <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
+          <div class="search-bar-buttons">
             <div class="search-bar">
-              <input id="search" type="text" name="search" class="nhsuk-input search-input" />
-              <button type="submit" class="nhsuk-button search-button nhsuk-u-margin-bottom-0">Search</button>
+              <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+              <button class="nhsuk-profiles-search__submit" type="submit">
+                <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
+            </div>
+            <div class="filter-buttons">
+              <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
             </div>
           </div>
         </form>
