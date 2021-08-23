@@ -618,6 +618,23 @@ router.get('/org-response', (req, res) => {
   res.render('org-response/index', { reviews });
 });
 
+router.post('/org-response/search-review', (req, res) => {
+  if (req.body["sort-by"] === "starRating") {
+    res.redirect('reviews-sort-rating')
+  }
+  res.redirect('reviews-one-star')
+})
+
+router.get('/org-response/reviews-one-star', (req, res) => {
+  oneStarReviews = reviews.filter(rating => rating.starRating === 1);
+  res.render('org-response/reviews-one-star', { oneStarReviews });
+});
+
+router.get('/org-response/reviews-sort-rating', (req, res) => {
+  sortedReviews = reviews.sort((a, b) => a.starRating > b.starRating ? 1 : -1);
+  res.render('org-response/reviews-sort-rating', { sortedReviews });
+})
+
 module.exports = {
   router: router,
   localStorage: localStorage,
