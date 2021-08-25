@@ -845,8 +845,6 @@ dd {
 
 .edit-link a {
   padding: 5px 12px 5px 12px;
-  //background: #4c6272;
-  //box-shadow: 0 3px 0 #283138;
   background: #f0f4f5;
   box-shadow: 0 3px 0 #aeb7bd;
   text-decoration: none;
@@ -873,4 +871,17 @@ dd {
 
 .lastupdated span {
   margin-bottom: 0px;
+}
+
+.top-tips-desktop {
+  @media (max-width: 768px) {
+    display: none; 
+  }
+}
+
+.top-tips-mobile {
+  display: none;
+  @media (max-width: 768px) {
+    display: block; 
+  }
 }
