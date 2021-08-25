@@ -1,0 +1,26 @@
+
+.options {
+  margin-bottom: 28px;
+}
+
+.validate-link {
+  padding: 5px 12px 5px 12px;
+}
+
+.edit-link a {
+  padding: 5px 12px 5px 12px;
+  background: #f0f4f5;
+  box-shadow: 0 3px 0 #aeb7bd;
+  text-decoration: none;
+  color: #212b32 !important;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.edit-link a:hover {
+  background: #d8dde0;
+}
+
+.edit-link a:active {
+  box-shadow: none;
+}

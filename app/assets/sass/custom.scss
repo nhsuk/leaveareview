@@ -4,27 +4,6 @@
 @import 'components/_accountHeader.scss';
 @import 'components/_contentsList.scss';
 
-.last-updated {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.nhsuk-grey3 {
-  background-color: #aeb7bd;
-}
-
-.nhsuk-table-responsive {
-  margin-top: 20px !important;
-}
-
-.nhsuk-table__cell {
-  vertical-align: top;
-}
-
-.page {
-  float: right;
-}
-
 .records {
   float: left;
 }
@@ -49,16 +28,6 @@
 }
 .nhsuk-page-heading h1 {
   margin: 0;
-}
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
 }
 
 .greyinset {
@@ -750,138 +719,12 @@ dd {
   }
 }
 
-/* Circles - for CQC Ratings incicators
-   ===================================== */
-
-.indicator-on {
-  //background-color: #D8E5EE;
-  box-sizing: border-box;
-  padding: 10px 0 8px 10px;
-  font-size: 18px;
-  font-weight: bold;
-  //border: 3px solid #005eb8;
-  box-shadow: inset 0px 0px 0px 3px #005eb8;
-  //border-radius: 25px;
-}
-
-.indicator-off {
-  background-color: #fff;
-  padding: 10px 0 8px 10px;
-}
-
-.green-star {
-  margin-bottom: 4px;
-  margin-left: -1px;
-  color: #6b9a3a;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 28px;
-  margin-right: 7px;
-  vertical-align: top;
-  width: 26px;
-}
-
-.green-circle {
-  margin-bottom: 3px;
-  background-color: #6b9a3a;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
-}
-
-.red-circle {
-  margin-bottom: 3px;
-  background-color: #b83229;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
-}
-
-.amber-circle {
-  margin-bottom: 3px;
-  background-color: #f2a94f;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
-}
-
-.dtwidth {
-  width: 65% !important;
-}
-
-.topborder {
-  border-top: 2px solid #005eb8;
-}
-.caption-top {
-  font-weight: bold;
-  font-size: 22px;
-  color: #212b32;
-  padding-top: 8px;
-  margin-bottom: 10px;
-}
-
-.editor {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  border-bottom: 4px solid #d8dde0;
-}
-.options {
-  flex-grow: 1;
-  margin-bottom: 28px;
-}
-
-.edit-link a {
-  padding: 5px 12px 5px 12px;
-  background: #f0f4f5;
-  box-shadow: 0 3px 0 #aeb7bd;
-  text-decoration: none;
-  color: #212b32 !important;
-  font-weight: bold;
-  border-radius: 4px;
-}
-.edit-link a:hover {
-  background: #d8dde0;
-}
-.edit-link a:active {
-  box-shadow: none;
-}
-
-.validate-link {
-  padding: 5px 12px 5px 12px;
-}
-
-.lastupdated p {
+.last-updated p {
   margin-bottom: 0px;
   border-top: 1px solid #4c6272;
   padding-top: 16px;
 }
 
-.lastupdated span {
+.last-updated span {
   margin-bottom: 0px;
-}
-
-.top-tips-desktop {
-  @media (max-width: 768px) {
-    display: none; 
-  }
-}
-
-.top-tips-mobile {
-  display: none;
-  @media (max-width: 768px) {
-    display: block; 
-  }
 }
