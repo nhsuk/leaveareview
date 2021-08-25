@@ -25,7 +25,6 @@ const utils = require('./lib/utils.js');
 const validation = require('./middleware/validation');
 
 const openingTimesRoutes = require('./app/routes/openingTimes').router;
-const pocRoutes = require('./app/routes/pocRoutes').router;
 const editorLogin = require('./app/routes/editorLogin').router;
 const localStorage = require('./app/routes').localStorage;
 
@@ -196,7 +195,6 @@ if (onlyDocumentation == 'true') {
 
 // Use custom application routes
 app.use('/', routes);
-app.use('/proof-of-concept', pocRoutes);
 app.use('/editor/opening-times', openingTimesRoutes);
 app.use('/editor-login', editorLogin);
 

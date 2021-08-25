@@ -161,14 +161,6 @@ router.post('/days', (req, res) => {
   res.redirect('/editor/opening-times/confirm-opening-times');
 });
 
-router.post('/bank-holiday/day', (req, res) => {
-  if (req.body.open === 'yes') {
-    res.redirect('/editor/opening-times/bank-holiday/opening-time');
-  } else {
-    res.redirect('/editor/opening-times/bank-holiday/days');
-  }
-});
-
 router.post('/bank-holiday/opening-time', (req, res) => {
   let firstTime;
   let secondTime;
@@ -182,11 +174,15 @@ router.post('/bank-holiday/opening-time', (req, res) => {
   if (req.body.bankHolOpenTime3) {
     thirdTime = `${req.body.bankHolOpenTime3} to ${req.body.bankHolCloseTime3}`;
   }
-  res.render('editor/opening-times/bank-holiday/days', {
+  res.render('editor/opening-times/bank-holiday/confirm', {
     firstTime,
     secondTime,
     thirdTime,
   });
+});
+
+router.post('/bank-holiday/confirm', (req, res) => {
+  res.redirect('/editor/opening-times/opening-times-start')
 });
 
 localStorage.setItem('tempChanges', JSON.stringify([]));

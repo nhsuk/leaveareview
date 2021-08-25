@@ -1,0 +1,208 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Confirm bank holiday opening times - Profile Manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/editor"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <form method="post" action="/editor/opening-times/bank-holiday/confirm">
+      <h1>Confirm bank holiday opening times</h1>
+      <p>Your bank holiday opening times will default to your weekly opening times unless you change them.</p>
+      <div class="nhsuk-warning-text nhsuk-u-margin-bottom-8">
+        <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="nhsuk-warning-text__text">
+          <span class="nhsuk-warning-text__assistive">Warning</span>
+          Note that Easter Sunday is not a bank holiday. Use <a href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes to opening times</a> to amend this day.
+        </strong>
+      </div>
+      <h2>2021</h2>
+      <dl class="nhsuk-summary-list opening-times">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Wednesday 25 December
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="/editor/opening-times/days/monday/monday">
+              Change<span class="nhsuk-u-visually-hidden">Wednesday 25 December</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+          Thursday 26 December 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if firstTime %}
+              <p>{{ firstTime }}</p>
+              {% if secondTime %}
+                <p>{{ secondTime }}</p>
+              {% endif %}
+              {% if thirdTime %}
+                <p>{{ thirdTime }}</p>
+              {% endif %}
+            {% elif data['open'] == 'no' %}
+              <p>Closed</p>
+            {% else %}
+              Closed
+            {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="day">
+              Change<span class="nhsuk-u-visually-hidden"> Thursday 26 December</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      <h2>2022</h2>
+      <dl class="nhsuk-summary-list opening-times">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Wednesday 1 April 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed 
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="/editor/opening-times/days/monday/monday">
+              Change<span class="nhsuk-u-visually-hidden"> Wednesday 1 April</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Friday 10 April 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed 
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Friday 10 April</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Monday 13 April 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed 
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Monday 13 April</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Friday 8 May 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed 
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Friday 8 May</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Monday 25 May 
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Closed 
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Monday 25 May</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      <button class="nhsuk-button">Save and confirm</button> 
+    </form>
+
+    {{ backLink({
+    "href": "/editor/opening-times/opening-times-start",
+    "text": "Back"
+    }) }}
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
