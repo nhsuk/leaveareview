@@ -34,35 +34,30 @@ Request profile access - Profile Manager - NHS
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>Request profile access</h1>
+			<h1>Confirm your profiles to add</h1>
       <form action="/editor-login/sign-in/use-system-for" method="POST">
-				<div class="nhsuk-card">
-					<div class="nhsuk-card__content">
-						<h2>Your profiles to add</h2>
-						<dl class="nhsuk-summary-list">
-							{% for profile in newProfiles %}
-							<div class="nhsuk-summary-list__row">
-								<dt class="nhsuk-summary-list__key">
-									{{ profile.name }}
-								</dt>
-								<dd class="nhsuk-summary-list__value">
-									{{ profile.townCity }}, {{ profile.postcode }}
-								</dd>
-								<dd class="nhsuk-summary-list__actions">
-									<a href="change-profile">
-										Change<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
-									</a>
-									<a href="remove-profile">
-										Remove<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
-									</a>
-								</dd>
-							</div>
-							{% endfor %}
-						</dl>
+				<dl class="nhsuk-summary-list">
+					{% for profile in newProfiles %}
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							{{ profile.name }}
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+							{{ profile.townCity }}, {{ profile.postcode }}
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="change-profile">
+								Change<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+							</a>
+							<a href="remove-profile">
+								Remove<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+							</a>
+						</dd>
 					</div>
-				</div>
-        <p><a href="add-profile">Add another organisation</a></p>
-				<a class="nhsuk-button" href="add-profiles-complete">Submit</a>
+					{% endfor %}
+				</dl>
+        <p><a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" href="add-profile">Add another profile</a></p>
+				<a class="nhsuk-button" href="add-profiles-complete">Confirm and send</a>
       </form>
     </div>
   </div>
