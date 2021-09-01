@@ -26,7 +26,7 @@
       <h1 class="nhsuk-u-margin-bottom-4">User reviews </h1>
       <p>10a/b Bentalls Shopping Centre, Leeds, LS9 4GD</p>
       <a class="nhsuk-skip-link" href="#profileslist">Skip to review list</a>
-      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Comment search and filter">
+      <div class="nhsuk-u-margin-bottom-5 search-sort" aria-label="Comment search and filter">
         <form id="search" action="/org-response/search-review" method="POST" role="search">
           <label class="nhsuk-label" for="searchBar">Search by title</label>
           <div class="search-bar-buttons">
@@ -203,7 +203,7 @@
                 </fieldset>
               </div>
             </div>
-            <div class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-2">
+            <div class="nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-5">
               <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-0">Apply</button>
               <button type="submit" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0">Clear all</button>
             </div>
@@ -215,45 +215,47 @@
           <p>Showing <span class="nhsuk-u-font-weight-bold">1-25 of 62</span> Reviews</p>
           <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
         </div>
-        <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
-          <table role="table" class="nhsuk-table-responsive">
-            <caption class="nhsuk-table__caption">Your profiles</caption>
-            <thead role="rowgroup" class="nhsuk-table__head">
-              <tr role="row">
-                <th role="columnheader" scope="col">Review title</th>
-                <th role="columnheader" scope="col">Date posted</th>
-                <th role="columnheader" scope="col">Date visited</th>
-                <th role="columnheader" scope="col">Star rating</th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              {% for review in reviews %}
-              <tr role="row" class="nhsuk-table__row">
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Review title </span>
-                  <a href="org-response/response" aria-label="View review titled Excellent service">
-                    {{ review.title }} 
-                  </a>
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Date posted </span>
-                  {{ review.datePosted }}
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Date visited</span>
-                  {{ review.dateVisited }}
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Star rating</span>
-                  <span class="stars stars--small">
-                    {% for i in range(0, review.starRating) %}★{% endfor %}
-                  </span>
-                  <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <table role="table" class="nhsuk-table-responsive">
+              <caption class="nhsuk-table__caption">Your profiles</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Review title</th>
+                  <th role="columnheader" scope="col">Date posted</th>
+                  <th role="columnheader" scope="col">Date visited</th>
+                  <th role="columnheader" scope="col">Star rating</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                {% for review in reviews %}
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Review title </span>
+                    <a href="org-response/response" aria-label="View review titled Excellent service">
+                      {{ review.title }} 
+                    </a>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date posted </span>
+                    {{ review.datePosted }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date visited</span>
+                    {{ review.dateVisited }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Star rating</span>
+                    <span class="stars stars--small">
+                      {% for i in range(0, review.starRating) %}★{% endfor %}
+                    </span>
+                    <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <nav aria-label="Page navigation">

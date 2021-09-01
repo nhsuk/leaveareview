@@ -4,6 +4,9 @@
 // Bug fixing NHS Frontend
 @import "components/nhsuk-input-fix";
 
+// Helpers
+@import "helpers/helpers";
+
 // Components that are not in the NHS.UK frontend library
 @import "components/panel-confirmation";
 @import "components/related-nav";
@@ -13,10 +16,6 @@
 @import "components/savedChanges";
 @import "components/starRating";
 @import "components/cqcRating";
-
-///////////////////////////////////////////
-// Add your custom CSS/Sass styles below...
-///////////////////////////////////////////
 
 @import "custom";
 @import "manageProfile";

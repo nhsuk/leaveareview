@@ -25,7 +25,7 @@ Choose a profile for reviews - Profile Manager - NHS
       <h1>
         Choose a profile for reviews 
       </h1>
-      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Profile search">
+      <div class="nhsuk-u-margin-bottom-5 search-sort" aria-label="Profile search">
         <form id="search" action="/search-pharmacy" method="POST" role="search">
           <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
           <div class="search-bar-buttons">
@@ -49,7 +49,7 @@ Choose a profile for reviews - Profile Manager - NHS
       {% else %}
       <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
       {% endif %}
-      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+      <div class="nhsuk-table__panel-with-heading-tab profile-list-container nhsuk-u-margin-top-0">
         <table role="table" class="nhsuk-table-responsive">
           <caption class="nhsuk-table__caption">Profile search results</caption>
           <thead role="rowgroup" class="nhsuk-table__head">

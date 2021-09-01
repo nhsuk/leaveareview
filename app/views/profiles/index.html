@@ -26,7 +26,7 @@ Your profiles - Profile Manager - NHS
         Your profiles
       </h1>
       <a class="nhsuk-skip-link" href="#profileslist">Skip filter</a>
-      <div class="nhsuk-u-margin-bottom-3 search-sort" aria-label="Profile search and filter">
+      <div class="nhsuk-u-margin-bottom-5 search-sort" aria-label="Profile search and filter">
         <form id="search" action="/search-pharmacy" method="POST" role="search">
           <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
           <div class="search-bar-buttons">
@@ -84,37 +84,39 @@ Your profiles - Profile Manager - NHS
           {% endif %}
           <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
         </div>
-        <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
-          <table role="table" class="nhsuk-table-responsive nhsuk-u-margin-top-2">
-            <caption class="nhsuk-table__caption">Your profiles</caption>
-            <thead role="rowgroup" class="nhsuk-table__head">
-              <tr role="row">
-                <th role="columnheader" scope="col">Name</th>
-                <th role="columnheader" scope="col">Address</th>
-                <th role="columnheader" scope="col">ODS Code</th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              {% for pharmacy in currentPharmacies %}
-              <tr role="row" class="nhsuk-table__row">
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Name </span>
-                  <a href="/editor/manage-profile" aria-label="View {{pharmacy.Name}} located at {{pharmacy.Line1}}">
-                    {{pharmacy.Name}} 
-                  </a>
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Address </span>
-                  {{pharmacy.Line1}}, {{ pharmacy.city }}, {{ pharmacy.Postcode }}
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">ODS Code</span>
-                    FA{{ range(4000, 55000) | random }}
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <table role="table" class="nhsuk-table-responsive">
+              <caption class="nhsuk-table__caption">Your profiles</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Name</th>
+                  <th role="columnheader" scope="col">Address</th>
+                  <th role="columnheader" scope="col">ODS Code</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                {% for pharmacy in currentPharmacies %}
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Name </span>
+                    <a href="/editor/manage-profile" aria-label="View {{pharmacy.Name}} located at {{pharmacy.Line1}}">
+                      {{pharmacy.Name}} 
+                    </a>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Address </span>
+                    {{pharmacy.Line1}}, {{ pharmacy.city }}, {{ pharmacy.Postcode }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">ODS Code</span>
+                      FA{{ range(4000, 55000) | random }}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <nav aria-label="Page navigation">
