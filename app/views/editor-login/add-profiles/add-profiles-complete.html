@@ -7,15 +7,15 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Comment response tool - NHS
+  Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Organsation Profiles and Profile Editor",
-        "href": "/"
+        "name": "Profile Manager",
+        "href": "/editor-login/no-profiles-request-pending"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -31,8 +31,10 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>Setup complete</h1>
-      <p>The NHS team will now process your request, this may take up to 5 days. You will receive an email notification when your organisations have been added to your account.</p>
+			<h1>Request submitted</h1>
+      <p>It may take up to 7 days for the NHS service desk to process your request.</p>
+      <p>You'll get an email to confirm when your profiles have been added to your account.</p>
+      <p>If you've not heard within 7 days, contact the NHS service desk.</p>
     </div>
   </div>
 {% endblock %}

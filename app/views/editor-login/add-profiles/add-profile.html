@@ -9,14 +9,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Add a profile - Profile Manager - NHS
+  Enter profile details - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Organsation Profiles and Profile Editor",
+        "name": "Profile Manager",
         "href": "/"
       },
       "showNav": "false",
@@ -33,52 +33,77 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>Add a profile</h1>
-      <p>Send a request to the NHS service desk to add profiles to your account.</p>
+			<h1>Enter profile details</h1>
       <form action="/editor-login/add-profiles/add-profile" method="POST">
-        <p>If you have a large number of profiles to manage, you may find it easier to <a href="#">contact the NHS service desk</a>.</p>
         <div class="org-form-list">
-          {{ input({
-            "label": {
-              "text": "Profile name"
-            },
-						"hint": {
-							"text": "For example, your pharmacy, dental practice, or hospital name"
-						},
-            "id": "org1-name",
-            "name": "org1-name",
-            "classes": "nhsuk-input--width-20"
-          }) }}
-          {{ input({
-            "label": {
-              "text": "Town or city"
-            },
-            "id": "org1-town-city",
-            "name": "org1-town-city",
-            "classes": "nhsuk-input--width-20"
-          }) }}
-          {{ input({
-            "label": {
-              "text": "Postcode"
-            },
-            "id": "org1-postcode",
-            "name": "org1-postcode",
-            "classes": "nhsuk-input--width-10",
-            "autocomplete": "postal-code"
-          }) }}
-          <p>The NHS service desk will process your request more quickly if you submit an ODS code for this profile.</p>
-          {{ input({
-            "label": {
-              "text": "ODS Code (optional)"
-            },
-            "id": "org1-ods-code",
-            "name": "org1-ods-code",
-            "classes": "nhsuk-input--width-10"
-          }) }}
-          <p>You can <a href="#" target="_blank">find an ODS code by using the ODS portal (opens in a new window or tab)</a>.</p>
+          <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                Do you know your profile's ODS Code? 
+              </legend>
+              <div class="nhsuk-hint" id="contact-hint">
+                <!-- <p>The NHS service desk will process your request quicker if you submit an ODS code for this profile.</p> -->
+                <p>You can <a href="#" target="_blank">find an ODS code by using the ODS portal (opens in a new window or tab)</a>.</p>
+              </div>
+              <div class="nhsuk-radios nhsuk-radios--conditional">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                    Yes 
+                  </label>
+                </div>
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="email">
+                      ODS Code 
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+                  </div>
+                </div>
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                    No 
+                  </label>
+                </div>
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                  {{ input({
+                    "label": {
+                      "text": "Profile name"
+                    },
+                    "hint": {
+                      "text": "For example, your pharmacy, dental practice, or hospital name"
+                    },
+                    "id": "org1-name",
+                    "name": "org1-name",
+                    "classes": "nhsuk-input--width-20"
+                  }) }}
+                  {{ input({
+                    "label": {
+                      "text": "Town or city"
+                    },
+                    "id": "org1-town-city",
+                    "name": "org1-town-city",
+                    "classes": "nhsuk-input--width-20"
+                  }) }}
+                  {{ input({
+                    "label": {
+                      "text": "Postcode"
+                    },
+                    "id": "org1-postcode",
+                    "name": "org1-postcode",
+                    "classes": "nhsuk-input--width-10",
+                    "autocomplete": "postal-code"
+                  }) }}
+                </div>
+              </div>
+            </fieldset>
+          
+          </div>
         </div>
         <button type="submit" class="nhsuk-button">Continue</button>
       </form>
     </div>
   </div>
 {% endblock %}
+
