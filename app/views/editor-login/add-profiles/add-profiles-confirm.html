@@ -40,18 +40,38 @@ Request profile access - Profile Manager - NHS
 					{% for profile in newProfiles %}
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">
-							{{ profile.name }}
+							{% if profile.odsCode %}
+							  ODS Code
+							{% else %}
+								{{ profile.name }}
+							{% endif %}
 						</dt>
 						<dd class="nhsuk-summary-list__value">
-							{{ profile.townCity }}, {{ profile.postcode }}
+							{% if profile.odsCode %}
+							{{ profile.odsCode }}
+							{% else %}
+								{{ profile.townCity }}, {{ profile.postcode }}
+							{% endif %}
 						</dd>
 						<dd class="nhsuk-summary-list__actions">
-							<a href="change-profile">
-								Change<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
-							</a>
-							<a href="remove-profile">
-								Remove<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
-							</a>
+							{% if profile.odsCode %}
+								<a href="change-profile">
+									Change<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
+								</a>
+							{% else %}
+								<a href="change-profile">
+									Change<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+								</a>
+							{% endif %}
+							{% if profile.odsCode %}
+								<a href="change-profile">
+									Remove<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
+								</a>
+							{% else %}
+								<a href="remove-profile">
+									Remove<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+								</a>
+							{% endif %}
 						</dd>
 					</div>
 					{% endfor %}

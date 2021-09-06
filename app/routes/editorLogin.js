@@ -66,6 +66,7 @@ router.post('/add-profiles/your-name', (req, res) => {
 router.post('/add-profiles/add-profile', (req, res) => {
   const profilesToAdd = JSON.parse(localStorage.getItem('profilesToAdd'));
   let tempProfile = {
+    odsCode: req.body["odsCodeValue"],
     name: req.body["org1-name"], 
     townCity: req.body["org1-town-city"], 
     postcode: req.body["org1-postcode"]

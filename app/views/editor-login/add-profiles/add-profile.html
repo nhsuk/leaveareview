@@ -47,26 +47,26 @@
               </div>
               <div class="nhsuk-radios nhsuk-radios--conditional">
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
-                  <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                  <input class="nhsuk-radios__input" id="ods-yes" name="odsCode" type="radio" value="odsCodeYes" aria-controls="conditional-ods-code-yes" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="ods-yes">
                     Yes 
                   </label>
                 </div>
-                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-ods-code-yes">
                   <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="email">
+                    <label class="nhsuk-label" for="ods-code">
                       ODS Code 
                     </label>
-                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="ods-code" name="odsCodeValue" type="text">
                   </div>
                 </div>
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
-                  <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                  <input class="nhsuk-radios__input" id="ods-no" name="odsCode" type="radio" value="odsCodeNo" aria-controls="conditional-ods-code-no" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="ods-no">
                     No 
                   </label>
                 </div>
-                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-ods-code-no">
                   {{ input({
                     "label": {
                       "text": "Profile name"
