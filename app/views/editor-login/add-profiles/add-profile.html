@@ -67,34 +67,37 @@
                   </label>
                 </div>
                 <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-ods-code-no">
-                  {{ input({
-                    "label": {
-                      "text": "Profile name"
-                    },
-                    "hint": {
-                      "text": "For example, your pharmacy, dental practice, or hospital name"
-                    },
-                    "id": "org1-name",
-                    "name": "org1-name",
-                    "classes": "nhsuk-input--width-20"
-                  }) }}
-                  {{ input({
-                    "label": {
-                      "text": "Town or city"
-                    },
-                    "id": "org1-town-city",
-                    "name": "org1-town-city",
-                    "classes": "nhsuk-input--width-20"
-                  }) }}
-                  {{ input({
-                    "label": {
-                      "text": "Postcode"
-                    },
-                    "id": "org1-postcode",
-                    "name": "org1-postcode",
-                    "classes": "nhsuk-input--width-10",
-                    "autocomplete": "postal-code"
-                  }) }}
+                  <fieldset class="nhsuk-fieldset nhsuk-u-margin-top-2">
+                    <legend class="nhsuk-u-visually-hidden">Enter profile details</legend>
+                      {{ input({
+                        "label": {
+                          "text": "Profile name"
+                        },
+                        "hint": {
+                          "text": "For example, your pharmacy, dental practice, or hospital name"
+                        },
+                        "id": "org1-name",
+                        "name": "org1-name",
+                        "classes": "nhsuk-input--width-20"
+                      }) }}
+                      {{ input({
+                        "label": {
+                          "text": "Town or city"
+                        },
+                        "id": "org1-town-city",
+                        "name": "org1-town-city",
+                        "classes": "nhsuk-input--width-20"
+                      }) }}
+                      {{ input({
+                        "label": {
+                          "text": "Postcode"
+                        },
+                        "id": "org1-postcode",
+                        "name": "org1-postcode",
+                        "classes": "nhsuk-input--width-10",
+                        "autocomplete": "postal-code"
+                      }) }}
+                  </fieldset>
                 </div>
               </div>
             </fieldset>
