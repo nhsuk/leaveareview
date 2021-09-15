@@ -19,13 +19,13 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
 
 router.post('/register/use-system-for', (req, res) => {
   if (req.body.useSystemFor === "edit") {
-    res.redirect('/editor-login/add-profiles/your-name');
+    res.redirect('/editor-login/add-profiles/add-profile');
   } 
   if (req.body.useSystemFor === "respond") {
-    res.redirect('/editor-login/sign-in/respond-to-comments');
+    res.redirect('/editor-login/add-profiles/add-profile');
   }
   if (req.body.useSystemFor === "both") {
-    res.redirect('/editor-login/sign-in/edit-and-respond');
+    res.redirect('/editor-login/add-profiles/add-profile');
   }
 });
 
@@ -57,10 +57,6 @@ router.post('/register/previous-email', (req, res) => {
 
 router.post('/sign-in/nhs-signin', (req, res) => {
   res.redirect('/editor-login/no-profiles-landing');
-});
-
-router.post('/add-profiles/your-name', (req, res) => {
-  res.redirect('/editor-login/add-profiles/add-profile');
 });
 
 router.post('/add-profiles/add-profile', (req, res) => {
