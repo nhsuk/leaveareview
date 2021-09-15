@@ -1,5 +1,5 @@
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
-{% extends "layout.html" %}
+{% extends "layout-app-header.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 <!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
@@ -29,6 +29,11 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
@@ -37,15 +42,10 @@
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
-      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes</a></li-->
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary change start</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
-      {% set displayname = 'alias0' %}
-      {% if data["displayname"] == alias0 %}
-      Back to Edit Cohens
-      {%else%}
-      Back to Edit {{data["displayname"]}}
-      {%endif%}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/opening-times/temporary-changes/temporary-changes-date">
+      Temporary change start
     </a></p>
   </div>
 </nav>

@@ -1,14 +1,12 @@
-<!-- This layout is setup for transactional pages -->
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
-{% extends "layout.html" %}
+{% extends "layout-app-header.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Edit service - Profile Manager - NHS
+  Edit services - Profile Manager - NHS
 {% endblock %}
 
 {% block header %}
@@ -29,10 +27,15 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Weldricks Pharmacy
+        Edit Cohens 
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -40,7 +43,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Weldricks Pharmacy
+      Back to Edit Cohens 
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}

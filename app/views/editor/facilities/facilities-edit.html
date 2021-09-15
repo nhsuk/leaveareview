@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout-app-header.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
@@ -27,10 +27,15 @@ Edit facilities - Profile Manager - NHS
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Practice 1
+        Edit Cohens
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -38,7 +43,7 @@ Edit facilities - Profile Manager - NHS
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Practice 1
+      Back to Edit Cohens
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
