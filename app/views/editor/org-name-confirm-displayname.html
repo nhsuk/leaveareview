@@ -30,21 +30,25 @@ Confirm your profile's organisation name - Profile Manager - NHS
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Practice 1
+        Edit Cohens
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/org-name-edit">Enter an alternative organisation name </a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__backlink" href="/editor/org-name-choose-displayname">
+        Choose your profile's organisation name
+      </a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
-      {% set displayname = 'alias0' %}
-      {% if data["displayname"] == alias0 %}
-      Back to Edit Practice 1
-      {%else%}
-      Back to Edit {{data["displayname"]}}
-      {%endif%}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/org-name-choose-displayname">
+      Choose your profile's organisation name
     </a></p>
   </div>
 </nav>
