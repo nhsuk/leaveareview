@@ -627,6 +627,7 @@ router.post('/org-response/search-review', (req, res) => {
 
 router.get('/org-response/reviews-one-star', (req, res) => {
   oneStarReviews = reviews.filter(rating => rating.starRating === 1);
+  oneStarReviews = oneStarReviews.slice(0, 2);
   res.render('org-response/reviews-one-star', { oneStarReviews });
 });
 

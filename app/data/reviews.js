@@ -14,8 +14,8 @@ module.exports = [
 	},
 	{
 		"title": "Slow and rude",
-		"datePosted": "13/05/2021",
-		"dateVisited": "05/2021",
+		"datePosted": "20/09/2021",
+		"dateVisited": "09/2021",
 		"starRating": 1,
 	},
 	{
@@ -62,8 +62,8 @@ module.exports = [
 	},
 	{
 		"title": "Impossible to get an appointment",
-		"datePosted": "25/04/2021",
-		"dateVisited": "04/2021",
+		"datePosted": "19/09/2021",
+		"dateVisited": "09/2021",
 		"starRating": 1,
 	},
 	{
@@ -146,8 +146,8 @@ module.exports = [
 	},
 	{
 		"title": "Rude",
-		"datePosted": "1/03/2021",
-		"dateVisited": "03/2021",
+		"datePosted": "19/09/2021",
+		"dateVisited": "09/2021",
 		"starRating": 1,
 	},
 ]
