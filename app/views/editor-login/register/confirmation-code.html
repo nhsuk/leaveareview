@@ -33,9 +33,18 @@ We have found a match for this email address - Comment response tool - NHS
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>We have found a match for this email address</h1>
-			<p>You can now start editing or responding to comments</p>
-			<a href="/editor/" class="nhsuk-button">Continue</a>
+			<h1>We have sent you an email</h1>
+      <p>We have sent an email to your name@email.com which contains a confirmation code</p>
+      <p>If you have not received an email you can <a href="/editor-login/register/previous-email">go back and try again</a> or you can <a href="#">manually request profiles</a> via the service desk.</p>
+      <form action="/editor-login/register/confirmation-code" method="POST">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="confirmation-code">
+            Confirmation code 
+          </label>
+          <input class="nhsuk-input" id="confirmationCode" name="confirmaton-code" type="text">
+        </div>
+        <button class="nhsuk-button" type="submit">Continue</button>
+      </form>
       {{ backLink({
       "href": "index",
       "text": "Back"

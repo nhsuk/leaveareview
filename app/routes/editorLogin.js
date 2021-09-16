@@ -52,7 +52,11 @@ router.post('/register/used-before', (req, res) => {
 });
 
 router.post('/register/previous-email', (req, res) => {
-  res.redirect('/editor-login/register/match-found');
+  res.redirect('/editor-login/register/confirmation-code');
+});
+
+router.post('/register/confirmation-code', (req, res) => {
+  res.redirect('/editor/');
 });
 
 router.post('/sign-in/nhs-signin', (req, res) => {
