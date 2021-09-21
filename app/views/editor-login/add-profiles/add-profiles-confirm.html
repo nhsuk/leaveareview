@@ -37,6 +37,19 @@ Request profile access - Profile Manager - NHS
 			<h1>Confirm your profiles to add</h1>
       <form action="/editor-login/sign-in/use-system-for" method="POST">
 				<dl class="nhsuk-summary-list">
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							What would you like to do?
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+							{{ data["useSystemFor"]}}
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="/editor-login/register/use-system-for">
+								Change<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
+							</a>
+						</dd>
+					</div>
 					{% for profile in newProfiles %}
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">

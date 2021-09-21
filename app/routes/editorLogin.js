@@ -18,15 +18,7 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
 });
 
 router.post('/register/use-system-for', (req, res) => {
-  if (req.body.useSystemFor === "edit") {
-    res.redirect('/editor-login/add-profiles/add-profile');
-  } 
-  if (req.body.useSystemFor === "respond") {
-    res.redirect('/editor-login/add-profiles/add-profile');
-  }
-  if (req.body.useSystemFor === "both") {
-    res.redirect('/editor-login/add-profiles/add-profile');
-  }
+  res.redirect('/editor-login/add-profiles/add-profile');
 });
 
 router.post('/sign-in/edit-profiles', (req, res) => {
