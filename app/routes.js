@@ -3,10 +3,11 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 // External dependencies
 const express = require('express');
 const router = express.Router();
-const pharmacies = require('./data/pharmacies');
-const reviews = require('./data/reviews');
 const moment = require('moment');
 const app = require('../app');
+
+const reviews = require('./data/reviews');
+const pharmacies = require('./data/pharmacies');
 
 // Create local storage for opening times
 const localStorage = new LocalStorage('./scratch');
@@ -17,7 +18,16 @@ let recentChangeMade = false;
 // let servicesConfirmed = false;
 
 moment.locale('en-GB');
-// Branching - Leave a review
+
+pharmacies.sort((a, b) => {
+  return b.comments - a.comments
+});
+
+reviews.forEach((review) => {
+  review.datePosted = moment(review.datePosted, 'DD/MM/YYYY').format('DD MMM YYYY')
+  review.dateVisited = moment(review.dateVisited, 'MM/YYYY').format('MMM YYYY')
+  return review
+})
 
 router.post('/rating-review', function (req, res) {
   let month = req.body.month;
