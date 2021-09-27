@@ -44,8 +44,8 @@
             <tr role="row">
                 <th role="columnheader" scope="col">Name</th>
                 <th role="columnheader" scope="col">Address</th>
-                <th role="columnheader" scope="col">Most recent review date</th>
-                <th role="columnheader" scope="col">Number of comments</th>
+                <th role="columnheader" scope="col">Recent review date</th>
+                <th role="columnheader" scope="col">Comments</th>
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
@@ -62,11 +62,11 @@
                   {{pharmacy.Line1}}, {{pharmacy.city}}, {{pharmacy.Postcode}}
                 </td>
                 <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Most recent review date</span>
+                  <span class="nhsuk-table-responsive__heading">Recent review date</span>
                   {{ pharmacy.recentReview }} 
                 </td>
                 <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Number of comments</span>
+                  <span class="nhsuk-table-responsive__heading">Comments</span>
                   {{ pharmacy.comments }} 
                 </td>
               </tr>

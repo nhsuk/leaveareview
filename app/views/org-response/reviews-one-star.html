@@ -220,45 +220,47 @@
           <p role="text">Page <span class="nhsuk-u-font-weight-bold">1</span> of <span class="nhsuk-u-font-weight-bold">1</span></p>
         </div>
         <p>Filtering by '1 star' in the last 7 days</p>
-        <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
-          <table role="table" class="nhsuk-table-responsive">
-            <caption class="nhsuk-table__caption">Your profiles</caption>
-            <thead role="rowgroup" class="nhsuk-table__head">
-              <tr role="row">
-                <th role="columnheader" scope="col">Review title</th>
-                <th role="columnheader" scope="col">Date posted</th>
-                <th role="columnheader" scope="col">Date visited</th>
-                <th role="columnheader" scope="col">Star rating</th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              {% for review in oneStarReviews %}
-              <tr role="row" class="nhsuk-table__row">
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Review title </span>
-                  <a href="response" aria-label="View review titled Slow and rude">
-                    {{ review.title }} 
-                  </a>
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Date posted </span>
-                  {{ review.datePosted }}
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Date visited</span>
-                  {{ review.dateVisited }}
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Star rating</span>
-                  <span class="stars stars--small">
-                    {% for i in range(0, review.starRating) %}★{% endfor %}
-                  </span>
-                  <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <table role="table" class="nhsuk-table-responsive">
+              <caption class="nhsuk-table__caption">Your profiles</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Review title</th>
+                  <th role="columnheader" scope="col">Date posted</th>
+                  <th role="columnheader" scope="col">Date visited</th>
+                  <th role="columnheader" scope="col">Star rating</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                {% for review in oneStarReviews %}
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Review title </span>
+                    <a href="response" aria-label="View review titled Slow and rude">
+                      {{ review.title }} 
+                    </a>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date posted </span>
+                    {{ review.datePosted }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date visited</span>
+                    {{ review.dateVisited }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Star rating</span>
+                    <span class="stars stars--small">
+                      {% for i in range(0, review.starRating) %}★{% endfor %}
+                    </span>
+                    <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
