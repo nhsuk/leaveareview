@@ -85,7 +85,7 @@ module.exports = [
 		"starRating": 5,
 	},
 	{
-		"title": "Slow and rude",
+		"title": "Terrible service",
 		"datePosted": "5/04/2021",
 		"dateVisited": "04/2021",
 		"starRating": 1,
