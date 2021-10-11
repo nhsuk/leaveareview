@@ -1,4 +1,5 @@
 {% from 'button/macro.njk' import button %}
+{% from 'error-summary/macro.njk' import errorSummary %}
 
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout-no-cookie.html" %}
@@ -32,6 +33,12 @@ Which email address did you sign in with on your old account? - Profile Manager 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      {% if hasErrors %}
+        {{ errorSummary({
+          "titleText": "There is a problem",
+          "errorList": errorList
+        }) }}
+      {% endif %}
 			<form action="/editor-login/register/previous-email" method="POST">
 				<div class="nhsuk-form-group">
 					<h1 class="nhsuk-label-wrapper">

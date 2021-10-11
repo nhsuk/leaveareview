@@ -51,7 +51,7 @@ Choose a profile for reviews - Profile Manager - NHS
       {% else %}
       <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
       {% endif %}
-      <p><a href="all-comments">View all unresponded comments</a></p>
+      <p><a href="all-comments">View all unresponded reviews</a></p>
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <table role="table" class="nhsuk-table-responsive">
@@ -61,7 +61,7 @@ Choose a profile for reviews - Profile Manager - NHS
                 <th role="columnheader" scope="col">Name</th>
                 <th role="columnheader" scope="col">Address</th>
                 <th role="columnheader" scope="col">Recent review date</th>
-                <th role="columnheader" scope="col">Comments</th>
+                <th role="columnheader" scope="col">Reviews</th>
               </tr>
             </thead>
             <tbody class="nhsuk-table__body">
@@ -82,7 +82,7 @@ Choose a profile for reviews - Profile Manager - NHS
                   {{ pharmacy.recentReview }} 
                 </td>
                 <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Comments</span>
+                  <span class="nhsuk-table-responsive__heading">Reviews</span>
                   {{ pharmacy.comments }} 
                 </td>
               </tr>

@@ -22,13 +22,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-      <h1 class="nhsuk-u-margin-bottom-4">All user reviews </h1>
+      <h1>All user reviews </h1>
       <a class="nhsuk-skip-link" href="#profileslist">Skip to review list</a>
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <div class="search-sort" aria-label="Comment search and filter">
             <form id="search" action="/org-response/search-review" method="POST" role="search">
-              <label class="nhsuk-label" for="searchBar">Search by title</label>
+              <label class="nhsuk-label" for="searchBar">Search by review title</label>
               <div class="search-bar-buttons">
                 <div class="search-bar">
                   <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
@@ -223,7 +223,6 @@
               <caption class="nhsuk-table__caption">Your profiles</caption>
               <thead role="rowgroup" class="nhsuk-table__head">
                 <tr role="row">
-                  <th role="columnheader" scope="col">Practice name</th>
                   <th role="columnheader" scope="col">Review title</th>
                   <th role="columnheader" scope="col">Date posted</th>
                   <th role="columnheader" scope="col">Date visited</th>
@@ -234,12 +233,8 @@
                 {% for review in reviews %}
                 <tr role="row" class="nhsuk-table__row">
                   <td role="cell" class="nhsuk-table__cell">
-                    <span class="nhsuk-table-responsive__heading">Practice name </span>
-                      Cohens 
-                  </td>
-                  <td role="cell" class="nhsuk-table__cell">
                     <span class="nhsuk-table-responsive__heading">Review title </span>
-                    <a href="org-response/response" aria-label="View review titled {{ review.title}}">
+                    <a href="/org-response/response" aria-label="View review titled {{ review.title}}">
                       {{ review.title }} 
                     </a>
                   </td>
