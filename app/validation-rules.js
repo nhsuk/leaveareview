@@ -16,12 +16,11 @@ module.exports = {
 	],
 	'/editor-login/register/confirmation-code': [
 		body('confirmationCode').custom((value) => {
-			if (value !== undefined && value !== 'QWER1234') {
+			if (value !== 'QWER1234') {
 				throw new Error('Enter the confirmation code we emailed') 
 			}
 			return true;
-		}),
-		body('confirmationCode').not().isEmpty().withMessage('Confirmation code cannot be empty'),
+		})
 	]
 
 };

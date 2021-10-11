@@ -45,10 +45,17 @@ We have found a match for this email address - Comment response tool - NHS
       <p>If you do not get the email you can <a href="/editor-login/register/previous-email">enter your address again</a> or <a href="/editor-login/register/use-system-for">request profiles via the NHS service desk</a>.</p>
       <form action="/editor-login/register/confirmation-code" method="POST">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="confirmationCode">
-            Enter your confirmation code 
-          </label>
-          <input class="nhsuk-input" id="confirmationCode" name="confirmaton-code" type="text">
+          {{ input({
+            "label": {
+              "text": "Enter your confirmation code"
+            },
+            "id": "confirmationCode",
+            "name": "confirmationCode",
+            "classes": "nhsuk-input--width-30",
+            "errorMessage": {
+              "text": errors.confirmationCode
+            } if errors.confirmationCode
+          }) }}
         </div>
         <button class="nhsuk-button" type="submit">Continue</button>
       </form>
