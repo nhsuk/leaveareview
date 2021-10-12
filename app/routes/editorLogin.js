@@ -48,7 +48,7 @@ router.post('/register/previous-email', (req, res) => {
 });
 
 router.post('/register/confirmation-code', (req, res) => {
-  res.redirect('/editor/');
+  res.redirect('/editor-login/transfer-profiles-complete');
 });
 
 router.post('/sign-in/nhs-signin', (req, res) => {
