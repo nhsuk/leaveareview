@@ -45,18 +45,20 @@ Which email address did you sign in with on your old account? - Profile Manager 
         {% else %}
           <div class="nhsuk-form-group">
         {% endif %}
+          <h1>Which non-NHSmail address do you sign in with on the current NHS website profile editor?</h1>
+          <p>We will send you a confirmation code in an email.</p>
+          <p>You will need the code next, to register with your personal NHSmail address.</p>
+          <p>If you no longer have access to the non-NHSmail account, you will need to <a href="/editor-login/register/use-system-for">add your pharmacy profiles</a>.</p>
           <label class="nhsuk-label" for="email">
-            <h1>Which non-NHSmail address do you sign in with on the current NHS website profile editor?</h1>
+            Enter non-NHSmail address
           </label>
-          <p>If you dont have access</p>
-          <div id="email-hint" class="nhsuk-hint">We will transfer your current profiles to your new account. </div>
           {% if hasErrors %}
             <span class="nhsuk-error-message" id="email-error">
-              <span class="nhsuk-u-visually-hidden">Error:</span> Enter an email address
+              <span class="nhsuk-u-visually-hidden">Error:</span> {{ errors.email }} 
             </span>
-            <input class="nhsuk-input nhsuk-input--error nhsuk-input--width-30" aria-describedby="email-hint email-error" id="email" name="email" type="text" aria-describedby="email-hint">
+            <input class="nhsuk-input nhsuk-input--error nhsuk-input--width-30" aria-describedby="email-hint email-error" id="email" name="email" type="text">
           {% else %}
-            <input class="nhsuk-input nhsuk-input--width-30" id="email" name="email" type="text" aria-describedby="email-hint">
+            <input class="nhsuk-input nhsuk-input--width-30" id="email" name="email" type="text" >
           {% endif %}
           <!-- {{ input({
             "label": {
