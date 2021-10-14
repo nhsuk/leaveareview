@@ -40,15 +40,32 @@ Which email address did you sign in with on your old account? - Profile Manager 
         }) }}
       {% endif %}
 			<form action="/editor-login/register/previous-email" method="POST">
-				<div class="nhsuk-form-group">
-          {{ input({
+        {% if hasErrors %}
+          <div class="nhsuk-form-group nhsuk-form-group--error">
+        {% else %}
+          <div class="nhsuk-form-group">
+        {% endif %}
+          <label class="nhsuk-label" for="email">
+            <h1>Which non-NHSmail address do you sign in with on the current NHS website profile editor?</h1>
+          </label>
+          <p>If you dont have access</p>
+          <div id="email-hint" class="nhsuk-hint">We will transfer your current profiles to your new account. </div>
+          {% if hasErrors %}
+            <span class="nhsuk-error-message" id="email-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> Enter an email address
+            </span>
+            <input class="nhsuk-input nhsuk-input--error nhsuk-input--width-30" aria-describedby="email-hint email-error" id="email" name="email" type="text" aria-describedby="email-hint">
+          {% else %}
+            <input class="nhsuk-input nhsuk-input--width-30" id="email" name="email" type="text" aria-describedby="email-hint">
+          {% endif %}
+          <!-- {{ input({
             "label": {
-              "text": "Which email address did you sign in with on your old account?",
+              "text": "Which non-NHSmail address do you sign in with on the current NHS website profile editor?",
               "classes": "nhsuk-label--xl",
               "isPageHeading": true
             },
             "hint": {
-              "text": "This will help us to transfer your old profiles to your new account."
+              "text": "We will transfer your current profiles to your new account."
             },
             "id": "email",
             "name": "email",
@@ -59,7 +76,7 @@ Which email address did you sign in with on your old account? - Profile Manager 
             "errorMessage": {
               "text": errors.email
             } if errors.email
-          }) }}
+          }) }} -->
 				</div>
 				<button class="nhsuk-button" type="submit">Continue</button>
 			</form>
