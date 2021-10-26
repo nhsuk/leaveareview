@@ -6,10 +6,10 @@ module.exports = {
 		body('telephone').not().isEmpty().withMessage('Enter a telephone number'),
 	],
 	'/editor-login/register/previous-email': [
-		body('email').isEmail().withMessage("Enter an email address"),
+		body('email').isEmail().withMessage("Enter non-NHSmail address"),
 		body('email').custom((value) => {
 			if (value.includes('nhs.net')) {
-				throw new Error('Email cannot contain @nhs.net') 
+				throw new Error('Enter non-NHSmail address (not ending nhs.net)') 
 			}
 			return true
 		})
@@ -17,7 +17,7 @@ module.exports = {
 	'/editor-login/register/confirmation-code': [
 		body('confirmationCode').custom((value) => {
 			if (value !== 'QWER1234') {
-				throw new Error('Enter the confirmation code we emailed') 
+				throw new Error('Enter the confirmation code') 
 			}
 			return true;
 		})
