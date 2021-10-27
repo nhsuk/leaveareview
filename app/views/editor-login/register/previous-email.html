@@ -46,8 +46,8 @@ Which email address did you sign in with on your old account? - Profile Manager 
           <div class="nhsuk-form-group">
         {% endif %}
           <h1>Which non-NHSmail address do you sign in with on the current NHS website profile editor?</h1>
-          <p>We will send you a confirmation code in an email.</p>
-          <p>You will need the code next, to register with your personal NHSmail address.</p>
+          <p>A non-NHSmail address is anything that does not end ‘nhs.net’. We will email a confirmation code to your non-NHSmail account.</p>
+          <p>You will need to enter the code on the next page, to register with your personal NHSmail address.</p>
           <p>If you no longer have access to the non-NHSmail account, you will need to <a href="/editor-login/register/use-system-for">add your pharmacy profiles</a>.</p>
           <label class="nhsuk-label" for="email">
             Enter a non-NHSmail address
@@ -60,25 +60,6 @@ Which email address did you sign in with on your old account? - Profile Manager 
           {% else %}
             <input class="nhsuk-input nhsuk-input--width-30" id="email" name="email" type="text" >
           {% endif %}
-          <!-- {{ input({
-            "label": {
-              "text": "Which non-NHSmail address do you sign in with on the current NHS website profile editor?",
-              "classes": "nhsuk-label--xl",
-              "isPageHeading": true
-            },
-            "hint": {
-              "text": "We will transfer your current profiles to your new account."
-            },
-            "id": "email",
-            "name": "email",
-            "classes": "nhsuk-input--width-30",
-            "attributes": {
-              "value": primaryTelephone 
-            },
-            "errorMessage": {
-              "text": errors.email
-            } if errors.email
-          }) }} -->
 				</div>
 				<button class="nhsuk-button" type="submit">Continue</button>
 			</form>
