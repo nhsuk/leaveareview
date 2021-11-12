@@ -61,103 +61,96 @@
       <p class="nhsuk-u-margin-bottom-6">Use the boxes to choose which services you would like to display on your profile.</p>
     </div>
   </div>
-  
   <form action="/services-edit" method="post">
-
     <div class="nhsuk-grid-row">
-      
       <div class="nhsuk-grid-column-two-thirds">
-
         <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
-                NHS Services
-              </h3>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              NHS Services
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              NHS Services
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-1" name="alcoholservice" type="checkbox" value="yes" {{ checked("alcoholservice", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-1">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-1" name="alcoholservice" type="checkbox" value="yes" {{ checked("alcoholservice", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-1">
                   Alcohol screening and intervention service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-2" name="chlamydiascreening" type="checkbox" value="yes" {{ checked("chlamydiascreening", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-2">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-2" name="chlamydiascreening" type="checkbox" value="yes" {{ checked("chlamydiascreening", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-2">
                   Chlamydia screening
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-3" name="condomsupply" type="checkbox" value="yes" checked>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-3">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-3" name="condomsupply" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-3">
                   Condom supply
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-4" name="emergencycontraception" type="checkbox" value="yes" {{ checked("emergencycontraception", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-4">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-4" name="emergencycontraception" type="checkbox" value="yes" {{ checked("emergencycontraception", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-4">
                   Emergency contraception
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-5" name="medicineusereviewservice" type="checkbox" value="yes" {{ checked("medicineusereviewservice", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-5">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-5" name="medicineusereviewservice" type="checkbox" value="yes" {{ checked("medicineusereviewservice", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-5">
                   Medicine use review service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-6" name="minorailmentservice" type="checkbox" value="yes" {{ checked("minorailmentservice", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-6">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-6" name="minorailmentservice" type="checkbox" value="yes" {{ checked("minorailmentservice", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-6">
                   Minor ailment service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-7" name="needleandsyringeexchange" type="checkbox" value="yes" checked>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-7">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-7" name="needleandsyringeexchange" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-7">
                   Needle and syringe exchange 
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-8" name="healthcheck" type="checkbox" value="yes" {{ checked("healthcheck", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-8">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-8" name="healthcheck" type="checkbox" value="yes" {{ checked("healthcheck", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-8">
                   NHS Health check
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-9" name="pregnancytesting" type="checkbox" value="yes" {{ checked("pregnancytesting", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-9">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-9" name="pregnancytesting" type="checkbox" value="yes" {{ checked("pregnancytesting", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-9">
                   Pregnancy testing
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-10" name="stopsmoking" type="checkbox" value="yes" {{ checked("stopsmoking", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-10">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-10" name="stopsmoking" type="checkbox" value="yes" {{ checked("stopsmoking", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-10">
                   Stop smoking service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-11" name="stopsmokingvoucher" type="checkbox" value="yes" {{ checked("stopsmokingvoucher", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-11">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-11" name="stopsmokingvoucher" type="checkbox" value="yes" {{ checked("stopsmokingvoucher", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-11">
                   Stop smoking voucher service
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="generalservices-12" name="weightmanagementservice" type="checkbox" value="yes" {{ checked("weightmanagementservice", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="generalservices-12">
+                <input class="nhsuk-checkboxes__input" id="nhsservices-12" name="weightmanagementservice" type="checkbox" value="yes" {{ checked("weightmanagementservice", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsservices-12">
                   Weight management service
                 </label>
               </div>
             </div>
           </fieldset>
-
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
-                Non-NHS Services
-              </h3>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>Non-NHS Services</h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Non-NHS Services
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -167,7 +160,7 @@
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="privateservices=2" name="chlamydiascreeningP" type="checkbox" value="yes" {{ checked("chlamydiascreeningP", "yes") }}>
+                <input class="nhsuk-checkboxes__input" id="privateservices-2" name="chlamydiascreeningP" type="checkbox" value="yes" {{ checked("chlamydiascreeningP", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="privateservices-2">
                   Chlamydia screening
                 </label>
@@ -222,13 +215,12 @@
               </div>
             </div>
           </fieldset>
-
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
-                General pharmacy services
-              </h3>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              General pharmacy services
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              General pharmacy services
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">

@@ -61,10 +61,11 @@
     <form action="/editor/opening-times/temporary-changes/temporary-changes-date" method="POST">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
-          <legend class="nhsuk-fieldset__legend nhsuk-label--xl">
-            <h1 class="nhsuk-fieldset__heading">When does the temporary change start?</h1>
+          <h1>When does the temporary change start?</h1>
+          <legend class="nhsuk-u-visually-hidden">
+            When does the temporary change start?
           </legend>
-          <span class="nhsuk-hint">
+          <span id="dob-hint" class="nhsuk-hint">
             For example, 31 12 2020 
           </span>
           <div class="nhsuk-date-input">

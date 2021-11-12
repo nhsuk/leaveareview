@@ -56,25 +56,20 @@ Edit facilities - Profile Manager - NHS
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <!--span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 1</span-->
       <h1>Edit facilities</h1>
       <p class="nhsuk-u-margin-bottom-6">Use the boxes to choose which facilities you would like to display on your profile.</p>
     </div>
   </div>
-  
   <form action="/facilities-edit" method="post">
-
     <div class="nhsuk-grid-row">
-      
       <div class="nhsuk-grid-column-one-half">
-
         <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
-                Accessibility
-              </h3>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              Accessibility
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Accessibility
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -128,11 +123,12 @@ Edit facilities - Profile Manager - NHS
             </div>
           </fieldset>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-              <h3 class="nhsuk-fieldset__heading">
-                Patient facilities
-              </h3>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              Patient facilities
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Patient facilities
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">

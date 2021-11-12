@@ -53,189 +53,173 @@ Confirm your chosen facilities - Profile Manager - NHS
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
-
       <form action="/facilities-check" method="post">
-        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-6">
-            Confirm your chosen facilities 
-          </legend>
+        <h1>Confirm your chosen facilities</h1>
+        <h2>Accessibility</h2>
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key" style="width:50%;">
+              Braille translation service
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["brailleTranslationService"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> braille translation services</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Disabled car parking
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data["disabledCarParking"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> disabled car parking</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Disabled WC
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data["disabledWC"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> disabled wc</span>
+              </a>
+            </dd>
+          </div>
 
-          <h3>Accessibility</h3>
-          <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Induction loop
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["inductionLoop"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> induction loop</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Text relay
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["textRelay"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> text relay</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Signing service
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["signingService"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> signing service</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Wheelchair access
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              yes
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> wheelchair access</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Step-free access
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["stepFreeAccess"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> step-free access</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <h2>Patient facilities</h2>
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key" style="width:50%;">
+              Car parking
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["cycleParking"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> car parking</span>
+              </a>
+            </dd>
+          </div>
 
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key" style="width:50%;">
-                Braille translation service
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["brailleTranslationService"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> braille translation services</span>
-                </a>
-              </dd>
-            </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key" style="width:50%;">
+              Cycle parking
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              yes 
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> cycle parking</span>
+              </a>
+            </dd>
+          </div>
 
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Disabled car parking
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{ data["disabledCarParking"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> disabled car parking</span>
-                </a>
-              </dd>
-            </div>
-            
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Disabled WC
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{ data["disabledWC"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> disabled wc</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Induction loop
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["inductionLoop"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> induction loop</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Text relay
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["textRelay"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> text relay</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Signing service
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["signingService"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> signing service</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Wheelchair access
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                yes
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> wheelchair access</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Step-free access
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["stepFreeAccess"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> step-free access</span>
-                </a>
-              </dd>
-            </div>
-            
-          </dl>
-
-          <h3>Patient facilities</h3>
-          <dl class="nhsuk-summary-list">
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key" style="width:50%;">
-                Car parking
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["cycleParking"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> car parking</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key" style="width:50%;">
-                Cycle parking
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                yes 
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> cycle parking</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key" style="width:50%;">
-                Baby changing facilities
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["babyChangingFacilities"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> baby changing facilities</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key" style="width:50%;">
-                Customer toilet
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{data["customerToilet"]}}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="facilities-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> customer toilet</span>
-                </a>
-              </dd>
-            </div>
-          </dl>
-        </fieldset>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key" style="width:50%;">
+              Baby changing facilities
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["babyChangingFacilities"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> baby changing facilities</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key" style="width:50%;">
+              Customer toilet
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["customerToilet"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="facilities-edit">
+                Change<span class="nhsuk-u-visually-hidden"> customer toilet</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
         {{ button({
           "text": "Save and confirm",
           "id": "btn_submit"
