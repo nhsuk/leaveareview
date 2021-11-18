@@ -2,8 +2,8 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 const express = require('express');
 const router = express.Router();
 const moment = require('moment');
-const app = require('../../app');
-const recentChangeMade = require('../routes').recentChangeMade;
+const app = require('../../../../app');
+const recentChangeMade = require('../../../routes').recentChangeMade;
 let recentOpeningTimesChange = false;
 
 // Create local storage for opening times
