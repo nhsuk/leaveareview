@@ -202,9 +202,15 @@ if (onlyDocumentation == 'true') {
 app.use('/', routes);
 
 /*********** PHARMACIES ***********/
+<<<<<<< HEAD
 app.use('/profile-manager/pharmacies', pharmacyRoutes);
 app.use('/profile-manager/pharmacies/editor/opening-times', openingTimesRoutes);
 app.use('/profile-manager/pharmacies/editor-login', editorLogin);
+=======
+app.use('/editor', pharmacyRoutes);
+app.use('/editor/opening-times', openingTimesRoutes);
+// app.use('/editor-login', editorLogin);
+>>>>>>> Refactoring editor
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {
