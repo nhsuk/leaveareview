@@ -204,6 +204,7 @@ app.use('/', routes);
 /*********** PHARMACIES ***********/
 app.use('/editor', pharmacyRoutes);
 app.use('/editor/opening-times', openingTimesRoutes);
+app.use('/profile-manager/pharmacies', pharmacyRoutes);
 // app.use('/editor-login', editorLogin);
 
 // Automatically route pages

@@ -26,19 +26,10 @@ pharmacies.sort((a, b) => {
 reviews.forEach((review) => {
   review.datePosted = moment(review.datePosted, 'DD/MM/YYYY').format('DD MMM YYYY')
   review.dateVisited = moment(review.dateVisited, 'MM/YYYY').format('MMM YYYY')
-  return review
+  return review;
 })
 
 // Branching - Org Response Tool
-router.post('/process-response', function (req, res) {
-  let response = req.body.yourresponse;
-
-  if (response == '') {
-    res.redirect('/org-response/response-error');
-  } else {
-    res.redirect('/org-response/response-confirm');
-  }
-});
 
 // Branching - Profile Editor
 router.get('/editor/org-name-start', (req, res) => {
@@ -259,16 +250,16 @@ router.get('/profiles/profiles-page3', (req, res) => {
   res.render('profiles/profiles-page3', { currentPharmacies, pharmacies });
 });
 
-router.post('/search-pharmacy', (req, res) => {
+router.post('/profiles-comments/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
   let currentPharmacies = findByPostCode(searchTerm);
   if (searchTerm.toLowerCase() === 'leeds') {
     res.redirect('/profiles/multiple-places');
   }
   if (currentPharmacies.length === 0) {
-    res.redirect('/editor/no-results');
+    res.redirect('/profile-manager/pharmacies/profiles-comments/no-results');
   } else {
-    res.render('profiles/index', { currentPharmacies, searchTerm });
+    res.render('profile-manager/pharmacies/profiles-comments/index', { currentPharmacies, searchTerm });
   }
 });
 
@@ -297,23 +288,34 @@ router.get('/profiles/profile-list-leeds', (req, res) => {
 /* Profiles with comments */
 router.get('/profiles-comments', (req, res) => {
   let currentPharmacies = pharmacies.slice(0, 15);
-  res.render('profiles-comments/index', { currentPharmacies, pharmacies });
+  res.render('profile-manager/pharmacies/profiles-comments/index', { currentPharmacies, pharmacies });
 });
 
 router.get('/profiles-comments/profiles-page2', (req, res) => {
   let currentPharmacies = pharmacies.slice(15, 30);
-  res.render('profiles-comments/profiles-page2', {
+  res.render('profile-manager/pharmacies/profiles-comments/profiles-page2', {
     currentPharmacies,
     pharmacies,
   });
 });
 
+router.get('/profiles-comments/all-comments', (req, res) => {
+  res.render('profile-manager/pharmacies/profiles-comments/all-comments', { reviews });
+});
+
+router.post('/profiles-comments/all-comments', (req, res) => {
+  if (req.body["sort-by"] === "starRating") {
+    res.redirect('reviews-sort-rating')
+  }
+  res.redirect('reviews-one-star')
+})
+
 router.post('/search-pharmacy-reviews', (req, res) => {
   let searchTerm = req.body.search;
   if (searchTerm.toLowerCase() === 'leeds') {
-    res.redirect('/profiles-comments/multiple-places');
+    res.redirect('/profile-manager/pharmacies/profiles-comments/multiple-places');
   } else {
-    res.redirect('profiles-comments/no-results');
+    res.redirect('/profile-manager/pharmacies/profiles-comments/no-results');
   }
 });
 
@@ -326,16 +328,6 @@ router.get('/profiles-comments/profile-list-leeds', (req, res) => {
   });
 });
 
-// router.post('/search-pharmacy-with-comments', (req, res) => {
-//   let searchTerm = req.body.search;
-//   const currentPharmacies = findByODS(searchTerm);
-//   res.render('profiles-comments/index', {
-//     currentPharmacies,
-//     pharmacies,
-//     searchTerm
-//   });
-// });
-
 function findByODS(searchTerm) {
   const searchResults = pharmacies.filter((pharm) =>
     pharm.ODSCode.toLowerCase().includes(searchTerm.toLowerCase())
@@ -343,64 +335,33 @@ function findByODS(searchTerm) {
   return searchResults;
 }
 
-/* Sort and and full search no longer required for mvp */
+router.post('/org-response/response', function (req, res) {
+  let response = req.body.yourresponse;
 
-function findService(query) {
-  const servicesFound = pharmacies.filter((pharm) =>
-    Object.values(pharm).find((val) =>
-      val.toLowerCase().includes(query.toLowerCase())
-    )
-  );
-  return servicesFound;
-}
-
-router.get('/profiles/sort-name', (req, res) => {
-  let currentPharmacies = pharmacies.slice(0, 15);
-  currentPharmacies = currentPharmacies.sort((a, b) =>
-    a.Name.localeCompare(b.Name)
-  );
-  res.render('profiles/sort-name', { currentPharmacies, pharmacies });
-});
-
-router.get('/profiles/sort-city', (req, res) => {
-  let currentPharmacies = pharmacies.slice(0, 15);
-  currentPharmacies = currentPharmacies.sort((a, b) =>
-    a.Town.localeCompare(b.Town)
-  );
-  res.render('profiles/sort-name', { currentPharmacies, pharmacies });
-});
-
-router.get('/org-response', (req, res) => {
-  res.render('org-response/index', { reviews });
-});
-
-router.post('/org-response/search-review', (req, res) => {
-  if (req.body["sort-by"] === "starRating") {
-    res.redirect('reviews-sort-rating')
+  if (response == '') {
+    res.redirect('/profile-manager/pharmacies/org-response/response-error');
+  } else {
+    res.redirect('/profile-manager/pharmacies/org-response/response-confirm');
   }
-  res.redirect('reviews-one-star')
+});
+
+router.post('/profiles-comments/all-comments/search-review', (req, res) => {
+  if (req.body["sort-by"] === "starRating") {
+    res.redirect('/profile-manager/pharmacies/profiles-comments/reviews-sort-rating')
+  }
+  res.redirect('/profile-manager/pharmacies/profiles-comments/reviews-one-star')
 })
 
-router.get('/org-response/reviews-one-star', (req, res) => {
+router.get('/profiles-comments/reviews-one-star', (req, res) => {
   oneStarReviews = reviews.filter(rating => rating.starRating === 1);
   // oneStarReviews = oneStarReviews.slice(0, 2)
-  res.render('org-response/reviews-one-star', { oneStarReviews });
+  res.render('profile-manager/pharmacies/profiles-comments/reviews-one-star', { oneStarReviews });
 });
 
-router.get('/org-response/reviews-sort-rating', (req, res) => {
-  sortedReviews = reviews.sort((a, b) => a.starRating > b.starRating ? 1 : -1);
-  res.render('org-response/reviews-sort-rating', { sortedReviews });
-})
-
-router.get('/profiles-comments/all-comments', (req, res) => {
-  res.render('profiles-comments/all-comments', { reviews });
-});
-
-router.post('/profiles-comments/all-comments', (req, res) => {
-  if (req.body["sort-by"] === "starRating") {
-    res.redirect('reviews-sort-rating')
-  }
-  res.redirect('reviews-one-star')
+router.get('/profiles-comments/reviews-sort-rating', (req, res) => {
+  let sortedReviews = reviews; 
+  sortedReviews = sortedReviews.sort((a, b) => a.starRating > b.starRating ? 1 : -1);
+  res.render('profile-manager/pharmacies/profiles-comments/reviews-sort-rating', { sortedReviews });
 })
 
 module.exports = {
