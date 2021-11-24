@@ -29,7 +29,35 @@ reviews.forEach((review) => {
   return review;
 })
 
-// Branching - Profile Editor
+router.get('/editor/manage-profile', function (req, res) {
+  let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
+  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
+  let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
+  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
+  let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
+  let servicesConfirmed = localStorage.getItem('servicesConfirmed');
+
+  // Setting values to booleans again due to localStorage using strings
+  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
+  facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
+  servicesConfirmed = JSON.parse(servicesConfirmed);
+
+  res.render('profile-manager/pharmacies/editor/manage-profile', {
+    contactDetailsLastUpdatedDate,
+    openingTimesLastUpdatedDate,
+    facilitiesLastUpdatedDate,
+    servicesLastUpdatedDate,
+    recentChangeMade,
+    contactDetailsConfirmed,
+    facilitiesConfirmed,
+    servicesConfirmed,
+  });
+});
+
+//*********************** */
+// Branching - Org name
+//*********************** */
 router.get('/editor/org-name-start', (req, res) => {
   recentChangeMade = false;
   res.render('editor/org-name-start');
@@ -60,85 +88,9 @@ router.post('/confirm-name', (req, res) => {
   res.redirect('/editor/manage-profile');
 });
 
-// Branching - Contact Details
-router.get('/editor/contact-details-start', (req, res) => {
-  recentChangeMade = false;
-  res.render('editor/contact-details-start');
-});
-
 //*********************** */
-// Branching - Facilities
+// Branching - Contact details 
 //*********************** */
-
-router.get('/editor/facilities/facilities-edit', function (req, res) {
-  recentChangeMade = false;
-  res.render('editor/facilities/facilities-edit');
-});
-
-router.post('/facilities-edit', function (req, res) {
-  res.redirect('/editor/facilities/facilities-check');
-});
-
-router.post('/facilities-check', function (req, res) {
-  localStorage.setItem(
-    'facilitiesUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  recentChangeMade = true;
-  facilitiesConfirmed = true;
-  res.redirect('/editor/manage-profile');
-});
-
-
-//*********************** */
-// Branching - Services
-//*********************** */
-router.get('/editor/services/services-edit', function (req, res) {
-  recentChangeMade = false;
-  res.render('editor/services/services-edit');
-});
-
-router.post('/services-edit', function (req, res) {
-  res.redirect('/editor/services/services-check');
-});
-
-router.post('/services-check', function (req, res) {
-  localStorage.setItem(
-    'servicesUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  recentChangeMade = true;
-  servicesConfirmed = true;
-  res.redirect('/editor/manage-profile');
-});
-
-router.get('/editor/manage-profile', function (req, res) {
-  let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
-  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
-  let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
-  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
-  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
-  let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
-  let servicesConfirmed = localStorage.getItem('servicesConfirmed');
-
-  // Setting values to booleans again due to localStorage using strings
-  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
-  facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
-  servicesConfirmed = JSON.parse(servicesConfirmed);
-
-  res.render('profile-manager/pharmacies/editor/manage-profile', {
-    contactDetailsLastUpdatedDate,
-    openingTimesLastUpdatedDate,
-    facilitiesLastUpdatedDate,
-    servicesLastUpdatedDate,
-    recentChangeMade,
-    contactDetailsConfirmed,
-    facilitiesConfirmed,
-    servicesConfirmed,
-  });
-});
-
-// let primaryTelephone = 4111111
 router.get('/editor/contact-details/contact-details-phone-edit', function (req, res) {
   let primaryTelephone = localStorage.getItem('primaryTelephone')
   res.render('profile-manager/pharmacies/editor/contact-details/contact-details-phone-edit', { primaryTelephone });
@@ -150,7 +102,6 @@ router.post('/editor/contact-details/contact-details-phone-edit', function (req,
 });
 
 router.post('/editor/contact-details/contact-details-online-edit', function (req, res) {
-  console.log('HERE')
   let email = req.body.email;
   if (!email) {
     res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit?error=true');
@@ -174,7 +125,53 @@ router.post('/editor/contact-details/contact-details-check', function (req, res)
   res.redirect('/profile-manager/pharmacies/editor/manage-profile');
 }); 
 
+//*********************** */
+// Branching - Facilities
+//*********************** */
+router.get('/editor/facilities/facilities-edit', function (req, res) {
+  recentChangeMade = false;
+  res.render('profile-manager/pharmacies/editor/facilities/facilities-edit');
+});
+
+router.post('/editor/facilities/facilities-edit', function (req, res) {
+  res.redirect('/profile-manager/pharmacies/editor/facilities/facilities-check');
+});
+
+router.post('/editor/facilities/facilities-check', function (req, res) {
+  localStorage.setItem(
+    'facilitiesUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  recentChangeMade = true;
+  facilitiesConfirmed = true;
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+});
+
+//*********************** */
 // Branching - Services
+//*********************** */
+router.get('/editor/services/services-edit', function (req, res) {
+  recentChangeMade = false;
+  res.render('profile-manager/pharmacies/editor/services/services-edit');
+});
+
+router.post('/editor/services/services-edit', function (req, res) {
+  res.redirect('/profile-manager/pharmacies/editor/services/services-check');
+});
+
+router.post('/editor/services/services-check', function (req, res) {
+  localStorage.setItem(
+    'servicesUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  recentChangeMade = true;
+  servicesConfirmed = true;
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+});
+
+//*********************** */
+// Branching - Services 
+//*********************** */
 router.post('/services-edit', function (req, res) {
   res.redirect('/editor/services/services-check');
 });
@@ -182,11 +179,6 @@ router.post('/services-edit', function (req, res) {
 router.get('/editor/services/index', function (req, res) {
   recentChangeMade = false;
   res.render('editor/services/index');
-});
-
-// Branching - Facilities
-router.post('/facilities', function (req, res) {
-  res.redirect('/editor/manage-profile');
 });
 
 router.get('/editor/profiles', (req, res) => {
