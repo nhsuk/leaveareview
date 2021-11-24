@@ -29,8 +29,6 @@ reviews.forEach((review) => {
   return review;
 })
 
-// Branching - Org Response Tool
-
 // Branching - Profile Editor
 router.get('/editor/org-name-start', (req, res) => {
   recentChangeMade = false;
@@ -174,7 +172,7 @@ router.get('/editor/manage-profile', function (req, res) {
   facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
   servicesConfirmed = JSON.parse(servicesConfirmed);
 
-  res.render('editor/manage-profile', {
+  res.render('profile-manager/pharmacies/editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
     facilitiesLastUpdatedDate,
@@ -188,33 +186,6 @@ router.get('/editor/manage-profile', function (req, res) {
 
 let whichPatients = [];
 let newPatients;
-router.post('/accepting', function (req, res) {
-  newPatients = req.body.newPatients;
-  whichPatients = req.body.whichPatients;
-  localStorage.setItem(
-    'availabilityLastUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  if (!newPatients) {
-    res.redirect('/editor/availability/index?error=true');
-  } else {
-    res.redirect('/editor/manage-profile');
-  }
-});
-
-router.get('/editor/availability/index', (req, res) => {
-  if (newPatients === 'referral') whichPatients = [];
-  let acceptingChildren = whichPatients.includes('children');
-  let acceptingAdultsOver = whichPatients.includes('adults');
-  let acceptingAdultsDental = whichPatients.includes('adultsDental');
-  let notAccepting = whichPatients.includes('notAccepting');
-  res.render('editor/availability/index', {
-    acceptingChildren,
-    acceptingAdultsOver,
-    acceptingAdultsDental,
-    notAccepting,
-  });
-});
 
 // Branching - Services
 router.post('/services-edit', function (req, res) {
@@ -231,13 +202,13 @@ router.post('/facilities', function (req, res) {
   res.redirect('/editor/manage-profile');
 });
 
-router.get('/profiles', (req, res) => {
+router.get('/editor/profiles', (req, res) => {
   recentChangeMade = false;
   // contactDetailsConfirmed = false;
   // facilitiesConfirmed = false;
   // servicesConfirmed = false;
   currentPharmacies = pharmacies.slice(0, 15);
-  res.render('profiles/index', { currentPharmacies, pharmacies });
+  res.render('profile-manager/pharmacies/editor/profiles/index', { currentPharmacies, pharmacies });
 });
 
 router.get('/profiles/profiles-page2', (req, res) => {

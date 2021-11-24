@@ -17,7 +17,7 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
   res.redirect('/profile-manager/pharmacies/editor-login/no-profiles-landing');
 });
 
-router.post('/register/use-system-for', (req, res) => {
+router.post('/editor-login/register/use-system-for', (req, res) => {
   res.redirect('/profile-manager/pharmacies/add-profiles/add-profile');
 });
 
