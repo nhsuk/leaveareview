@@ -10,7 +10,7 @@ const reviews = require('../../../data/reviews');
 const pharmacies = require('../../../data/pharmacies');
 
 // Create local storage for opening times
-const localStorage = new LocalStorage('./../../scratch');
+const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
 // let contactDetailsConfirmed = false;
@@ -65,52 +65,6 @@ router.get('/editor/contact-details-start', (req, res) => {
   recentChangeMade = false;
   res.render('editor/contact-details-start');
 });
-
-// let primaryTelephone = 4111111
-router.get('/editor/contact-details-phone-edit', function (req, res) {
-  let primaryTelephone = localStorage.getItem('primaryTelephone')
-  res.render('editor/contact-details-phone-edit', { primaryTelephone });
-});
-
-router.post('/editor/contact-details-phone-edit', function (req, res) {
-  localStorage.setItem('primaryTelephone', req.body.telephone);
-  res.redirect('/editor/contact-details-online-edit');
-});
-
-router.post('/contact-details-2', function (req, res) {
-  let email = req.body.email;
-  if (!email) {
-    res.redirect('/editor/contact-details-online-edit?error=true');
-  } else {
-    res.redirect('/editor/contact-details-check');
-  }
-});
-
-router.post('/contact-details-3', function (req, res) {
-  let offer = req.body.offer;
-
-  if (!offer) {
-    res.redirect('/editor/contact-details-consultation-edit?error=true');
-  } else {
-    res.redirect('/editor/contact-details-check');
-  }
-});
-
-router.get('/editor/contact-details-check', function (req, res) {
-  const showEditAll = req.query.hasOwnProperty('check')
-  res.render('editor/contact-details-check', { showEditAll})
-})
-
-router.post('/contact-details-check', function (req, res) {
-  localStorage.setItem(
-    'contactDetailsUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  recentChangeMade = true;
-  localStorage.setItem('contactDetailsConfirmed', true);
-  res.redirect('/editor/manage-profile');
-
-}); 
 
 //*********************** */
 // Branching - Facilities
@@ -184,8 +138,41 @@ router.get('/editor/manage-profile', function (req, res) {
   });
 });
 
-let whichPatients = [];
-let newPatients;
+// let primaryTelephone = 4111111
+router.get('/editor/contact-details/contact-details-phone-edit', function (req, res) {
+  let primaryTelephone = localStorage.getItem('primaryTelephone')
+  res.render('profile-manager/pharmacies/editor/contact-details/contact-details-phone-edit', { primaryTelephone });
+});
+
+router.post('/editor/contact-details/contact-details-phone-edit', function (req, res) {
+  localStorage.setItem('primaryTelephone', req.body.telephone);
+  res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit');
+});
+
+router.post('/editor/contact-details/contact-details-online-edit', function (req, res) {
+  console.log('HERE')
+  let email = req.body.email;
+  if (!email) {
+    res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit?error=true');
+  } else {
+    res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-check');
+  }
+});
+
+router.get('/editor/contact-details/contact-details-check', function (req, res) {
+  const showEditAll = req.query.hasOwnProperty('check')
+  res.render('profile-manager/pharmacies/editor/contact-details/contact-details-check', { showEditAll })
+})
+
+router.post('/editor/contact-details/contact-details-check', function (req, res) {
+  localStorage.setItem(
+    'contactDetailsUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  recentChangeMade = true;
+  localStorage.setItem('contactDetailsConfirmed', true);
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+}); 
 
 // Branching - Services
 router.post('/services-edit', function (req, res) {
