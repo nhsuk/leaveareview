@@ -70,20 +70,10 @@ router.get('/days', (_, res) => {
   });
 });
 
-router.get('/confirm-opening-times', (_, res) => {
-  res.render('editor/opening-times/confirm-opening-times', {
-    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
-  });
-});
-
-router.post('/confirm-opening-times', (_, res) => {
-  res.redirect('/editor/opening-times/opening-times-start');
-});
-
 router.get('/days/:day', (req, res) => {
   const dayObj = getDay(req);
   recentOpeningTimesChange = false;
-  res.render('editor/opening-times/day', { dayObj });
+  res.render('profile-manager/pharmacies/editor/opening-times/day', { dayObj });
 });
 
 router.post('/days/:day/set', (req, res) => {
@@ -104,7 +94,7 @@ router.post('/days/:day/set', (req, res) => {
     delete daysToDisplay[dayObj.key.toUpperCase()];
     const times = req.body;
     delete times['open']
-    res.render('editor/opening-times/copy', {
+    res.render('profile-manager/pharmacies/editor/opening-times/copy', {
       dayObj,
       daysToDisplay,
       times,
@@ -120,7 +110,7 @@ router.post('/days/:day/set', (req, res) => {
     // Set localstorage times to new times
     localStorage.setItem('localOpeningTimes', JSON.stringify(newOpeningTimes));
     localStorage.setItem('openingTimesUpdatedDate', dateNow);
-    res.redirect('/editor/opening-times/days');
+    res.redirect('/profile-manager/pharmacies/editor/opening-times/days');
   }
 });
 
@@ -128,7 +118,7 @@ router.post('/days/:day/copy', (req, res) => {
   const dayObj = getDay(req);
   const daysToDisplay = { ...days };
   delete daysToDisplay[dayObj.key.toUpperCase()];
-  res.render('editor/opening-times/copy', {
+  res.render('profile-manager/pharmacies/editor/opening-times/copy', {
     dayObj,
     daysToDisplay,
     times: req.body,
@@ -158,10 +148,20 @@ router.post('/days', (req, res) => {
   const dateNow = moment().format('DD MMMM YYYY');
   localStorage.setItem('openingTimesUpdatedDate', dateNow);
   // Redirect to page which will display times from new localstorage
-  res.redirect('/editor/opening-times/confirm-opening-times');
+  res.redirect('/profile-manager/pharmacies/editor/opening-times/confirm-opening-times');
 });
 
-router.post('/bank-holiday/opening-time', (req, res) => {
+router.get('/confirm-opening-times', (_, res) => {
+  res.render('profile-manager/pharmacies/editor/opening-times/confirm-opening-times', {
+    openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
+  });
+});
+
+router.post('/confirm-opening-times', (_, res) => {
+  res.redirect('/profile-manager/pharmacies/editor/opening-times/opening-times-start');
+});
+
+router.post('/bank-holiday/day', (req, res) => {
   let firstTime;
   let secondTime;
   let thirdTime;
@@ -174,7 +174,7 @@ router.post('/bank-holiday/opening-time', (req, res) => {
   if (req.body.bankHolOpenTime3) {
     thirdTime = `${req.body.bankHolOpenTime3} to ${req.body.bankHolCloseTime3}`;
   }
-  res.render('editor/opening-times/bank-holiday/confirm', {
+  res.render('profile-manager/pharmacies/editor/opening-times/bank-holiday/confirm', {
     firstTime,
     secondTime,
     thirdTime,
@@ -182,7 +182,7 @@ router.post('/bank-holiday/opening-time', (req, res) => {
 });
 
 router.post('/bank-holiday/confirm', (req, res) => {
-  res.redirect('/editor/opening-times/opening-times-start')
+  res.redirect('/profile-manager/pharmacies/editor/opening-times/opening-times-start')
 });
 
 localStorage.setItem('tempChanges', JSON.stringify([]));
