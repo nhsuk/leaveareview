@@ -193,10 +193,10 @@ router.get(
     const tempChanges = JSON.parse(localStorage.getItem('tempChanges'));
     if (tempChanges.length === 0) {
       res.redirect(
-        '/editor/opening-times/temporary-changes/temporary-changes-date'
+        '/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-date'
       );
     } else {
-      res.render('editor/opening-times/temporary-changes/temporary-changes', {
+      res.render('profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes', {
         tempChanges,
       });
     }
@@ -204,7 +204,7 @@ router.get(
 );
 
 
-router.get('/temporary-changes/temporary-changes-date',
+router.get('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-date',
   (req, res) => {
     recentOpeningTimesChange = false;
     res.render('editor/opening-times/temporary-changes/temporary-changes-date');
@@ -213,29 +213,29 @@ router.get('/temporary-changes/temporary-changes-date',
 
 router.post('/temporary-changes/temporary-changes-date',
   (req, res) => {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-open');
+    res.redirect('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-open');
   }
 );
 
 router.post('/temporary-changes/temporary-change-open', (req, res) => {
   if (req.body.open === 'yes') {
-    res.redirect(`/editor/opening-times/temporary-changes/temporary-changes-time`);
+    res.redirect(`/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-time`);
   } else {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-range-question')
+    res.redirect('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-range-question')
   }
 });
 
 router.post('/temporary-changes/temporary-changes-range-question', (req, res) => {
   if (req.body.tempChangeMultiDay === 'yes') {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-multiple-days');
+    res.redirect('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-done-multiple-days');
   } else {
-    res.redirect('/editor/opening-times/temporary-changes/temporary-changes-done-one-day');
+    res.redirect('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-done-one-day');
   }
 });
 
 router.post('/temporary-changes/temporary-changes-done-multiple-days', (req, res) => {
   recentOpeningTimesChange = true;
-  res.redirect('/editor/opening-times/opening-times-start');
+  res.redirect('/profile-manager/pharmacies/editor/opening-times/opening-times-start');
 });
 
 // Old fancy way
