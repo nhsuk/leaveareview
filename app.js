@@ -202,9 +202,9 @@ if (onlyDocumentation == 'true') {
 app.use('/', routes);
 
 /*********** PHARMACIES ***********/
-app.use('/editor/opening-times', openingTimesRoutes);
 app.use('/profile-manager/pharmacies', pharmacyRoutes);
-app.use('/editor-login', editorLogin);
+app.use('/profile-manager/pharmacies/editor/opening-times', openingTimesRoutes);
+app.use('/profile-manager/pharmacies/editor-login', editorLogin);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {

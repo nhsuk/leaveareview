@@ -59,8 +59,12 @@ const emptyOpeningTimes = Object.keys(days).map((key) => ({
 // Save default opening times to local storage
 localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
 
+router.get('/opening-times-start', (_, res) => {
+  res.render('profile-manager/pharmacies/editor/opening-times/opening-times-start', { recentOpeningTimesChange});
+});
+
 router.get('/days', (_, res) => {
-  res.render('editor/opening-times/days', {
+  res.render('profile-manager/pharmacies/editor/opening-times/days', {
     openingTimes: JSON.parse(localStorage.getItem('localOpeningTimes')),
     openingTimesUpdatedDate: localStorage.getItem('openingTimesUpdatedDate'),
   });
@@ -75,10 +79,6 @@ router.get('/confirm-opening-times', (_, res) => {
 router.post('/confirm-opening-times', (_, res) => {
   res.redirect('/editor/opening-times/opening-times-start');
 });
-
-router.get('/opening-times-start', (_, res) => {
-  res.render('editor/opening-times/opening-times-start', { recentOpeningTimesChange});
-})
 
 router.get('/days/:day', (req, res) => {
   const dayObj = getDay(req);

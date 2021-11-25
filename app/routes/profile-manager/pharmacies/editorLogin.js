@@ -17,7 +17,7 @@ router.post('/sign-in/non-nhs-signin', (req, res) => {
   res.redirect('/profile-manager/pharmacies/editor-login/no-profiles-landing');
 });
 
-router.post('/editor-login/register/use-system-for', (req, res) => {
+router.post('/register/use-system-for', (req, res) => {
   res.redirect('/profile-manager/pharmacies/add-profiles/add-profile');
 });
 
@@ -55,35 +55,6 @@ router.post('/sign-in/nhs-signin', (req, res) => {
   res.redirect('/profile-manager/pharmacies/editor-login/no-profiles-landing');
 });
 
-router.post('/add-profiles/add-profile', (req, res) => {
-  const profilesToAdd = JSON.parse(localStorage.getItem('profilesToAdd'));
-  let tempProfile = {
-    odsCode: req.body["odsCodeValue"],
-    name: req.body["org1-name"], 
-    townCity: req.body["org1-town-city"], 
-    postcode: req.body["org1-postcode"]
-  };
-  const newProfiles = [...profilesToAdd, tempProfile];
-  localStorage.setItem('profilesToAdd', JSON.stringify(newProfiles));
-  res.render('profile-manager/pharmacies/add-profiles/add-profiles-confirm', { newProfiles });
-});
-
-router.get('/add-profiles/remove-profile', (req, res) => {
-  const profiles = JSON.parse(localStorage.getItem('profilesToAdd'));
-  res.render('profile-manager/pharmacies/add-profiles/remove-profile', { profiles });
-});
-
-router.post('/add-profiles/remove-profile', (req, res) => {
-  const profilesToAdd = JSON.parse(localStorage.getItem('profilesToAdd'));
-  const newProfiles = profilesToAdd.slice(1);
-  localStorage.setItem('profilesToAdd', JSON.stringify(newProfiles));
-  res.render('profile-manager/pharmacies/add-profiles/add-profiles-confirm', { newProfiles });
-});
-
-router.get('/add-profiles/add-profiles-complete', (req, res) => {
-  localStorage.setItem('profilesToAdd', JSON.stringify([]));
-  res.render('profile-manager/pharmacies/add-profiles/add-profiles-complete');
-})
 
 module.exports = {
   router: router,
