@@ -1,5 +1,5 @@
 <!-- Extends the layout from /docs/views/layout.html -->
-{% extends 'layout-app-header.html' %}
+{% extends 'layout-app-header-pharmacies.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -11,7 +11,7 @@
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/editor"
+        "href": "../"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -23,9 +23,9 @@
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../editor">Home</a></li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="/profiles">
+        <a class="nhsuk-breadcrumb__link" href="../editor/profiles">
           Your profiles
         </a>
       </li>

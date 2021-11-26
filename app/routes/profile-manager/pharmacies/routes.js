@@ -30,7 +30,6 @@ reviews.forEach((review) => {
 })
 
 router.post('/editor/profiles/search-pharmacy', (req, res) => {
-  console.log('HERE')
   let searchTerm = req.body.search;
   let currentPharmacies = findByPostCode(searchTerm);
   if (searchTerm.toLowerCase() === 'leeds') {

@@ -15,7 +15,7 @@ Confirm your contact details - Profile Manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/editor"
+        "href": "../"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -28,23 +28,23 @@ Confirm your contact details - Profile Manager - NHS
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/">Home</a></li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="/profiles">
+        <a class="nhsuk-breadcrumb__link" href="../../editor/profiles">
           Your profiles
         </a>
       </li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
         Edit Cohens
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/contact-details-phone-edit">Your phone details</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/contact-details-online-edit">Your online contact details</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-phone-edit">Your phone details</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-online-edit">Your online contact details</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/contact-details-online-edit">
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../../editor/contact-details/contact-details-online-edit">
       Your online contact details 
     </a></p>
   </div>
