@@ -1,11 +1,11 @@
 const { body } = require('express-validator');
 
 module.exports = {
-  '/editor/contact-details-phone-edit': [
+  '/profile-manager/pharmacies/editor/contact-details/contact-details-phone-edit': [
 		body('telephone').isLength(11).withMessage('Telephone number must be 11 digits'),
 		body('telephone').not().isEmpty().withMessage('Enter a telephone number'),
 	],
-	'/editor-login/register/previous-email': [
+	'/profile-manager/pharmacies/editor-login/register/previous-email': [
 		body('email').isEmail().withMessage("Enter non-NHSmail address"),
 		body('email').custom((value) => {
 			if (value.includes('nhs.net')) {
@@ -14,7 +14,7 @@ module.exports = {
 			return true
 		})
 	],
-	'/editor-login/register/confirmation-code': [
+	'/profile-manager/pharmacies/editor-login/register/confirmation-code': [
 		body('confirmationCode').custom((value) => {
 			if (value !== 'QWER1234') {
 				throw new Error('Enter the confirmation code') 

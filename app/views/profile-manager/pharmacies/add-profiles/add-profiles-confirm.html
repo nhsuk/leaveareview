@@ -18,7 +18,7 @@ Request profile access - Profile Manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/"
+        "href": "/profile-manager/pharmacies/editor"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -77,7 +77,7 @@ Request profile access - Profile Manager - NHS
 								</a>
 							{% endif %}
 							{% if profile.odsCode %}
-								<a href="change-profile">
+								<a href="remove-profile">
 									Remove<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
 								</a>
 							{% else %}
