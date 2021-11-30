@@ -203,14 +203,14 @@ router.get('/editor/profiles', (req, res) => {
   res.render('profile-manager/pharmacies/editor/profiles/index', { currentPharmacies, pharmacies });
 });
 
-router.get('/profiles/profiles-page2', (req, res) => {
+router.get('/editor/profiles/profiles-page2', (req, res) => {
   let currentPharmacies = pharmacies.slice(15, 30);
-  res.render('profiles/profiles-page2', { currentPharmacies, pharmacies });
+  res.render('profile-manager/pharmacies/editor/profiles/profiles-page2', { currentPharmacies, pharmacies });
 });
 
-router.get('/profiles/profiles-page3', (req, res) => {
+router.get('/editor/profiles/profiles-page3', (req, res) => {
   let currentPharmacies = pharmacies.slice(31, 45);
-  res.render('profiles/profiles-page3', { currentPharmacies, pharmacies });
+  res.render('profile-manager/pharmacies/editor/profiles/profiles-page3', { currentPharmacies, pharmacies });
 });
 
 router.post('/profiles-comments/search-pharmacy', (req, res) => {
