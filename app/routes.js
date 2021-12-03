@@ -188,36 +188,6 @@ router.post('/confirmation', function (req, res) {
 });
 
 // Branching - Profile Editor
-router.get('/editor/org-name-start', (req, res) => {
-  recentChangeMade = false;
-  res.render('editor/org-name-start');
-});
-
-router.post('/org-name', function (req, res) {
-  let alias1 = req.body.alias1;
-
-  if (!alias1) {
-    res.redirect('/editor/org-name-edit?error=true');
-  } else {
-    res.redirect('/editor/org-name-choose-displayname');
-  }
-});
-
-router.post('/display-name-2', function (req, res) {
-  let displayname = req.body.displayname;
-
-  if (!displayname) {
-    res.redirect('/editor/org-name-choose-displayname?error=true');
-  } else {
-    res.redirect('/editor/org-name-confirm-displayname');
-  }
-});
-
-router.post('/confirm-name', (req, res) => {
-  recentChangeMade = true;
-  res.redirect('/editor/manage-profile');
-});
-
 router.post('/address', function (req, res) {
   let address1 = req.body.address1;
 

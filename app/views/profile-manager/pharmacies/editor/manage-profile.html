@@ -42,11 +42,10 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-u-margin-bottom-0">Edit profile</h1>
       <span class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
-        {% set displayname = 'alias0' %}
-        {% if data["displayname"] == alias0 %}
-        Cohens
+        {% if data["newname"]  %}
+          {{data["newname"]}}
         {%else%}
-        {{data["displayname"]}}
+          Cohens 
         {%endif%}
       </span>
       <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
@@ -74,7 +73,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Organisation name 
           </h2>
-          <span class="edit-link"><a href="org-name-start">Change</a></span>
+          <span class="edit-link"><a href="change-name/name-start">Change</a></span>
         </div>
       </div>
     </li>
