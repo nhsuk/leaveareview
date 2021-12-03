@@ -1,5 +1,5 @@
 queue:
-  name: Hosted Ubuntu 1604
+  name: Hosted Ubuntu 1804
   demands: npm
 
 steps:
