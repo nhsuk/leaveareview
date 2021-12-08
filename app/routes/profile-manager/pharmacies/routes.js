@@ -71,34 +71,23 @@ router.get('/editor/manage-profile', function (req, res) {
 //*********************** */
 // Branching - Org name
 //*********************** */
-router.get('/editor/org-name-start', (req, res) => {
-  recentChangeMade = false;
-  res.render('editor/org-name-start');
-});
+router.post('/process-response', function (req, res) {
+  let response = req.body.yourresponse;
 
-router.post('/org-name', function (req, res) {
-  let alias1 = req.body.alias1;
-
-  if (!alias1) {
-    res.redirect('/editor/org-name-edit?error=true');
+  if (response == '') {
+    res.redirect('/org-response/response-error');
   } else {
-    res.redirect('/editor/org-name-choose-displayname');
+    res.redirect('/org-response/response-confirm');
   }
 });
 
-router.post('/display-name-2', function (req, res) {
-  let displayname = req.body.displayname;
+router.post('/editor/change-name/name-edit', function (req, res) {
+  res.redirect('/profile-manager/pharmacies/editor/change-name/confirm-name-change');
+})
 
-  if (!displayname) {
-    res.redirect('/editor/org-name-choose-displayname?error=true');
-  } else {
-    res.redirect('/editor/org-name-confirm-displayname');
-  }
-});
-
-router.post('/confirm-name', (req, res) => {
+router.post('/editor/change-name/confirm-name-change', function (req, res) {
   recentChangeMade = true;
-  res.redirect('/editor/manage-profile');
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
 });
 
 //*********************** */

@@ -1,0 +1,162 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/editor"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">   
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 4</span>  
+
+      <form action="/contact-details-3" method="post">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Do you offer an online consultation service?
+              </h1>
+            </legend>
+
+            <span id="error-message" class="nhsuk-error-message" style="display: none;">
+              <span class="nhsuk-u-visually-hidden">Error:</span> 
+              You must choose one option
+            </span>
+          
+            <span class="nhsuk-hint" id="contact-hint">
+              Select one option.
+            </span>
+          
+            <div class="nhsuk-radios nhsuk-radios--conditional">
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="contact-1" name="offer" type="radio" value="yes" aria-controls="conditional-contact-1" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                  Yes
+                </label>
+              </div>
+              
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="email">
+                      Enter the web address for this service
+                    </label>
+                    <input class="nhsuk-input" id="onlineconsultation" name="onlineconsultation" type="text" aria-describedby="input" value="{{data["onlineconsultation"]}}">
+                  </div>
+                </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="contact-2" name="offer" type="radio" value="no" aria-controls="conditional-contact-2" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                  No
+                </label>
+              </div>
+              
+                <!--div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="phone">
+                      Phone number
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
+                  </div>
+                </div-->
+              
+            </div>
+          </fieldset>
+        
+        </div>
+
+
+        {{ button({
+        "text": "Continue",
+        "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "contact-details-online-edit",
+      "text": "Go back"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

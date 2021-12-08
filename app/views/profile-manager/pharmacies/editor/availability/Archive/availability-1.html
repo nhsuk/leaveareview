@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Enter an alternative organisation name - Profile Manager - NHS
+  Profile Manager
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -15,7 +15,7 @@ Enter an alternative organisation name - Profile Manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/profile-manager/pharmacies/editor/"
+        "href": "/"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -29,15 +29,10 @@ Enter an alternative organisation name - Profile Manager - NHS
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="/profiles">
-          Your profiles
-        </a>
-      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Cohens 
+        Edit Weldricks Pharmacy
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -45,7 +40,7 @@ Enter an alternative organisation name - Profile Manager - NHS
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Cohens
+      Back to Edit Weldricks Pharmacy
       {%else%}
       Back to Edit {{data["displayname"]}}
       {%endif%}
@@ -65,50 +60,40 @@ Enter an alternative organisation name - Profile Manager - NHS
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">     
 
-      <form   action="/org-name" method="post">
+      <form action="/acceptingby" method="post">
 
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-            Enter an alternative organisation name
+            What kind of new patients are you accepting?
           </legend>
-          <p>Your registered name is <b>Practice 1</b></p>
 
           <span id="error-message" class="nhsuk-error-message" style="display: none;">
             <span class="nhsuk-u-visually-hidden">Error:</span> 
-            You must enter at least 1 alias
+            You must choose an option
           </span>
 
           <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="alias1">
-              Your alternative name
-            </label>
-            <input class="nhsuk-input" id="alias1" name="alias1" type="text" aria-describedby="input" value="{{data["alias1"]}}">
+
+            <div class="nhsuk-radios">
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="acceptingby-0" name="acceptingby" type="radio" value="Referral only" {{checked("acceptingby",data["Referral only"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="acceptingby-0">
+                  Referral only
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="acceptingby-1" name="acceptingby" type="radio" value="Direct bookings" {{checked("acceptingby",data["Direct bookings"])}}>
+                <label class="nhsuk-label nhsuk-radios__label" for="acceptingby-1">
+                  Direct bookings
+                </label>
+              </div>
+
+            </div>
+          
           </div>
-          <!--div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="alias2">
-              Alias 2
-            </label>
-            <input class="nhsuk-input" id="alias2" name="alias2" type="text" aria-describedby="input" value="{{data["alias2"]}}">
-          </!--div>
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="alias3">
-              Alias 3
-            </label>
-            <input class="nhsuk-input" id="alias3" name="alias3" type="text" aria-describedby="input" value="{{data["alias3"]}}">
-          </div>
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="alias4">
-              Alias 4
-            </label>
-            <input class="nhsuk-input" id="alias4" name="alias4" type="text" aria-describedby="input" value="{{data["alias4"]}}">
-          </div>
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="alias5">
-              Alias 5
-            </label>
-            <input class="nhsuk-input" id="alias5" name="alias5" type="text" aria-describedby="input" value="{{data["alias5"]}}">
-          </div-->
 
         </fieldset>
 
@@ -120,7 +105,7 @@ Enter an alternative organisation name - Profile Manager - NHS
       </form>
 
       {{ backLink({
-      "href": "org-name-start",
+      "href": "index",
       "text": "Go back"
       }) }}
 

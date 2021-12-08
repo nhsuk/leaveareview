@@ -6,8 +6,8 @@
 {% set mainClasses = 'nhsuk-main-wrapper--s' %}
 
 <!-- Set the page title inside this block -->
-{% block pageTitle %}
-Change organisation name - Profile Manager - NHS
+{% block pageTitle %} 
+Contact details - Profile Manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -15,7 +15,7 @@ Change organisation name - Profile Manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/profile-manager/pharmacies/editor/"
+        "href": "../"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -29,11 +29,6 @@ Change organisation name - Profile Manager - NHS
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
-      <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="/profiles">
-          Your profiles
-        </a>
-      </li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
@@ -48,7 +43,8 @@ Change organisation name - Profile Manager - NHS
       Back to Edit Cohens
       {%else%}
       Back to Edit {{data["displayname"]}}
-      {%endif%}</a></p>
+      {%endif%}
+    </a></p>
   </div>
 </nav>
 {% endblock %}
@@ -60,30 +56,26 @@ Change organisation name - Profile Manager - NHS
 
       <h1>
         <span role="text">
-          Change organisation name
+          Contact details 
           <span class="nhsuk-caption-xl">
             <span class="nhsuk-u-visually-hidden"> -</span> 
             {% set displayname = 'alias0' %}
             {% if data["displayname"] == alias0 %}
-            Practice 1
+            Cohens
             {%else%}
             {{data["displayname"]}}
             {%endif%}
           </span>
         </span>
       </h1>
-
-      <p>Change the organisation name on your profile by creating an alternative name.</p>
-      <p>You can change back to your registered name whenever you want.</p>
-
-      <form action="org-name-edit" method="post">
-
-        {{ button({
-          "text": "Continue",
-          "id": "btn_submit"
-        }) }}
-
-      </form>
+      <p>You can update your:</p>
+      <ul>
+        <li>telephone number</li>
+        <li>website address</li>
+        <li>email address</li>
+      </ul>
+      <p>To update your profile's address, <a href="https://www.nhsbsa.nhs.uk/" target="_blank" rel="noreferrer noopener">email the NHS Business Services Authority NHS (opens in a new window or tab)</a>.</p>
+      <a class="nhsuk-button" href="contact-details-phone-edit">Continue</a>
 
       {{ backLink({
       "href": "manage-profile",

@@ -15,7 +15,7 @@
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "../"
+        "href": "/"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -32,7 +32,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
         {% set displayname = 'alias0' %}
         {% if data["displayname"] == alias0 %}
-        Edit Cohens
+        Edit Weldricks Pharmacy
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
@@ -40,60 +40,37 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
       {% set displayname = 'alias0' %}
       {% if data["displayname"] == alias0 %}
-      Back to Edit Cohens
+      Back to Edit Weldricks Pharmacy
       {%else%}
       Back to Edit {{data["displayname"]}}
-      {%endif%}
-    </a></p>
+      {%endif%}</a></p>
   </div>
 </nav>
 {% endblock %}
 
 {% block content %}
-
   <div class="nhsuk-grid-row">
+
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/newpatients" method="post">
-        <div class="nhsuk-form-group">
+      <h1>
+        <span role="text">
+          Accepting new NHS patients
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            Weldricks Pharmacy
+            {%else%}
+            {{data["displayname"]}}
+            {%endif%}
+          </span>
+        </span>
+      </h1>
 
-          <div class="nhsuk-form-group">
+      <p>Set your availability for accepting Children and Adults as NHS patients.</p>
 
-            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-
-              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-                Are you accepting new patient registrations?
-              </legend>
-            
-              <span class="nhsuk-hint" id="example-hint">
-                Choose yes or no.
-              </span>
-
-              <span id="error-message" class="nhsuk-error-message" style="display: none;">
-                <span class="nhsuk-u-visually-hidden">Error:</span> 
-                You must choose an option
-              </span>
-            
-              <div class="nhsuk-radios nhsuk-radios--inline">
-                <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-1" name="newpatients" type="radio" value="Yes">
-                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Yes
-                  </label>
-                </div>
-                <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-2" name="newpatients" type="radio" value="No">
-                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                    No
-                  </label>
-                </div>
-              </div>
-
-            </fieldset>
-          
-          </div>
-        
-        </div>
+      <form action="availability-1" method="post">
 
         {{ button({
           "text": "Continue",
@@ -108,8 +85,8 @@
       }) }}
 
     </div>
-  </div>
 
+  </div>
 {% endblock %}
 
 <!-- Footer goes inside this block -->
@@ -131,12 +108,4 @@
       }
     ]
   })}}
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}
