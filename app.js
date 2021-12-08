@@ -24,8 +24,13 @@ const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js');
 const validation = require('./middleware/validation');
 
-const openingTimesRoutes = require('./app/routes/openingTimes').router;
-const editorLogin = require('./app/routes/editorLogin').router;
+// Custom Routes
+/************* PHARMACIES *************/
+const pharmacyRoutes = require('./app/routes/profile-manager/pharmacies/routes').router;
+const openingTimesRoutes = require('./app/routes/profile-manager/pharmacies/openingTimes').router;
+const editorLogin = require('./app/routes/profile-manager/pharmacies/editorLogin').router;
+
+/************* OTHER *************/
 const localStorage = require('./app/routes').localStorage;
 
 // Set configuration variables
@@ -195,8 +200,11 @@ if (onlyDocumentation == 'true') {
 
 // Use custom application routes
 app.use('/', routes);
-app.use('/editor/opening-times', openingTimesRoutes);
-app.use('/editor-login', editorLogin);
+
+/*********** PHARMACIES ***********/
+app.use('/profile-manager/pharmacies', pharmacyRoutes);
+app.use('/profile-manager/pharmacies/editor/opening-times', openingTimesRoutes);
+app.use('/profile-manager/pharmacies/editor-login', editorLogin);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {

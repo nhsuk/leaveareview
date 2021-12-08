@@ -1,0 +1,49 @@
+{% from 'action-link/macro.njk' import actionLink %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  NHS profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>NHS profile manager</h1>
+      <p>The comment response tool has become the NHS profile manager.</p>
+      <p>Existing users of the comment response tool can sign in to respond to comments as normal. New users should register.</p>
+      {{ actionLink({
+        "text": "Sign in",
+        "href": "sign-in/sign-in-start"
+      }) }}
+      {{ actionLink({
+        "text": "Register",
+        "href": "register/register-start"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

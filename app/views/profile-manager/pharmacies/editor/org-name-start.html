@@ -1,0 +1,117 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Change organisation name - Profile Manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens 
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Change organisation name
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            Practice 1
+            {%else%}
+            {{data["displayname"]}}
+            {%endif%}
+          </span>
+        </span>
+      </h1>
+
+      <p>Change the organisation name on your profile by creating an alternative name.</p>
+      <p>You can change back to your registered name whenever you want.</p>
+
+      <form action="org-name-edit" method="post">
+
+        {{ button({
+          "text": "Continue",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "manage-profile",
+      "text": "Go back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

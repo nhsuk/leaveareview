@@ -1,0 +1,159 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Enter an alternative organisation name - Profile Manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens 
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 1 of 3</span>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">     
+
+      <form   action="/org-name" method="post">
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            Enter an alternative organisation name
+          </legend>
+          <p>Your registered name is <b>Practice 1</b></p>
+
+          <span id="error-message" class="nhsuk-error-message" style="display: none;">
+            <span class="nhsuk-u-visually-hidden">Error:</span> 
+            You must enter at least 1 alias
+          </span>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias1">
+              Your alternative name
+            </label>
+            <input class="nhsuk-input" id="alias1" name="alias1" type="text" aria-describedby="input" value="{{data["alias1"]}}">
+          </div>
+          <!--div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias2">
+              Alias 2
+            </label>
+            <input class="nhsuk-input" id="alias2" name="alias2" type="text" aria-describedby="input" value="{{data["alias2"]}}">
+          </!--div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias3">
+              Alias 3
+            </label>
+            <input class="nhsuk-input" id="alias3" name="alias3" type="text" aria-describedby="input" value="{{data["alias3"]}}">
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias4">
+              Alias 4
+            </label>
+            <input class="nhsuk-input" id="alias4" name="alias4" type="text" aria-describedby="input" value="{{data["alias4"]}}">
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="alias5">
+              Alias 5
+            </label>
+            <input class="nhsuk-input" id="alias5" name="alias5" type="text" aria-describedby="input" value="{{data["alias5"]}}">
+          </div-->
+
+        </fieldset>
+
+        {{ button({
+        "text": "Continue",
+        "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "org-name-start",
+      "text": "Go back"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if (window.location.search.indexOf('error=true') > -1) {
+  document.getElementById("error-message").style.display = "block";
+}
+</script>
+{% endblock %}

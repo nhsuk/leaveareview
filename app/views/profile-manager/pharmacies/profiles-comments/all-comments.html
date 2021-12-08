@@ -1,0 +1,308 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  All user reviews - Profile Manager - NHS 
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>All unresponded reviews </h1>
+      <a class="nhsuk-skip-link" href="#profileslist">Skip to review list</a>
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <div class="search-sort" aria-label="Comment search and filter">
+            <form id="search" action="/profile-manager/pharmacies/profiles-comments/all-comments/search-review" method="POST" role="search">
+              <label class="nhsuk-label" for="searchBar">Search by review title</label>
+              <div class="search-bar-buttons">
+                <div class="search-bar">
+                  <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+                  <button class="nhsuk-profiles-search__submit" type="submit">
+                    <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                    </svg>
+                    <span class="nhsuk-u-visually-hidden">Search</span>
+                  </button>
+                </div>
+                <div class="filter-buttons">
+                  <button id="show-filter-button" class="nhsuk-button nhsuk-button--small nhsuk-u-margin-bottom-0" aria-expanded="false" aria-controls="filter">Filter and sort</button>
+                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear all</button>
+                </div>
+              </div>
+              <section id="filter" class="filter nhsuk-u-margin-top-3" aria-label="Profiles filter">
+                <h2 class="nhsuk-u-margin-bottom-0">Filter by</h2>
+                <div class="filter-container">
+                  <div class="nhsuk-form-group filter-block">
+                    <fieldset class="nhsuk-fieldset">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                        Star rating 
+                      </legend>
+                      <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="one-star" name="star-rating" type="checkbox" value="pharmacies">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="one-star">
+                            1 star
+                          </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="two-star" name="star-rating" type="checkbox" value="dentists">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="two-star">
+                            2 star 
+                          </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="three-star" name="star-rating" type="checkbox" value="gp">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="three-star">
+                            3 star 
+                          </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="four-star" name="star-rating" type="checkbox" value="gp">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="four-star">
+                            4 star 
+                          </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="five-star" name="star-rating" type="checkbox" value="gp">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="five-star">
+                            5 star 
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="nhsuk-form-group filter-block">
+                    <fieldset class="nhsuk-fieldset">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                        Date posted 
+                      </legend>
+                      <div class="nhsuk-radios nhsuk-u-margin-bottom-3">
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-posted-7-days" name="filter-date-posted" type="radio" value="last7days">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-posted-7-days">
+                            Last 7 days 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-posted-month" name="filter-date-posted" type="radio" value="thisMonth">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-posted-month">
+                            This month 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-posted-3-months" name="filter-date-posted" type="radio" value="threeMonths">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-posted-3-months">
+                            Last 3 months 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-posted-6-months" name="filter-date-posted" type="radio" value="sixMonths">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-posted-6-months">
+                            Last 6 months 
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="nhsuk-form-group filter-block">
+                    <fieldset class="nhsuk-fieldset">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                        Date visited 
+                      </legend>
+                      <div class="nhsuk-radios nhsuk-u-margin-bottom-3">
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-visited-7-days" name="filter-date-visited" type="radio" value="last7days">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-visited-7-days">
+                            Last 7 days 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-visited-month" name="filter-date-visited" type="radio" value="thisMonth">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-visited-month">
+                            This month 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-visited-3-months" name="filter-date-visited" type="radio" value="threeMonths">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-visited-3-months">
+                            Last 3 months 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="filter-visited-6-months" name="filter-date-visited" type="radio" value="sixMonths">
+                          <label class="nhsuk-label nhsuk-radios__label" for="filter-visited-6-months">
+                            Last 6 months 
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="filter-container">
+                  <div class="nhsuk-form-group filter-block">
+                    <fieldset class="nhsuk-fieldset">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                        Sort by 
+                      </legend>
+                      <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="star-rating" name="sort-by" type="radio" value="starRating">
+                          <label class="nhsuk-label nhsuk-radios__label" for="star-rating">
+                            Star rating 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="date-posted" name="sort-by" type="radio" value="datePosted">
+                          <label class="nhsuk-label nhsuk-radios__label" for="date-posted">
+                            Date posted 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="date-visited" name="sort-by" type="radio" value="dateVisited">
+                          <label class="nhsuk-label nhsuk-radios__label" for="date-visited">
+                            Date visited 
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="nhsuk-form-group filter-block">
+                    <fieldset class="nhsuk-fieldset">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                        Sort order 
+                      </legend>
+                      <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="ascending" name="sort-order" type="radio" value="ascending">
+                          <label class="nhsuk-label nhsuk-radios__label" for="ascending">
+                            Ascending 
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="descending" name="sort-order" type="radio" value="descending">
+                          <label class="nhsuk-label nhsuk-radios__label" for="descending">
+                            Descending 
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-5">
+                  <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-0">Apply</button>
+                  <button type="submit" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0">Clear all</button>
+                </div>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="profileslist">
+        <div class="profile-list-pagination-counter">
+          <p>Showing <span class="nhsuk-u-font-weight-bold">1-25 of 62</span> Reviews</p>
+          <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
+        </div>
+        <p><a href="./">Back to choose a profile</a></p>
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <table role="table" class="nhsuk-table-responsive">
+              <caption class="nhsuk-table__caption">Your profiles</caption>
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Review title</th>
+                  <th role="columnheader" scope="col">Date posted</th>
+                  <th role="columnheader" scope="col">Date visited</th>
+                  <th role="columnheader" scope="col">Star rating</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                {% for review in reviews %}
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Review title </span>
+                    <a href="../org-response/response" aria-label="View review titled {{ review.title}}">
+                      {{ review.title }} 
+                    </a>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date posted </span>
+                    {{ review.datePosted }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Date visited</span>
+                    {{ review.dateVisited }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Star rating</span>
+                    <span class="stars stars--small">
+                      {% for i in range(0, review.starRating) %}★{% endfor %}
+                    </span>
+                    <span class="nhsuk-u-visually-hidden">{{ review.starRating }} out of 5</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item">
+            <span class="page-link active" aria-current="page">1 of 3</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page2" aria-label="Go to next page">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to last page">Last</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go Back
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

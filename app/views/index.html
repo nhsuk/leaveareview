@@ -14,7 +14,7 @@
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "Profile Manager",
+        "name": "NHS profile manager",
         "href": "/"
       },
       "showNav": "false",
@@ -33,6 +33,46 @@
     <div class="nhsuk-grid-column-full">
       <!-- Change the page title here -->
       <p><a href="changelog">Changelog</a></p>
+      <h2>Profile Manager</h2>
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Alpha</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col">Link</th>
+            <th class="nhsuk-table__header" scope="col">Notes</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr>
+            <td><a href="profile-manager/pharmacies/editor-login/triage">Pharmacies login</a></td>
+            <td>No profiles</td>
+          </tr>
+          <tr>
+            <td><a href="profile-manager/pharmacies/editor/">Pharmacies</a></td>
+            <td>Multiple profiles</td>
+          </tr>
+          <tr>
+            <td class="nhsuk-table__cell"><a href="profile-manager/pharmacies/editor-login/transfer-profiles-wagtail">Transfer profiles</td>
+            <td class="nhsuk-table__cell">Transfer profiles journey from wagtail page</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <h2>Profile viewer</h2>
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Alpha</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col" width="30%">Link</th>
+            <th class="nhsuk-table__header" scope="col" width="40%">Notes</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr>
+            <td><a href="profile-manager/pharmacies/">Pharmacies</a></td>
+            <td>Pharmacies done</td>
+          </tr>
+        </tbody>
+      </table> -->
       <h2>Alpha</h2>
       <table class="nhsuk-table">
         <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Alpha</caption>
@@ -158,7 +198,7 @@
           </tr>
           <tr class="nhsuk-table__row">
             <td class="nhsuk-table__cell">Prototype</td>
-            <td class="nhsuk-table__cell"><a href="editor-login/triage">Editor login</td>
+            <td class="nhsuk-table__cell"><a href="profile-manager/pharmacies/editor-login/triage">Editor login</td>
             <td class="nhsuk-table__cell">Editor login with profiles</td>
             <td class="nhsuk-table__cell">10 June 2021</td>
           </tr>
@@ -185,17 +225,7 @@
         <li>Org comment response tool</li>
         <li>Moderation tool - MS Dynamics</li>
       </ul>
-
       <hr>
-
-      <h2>Repeat prescriptions</h2>
-      <ul class="nhsuk-u-margin-bottom-6">
-        <li><a href="/repeat-prescriptions/services/prescriptions/order-a-repeat-prescription/">Repeat prescriptions - Prototype</a></li>
-        <li><a href="https://miro.com/app/board/o9J_kuKbJPA=/">Page flow - Miro</a></li>
-
-      </ul>
-      <!-- End of content -->
-
     </div>
   </div>
 {% endblock %}

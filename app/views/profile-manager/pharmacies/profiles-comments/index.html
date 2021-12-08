@@ -1,0 +1,132 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Respond to reviews - Profile Manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>Respond to reviews</h1>
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <div class="search-sort" aria-label="Profile search">
+            <form id="search" action="/profile-manager/pharmacies/profiles-comments/search-pharmacy" method="POST" role="search">
+              <label class="nhsuk-label" for="searchBar">Search by name or postcode</label>
+              <div class="search-bar-buttons">
+                <div class="search-bar">
+                  <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+                  <button class="nhsuk-profiles-search__submit" type="submit">
+                    <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                    </svg>
+                    <span class="nhsuk-u-visually-hidden">Search</span>
+                  </button>
+                </div>
+                <div class="filter-buttons">
+                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% if (searchTerm) %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.
+      {% else %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
+      {% endif %}
+      <p><a href="all-comments">View all unresponded reviews</a></p>
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <table role="table" class="nhsuk-table-responsive">
+            <caption class="nhsuk-table__caption">Profile search results</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row">
+                <th role="columnheader" scope="col">Name</th>
+                <th role="columnheader" scope="col">Address</th>
+                <th role="columnheader" scope="col">Recent review date</th>
+                <th role="columnheader" scope="col">Reviews</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              {% for pharmacy in currentPharmacies %}
+              <tr role="row" class="nhsuk-table__row">
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Name </span>
+                  <a href="all-comments" aria-label="View {{pharmacy.Name}} at {{ pharmacy.Line1 }}">
+                    {{pharmacy.Name}}
+                  </a>
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Address </span>
+                  {{pharmacy.Line1}}, {{pharmacy.city}}, {{pharmacy.Postcode}}
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Recent review date</span>
+                  {{ pharmacy.recentReview }} 
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Reviews</span>
+                  {{ pharmacy.comments }} 
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item"><span class="page-link active"><span class="nhsuk-u-visually-hidden">Page </span>1</span></li>
+          <li class="page-item"><a class="page-link" href="./profiles-page2"><span class="nhsuk-u-visually-hidden">Page </span>2</a></li>
+          <li class="page-item"><a class="page-link" href="./profiles-page2">Next</a></li>
+        </ul>
+      </nav>
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go Back
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

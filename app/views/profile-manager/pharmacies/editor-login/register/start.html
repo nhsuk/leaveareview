@@ -1,0 +1,139 @@
+{% from 'button/macro.njk' import button %}
+{% from 'input/macro.njk' import input %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Registration details</h1>
+      <p><a href="#">Get help with this tool (opens in a new window or tab)</a></p>
+      <p>Please provide the following details.</p>
+      <p>Please enter your email address in the field below and click <span class="nhsuk-u-font-weight-bold">Send verification code</span>. You will then be sent a verification code to that email address. Enter the verification code into the field and select <span class="nhsuk-u-font-weight-bold">Verify code</span> before continuing to enter your registration details further down the page.</p>
+      <form action="/editor-login/register/start" method="POST">
+        {{ input({
+          "label": {
+            "text": "Email address"
+          },
+          "id": "email",
+          "name": "email",
+          "autocomplete": "email"
+        }) }}
+        {{ button({
+          "attributes": {
+            "id": "send-verification-code",
+            "type": "button"
+          },
+          "text": "Send verification code"
+        }) }}
+        <!-- Verification code: Will display when user clicks 'Send verification code' button -->
+        <div id="verify-code" class="verify-hidden">
+          {{ input({
+            "label": {
+              "text": "Verification code"
+            },
+            "id": "verifyCode",
+            "name": "verifyCode"
+          }) }}
+          {{ button({
+            "attributes": {
+              "id": "verifyCodeButton",
+              "type": "button"
+            },
+            "text": "Verify code"
+          }) }}
+          {{ button({
+            "attributes": {
+              "type": "button"
+            },
+            "text": "Send new code",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+        </div>
+        <div id="change-email" class="verify-hidden">
+          {{ button({
+            "attributes": {
+              "id": "change-email",
+              "type": "button"
+            },
+            "text": "Change email"
+          }) }}
+        </div>
+
+        {{ input({
+          "label": {
+            "text": "New password"
+          },
+          "type": "password",
+          "id": "newPassword",
+          "name": "newPassword",
+          "autocomplete": "new-password"
+        }) }}
+        {{ input({
+          "label": {
+            "text": "Confirm new password"
+          },
+          "type": "password",
+          "id": "confirmNewPassword",
+          "name": "confirmNewPassword",
+          "autocomplete": "new-password"
+        }) }}
+        {{ input({
+          "label": {
+            "text": "Given name"
+          },
+          "id": "givenName",
+          "name": "givenName",
+          "autocomplete": "given-name"
+        }) }}
+        {{ input({
+          "label": {
+            "text": "Surname"
+          },
+          "id": "surname",
+          "name": "surname",
+          "autocomplete": "surname"
+        }) }}
+        {{ input({
+          "label": {
+            "text": "Organisation name"
+          },
+          "id": "orgName",
+          "name": "orgName"
+        }) }}
+        {{ button({
+          "text": "Create"
+        }) }}
+        <a href="../" class="nhsuk-button nhsuk-button--secondary">Cancel</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

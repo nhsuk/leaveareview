@@ -1,0 +1,163 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>
+        Edit profiles 
+      </h1>
+      <a class="nhsuk-skip-link" href="#profileslist">Skip filter</a>
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <div class="search-sort">
+            <form id="search" action="/profile-manager/pharmacies/editor/profiles/search-pharmacy" method="POST" role="search">
+              <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
+              <div class="search-bar-buttons">
+                <div class="search-bar">
+                  <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+                  <button class="nhsuk-profiles-search__submit" type="submit">
+                    <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                    </svg>
+                    <span class="nhsuk-u-visually-hidden">Search</span>
+                  </button>
+                </div>
+                <!-- <div class="filter-buttons">
+                  <button id="show-filter-button" class="nhsuk-button nhsuk-button--small nhsuk-u-margin-bottom-0" aria-expanded="false" aria-controls="filter">Show filter</button>
+                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
+                </div> -->
+              </div>
+              <!-- Form fields for super user -->
+              <!-- <div id="profile-filter" class="filter nhsuk-u-margin-top-3" aria-label="Profiles filter">
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                    Sector 
+                  </legend>
+                  <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="pharmacies" name="sector" type="checkbox" value="pharmacies">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="pharmacies">
+                        Pharmacies 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="dentists" name="sector" type="checkbox" value="dentists">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="dentists">
+                        Dentists 
+                      </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="gp" name="sector" type="checkbox" value="gp">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="gp">
+                        GPs 
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <button type="submit" class="nhsuk-button">Search</button>
+                <button class="nhsuk-button nhsuk-button--secondary nhsuk-button nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
+              </div> -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="profile-list-pagination-counter">
+        <p>Showing <span class="nhsuk-u-font-weight-bold">16-30 results of {{pharmacies.length}}</span>.</p>
+        <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
+      </div>
+      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+        <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" scope="col">Name</th>
+              <th role="columnheader" scope="col">Address</th>
+              <th role="columnheader" scope="col">City</th>
+              <th role="columnheader" scope="col">Postcode</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% for pharmacy in currentPharmacies %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Name </span>
+                <a href="/editor/manage-profile">
+                  <span class="nhsuk-u-visually-hidden">View </span>{{pharmacy.Name}}
+                </a>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Address </span>
+                {{pharmacy.Line1}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">City </span>
+                {{pharmacy.city}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Postcode </span>
+                {{pharmacy.Postcode}}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="/profiles" aria-label="Go to previous page">Previous</a>
+          </li>
+          <li class="page-item">
+            <span class="page-link active" aria-current="page">2 of 3</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to next page">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to last page">Last</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

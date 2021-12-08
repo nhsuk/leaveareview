@@ -1,0 +1,197 @@
+
+{% extends "layout-app-header.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Edit facilities - Profile Manager - NHS
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Edit facilities</h1>
+      <p class="nhsuk-u-margin-bottom-6">Use the boxes to choose which facilities you would like to display on your profile.</p>
+    </div>
+  </div>
+  <form action="/profile-manager/pharmacies/editor/facilities/facilities-edit" method="post">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              Accessibility
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Accessibility
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-1" name="brailleTranslationService" type="checkbox" value="yes" {{ checked("brailleTranslationService", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-1">
+                  Braille translation service
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" {{ checked("disabledCarParking", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
+                  Disabled car parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-3" name="disabledWC" type="checkbox" value="yes" {{ checked("disabledWC", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
+                  Disabled toilet
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-4" name="inductionLoop" type="checkbox" value="yes" {{ checked("inductionLoop", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-4">
+                  Induction loop
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-5" name="textRelay" type="checkbox" value="yes" {{ checked("textRelay", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-5">
+                  Text relay
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-6" name="signingService" type="checkbox" value="yes" {{ checked("signingService", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-6">
+                  Signing service
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-7" name="wheelchairAccess" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-7">
+                  Wheelchair access
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-8" name="stepFreeAccess" type="checkbox" value="yes" {{ checked("stepFreeAccess", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-8">
+                  Step-free access
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              Patient facilities
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Patient facilities
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
+                  Car parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-10" name="cycleParking" type="checkbox" value="yes" {{ checked("cycleParking", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-10">
+                  Cycle parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-11" name="babyChangingFacilities" type="checkbox" value="yes" {{ checked("babyChangingFacilities", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-11">
+                  Baby changing facilities
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-12" name="customerToilet" type="checkbox" value="yes" {{ checked("customerToilet", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-12">
+                  Customer toilet
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    {{ button({
+    "text": "Continue",
+    "id": "btn_submit"
+    }) }}
+  </form>
+  <div class="nhsuk-back-link">
+    <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+      <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+        <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+      </svg>
+      Go Back
+    </a>
+  </div>
+  
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
