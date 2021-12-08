@@ -26,7 +26,6 @@ pharmacies.sort((a, b) => {
 reviews.forEach((review) => {
   review.datePosted = moment(review.datePosted, 'DD/MM/YYYY').format('DD MMM YYYY')
   review.dateVisited = moment(review.dateVisited, 'MM/YYYY').format('MMM YYYY')
-<<<<<<< HEAD
   return review;
 })
 
@@ -82,32 +81,6 @@ router.post('/process-response', function (req, res) {
   }
 });
 
-// Branching - Profile Editor
->>>>>>> Refactoring editor
-router.get('/editor/org-name-start', (req, res) => {
-  recentChangeMade = false;
-  res.render('editor/org-name-start');
-});
-
-router.post('/org-name', function (req, res) {
-  let alias1 = req.body.alias1;
-
-  if (!alias1) {
-    res.redirect('/editor/org-name-edit?error=true');
-  } else {
-    res.redirect('/editor/org-name-choose-displayname');
-  }
-});
-
-router.post('/display-name-2', function (req, res) {
-  let displayname = req.body.displayname;
-
-  if (!displayname) {
-    res.redirect('/editor/org-name-choose-displayname?error=true');
-  } else {
-    res.redirect('/editor/org-name-confirm-displayname');
-  }
-});
 router.post('/editor/change-name/name-edit', function (req, res) {
   res.redirect('/profile-manager/pharmacies/editor/change-name/confirm-name-change');
 })
