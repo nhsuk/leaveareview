@@ -50,11 +50,13 @@ router.get('/editor/manage-profile', function (req, res) {
   let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
   let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
   let servicesConfirmed = localStorage.getItem('servicesConfirmed');
+  let addressChangePending = localStorage.getItem('addressChangePending');
 
   // Setting values to booleans again due to localStorage using strings
   contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
   facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
   servicesConfirmed = JSON.parse(servicesConfirmed);
+  addressChangePending = JSON.parse(addressChangePending);
 
   res.render('profile-manager/pharmacies/editor/manage-profile', {
     contactDetailsLastUpdatedDate,
@@ -65,6 +67,7 @@ router.get('/editor/manage-profile', function (req, res) {
     contactDetailsConfirmed,
     facilitiesConfirmed,
     servicesConfirmed,
+    addressChangePending,
   });
 });
 
@@ -126,6 +129,23 @@ router.post('/editor/contact-details/contact-details-check', function (req, res)
   localStorage.setItem('contactDetailsConfirmed', true);
   res.redirect('/profile-manager/pharmacies/editor/manage-profile');
 }); 
+
+//*********************** */
+// Branching - Address 
+//*********************** */
+router.post('/editor/address/address-change', function (req, res) {
+  res.redirect('/profile-manager/pharmacies/editor/address/address-check');
+})
+
+router.post('/editor/address/address-check', function (req, res) {
+  localStorage.setItem('addressChangePending', true);
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+})
+
+router.post('/editor/address/address-pending', function (req, res) {
+  localStorage.setItem('addressChangePending', false);
+  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+})
 
 //*********************** */
 // Branching - Facilities

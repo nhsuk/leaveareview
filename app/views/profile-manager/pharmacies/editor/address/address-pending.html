@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %} 
-Contact details - Profile Manager - NHS
+Change address - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -53,35 +53,26 @@ Contact details - Profile Manager - NHS
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1>
-        <span role="text">
-          Contact details 
-          <span class="nhsuk-caption-xl">
-            <span class="nhsuk-u-visually-hidden"> -</span> 
-            {% set displayname = 'alias0' %}
-            {% if data["displayname"] == alias0 %}
-            Cohens
-            {%else%}
-            {{data["displayname"]}}
-            {%endif%}
-          </span>
-        </span>
-      </h1>
-      <p>You can update your:</p>
-      <ul>
-        <li>telephone number</li>
-        <li>website address</li>
-        <li>email address</li>
-      </ul>
-      <p>To update your profile's address, <a href="https://www.nhsbsa.nhs.uk/" target="_blank" rel="noreferrer noopener">email the NHS Business Services Authority NHS (opens in a new window or tab)</a>.</p>
-      <a class="nhsuk-button" href="contact-details-phone-edit">Continue</a>
-
-      {{ backLink({
-      "href": "manage-profile",
-      "text": "Go back"
-      }) }}
-
+      <h1>Change address</h1>
+			<p>You requested a change to your address details on 19/11/2021. You will need to cancel this request before you can make another change.</p>
+			<p class="nhsuk-u-margin-bottom-0 nhsuk-u-font-weight-bold">Requested change</p>
+			<p>
+				10a/b Bentalls Shopping Centre,<br />
+				Leeds,<br />
+				LS23 9DH
+			</p>
+			</p>
+      <form action="/profile-manager/pharmacies/editor/address/address-pending" method="post">
+				<button class="nhsuk-button nhsuk-button--secondary">Cancel request</button>
+			</form>
+			<div class="nhsuk-back-link">
+				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+						<path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+					</svg>
+					Go Back
+				</a>
+			</div>
     </div>
 
   </div>

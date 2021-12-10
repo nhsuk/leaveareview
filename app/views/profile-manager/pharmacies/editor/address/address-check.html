@@ -1,5 +1,5 @@
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
-{% extends "layout.html" %}
+{% extends "layout-app-header.html" %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 <!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Enter an alternative organisation name - Profile manager - NHS
+Confirm your contact details - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -15,7 +15,7 @@ Enter an alternative organisation name - Profile manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS profile manager",
-        "href": "/profile-manager/pharmacies/editor/"
+        "href": "../"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -46,6 +46,11 @@ Enter an alternative organisation name - Profile manager - NHS
           Change profile name 
         </a>
       </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="name-edit">
+          Enter new name 
+        </a>
+      </li>
     </ol>
     <p class="nhsuk-breadcrumb__back">
       <a class="nhsuk-breadcrumb__backlink" href="name-start">
@@ -57,25 +62,36 @@ Enter an alternative organisation name - Profile manager - NHS
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>Enter new name</h1>
-      <form action="/profile-manager/pharmacies/editor/change-name/name-edit" method="post">
-        {% if data["newname"] %}
-          <p>Current name: {{data["newname"]}}</p>
-        {% else %}
-          <p>Current name: Cohens</p>
-        {% endif %}
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="newname">
-            New profile name 
-          </label>
-          <input class="nhsuk-input" id="newname" name="newname" type="text">
-        </div>
+			<h1>
+				Confirm your new address 
+			</h1>
+      <form action="/profile-manager/pharmacies/editor/address/address-check"  method="post">
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              New address 
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["address-line-1"]}}<br />
+              {{data["address-town"]}}<br />
+              {{data["address-county"]}}<br />
+              {{data["address-postcode"]}}<br />
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="address-change">
+                Change<span class="nhsuk-u-visually-hidden"> new address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
         {{ button({
-        "text": "Continue",
-        "id": "btn_submit"
+          "text": "Confirm",
+          "id": "btn_submit"
         }) }}
+				<a href="../manage-profile" class="nhsuk-button nhsuk-button--secondary">Cancel</a>
       </form>
       <div class="nhsuk-back-link">
         <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
@@ -110,10 +126,3 @@ Enter an alternative organisation name - Profile manager - NHS
   })}}
 {% endblock %}
 
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
-{% endblock %}
