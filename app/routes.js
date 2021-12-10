@@ -198,32 +198,6 @@ router.post('/address', function (req, res) {
   }
 });
 
-router.get('/editor/manage-profile', function (req, res) {
-  let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
-  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
-  let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
-  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
-  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
-  let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
-  let servicesConfirmed = localStorage.getItem('servicesConfirmed');
-
-  // Setting values to booleans again due to localStorage using strings
-  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
-  facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
-  servicesConfirmed = JSON.parse(servicesConfirmed);
-
-  res.render('editor/manage-profile', {
-    contactDetailsLastUpdatedDate,
-    openingTimesLastUpdatedDate,
-    facilitiesLastUpdatedDate,
-    servicesLastUpdatedDate,
-    recentChangeMade,
-    contactDetailsConfirmed,
-    facilitiesConfirmed,
-    servicesConfirmed,
-  });
-});
-
 let whichPatients = [];
 let newPatients;
 router.post('/accepting', function (req, res) {

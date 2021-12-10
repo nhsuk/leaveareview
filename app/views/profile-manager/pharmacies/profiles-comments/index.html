@@ -3,7 +3,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Respond to reviews - Profile Manager - NHS
+Respond to reviews - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -51,7 +51,7 @@ Respond to reviews - Profile Manager - NHS
       {% else %}
       <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
       {% endif %}
-      <p><a href="all-comments">View all unresponded reviews</a></p>
+      <p><a href="./profiles-comments/all-comments">View all unresponded reviews</a></p>
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <table role="table" class="nhsuk-table-responsive">
@@ -69,7 +69,7 @@ Respond to reviews - Profile Manager - NHS
               <tr role="row" class="nhsuk-table__row">
                 <td role="cell" class="nhsuk-table__cell">
                   <span class="nhsuk-table-responsive__heading">Name </span>
-                  <a href="all-comments" aria-label="View {{pharmacy.Name}} at {{ pharmacy.Line1 }}">
+                  <a href="./profiles-comments/all-comments" aria-label="View {{pharmacy.Name}} at {{ pharmacy.Line1 }}">
                     {{pharmacy.Name}}
                   </a>
                 </td>
