@@ -272,6 +272,7 @@ router.get('/profiles-comments/profiles-page2', (req, res) => {
 });
 
 router.get('/profiles-comments/all-comments', (req, res) => {
+  console.log('HERE')
   res.render('profile-manager/pharmacies/profiles-comments/all-comments', { reviews });
 });
 
