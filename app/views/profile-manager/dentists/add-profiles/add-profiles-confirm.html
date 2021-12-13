@@ -1,0 +1,97 @@
+{% from 'input/macro.njk' import input %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends 'layout-header-no-permissions.html' %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Request profile access - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "/profile-manager/dentists/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Confirm your profiles to add</h1>
+      <form action="/editor-login/sign-in/use-system-for" method="POST">
+				<dl class="nhsuk-summary-list">
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							What would you like to do?
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+							{{ data["useSystemFor"]}}
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="/editor-login/register/use-system-for">
+								Change<span class="nhsuk-u-visually-hidden"> what would you like to do?</span>
+							</a>
+						</dd>
+					</div>
+					{% for profile in newProfiles %}
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							{% if profile.odsCode %}
+							  ODS Code
+							{% else %}
+								{{ profile.name }}
+							{% endif %}
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+							{% if profile.odsCode %}
+							{{ profile.odsCode }}
+							{% else %}
+								{{ profile.townCity }}, {{ profile.postcode }}
+							{% endif %}
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							{% if profile.odsCode %}
+								<a href="change-profile">
+									Change<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
+								</a>
+							{% else %}
+								<a href="change-profile">
+									Change<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+								</a>
+							{% endif %}
+							{% if profile.odsCode %}
+								<a href="remove-profile">
+									Remove<span class="nhsuk-u-visually-hidden"> {{ profile.odsCode }}</span>
+								</a>
+							{% else %}
+								<a href="remove-profile">
+									Remove<span class="nhsuk-u-visually-hidden"> {{ profile.name }} at {{ profile.townCity }} {{ profile.postcode }} </span>
+								</a>
+							{% endif %}
+						</dd>
+					</div>
+					{% endfor %}
+				</dl>
+        <p><a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" href="/profile-manager/dentists/add-profiles/add-profile">Enter another profile</a></p>
+				<a class="nhsuk-button" href="add-profiles-complete">Confirm and send</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

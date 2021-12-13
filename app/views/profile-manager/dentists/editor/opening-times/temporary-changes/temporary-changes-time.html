@@ -1,0 +1,234 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  What are the opening times for the temporary change? - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "../"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit mydentist
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/opening-times-start">Opening times</a></li>
+      <!--li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/opening-times/temporary-changes/temporary-changes-date">Temporary changes</a></li-->
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit mydentist
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-form-group">
+      <form method="post" action="/editor/opening-times/temporary-changes/temporary-changes-time">
+      <div id="enter-time" class="nhsuk-form-group">
+        <h1>
+          What time is {% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          mydentist
+          {%else%}
+          {{data["displayname"]}}
+          {%endif%} open on {{ temporaryDate }}?
+        </h1>
+        <div class="nhsuk-do-dont-list nhsuk-u-margin-bottom-4">
+          <h2 class="nhsuk-do-dont-list__label">Enter opening times in the 24 hour format</h2>
+          <ul class="nhsuk-list nhsuk-list--tick">
+            <li>
+              <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+              </svg>
+              For midnight use 00:00 and for midday use 12:00
+            </li>
+            <li>
+              <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+              </svg>
+              Opening times must close at 23:59
+            </li>
+          </ul>
+        </div>
+        <p class="nhsuk-u-margin-bottom-2">Times must not overlap over 2 days. For example, if on Wednesday a pharmacy opens at 7pm and closes at 2am on Thursday morning, enter:</p>
+        <p class="nhsuk-hint nhsuk-u-margin-bottom-6">19:00 - 23:59 for Wednesday and then 00:00 - 02:00 in a seperate entry for Thursday</p>
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend">
+            <h2 class="nhsuk-u-margin-bottom-4">
+          What time slot is {% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          mydentist
+          {%else%}
+          {{data["displayname"]}}
+          {%endif%} open for on {{ temporaryDate }}?
+            </h2>
+          </legend>
+          <input type="text" hidden id="tempDateHidden" name="tempDateHidden" value="{{temporaryDate}}" />
+          <div id="openingTimes" class="nhsuk-u-margin-bottom-6">
+            <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempOpenTime1">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="tempOpenTime1" type="text" id="tempOpenTime1">
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempCloseTime1">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="tempCloseTime1" type="text" id="tempCloseTime1">
+                </div>
+              </div>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime1">Clear time</a-->
+            </div>
+            <div id="timeEntry2" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempOpenTime2">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" name="tempOpenTime2" type="text" id="tempOpenTime2">
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempCloseTime2">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="tempCloseTime2" id="tempCloseTime2">
+                </div>
+              </div>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime2">Clear time</a-->
+            </div>
+            <div id="timeEntry3" class="nhsuk-u-margin-bottom-3">
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempOpenTime3">Open</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="tempOpenTime3" id="tempOpenTime3">
+                </div>
+              </div>
+              <div class="nhsuk-date-input__item">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label nhsuk-date-input__label" for="tempCloseTime3">Closed</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-3" type="text" name="tempCloseTime3" id="tempCloseTime3">
+                </div>
+              </div>
+              <!--a href="#" class="nhsuk-u-font-size-19" id="removeTime3">Clear time</a-->
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="nhsuk-button">Continue</button>
+      </div>
+    </form>
+    </div>
+    {{ backLink({
+    "href": "/editor/opening-times/temporary-changes/temporary-change-open",
+    "text": "Go back"
+    }) }}
+  </div>
+</div>
+
+<script>
+  document.getElementById('removeTime1').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('tempOpenTime1').value = '';
+    document.getElementById('bankHolCloseTime1').value = '';
+  });
+
+  document.getElementById('removeTime2').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('tempOpenTime2').value = '';
+    document.getElementById('bankHolCloseTime2').value = '';
+  });
+
+  document.getElementById('removeTime3').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('tempOpenTime3').value = '';
+    document.getElementById('bankHolCloseTime3').value = '';
+  });
+  // Hiding additional time entries by default
+  /* document.getElementById('timeEntry2').style.display = 'none';
+  document.getElementById('timeEntry3').style.display = 'none';
+
+  // Counter to display more time entries
+  let counter = 1;
+  document.getElementById('anotherTime').addEventListener('click', function (e) {
+    e.preventDefault();
+    counter++;
+    // Display the previously hidden time entries
+    if (counter <= 3) {
+      document.getElementById(`timeEntry${counter}`).style.display = 'block';
+      document.getElementById(`tempOpenTime${counter}`).focus();
+    }
+    if (counter === 3) {
+      document.getElementById('anotherTime').style.display = 'none';
+    }
+  });
+
+  // 24 hour checkbox
+  document.getElementById("24hours").addEventListener('click', () => {
+    if (document.getElementById('24hours').checked) {
+      const openingTimes = document.querySelector('#openingTimes').children;
+      const openingTimesArray = Array.from(openingTimes);
+      for (var i = 0; i < openingTimesArray.length; i++) {
+        openingTimesArray[i].querySelectorAll('input').forEach( (input) => {
+          input.disabled = true;
+        })
+      }
+    } else {
+      document.getElementById('openingTimes').style.display = "block";
+    }
+  });
+  */
+
+</script>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

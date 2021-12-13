@@ -1,0 +1,61 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+	NHS profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+	{{ header({
+		"transactionalService": {
+				"name": "NHS profile manager",
+				"href": "/profile-manager/dentists/editor/"
+			},
+			"showNav": "false",
+			"showSearch": "false"
+		})
+	}}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="nhsuk-grid-row">
+		<div class="nhsuk-grid-column-two-thirds">
+			<h1>NHS profile manager</h1>
+			<div class="nhsuk-inset-text">
+				<span class="nhsuk-u-visually-hidden">Information: </span>
+				<p>The comment response tool has become the NHS profile manager.</p>
+			</div>
+			<p>Copy explaining there is a stage release of the new NHS profile manager and to read the instructions detailed on this page.</p>
+			<h2>Profile editors</h2>
+			<h3>Dentists, GPs, Opticians, NHS Trusts, Independect sector providers and Social care providers</h3>
+			<p>Copy explaining they must continue to use the old system</p>
+			{{ actionLink({
+				"text": "Use the current profile editor",
+				"href": "#"
+			}) }}
+			<h3>High street pharmacies</h3>
+			<p>Copy explaining they can now use the new NHS profile manager only to edit:</p>
+			<ul>
+				<li>contact details</li>
+				<li>opening times</li>
+				<li>services</li>
+			</ul>
+			{{ actionLink({
+				"text": "Use the NHS profile manager",
+				"href": "/profile-manager/dentists/editor-login/"
+			}) }}
+		</div>
+	</div>
+{% endblock %}
+

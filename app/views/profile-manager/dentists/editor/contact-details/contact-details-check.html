@@ -1,0 +1,143 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-app-header.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Confirm your contact details - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS profile manager",
+        "href": "../"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../../editor/profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit mydentist
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-phone-edit">Your phone details</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-online-edit">Your online contact details</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../../editor/contact-details/contact-details-online-edit">
+      Your online contact details 
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span id="steps" class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 3 of 3</span>
+
+      <form action="/profile-manager/dentists/editor/contact-details/contact-details-check"  method="post">
+        <h1 id="con-title"class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhsuk-u-margin-bottom-4">
+          Confirm your contact details
+        </h1>
+        {% if showEditAll %}
+          <p id="edit-all"><a href="contact-details-phone-edit">Edit all contact details</a></p>
+        {% endif %}
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Patient telephone
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["telephone"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-phone-edit">
+                Change<span class="nhsuk-u-visually-hidden"> pharmacy telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Website address
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["website"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> website address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data["email"]}}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="contact-details-online-edit">
+                Change<span class="nhsuk-u-visually-hidden"> email address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <p>To update your profile's address, <a href="https://www.nhsbsa.nhs.uk/" target="_blank" rel="noreferrer noopener">email the NHS Business Services Authority NHS (opens in a new window or tab)</a>.</p>
+        {{ button({
+          "text": "Save and confirm",
+          "id": "btn_submit"
+        }) }}
+      </form>
+      {{ backLink({
+      "href": "contact-details-online-edit",
+      "text": "Go back"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
