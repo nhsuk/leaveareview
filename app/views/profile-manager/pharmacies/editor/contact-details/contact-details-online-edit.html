@@ -60,10 +60,6 @@ Your online contact details - Profile manager - NHS
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
             Your online contact details
           </legend>
-          <span id="error-message" class="nhsuk-error-message" style="display: none;">
-            <span class="nhsuk-u-visually-hidden">Error:</span> 
-            You must enter an email address
-          </span>
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="website">
               Website address (optional)
@@ -126,10 +122,3 @@ Your online contact details - Profile manager - NHS
   })}}
 {% endblock %}
 
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
-{% endblock %}
