@@ -7,14 +7,14 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Pharmacy opening times - Profile manager - NHS
+Dentist opening times - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "NHS profile manager",
+        "name": "NHS Profile Manager",
         "href": "../"
       },
       "showNav": "false",
@@ -59,7 +59,7 @@ Pharmacy opening times - Profile manager - NHS
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Pharmacy opening times</h1>
+    <h1>Dentist opening times</h1>
     <!--p class="nhsuk-u-margin-bottom-0">Last updated on {{ openingTimesUpdatedDate }}</p-->
     <dl class="nhsuk-summary-list opening-times" title="Standard opening times">
       {% for day in openingTimes %}
