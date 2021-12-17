@@ -32,9 +32,6 @@ reviews.forEach((review) => {
 router.post('/editor/profiles/search-pharmacy', (req, res) => {
   let searchTerm = req.body.search;
   let currentPharmacies = findByPostCode(searchTerm);
-  if (searchTerm.toLowerCase() === 'leeds') {
-    res.redirect('/profiles/multiple-places');
-  }
   if (currentPharmacies.length === 0) {
     res.redirect('/profile-manager/pharmacies/editor/profiles/no-results');
   } else {
@@ -74,23 +71,14 @@ router.get('/editor/manage-profile', function (req, res) {
 //*********************** */
 // Branching - Org name
 //*********************** */
-router.post('/process-response', function (req, res) {
-  let response = req.body.yourresponse;
-
-  if (response == '') {
-    res.redirect('/org-response/response-error');
-  } else {
-    res.redirect('/org-response/response-confirm');
-  }
-});
 
 router.post('/editor/change-name/name-edit', function (req, res) {
-  res.redirect('/profile-manager/pharmacies/editor/change-name/confirm-name-change');
+  res.redirect('confirm-name-change');
 })
 
 router.post('/editor/change-name/confirm-name-change', function (req, res) {
   recentChangeMade = true;
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+  res.redirect('../../editor/manage-profile');
 });
 
 //*********************** */
@@ -103,16 +91,11 @@ router.get('/editor/contact-details/contact-details-phone-edit', function (req, 
 
 router.post('/editor/contact-details/contact-details-phone-edit', function (req, res) {
   localStorage.setItem('primaryTelephone', req.body.telephone);
-  res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit');
+  res.redirect('contact-details-online-edit');
 });
 
 router.post('/editor/contact-details/contact-details-online-edit', function (req, res) {
-  let email = req.body.email;
-  if (!email) {
-    res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit?error=true');
-  } else {
-    res.redirect('/profile-manager/pharmacies/editor/contact-details/contact-details-check');
-  }
+  res.redirect('contact-details-check');
 });
 
 router.get('/editor/contact-details/contact-details-check', function (req, res) {
@@ -127,24 +110,25 @@ router.post('/editor/contact-details/contact-details-check', function (req, res)
   );
   recentChangeMade = true;
   localStorage.setItem('contactDetailsConfirmed', true);
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+  res.redirect('../../editor/manage-profile');
 }); 
 
 //*********************** */
 // Branching - Address 
 //*********************** */
 router.post('/editor/address/address-change', function (req, res) {
-  res.redirect('/profile-manager/pharmacies/editor/address/address-check');
+  res.redirect('address-check');
 })
 
 router.post('/editor/address/address-check', function (req, res) {
   localStorage.setItem('addressChangePending', true);
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+  res.redirect('../../editor/manage-profile');
 })
 
 router.post('/editor/address/address-pending', function (req, res) {
   localStorage.setItem('addressChangePending', false);
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+  recentChangeMade = true;
+  res.redirect('../../editor/manage-profile');
 })
 
 //*********************** */
@@ -156,7 +140,7 @@ router.get('/editor/facilities/facilities-edit', function (req, res) {
 });
 
 router.post('/editor/facilities/facilities-edit', function (req, res) {
-  res.redirect('/profile-manager/pharmacies/editor/facilities/facilities-check');
+  res.redirect('facilities-check');
 });
 
 router.post('/editor/facilities/facilities-check', function (req, res) {
@@ -166,7 +150,7 @@ router.post('/editor/facilities/facilities-check', function (req, res) {
   );
   recentChangeMade = true;
   facilitiesConfirmed = true;
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
+  res.redirect('../../editor/manage-profile');
 });
 
 //*********************** */
@@ -178,7 +162,7 @@ router.get('/editor/services/services-edit', function (req, res) {
 });
 
 router.post('/editor/services/services-edit', function (req, res) {
-  res.redirect('/profile-manager/pharmacies/editor/services/services-check');
+  res.redirect('services-check');
 });
 
 router.post('/editor/services/services-check', function (req, res) {
@@ -188,19 +172,7 @@ router.post('/editor/services/services-check', function (req, res) {
   );
   recentChangeMade = true;
   servicesConfirmed = true;
-  res.redirect('/profile-manager/pharmacies/editor/manage-profile');
-});
-
-//*********************** */
-// Branching - Services 
-//*********************** */
-router.post('/services-edit', function (req, res) {
-  res.redirect('/editor/services/services-check');
-});
-
-router.get('/editor/services/index', function (req, res) {
-  recentChangeMade = false;
-  res.render('editor/services/index');
+  res.redirect('../../editor/manage-profile');
 });
 
 router.get('/editor/profiles', (req, res) => {
@@ -282,24 +254,6 @@ router.post('/profiles-comments/all-comments', (req, res) => {
   res.redirect('reviews-one-star')
 })
 
-router.post('/search-pharmacy-reviews', (req, res) => {
-  let searchTerm = req.body.search;
-  if (searchTerm.toLowerCase() === 'leeds') {
-    res.redirect('/profile-manager/pharmacies/profiles-comments/multiple-places');
-  } else {
-    res.redirect('/profile-manager/pharmacies/profiles-comments/no-results');
-  }
-});
-
-router.get('/profiles-comments/profile-list-leeds', (req, res) => {
-  const currentPharmacies = findLeeds('Leeds');
-  const searchTerm = 'Leeds';
-  res.render('profiles-comments/profile-list-leeds', {
-    currentPharmacies,
-    searchTerm,
-  });
-});
-
 function findByODS(searchTerm) {
   const searchResults = pharmacies.filter((pharm) =>
     pharm.ODSCode.toLowerCase().includes(searchTerm.toLowerCase())
@@ -309,11 +263,10 @@ function findByODS(searchTerm) {
 
 router.post('/org-response/response', function (req, res) {
   let response = req.body.yourresponse;
-
   if (response == '') {
-    res.redirect('/profile-manager/pharmacies/org-response/response-error');
+    res.redirect('response-error');
   } else {
-    res.redirect('/profile-manager/pharmacies/org-response/response-confirm');
+    res.redirect('response-confirm');
   }
 });
 

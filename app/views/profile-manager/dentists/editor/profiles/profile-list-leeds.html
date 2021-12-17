@@ -1,0 +1,134 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/dentists/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1>
+        Choose a profile to edit
+      </h1>
+
+      <div class="nhsuk-u-margin-bottom-3" aria-label="Search and sort">
+        
+        <!--form action="/search-dentist" method="POST">
+          <label class="nhsuk-label" for="search">Search by ODS code</label>
+          <div class="search-sort">
+            <div class="search-bar">
+              <input id="search" type="text" name="search" class="nhsuk-input search-input" />
+              <button type="submit" class="nhsuk-button search-button nhsuk-u-margin-bottom-0">Search</button>
+            </div>
+          </div>
+        </form-->
+
+        <form id="search" action="/search-dentist" method="POST" role="search">
+
+          <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="search">Search by city or postcode</label>
+
+          <div class="search-sort">
+            <div class="search-bar">
+
+              <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="search" name="search" placeholder="Search" type="text">
+              {# <button class="nhsuk-button search-button" type="submit">
+                Search
+              </submit> #}
+              
+              <button class="nhsuk-search__submit" type="submit">
+                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
+
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      
+      
+      {% if (searchTerm) %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentDentists.length }} of {{currentDentists.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.</p>
+      {% else %}
+      <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentDentists.length }} results of {{pharmacies.length}}</span>.</p>
+      {% endif %}
+
+    <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+        <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" scope="col">Name</th>
+              <th role="columnheader" scope="col">Address</th>
+              <th role="columnheader" scope="col">City</th>
+              <th role="columnheader" scope="col">Postcode</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% for dentist in currentDentists %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Name </span>
+                <a href="/editor/manage-profile">
+                  <span class="nhsuk-u-visually-hidden">View </span>{{dentist.Name}}
+                </a>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Address </span>
+                {{dentist.Line1}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">City </span>
+                {{dentist.city}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Postcode </span>
+                {{dentist.Postcode}}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

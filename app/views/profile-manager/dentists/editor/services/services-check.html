@@ -1,0 +1,458 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-app-header.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Confirm your chosen services - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/editor"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="/profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/manage-profile">
+        {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit mydentist
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/services/services-edit">Edit services</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/services/services-edit">
+      Back to edit services
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
+      <h1>Confirm your chosen services</h1>
+      <form action="/services-check" method="post">
+          <h2>NHS Services</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Alcohol screening and intervention service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["alcoholservice"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> alcohol screening and intervention service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Chlamydia screening
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["chlamydiascreening"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> chlamydia screening</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Condom supply
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                yes
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> condom supply</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Emergency contraception
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["emergencycontraception"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> emergency contraception</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Medicine use review service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["medicineusereviewservice"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> medicine use review service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Minor ailment service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["minorailmentservice"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> minor ailment service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Needle and syringe exchange
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                yes
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> needle and syringe exchange</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                NHS Health check
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["healthcheck"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> NHS Health check</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Pregnancy testing
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["pregnancytesting"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> pregnancy testing</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Stop smoking service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["stopsmoking"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> stop smoking service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Stop smoking voucher service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["stopsmokingvoucher"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> Stop smoking voucher service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Weight management service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["weightmanagementservice"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> weight management service</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <h2>Non-NHS services</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Blood pressure monitoring
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["bloodpressureP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> blood pressure monitoring</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Chlamydia screening
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["chlamydiascreeningP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> chlamydia screening</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Emergency contraception
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["emergencycontraceptionP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> emergency contraception</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Health check
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["healthcheckP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> health check</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Pregnancy testing
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["pregnancytestingP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> pregnancy testing</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Flu vaccine - for not at risk groups
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["flujabatriskP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> flu vaccine - for not at risk groups</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Stop smoking service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["stopsmokingP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> stop smoking service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Travel clinic
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["travelclinicP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> Travel clinic</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Diabetes screening
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["diabeticscreeningP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> diabetes screening</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Weight management service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["weightmanagementserviceP"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> weight management service</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <h2>General dentist services</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Appliance dispensing
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["appliancedispensing"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> appliance dispensing</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Appliance use review service
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                yes
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> appliance use review service</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Appointment booking available
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["appointmentbookingavailable"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> appointment booking available</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Inhaler recycling
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["inhalerrecycling"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> inhaler recycling</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key" style="width:50%;">
+                Multi-lingual staff
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data["multilingualstaff"]}}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> Multi-lingual staff</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+        {{ button({
+          "text": "Save and confirm",
+          "id": "btn_submit"
+        }) }}
+
+      </form>
+
+      {{ backLink({
+      "href": "services-edit",
+      "text": "Go back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

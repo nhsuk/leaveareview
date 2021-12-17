@@ -301,30 +301,6 @@ router.post('/aaq3', function (req, res) {
   }
 });
 
-// Branching - Services
-router.post('/services-edit', function (req, res) {
-  res.redirect('/editor/services/services-check');
-});
-
-router.get('/editor/services/index', function (req, res) {
-  recentChangeMade = false;
-  res.render('editor/services/index');
-});
-
-// Branching - Facilities
-router.post('/facilities', function (req, res) {
-  res.redirect('/editor/manage-profile');
-});
-
-router.get('/profiles', (req, res) => {
-  recentChangeMade = false;
-  // contactDetailsConfirmed = false;
-  // facilitiesConfirmed = false;
-  // servicesConfirmed = false;
-  currentPharmacies = pharmacies.slice(0, 15);
-  res.render('profiles/index', { currentPharmacies, pharmacies });
-});
-
 module.exports = {
   router: router,
   localStorage: localStorage,

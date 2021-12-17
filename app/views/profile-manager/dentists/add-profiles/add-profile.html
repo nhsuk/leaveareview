@@ -1,0 +1,122 @@
+{% from 'input/macro.njk' import input %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends 'layout-header-no-permissions.html' %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Enter profile details - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/dentists/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Enter profile details</h1>
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>If you have details ready to add a large number of profiles, email the NHS website service desk on <a href="mailto:nhswebsite.servicedesk@nhs.net">nhswebsite.servicedesk@nhs.net</a>.</p>
+      </div>
+      <form action="/profile-manager/dentists/add-profiles/add-profile" method="POST">
+        <div class="org-form-list">
+          <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                Do you know your profile's ODS Code? 
+              </legend>
+              <div class="nhsuk-hint" id="contact-hint">
+                <p>You can <a href="#" target="_blank">find an ODS code by using the ODS portal (opens in a new window or tab)</a>.</p>
+              </div>
+              <div class="nhsuk-radios nhsuk-radios--conditional">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="ods-yes" name="odsCode" type="radio" value="odsCodeYes" aria-controls="conditional-ods-code-yes" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="ods-yes">
+                    Yes 
+                  </label>
+                </div>
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-ods-code-yes">
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="ods-code">
+                      ODS Code 
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="ods-code" name="odsCodeValue" type="text">
+                  </div>
+                </div>
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="ods-no" name="odsCode" type="radio" value="odsCodeNo" aria-controls="conditional-ods-code-no" aria-expanded="false">
+                  <label class="nhsuk-label nhsuk-radios__label" for="ods-no">
+                    No 
+                  </label>
+                </div>
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-ods-code-no">
+                  <fieldset class="nhsuk-fieldset nhsuk-u-margin-top-2">
+                    <legend class="nhsuk-u-visually-hidden">Enter profile details</legend>
+                      {{ input({
+                        "label": {
+                          "text": "Profile name"
+                        },
+                        "hint": {
+                          "text": "For example, your dentist, dental practice, or hospital name"
+                        },
+                        "id": "org1-name",
+                        "name": "org1-name",
+                        "classes": "nhsuk-input--width-20"
+                      }) }}
+                      {{ input({
+                        "label": {
+                          "text": "Town or city"
+                        },
+                        "id": "org1-town-city",
+                        "name": "org1-town-city",
+                        "classes": "nhsuk-input--width-20"
+                      }) }}
+                      {{ input({
+                        "label": {
+                          "text": "Postcode"
+                        },
+                        "id": "org1-postcode",
+                        "name": "org1-postcode",
+                        "classes": "nhsuk-input--width-10",
+                        "autocomplete": "postal-code"
+                      }) }}
+                  </fieldset>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button type="submit" class="nhsuk-button">Continue</button>
+      </form>
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go Back
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

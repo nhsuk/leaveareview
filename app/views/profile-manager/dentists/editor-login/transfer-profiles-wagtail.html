@@ -1,0 +1,83 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "../"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Register for the new NHS Profile Manager</h1>
+      <p>The new NHS Profile Manager combines the current NHS website profile editor and the Directory of Services (DoS) Profile Updater.</p>
+      <p>The new system will update both the NHS website and the DoS. You will be able to save time with 1 system, to meet your contractual obligations for updating profiles.</p>
+      <h2>Secure access with NHSmail</h2>
+      <p>Register for the NHS Profile Manager with your personal NHSmail address only. You will not be able to log in with shared NHSmail addresses or other types of email.</p>
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            If you do not have a personal NHSmail address
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>You will need to ask your dentist’s shared mailbox owner to request a personal 
+            NHSmail address for you, from the National Administration Service. Ask a colleague, if you 
+            are not sure who the owner is.</p>
+          <p>The shared mailbox owner needs to email <a href="mailto:pharmacyadmin@nhs.net">pharmacyadmin@nhs.net</a> from the shared mailbox, with your:</p>
+          <ul>
+            <li>full name</li>
+            <li>mobile phone number (this must start 07)</li>
+            <li>alternative email address</li>
+          </ul>
+          <p>Once you have your personal NHSmail address, you can register for the NHS Profile Manager.</p>
+        </div>
+      </details>
+      <h2>Register now</h2>
+      <p>Register now to:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>prepare your new account to use NHSmail</li>
+        <li>transfer your current dentist profiles</li>
+        <li>check your transferred profiles</li>
+      </ul>
+			<a class="nhsuk-button" href="sign-in/nhs-signin">Register using your personal NHSmail address</a>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+{% endblock %}

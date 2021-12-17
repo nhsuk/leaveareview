@@ -1,0 +1,204 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Edit profile - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/dentists/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../editor/profiles">
+          Your profiles
+        </a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      Back to your profiles
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-u-margin-bottom-0">Edit profile</h1>
+      <span class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
+        {% if data["newname"] %}
+          {{data["newname"]}}
+        {%else%}
+          mydentist 
+        {%endif%}
+      </span>
+      <!-- {% if data["address-line-1"] %}
+        {{ data["address-line-1"] }}, {{ data["address-town"] }}, {{ data["address-county"] }}, {{data["address-postcode"] }}
+      {% else %} -->
+        <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
+      <!-- {% endif %} -->
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% if recentChangeMade %}
+        <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
+          <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
+          <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+          </svg>
+          <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
+        </div>
+      {% endif %}
+    </div> 
+  </div>
+ 
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Organisation name 
+          </h2>
+          <span class="edit-link"><a href="change-name/name-start">Change</a></span>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Contact details
+          </h2>
+          {% if contactDetailsConfirmed %}
+          <div class="options">
+            <p><a href="contact-details/contact-details-check">Check your <span class="nhsuk-u-visually-hidden">contact details</span> information</a></p>
+          </div>
+          {% else %}
+          <div class="options">
+            <span class="edit-link"><a href="contact-details/contact-details-start">Setup <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
+          </div>
+          {% endif %}
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ contactDetailsLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Facilities 
+          </h2>
+          <div class="options">
+            <p><a href="facilities/facilities-edit">Check your <span class="nhsuk-u-visually-hidden">facilities</span> information</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Services 
+          </h2>
+          <div class="options">
+            <p><a href="services/services-edit">Check your <span class="nhsuk-u-visually-hidden">services</span> information</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ servicesLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Opening times
+          </h2>
+          <div class="options">
+            <p><a href="opening-times/opening-times-start">Check your <span class="nhsuk-u-visually-hidden">opening times</span> information</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ openingTimesLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Address
+          </h2>
+          <div class="options">
+            {% if addressChangePending == true %}
+              <p>Change pending</p>
+              <span class="edit-link"><a href="address/address-pending">Change<span class="nhsuk-u-visually-hidden"> address</span></a></span>
+            {% else %}
+              <span class="edit-link"><a href="address/address-start">Change<span class="nhsuk-u-visually-hidden"> address</span></a></span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="nhsuk-back-link">
+    <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+      <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+        <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+      </svg>
+      Go Back
+    </a>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+let displayname = req.body.displayname;
+</script>
+{% endblock %}
