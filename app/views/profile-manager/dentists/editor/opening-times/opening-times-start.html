@@ -107,7 +107,11 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="temporary-changes/temporary-changes">Temporary changes to dentist opening times</a>
+            {% if recentOpeningTimesChange %}
+            <a class="nhsuk-card__link" href="temporary-changes/temporary-changes-done">Temporary changes to dentist opening times</a>
+            {% else %}
+              <a class="nhsuk-card__link" href="temporary-changes/temporary-changes">Temporary changes to dentist opening times</a>
+            {% endif %}
           </h2>
         </div>
       </div>
