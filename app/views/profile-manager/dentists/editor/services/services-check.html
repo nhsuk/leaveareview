@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Confirm your chosen services - Profile manager - NHS
+Confirm your services - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -41,7 +41,7 @@ Confirm your chosen services - Profile manager - NHS
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/services/services-edit">Edit services</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/editor/services/services-edit">Services</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/services/services-edit">
       Back to edit services
@@ -55,9 +55,9 @@ Confirm your chosen services - Profile manager - NHS
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
-      <h1>Confirm your chosen services</h1>
-      <form action="/services-check" method="post">
-          <h2>NHS Services</h2>
+      <h1>Confirm your services</h1>
+      <form action="/editor/services/services-check" method="post">
+          <h2>NHS services</h2>
           <dl class="nhsuk-summary-list">
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key" style="width:50%;">
@@ -90,7 +90,7 @@ Confirm your chosen services - Profile manager - NHS
                 Condom supply
               </dt>
               <dd class="nhsuk-summary-list__value">
-                yes
+                Yes
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="services-edit">
@@ -142,7 +142,7 @@ Confirm your chosen services - Profile manager - NHS
                 Needle and syringe exchange
               </dt>
               <dd class="nhsuk-summary-list__value">
-                yes
+                Yes
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="services-edit">
@@ -370,7 +370,7 @@ Confirm your chosen services - Profile manager - NHS
                 Appliance use review service
               </dt>
               <dd class="nhsuk-summary-list__value">
-                yes
+                Yes
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="services-edit">
