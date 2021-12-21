@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Confirm your chosen facilities - Profile manager - NHS
+Confirm your facilities - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -41,9 +41,9 @@ Confirm your chosen facilities - Profile manager - NHS
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../facilities/facilities-edit">Edit facilities</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../facilities/facilities-edit">Facilities</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__link" href="../facilities/facilities-edit">Edit facilities</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__link" href="../facilities/facilities-edit">Facilities</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -54,7 +54,7 @@ Confirm your chosen facilities - Profile manager - NHS
     <div class="nhsuk-grid-column-two-thirds">
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
       <form action="/profile-manager/dentists/editor/facilities/facilities-check" method="post">
-        <h1>Confirm your chosen facilities</h1>
+        <h1>Confirm your facilities</h1>
         <h2>Accessibility</h2>
         <dl class="nhsuk-summary-list">
           <div class="nhsuk-summary-list__row">
@@ -141,7 +141,7 @@ Confirm your chosen facilities - Profile manager - NHS
               Wheelchair access
             </dt>
             <dd class="nhsuk-summary-list__value">
-              yes
+              Yes
             </dd>
             <dd class="nhsuk-summary-list__actions">
               <a href="facilities-edit">
@@ -184,7 +184,7 @@ Confirm your chosen facilities - Profile manager - NHS
               Cycle parking
             </dt>
             <dd class="nhsuk-summary-list__value">
-              yes 
+              Yes 
             </dd>
             <dd class="nhsuk-summary-list__actions">
               <a href="facilities-edit">

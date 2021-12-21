@@ -63,16 +63,22 @@
   <div class="nhsuk-grid-column-two-thirds">
     <form method="post" action="/profile-manager/dentists/editor/opening-times/days/{{dayObj.key}}/set">
       <div class="nhsuk-form-group">
+        <h1>
+          {% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          Is mydentist open on {{dayObj.display}}?
+          {%else%}
+          Is {{data["displayname"]}} open on {{dayObj.display}}?
+          {%endif%}
+        </h1>
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-            <h1 class="nhsuk-fieldset__heading">
+          <legend class="nhsuk-u-visually-hidden">
               {% set displayname = 'alias0' %}
               {% if data["displayname"] == alias0 %}
               Is mydentist open on {{dayObj.display}}?
               {%else%}
               Is {{data["displayname"]}} open on {{dayObj.display}}?
               {%endif%}
-            </h1>
           </legend>
           <div class="nhsuk-radios nhsuk-radios--conditional">
             <div class="nhsuk-radios__item">
@@ -84,12 +90,12 @@
                 <legend class="nhsuk-fieldset__legend nhsuk-u-font-weight-bold">
                   {% set displayname = 'alias0' %}
                     {% if data["displayname"] == alias0 %}
-                    Which time slots is mydentist open for on {{dayObj.display}}?
+                    When is mydentist open on {{dayObj.display}}?
                     {%else%}
                     What time is {{data["displayname"]}} open on {{dayObj.display}}?
                     {%endif%}
                 </legend>
-                <span class="nhsuk-hint">Enter opening times in the 24 hour format.</span>
+                <span class="nhsuk-hint">Enter opening times in the 24-hour format.</span>
                 <span class="nhsuk-hint">For 9am use 09:00 and for midday use 12:00.</span>
                 <div id="openingTimes" class="nhsuk-u-margin-bottom-2">
                   <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">

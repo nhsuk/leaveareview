@@ -63,16 +63,22 @@
   <div class="nhsuk-grid-column-two-thirds">
     <form method="post" action="/profile-manager/pharmacies/editor/opening-times/days/{{dayObj.key}}/set">
       <div class="nhsuk-form-group">
+        <h1 class="nhsuk-u-margin-bottom-3">
+          {% set displayname = 'alias0' %}
+          {% if data["displayname"] == alias0 %}
+          Is Cohens open on {{dayObj.display}}?
+          {%else%}
+          Is {{data["displayname"]}} open on {{dayObj.display}}?
+          {%endif%}
+        </h1>
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-            <h1 class="nhsuk-fieldset__heading">
-              {% set displayname = 'alias0' %}
-              {% if data["displayname"] == alias0 %}
-              Is Cohens open on {{dayObj.display}}?
-              {%else%}
-              Is {{data["displayname"]}} open on {{dayObj.display}}?
-              {%endif%}
-            </h1>
+          <legend class="nhsuk-u-visually-hidden">
+            {% set displayname = 'alias0' %}
+            {% if data["displayname"] == alias0 %}
+            Is Cohens open on {{dayObj.display}}?
+            {%else%}
+            Is {{data["displayname"]}} open on {{dayObj.display}}?
+            {%endif%}
           </legend>
           <div class="nhsuk-radios nhsuk-radios--conditional">
             <div class="nhsuk-radios__item">
@@ -84,13 +90,16 @@
                 <legend class="nhsuk-fieldset__legend nhsuk-u-font-weight-bold">
                   {% set displayname = 'alias0' %}
                     {% if data["displayname"] == alias0 %}
-                    Which time slots is Cohens open for on {{dayObj.display}}?
+                    When is Cohens open on {{dayObj.display}}?
                     {%else%}
                     What time is {{data["displayname"]}} open on {{dayObj.display}}?
                     {%endif%}
                 </legend>
-                <span class="nhsuk-hint">Enter opening times in the 24 hour format.</span>
-                <span class="nhsuk-hint">For 9am use 09:00 and for midday use 12:00.</span>
+                <div id="opening-time-hint" class="nhsuk-hint">
+                  <p class="nhsuk-u-margin-bottom-0">Time ranges must show when a pharmacist is present.</p>
+                  <p class="nhsuk-u-margin-bottom-0">Enter opening times in the 24-hour format.</p>
+                  <p class="nhsuk-u-margin-bottom-0">For 9am use 09:00 and for midday use 12:00.</p>
+                </div>
                 <div id="openingTimes" class="nhsuk-u-margin-bottom-2">
                   <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
                     <div class="nhsuk-date-input__item">

@@ -78,13 +78,16 @@
                 <legend class="nhsuk-fieldset__legend nhsuk-u-font-weight-bold">
                   {% set displayname = 'alias0' %}
                     {% if data["displayname"] == alias0 %}
-                    Which time slots is Cohens open for on 6 July 2021? 
+                    When is Cohens open on 6 July 2021? 
                     {%else%}
                     What time is {{data["displayname"]}} open on 6 July 2021?
                     {%endif%}
                 </legend>
-                <span class="nhsuk-hint">Enter opening times in the 24 hour format.</span>
-                <span class="nhsuk-hint">For 9am use 09:00 and for midday use 12:00.</span>
+                <div id="opening-time-hint" class="nhsuk-hint">
+                  <p class="nhsuk-u-margin-bottom-0">Time ranges must show when a pharmacist is present.</p>
+                  <p class="nhsuk-u-margin-bottom-0">Enter opening times in the 24-hour format.</p>
+                  <p class="nhsuk-u-margin-bottom-0">For 9am use 09:00 and for midday use 12:00.</p>
+                </div>
                 <div id="openingTimes" class="nhsuk-u-margin-bottom-2">
                   <div id="timeEntry1" class="nhsuk-u-margin-bottom-3">
                     <div class="nhsuk-date-input__item">
