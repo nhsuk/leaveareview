@@ -177,9 +177,6 @@ router.post('/editor/services/services-check', function (req, res) {
 
 router.get('/editor/profiles', (req, res) => {
   recentChangeMade = false;
-  // contactDetailsConfirmed = false;
-  // facilitiesConfirmed = false;
-  // servicesConfirmed = false;
   currentPharmacies = pharmacies.slice(0, 15);
   res.render('profile-manager/pharmacies/editor/profiles/index', { currentPharmacies, pharmacies });
 });
