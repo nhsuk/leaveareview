@@ -41,10 +41,10 @@ Your online contact details - Profile manager - NHS
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../contact-details/contact-details-phone-edit">Your phone details</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../contact-details/contact-details-phone-edit">Customer telephone number</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../contact-details/contact-details-phone-edit">
-      Your phone details 
+      Customer telephone number 
     </a></p>
   </div>
 </nav>
@@ -56,8 +56,9 @@ Your online contact details - Profile manager - NHS
     <div class="nhsuk-grid-column-two-thirds">   
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 3</span>  
       <form action="/profile-manager/pharmacies/editor/contact-details/contact-details-online-edit" method="post">
-        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+        <h1 class="nhsuk-heading-l">Your online contact details</h1>
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-u-visually-hidden">
             Your online contact details
           </legend>
           <div class="nhsuk-form-group">
