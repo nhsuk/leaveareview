@@ -41,17 +41,19 @@
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-u-margin-bottom-0">Edit your profile</h1>
-      <span class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
+      <span class="nhsuk-u-font-size-24 nhsuk-u-secondary-text-color nhsuk-u-margin-bottom-4">
         {% if data["newname"] %}
           {{data["newname"]}}
         {%else%}
           mydentist 
         {%endif%}
       </span>
+      <a href="#">Change<span class="nhsuk-u-visually-hidden"> organisation name</span></a>
       <!-- {% if data["address-line-1"] %}
         {{ data["address-line-1"] }}, {{ data["address-town"] }}, {{ data["address-county"] }}, {{data["address-postcode"] }}
       {% else %} -->
-        <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
+      <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
+      <a href="#">Change<span class="nhsuk-u-visually-hidden"> address</span></a>
       <!-- {% endif %} -->
     </div>
   </div>

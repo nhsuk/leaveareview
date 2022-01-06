@@ -41,11 +41,14 @@ Confirm your contact details - Profile manager - NHS
         {%else%}
         Edit {{data["displayname"]}}
         {%endif%}</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-phone-edit">Customer telephone number</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/contact-details/contact-details-online-edit">Your online contact details</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../../editor/contact-details/contact-details-online-edit">
-      Your online contact details 
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href=".../../editor/manage-profile">
+      {% set displayname = 'alias0' %}
+        {% if data["displayname"] == alias0 %}
+        Edit Cohens
+        {%else%}
+        Edit {{data["displayname"]}}
+        {%endif%}
     </a></p>
   </div>
 </nav>
