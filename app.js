@@ -271,6 +271,7 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('facilitiesUpdatedDate', '12 June 2021');
   localStorage.setItem('servicesUpdatedDate', '12 December 2020');
   localStorage.setItem('openingTimesUpdatedDate', '12 June 2021');
+  localStorage.setItem('patientTypeLastUpdatedDate', '01 January 2022');
   localStorage.setItem('tempChanges', JSON.stringify([]));
   localStorage.setItem('primaryTelephone', '4222222');
   localStorage.setItem('contactDetailsConfirmed', false);

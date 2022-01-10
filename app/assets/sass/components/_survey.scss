@@ -1,0 +1,13 @@
+.survey-container {
+	background-color: #005eb8;
+	color: #fff;
+	padding: 1em;
+
+	.survey-link {
+		color: #fff;
+
+		&:focus {
+			color: #000;
+		}
+	}
+}

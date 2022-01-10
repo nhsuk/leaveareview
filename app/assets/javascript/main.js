@@ -36,16 +36,28 @@ if (document.getElementById('send-verification-code')) {
   });
 }
 
-const filterDiv = document.getElementById("filter");
-const showFilterButton = document.getElementById('show-filter-button')
-filterDiv.style.display = "none";
-showFilterButton.addEventListener('click', e => {
-  e.preventDefault();
-  if (showFilterButton.getAttribute('aria-expanded') === 'false') {
-    showFilterButton.setAttribute("aria-expanded", 'true'); 
-  } else {
-    showFilterButton.setAttribute("aria-expanded", 'false'); 
-  }
-  showFilterButton.textContent = showFilterButton.textContent === 'Filter and sort' ? 'Close filter' : 'Filter and sort';
-  filterDiv.style.display = filterDiv.style.display === 'none' ? 'block' : 'none';
-})
+if(document.getElementById("filter")) {
+  const filterDiv = document.getElementById("filter");
+  const showFilterButton = document.getElementById('show-filter-button')
+  filterDiv.style.display = "none";
+  showFilterButton.addEventListener('click', e => {
+    e.preventDefault();
+    if (showFilterButton.getAttribute('aria-expanded') === 'false') {
+      showFilterButton.setAttribute("aria-expanded", 'true'); 
+    } else {
+      showFilterButton.setAttribute("aria-expanded", 'false'); 
+    }
+    showFilterButton.textContent = showFilterButton.textContent === 'Filter and sort' ? 'Close filter' : 'Filter and sort';
+    filterDiv.style.display = filterDiv.style.display === 'none' ? 'block' : 'none';
+  });
+}
+
+if(document.getElementById("notAcceptingPatients")) {
+  const notAcceptingPatientsCheckbox = document.getElementById("notAcceptingPatients");
+  const checkboxes = document.getElementsByClassName("nhsuk-checkboxes__input");
+  notAcceptingPatientsCheckbox.addEventListener("click", function() {
+    for(let i = 0; i < checkboxes.length - 1; i++) {
+      checkboxes[i].checked = false;
+    }
+  })
+}

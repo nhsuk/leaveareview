@@ -48,6 +48,7 @@ router.get('/editor/manage-profile', function (req, res) {
   let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
   let servicesConfirmed = localStorage.getItem('servicesConfirmed');
   let addressChangePending = localStorage.getItem('addressChangePending');
+  let patientTypeLastUpdatedDate = localStorage.getItem('patientTypeLastUpdatedDate')
 
   // Setting values to booleans again due to localStorage using strings
   contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
@@ -65,13 +66,13 @@ router.get('/editor/manage-profile', function (req, res) {
     facilitiesConfirmed,
     servicesConfirmed,
     addressChangePending,
+    patientTypeLastUpdatedDate,
   });
 });
 
 //*********************** */
 // Branching - Org name
 //*********************** */
-
 router.post('/editor/change-name/name-edit', function (req, res) {
   res.redirect('confirm-name-change');
 })
@@ -172,6 +173,29 @@ router.post('/editor/services/services-check', function (req, res) {
   );
   recentChangeMade = true;
   servicesConfirmed = true;
+  res.redirect('../../editor/manage-profile');
+});
+
+//*********************** */
+// Branching - Availability 
+//*********************** */
+router.post('/editor/availability/practice-type', function (req, res) {
+  if (req.body.practiceType === "Referral only") {
+    res.redirect('availability-check');
+  } else {
+    res.redirect('accepting-patients');
+  }
+});
+
+router.post('/editor/availability/accepting-patients', function (req, res) {
+  res.redirect('availability-check');
+});
+
+router.post('/editor/availability/availability-check', function (req, res) {
+  localStorage.setItem(
+    'patientTypeLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
   res.redirect('../../editor/manage-profile');
 });
 
