@@ -39,7 +39,7 @@ Which email address did you sign in with on your old account? - Profile manager 
           "errorList": errorList
         }) }}
       {% endif %}
-			<form action="/profile-manager/dentists/editor-login/register/previous-email" method="POST">
+			<form action="/profile-manager/dentists/editor-login/register/previous-email" method="POST" autocomplete="off">
         {% if hasErrors %}
           <div class="nhsuk-form-group nhsuk-form-group--error">
         {% else %}
