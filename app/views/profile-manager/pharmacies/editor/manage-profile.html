@@ -42,7 +42,7 @@
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-u-margin-bottom-0">Edit your profile</h1>
-      <p class="nhsuk-u-font-size-24 nhsuk-u-secondary-text-color nhsuk-u-margin-bottom-4">
+      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
         {% if data["newname"] %}
           {{data["newname"]}}
         {%else%}
@@ -59,9 +59,9 @@
     </div>
   </div>
 
+  {% if recentChangeMade %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      {% if recentChangeMade %}
         <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
           <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
           <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -69,9 +69,9 @@
           </svg>
           <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
         </div>
-      {% endif %}
     </div> 
   </div>
+  {% endif %}
  
   <ul class="nhsuk-grid-row nhsuk-card-group">
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
