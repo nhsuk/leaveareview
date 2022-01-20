@@ -70,16 +70,16 @@
       <p class="nhsuk-u-margin-bottom-6">Edit your organisation name, address and other contact information.</p>
     </div>
   </div>
-  {% if recentOpeningTimesChange %}
+  {% if recentChangeMade %}
     <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
       <div class="nhsuk-grid-column-two-thirds">
-        <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
-          <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
-          <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
-          </svg>
-          <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully updated your temporary changes</p>
-        </div>
+          <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
+            <h2 class="nhsuk-u-visually-hidden">Your recent changes</h2>
+            <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+            </svg>
+            <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
+          </div>
       </div> 
     </div>
   {% endif %}
@@ -89,7 +89,11 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="contact-details-phone-edit">Contact details</a>
+            {% if contactDetailsConfirmed %}
+              <a class="nhsuk-card__link" href="contact-details-check">Contact us</a>
+            {% else %}
+              <a class="nhsuk-card__link" href="contact-details-phone-edit">Contact us</a>
+            {% endif %}
           </h2>
           <p>Update your customer telephone number, website address and customer email address</p>
         </div>

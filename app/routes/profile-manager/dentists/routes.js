@@ -79,12 +79,19 @@ router.post('/editor/contact-details/change-name/name-edit', function (req, res)
 
 router.post('/editor/change-name/confirm-name-change', function (req, res) {
   recentChangeMade = true;
-  res.redirect('../../editor/manage-profile');
+  res.redirect('../../contact-details-landing');
 });
 
 //*********************** */
 // Branching - Contact details 
 //*********************** */
+router.get('/editor/contact-details/contact-details-landing', function (req, res) {
+  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
+  res.render('profile-manager/dentists/editor/contact-details/contact-details-landing', {
+    contactDetailsConfirmed, recentChangeMade
+  });
+});
+
 router.get('/editor/contact-details/contact-details-phone-edit', function (req, res) {
   let primaryTelephone = localStorage.getItem('primaryTelephone')
   res.render('profile-manager/dentists/editor/contact-details/contact-details-phone-edit', { primaryTelephone });
@@ -111,7 +118,7 @@ router.post('/editor/contact-details/contact-details-check', function (req, res)
   );
   recentChangeMade = true;
   localStorage.setItem('contactDetailsConfirmed', true);
-  res.redirect('../../editor/manage-profile');
+  res.redirect('contact-details-landing');
 }); 
 
 //*********************** */
@@ -123,7 +130,7 @@ router.post('/editor/contact-details/address/address-change', function (req, res
 
 router.post('/editor/contact-details/address/address-check', function (req, res) {
   localStorage.setItem('addressChangePending', true);
-  res.redirect('../../../editor/manage-profile');
+  res.redirect('../../contact-details-landing');
 })
 
 router.post('/editor/contact-details/address/address-pending', function (req, res) {

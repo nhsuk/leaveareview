@@ -142,7 +142,9 @@
           </h2>
           <div class="options">
             {% if data["practiceType"] %}
-              <p>{{ data["practiceType"]}}</p>
+              {% if data["practiceType"].includes('direct bookings') %}
+                <p>Currently accepting patients</p>
+              {% endif %}
               <p><a href="availability/availability-check">Check your practice type and NHS patients</a></p>
             {% else %}
               <p>No patient type provided</p>
