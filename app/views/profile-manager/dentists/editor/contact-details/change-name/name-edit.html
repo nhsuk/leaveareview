@@ -1,4 +1,3 @@
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout.html" %}
 
@@ -8,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Enter new address - Profile manager - NHS
+Enter an alternative organisation name - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -60,43 +59,19 @@ Enter new address - Profile manager - NHS
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>Enter new address</h1>
-			<p class="nhsuk-u-margin-bottom-0 nhsuk-u-font-weight-bold">Current address</p>
-			<p>
-				10a/b Bentalls Shopping Centre,<br />
-				Leeds,<br />
-				LS23 9DH
-			</p>
-      <form action="/profile-manager/dentists/editor/address/address-change" method="post">
-				<fieldset class="nhsuk-fieldset">
-					<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-						What is your new address?
-					</legend>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-line-1">
-							Building and street 
-						</label>
-						<input class="nhsuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-town">
-							Town or city
-						</label>
-						<input class="nhsuk-input nhsuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-county">
-							County
-						</label>
-						<input class="nhsuk-input nhsuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-postcode">
-							Postcode
-						</label>
-						<input class="nhsuk-input nhsuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
-					</div>
-				</fieldset>
+      <h1>Enter new name</h1>
+      <form action="/profile-manager/dentists/editor/contact-details/change-name/name-edit" method="post">
+        {% if data["newname"] %}
+          <p>Current name: {{data["newname"]}}</p>
+        {% else %}
+          <p>Current name: mydentist</p>
+        {% endif %}
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="newname">
+            New profile name 
+          </label>
+          <input class="nhsuk-input" id="newname" name="newname" type="text">
+        </div>
         {{ button({
         "text": "Continue",
         "id": "btn_submit"
