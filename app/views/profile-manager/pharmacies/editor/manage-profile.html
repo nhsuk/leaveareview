@@ -48,14 +48,8 @@
         {%else%}
           Cohens 
         {%endif%}
-        <a class="nhsuk-u-font-size-19" href="change-name/name-start">Change<span class="nhsuk-u-visually-hidden"> organisation name</span></a>
       </p>
       <p>10a/b Bentalls Shopping Centre, Leeds, LS23 9DH</p>
-      {% if addressChangePending == true %}
-        <a href="address/address-pending">Change<span class="nhsuk-u-visually-hidden"> address</span></a>
-      {% else %}
-        <a href="address/address-start">Change<span class="nhsuk-u-visually-hidden"> address</span></a>
-      {% endif %}
     </div>
   </div>
 
@@ -82,11 +76,11 @@
           </h2>
           {% if contactDetailsConfirmed %}
           <div class="options">
-            <p><a href="contact-details/contact-details-landing">Check your contact details</a></p>
+            <p><a href="contact-details/contact-details-check">Check your contact details</a></p>
           </div>
           {% else %}
           <div class="options">
-            <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
+            <span class="edit-link"><a href="contact-details/contact-details-start">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
           </div>
           {% endif %}
           <div class="last-updated">
