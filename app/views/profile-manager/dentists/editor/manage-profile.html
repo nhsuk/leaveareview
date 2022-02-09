@@ -1,6 +1,5 @@
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header-pharmacies.html' %}
-{% set mainClasses = 'nhsuk-u-padding-bottom-0' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -21,6 +20,9 @@
 {% endblock %}
 
 {% block beforeContent %}
+<div class="survey-container nhsuk-width-container">
+  <p class="nhsuk-u-margin-bottom-0">This is a new service – your <a target="_blank" href="#">feedback (opens in a new window or tab)</a> will help us to improve it.</p>
+</div>
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
@@ -138,16 +140,19 @@
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            Practice type and NHS patients 
+            Accepting new NHS patients 
           </h2>
           <div class="options">
             {% if data["practiceType"] %}
-              {% if data["practiceType"].includes('direct bookings') %}
-                <p>Currently accepting patients</p>
+              {% if data["practiceType"] === 'general' or data['practiceType'] === 'both' %}
+                <p>Currently accepting new NHS patients</p>
+                <p><a href="availability/availability-check">Check your information about accepting new NHS patients</a></p>
+              {% else %}
+                <p>Referral only</p> 
+                <p><a href="availability/availability-check">Check your information about accepting new NHS patients</a></p>
               {% endif %}
-              <p><a href="availability/availability-check">Check your practice type and NHS patients</a></p>
             {% else %}
-              <p>No patient type provided</p>
+              <p>No NHS practice type selected</p>
               <span class="edit-link"><a href="availability/practice-type">Set up <span class="nhsuk-u-visually-hidden">patient type and NHS patients</span></a></span>
             {% endif %}
           </div>
@@ -166,10 +171,6 @@
       Go Back
     </a>
   </div>
-  <div class="survey-container">
-    <p class="nhsuk-u-margin-bottom-0">This is a new service – your <a target="_blank" href="#" class="survey-link">feedback (opens in a new window or tab)</a> will help us to improve it.</p>
-  </div>
-
 {% endblock %}
 
 <!-- Footer goes inside this block -->

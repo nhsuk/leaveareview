@@ -187,7 +187,7 @@ router.post('/editor/services/services-check', function (req, res) {
 // Branching - Availability 
 //*********************** */
 router.post('/editor/availability/practice-type', function (req, res) {
-  if (req.body.practiceType === "Referral only") {
+  if (req.body.practiceType === "referral") {
     res.redirect('availability-check');
   } else {
     res.redirect('accepting-patients');

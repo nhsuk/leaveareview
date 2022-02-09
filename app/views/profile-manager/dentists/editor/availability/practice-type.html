@@ -64,29 +64,29 @@ Which best describes your practice? - Profile manager - NHS
     <form method="post" action="/profile-manager/dentists/editor/availability/practice-type">
       <div class="nhsuk-form-group">
         <h1>
-          Which best describes your practice? 
+          Select your NHS practice type 
         </h1>
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
+        <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-u-visually-hidden">
-						Which best describes your practice? 
+            Select your NHS practice type 
           </legend>
           <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input id="referral" class="nhsuk-radios__input" type="radio" value="Referral only" name="practiceType">
+              <input id="direct" class="nhsuk-radios__input" type="radio" value="general" name="practiceType">
+              <label class="nhsuk-label nhsuk-radios__label" for="direct">Routine treatments only</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input id="referral" class="nhsuk-radios__input" type="radio" value="referral" name="practiceType">
               <label class="nhsuk-label nhsuk-radios__label" for="referral">Referral only</label>
             </div>
             <div class="nhsuk-radios__item">
-              <input id="direct" class="nhsuk-radios__input" type="radio" value="Direct bookings" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="direct">Direct bookings</label>
-            </div>
-            <div class="nhsuk-radios__item">
-              <input id="mix" class="nhsuk-radios__input" type="radio" value="A mixture of referrals and direct bookings" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="mix">A mixture of referrals and direct bookings</label>
+              <input id="both" class="nhsuk-radios__input" type="radio" value="both" name="practiceType">
+              <label class="nhsuk-label nhsuk-radios__label" for="both">Routine treatments and referrals</label>
             </div>
           </div>
         </fieldset>
-        <button type="submit" class="nhsuk-button">Continue</button>
       </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
     </form>
     <div class="nhsuk-back-link">
       <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
