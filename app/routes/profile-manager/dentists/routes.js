@@ -71,18 +71,6 @@ router.get('/editor/manage-profile', function (req, res) {
 });
 
 //*********************** */
-// Branching - Org name
-//*********************** */
-router.post('/editor/contact-details/change-name/name-edit', function (req, res) {
-  res.redirect('confirm-name-change');
-})
-
-router.post('/editor/change-name/confirm-name-change', function (req, res) {
-  recentChangeMade = true;
-  res.redirect('../../contact-details-landing');
-});
-
-//*********************** */
 // Branching - Contact details 
 //*********************** */
 router.get('/editor/contact-details/contact-details-landing', function (req, res) {
@@ -120,24 +108,6 @@ router.post('/editor/contact-details/contact-details-check', function (req, res)
   localStorage.setItem('contactDetailsConfirmed', true);
   res.redirect('contact-details-landing');
 }); 
-
-//*********************** */
-// Branching - Address 
-//*********************** */
-router.post('/editor/contact-details/address/address-change', function (req, res) {
-  res.redirect('address-check');
-})
-
-router.post('/editor/contact-details/address/address-check', function (req, res) {
-  localStorage.setItem('addressChangePending', true);
-  res.redirect('../../contact-details-landing');
-})
-
-router.post('/editor/contact-details/address/address-pending', function (req, res) {
-  localStorage.setItem('addressChangePending', false);
-  recentChangeMade = true;
-  res.redirect('../../../editor/manage-profile');
-})
 
 //*********************** */
 // Branching - Facilities

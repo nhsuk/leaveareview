@@ -8,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Enter new address - Profile manager - NHS
+Change organisation name - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -42,11 +42,6 @@ Enter new address - Profile manager - NHS
           Edit profile
         </a>
       </li>
-      <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="name-start">
-          Change profile name 
-        </a>
-      </li>
     </ol>
     <p class="nhsuk-breadcrumb__back">
       <a class="nhsuk-breadcrumb__backlink" href="name-start">
@@ -59,49 +54,19 @@ Enter new address - Profile manager - NHS
 
 {% block content %}
   <div class="nhsuk-grid-row">
+
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>Enter new address</h1>
-			<p class="nhsuk-u-margin-bottom-0 nhsuk-u-font-weight-bold">Current address</p>
-			<p>
-				10a/b Bentalls Shopping Centre,<br />
-				Leeds,<br />
-				LS23 9DH
-			</p>
-      <form action="/profile-manager/dentists/editor/contact-details/address/address-change" method="post">
-				<fieldset class="nhsuk-fieldset">
-					<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-						What is your new address?
-					</legend>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-line-1">
-							Building and street 
-						</label>
-						<input class="nhsuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-town">
-							Town or city
-						</label>
-						<input class="nhsuk-input nhsuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-county">
-							County
-						</label>
-						<input class="nhsuk-input nhsuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
-					</div>
-					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="address-postcode">
-							Postcode
-						</label>
-						<input class="nhsuk-input nhsuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
-					</div>
-				</fieldset>
-        {{ button({
-        "text": "Continue",
-        "id": "btn_submit"
-        }) }}
-      </form>
+      <h1 class="nhsuk-u-margin-bottom-0">Change your address or trading name</h1>
+      <span class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
+        {% if data["newname"]  %}
+          {{data["newname"]}}
+        {%else%}
+          mydentist 
+        {%endif%}
+      </span>
+      <p>Your address and trading name are part of your contractual details. These are held and managed by NHS England and Improvement.</p>
+      <p>To change these details, <a href="https://www.england.nhs.uk/primary-care/pharmacy/pharmacy-contract-teams/">email your local pharmacy contract team</a>.</p>
+			<p>Once NHS England and Improvement updates its records, the information will update here on the NHS Profile Manager.</p>
       <div class="nhsuk-back-link">
         <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
           <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
@@ -133,12 +98,4 @@ Enter new address - Profile manager - NHS
       }
     ]
   })}}
-{% endblock %}
-
-{% block pageScripts %}
-<script>
-if (window.location.search.indexOf('error=true') > -1) {
-  document.getElementById("error-message").style.display = "block";
-}
-</script>
 {% endblock %}
