@@ -145,7 +145,11 @@
           <div class="options">
             {% if data["practiceType"] %}
               {% if data["practiceType"] === 'general' or data['practiceType'] === 'both' %}
-                <p>Currently accepting new NHS patients</p>
+                {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
+                  <p>Not current accepting new NHS patients</p>
+                {% else %}
+                  <p>Currently accepting new NHS patients</p>
+                {% endif %}
                 <p><a href="availability/availability-check">Check your information about accepting new NHS patients</a></p>
               {% else %}
                 <p>Referral only</p> 
