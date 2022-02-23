@@ -1,0 +1,97 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Profile Manager
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/hospitals/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-u-margin-bottom-4">User Comments</h1>
+
+      <p class="nhsuk-body-l">Review and respond to the user comments below.</p>
+      <div class="nhsuk-body-m page">Page <b>2</b> of <b>2</b></div>
+      <div class="nhsuk-body-m records">Displaying <b>6 - 9</b> of <b>9</b> Comments</div>
+
+      <hr style="clear: both;">
+
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent dentist</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 10/11/2017</span></p>
+      <p> I haven't been to the dentist for a long time but I felt I couldn't put it off any longer. I researched by reading the reviews on this site and was amazed that 'Corner House' got such consistently high ratings. I did have to wait a few weeks for an appointment and they aren't taking any NHS patients at the moment, but even on the NHS you have to pay quite a lot - especially as I always have white fillings, so it wasn't too much of a problem. The dentist and assistant were both lovely. They immediately put me at ease and explained everything clearly and carefully. I had to have two fillings, which they did there and then. This was great as I hate the feeling leading up to the next appointment. I have been back for a scale and polish - unusually carried out by the same dentist. This again was good as by now I totally trusted them. I highly recommend this dentist.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="/org-response/response">Respond to this comment</a></p></td>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Fantastic dentist would recommend</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 26/07/2017</span></p>
+      <p> Transferred from leeds to carry out last appts for braces couldnt be happier with service excellent.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="/org-response/response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>I feel so much better</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 17/07/2017</span></p>
+      <p> Two days ago I had the roots from a molar removed, which I was dreading, and i couldn't believe how quick and painless the whole procedure was. My dentist had removed the molar which had broken but the dentist couldn't get the roots out. I was referred to High Ash to see the dental surgeon and I was very impressed and now I am pain free. I can't thank you enough.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="/org-response/response">Respond to this comment</a></p>
+      <hr>
+      <p class="nhsuk-body-l nhsuk-u-margin-bottom-0"><b>Excellent Practice</b></p>
+      <p>by Anonymous <span class="nhsuk-body-s" style="display:inline">- Posted on 26/06/2017</span></p>
+      <p> Very happy with my lovely dentist and the staff are very helpful and friendly.</p>
+      <p class="nhsuk-body-s">Visited 20/04/2019</p>
+      <p><a href="/org-response/response">Respond to this comment</a></p>
+      <hr>
+
+      {% from 'pagination/macro.njk' import pagination %}
+
+      {{ pagination({
+        "previousUrl": "/org-response/",
+        "previousPage": "Page 1"
+      }) }}
+      
+    </div>
+    
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}

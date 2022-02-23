@@ -1,0 +1,72 @@
+{% from 'button/macro.njk' import button %}
+{% from 'error-summary/macro.njk' import errorSummary %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Which email address did you sign in with on your old account? - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/hospitals/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% if hasErrors %}
+        {{ errorSummary({
+          "titleText": "There is a problem",
+          "errorList": errorList
+        }) }}
+      {% endif %}
+			<form action="/profile-manager/hospitals/editor-login/register/previous-email" method="POST" autocomplete="off">
+        {% if hasErrors %}
+          <div class="nhsuk-form-group nhsuk-form-group--error">
+        {% else %}
+          <div class="nhsuk-form-group">
+        {% endif %}
+          <h1>Which non-NHSmail address do you sign in with on the current NHS website profile editor?</h1>
+          <p>A non-NHSmail address is anything that does not end ‘nhs.net’. We will email a confirmation code to your non-NHSmail account.</p>
+          <p>You will need to enter the code on the next page, to register with your personal NHSmail address.</p>
+          <p>If you no longer have access to the non-NHSmail account, you will need to <a href="use-system-for">add your dentist profiles</a>.</p>
+          <label class="nhsuk-label" for="email">
+            Enter a non-NHSmail address
+          </label>
+          {% if hasErrors %}
+            <span class="nhsuk-error-message" id="email-error">
+              <span class="nhsuk-u-visually-hidden">Error:</span> {{ errors.email }} 
+            </span>
+            <input class="nhsuk-input nhsuk-input--error nhsuk-input--width-30" aria-describedby="email-hint email-error" id="email" name="email" type="text">
+          {% else %}
+            <input class="nhsuk-input nhsuk-input--width-30" id="email" name="email" type="text" >
+          {% endif %}
+				</div>
+				<button class="nhsuk-button" type="submit">Continue</button>
+			</form>
+      {{ backLink({
+      "href": "/editor-login/no-profiles-landing",
+      "text": "Go back"
+      }) }}
+		</div>
+	</div>
+{% endblock %}

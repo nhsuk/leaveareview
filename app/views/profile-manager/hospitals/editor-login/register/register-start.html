@@ -1,0 +1,71 @@
+{% from 'radios/macro.njk' import radios %}
+{% from 'button/macro.njk' import button %}
+
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-no-cookie.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Comment response tool - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/hospitals/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-u-margin-bottom-3">Register an email address</h1>
+      <form action="/editor-login/register/register-start" method="POST">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-u-visually-hidden">
+              Register an email address
+            </legend>
+            <div class="nhsuk-hint">If you have an NHSmail email address, use that to register for this service.</div>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="sign-in-method-1" name="signInMethod" type="radio" value="nhs">
+                <label class="nhsuk-label nhsuk-radios__label" for="sign-in-method-1">
+                  I would like to register with an NHSmail account, ending ‘nhs.net’ 
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="sign-in-method-2" name="signInMethod" type="radio" value="nonNhs">
+                <label class="nhsuk-label nhsuk-radios__label" for="sign-in-method-2">
+                  I would like to register with a different type of work email address, or a personal address 
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+      {{ backLink({
+      "href": "/editor-login/",
+      "text": "Go back"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
