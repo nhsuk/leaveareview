@@ -3,7 +3,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Your profiles - Profile manager - NHS
+  Profile Manager
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -11,7 +11,7 @@ Your profiles - Profile manager - NHS
   {{ header({
     "transactionalService": {
         "name": "NHS Profile Manager",
-        "href": "../editor"
+        "href": "/profile-manager/hospitals/editor/"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -23,13 +23,13 @@ Your profiles - Profile manager - NHS
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       <h1>
-        Check your profiles 
+        Edit profiles 
       </h1>
       <a class="nhsuk-skip-link" href="#profileslist">Skip filter</a>
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <div class="search-sort">
-            <form id="search" action="/profile-manager/pharmacies/editor/profiles/search-pharmacy" method="POST" role="search">
+            <form id="search" action="/profile-manager/hospitals/editor/profiles/search-dentist" method="POST" role="search">
               <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
               <div class="search-bar-buttons">
                 <div class="search-bar">
@@ -80,72 +80,54 @@ Your profiles - Profile manager - NHS
           </div>
         </div>
       </div>
-      <div id="profileslist">
-        <div class="profile-list-pagination-counter">
-          {% if (searchTerm) %}
-          <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} of {{pharmacies.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.</p>
-          {% else %}
-          <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentPharmacies.length }} results of {{pharmacies.length}}</span>.</p>
-          {% endif %}
-          <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
-        </div>
-        <div class="nhsuk-card">
-          <div class="nhsuk-card__content">
-            <table role="table" class="nhsuk-table-responsive">
-              <caption class="nhsuk-table__caption">Your profiles</caption>
-              <thead role="rowgroup" class="nhsuk-table__head">
-                <tr role="row">
-                  <th role="columnheader" scope="col">Name</th>
-                  <th role="columnheader" scope="col">Address</th>
-                  <th role="columnheader" scope="col">ODS Code</th>
-                </tr>
-              </thead>
-              <tbody class="nhsuk-table__body">
-                {% for pharmacy in currentPharmacies %}
-                <tr role="row" class="nhsuk-table__row">
-                  <td role="cell" class="nhsuk-table__cell">
-                    <span class="nhsuk-table-responsive__heading">Name </span>
-                    <a href="../manage-profile">
-                      {{pharmacy.Name}} <span class="nhsuk-u-visually-hidden"> located at {{pharmacy.Line1}}</span>
-                    </a>
-                  </td>
-                  <td role="cell" class="nhsuk-table__cell">
-                    <span class="nhsuk-table-responsive__heading">Address </span>
-                    {{pharmacy.Line1}}, {{ pharmacy.city }}, {{ pharmacy.Postcode }}
-                  </td>
-                  <td role="cell" class="nhsuk-table__cell">
-                    <span class="nhsuk-table-responsive__heading">ODS Code</span>
-                      FA{{ range(4000, 55000) | random }}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="profile-list-pagination-counter">
+        <p>Showing <span class="nhsuk-u-font-weight-bold">31-39 results of {{pharmacies.length}}</span>.</p>
+        <p>Page <span class="nhsuk-u-font-weight-bold">3 of 3</span></p>
+      </div>
+      <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
+        <table role="table" class="nhsuk-table-responsive">
+          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" scope="col">Name</th>
+              <th role="columnheader" scope="col">Address</th>
+              <th role="columnheader" scope="col">City</th>
+              <th role="columnheader" scope="col">Postcode</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% for dentist in currentDentists %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Name </span>
+                <a href="/editor/manage-profile">
+                  <span class="nhsuk-u-visually-hidden">View </span>{{dentist.Name}}
+                </a>
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Address </span>
+                {{dentist.Line1}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">City </span>
+                {{dentist.city}}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                <span class="nhsuk-table-responsive__heading">Postcode </span>
+                {{dentist.Postcode}}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
       <nav aria-label="Page navigation">
         <ul class="pagination">
-          <li class="page-item">
-            <span class="page-link active" aria-current="page">1 of 3</span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="./profiles-page2" aria-label="Go to next page">Next</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="./profiles-page3" aria-label="Go to last page">Last</a>
-          </li>
+          <li class="page-item"><a class="page-link" href="/profiles/" aria-label="Go to first page">First</a></li>
+          <li class="page-item"><a class="page-link" href="/profiles/profiles-page2" aria-label="Go to previous page">Previous </a></li>
+          <li class="page-item"><span class="page-link active" aria-current="page">3 of 3</span></li>
         </ul>
       </nav>
-      <p>This is a new service – your <a target="_blank" href="#">feedback (opens in a new window or tab)</a> will help us to improve it.</p>
-      <div class="nhsuk-back-link">
-        <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
-          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
-            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
-          </svg>
-          Go back
-        </a>
-      </div>
     </div>
   </div>
 {% endblock %}
