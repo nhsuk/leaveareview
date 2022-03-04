@@ -63,7 +63,7 @@ Your online contact details - Profile manager - NHS
           </legend>
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="website">
-              Website address
+              Website address (optional)
             </label>
             <div class="nhsuk-hint" id="website-hint">
               Enter your pharmacy homepage: for example www.nhs.uk
@@ -72,7 +72,7 @@ Your online contact details - Profile manager - NHS
           </div>
           <div class="nhsuk-form-group">
             <label class="nhsuk-label" for="email">
-              Customer email address
+              Customer email address (optional)
             </label>
             <div class="nhsuk-hint" id="email-hint">
               This will be shown on your live NHS profile
@@ -84,6 +84,7 @@ Your online contact details - Profile manager - NHS
             {% endif %}
           </div>
         </fieldset>
+        <p>We check that website addresses work. This may take a few moments.</p>
         {{ button({
         "text": "Continue",
         "id": "btn_submit"

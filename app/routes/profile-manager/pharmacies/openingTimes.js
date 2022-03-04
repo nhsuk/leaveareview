@@ -203,7 +203,6 @@ router.get(
   }
 );
 
-
 router.get('/profile-manager/pharmacies/editor/opening-times/temporary-changes/temporary-changes-date',
   (req, res) => {
     recentOpeningTimesChange = false;
