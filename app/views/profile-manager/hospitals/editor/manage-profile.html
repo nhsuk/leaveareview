@@ -80,11 +80,11 @@
             Contact details
           </h2>
           {% if contactDetailsConfirmed %}
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             <p><a href="contact-details/contact-details-landing">Check your contact details</a></p>
           </div>
           {% else %}
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
           </div>
           {% endif %}
@@ -100,7 +100,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Facilities 
           </h2>
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             <p><a href="facilities/facilities-edit">Check your facilities</a></p>
           </div>
           <div class="last-updated">
@@ -115,7 +115,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Services 
           </h2>
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             <p><a href="services/services-edit">Check your services</a></p>
           </div>
           <div class="last-updated">
@@ -130,7 +130,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Opening times
           </h2>
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             <p><a href="opening-times/opening-times-start">Check your opening times</a></p>
           </div>
           <div class="last-updated">
@@ -145,7 +145,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Accepting new NHS patients 
           </h2>
-          <div class="options">
+          <div class="nhsuk-u-margin-bottom-5">
             {% if data["practiceType"] %}
               {% if data["practiceType"] === 'general' or data['practiceType'] === 'both' %}
                 {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}

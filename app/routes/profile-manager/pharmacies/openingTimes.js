@@ -60,7 +60,8 @@ const emptyOpeningTimes = Object.keys(days).map((key) => ({
 localStorage.setItem('localOpeningTimes', JSON.stringify(emptyOpeningTimes));
 
 router.get('/opening-times-start', (_, res) => {
-  res.render('profile-manager/pharmacies/editor/opening-times/opening-times-start', { recentOpeningTimesChange});
+  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
+  res.render('profile-manager/pharmacies/editor/opening-times/opening-times-start', { recentOpeningTimesChange, openingTimesLastUpdatedDate});
 });
 
 router.get('/days', (_, res) => {
