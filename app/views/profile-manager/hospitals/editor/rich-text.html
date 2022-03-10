@@ -1,0 +1,61 @@
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Rich text - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "../"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Rich text editor</h1>
+			<div class="nhsuk-form-group">
+				<label class="nhsuk-label" for="body">
+					Message
+				</label>
+				<textarea class="nhsuk-textarea" id="body" name="body" rows="5" data-module="nhsuk-rich-text-editor" data-nhsuk-rich-text-editor-toolbar="bold,italic,underline,bullets,numbers"></textarea>
+			</div>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+{% endblock %}
+
