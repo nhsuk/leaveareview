@@ -80,7 +80,9 @@ Your profiles - Profile manager - NHS
           </div>
         </div>
       </div>
-      <p>A hidden profile cannot be seen by the public, to unhide a profile <a href="#">contact someone</a></p>
+      <!-- <div class="nhsuk-u-reading-width">
+        <p>A hidden profile cannot be seen by the public, to unhide a profile email the NHS website service desk on <a href="mailto:nhswebsite.servicedesk@nhs.net">nhswebsite.servicedesk@nhs.net</a>.</p>
+      </div> -->
       <div id="profileslist">
         <div class="profile-list-pagination-counter">
           {% if (searchTerm) %}
@@ -106,11 +108,9 @@ Your profiles - Profile manager - NHS
                 <tr role="row" class="nhsuk-table__row">
                   <td role="cell" class="nhsuk-table__cell">
                     <span class="nhsuk-table-responsive__heading">Name </span>
-                    <a href="../manage-profile">
-                      {{pharmacy.Name}}<span class="nhsuk-u-visually-hidden"> located at {{pharmacy.Line1}}</span>
-                    </a>
+                    <a href="../manage-profile">{{pharmacy.Name}}<span class="nhsuk-u-visually-hidden"> located at {{pharmacy.Line1}}</span></a>
                     {% if loop.index == 3 %}
-                      (profile hidden)
+                      (hidden)
                     {% endif %}
                   </td>
                   <td role="cell" class="nhsuk-table__cell">
