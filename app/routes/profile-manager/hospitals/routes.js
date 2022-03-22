@@ -7,19 +7,17 @@ const moment = require('moment');
 const app = require('../../../../app');
 
 const reviews = require('../../../data/reviews');
-const dentists = require('../../../data/dentists');
+const hospitals = require('../../../data/hospitals');
 
 // Create local storage for opening times
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
-// let contactDetailsConfirmed = false;
-// let facilitiesConfirmed = false;
 // let servicesConfirmed = false;
 
 moment.locale('en-GB');
 
-dentists.sort((a, b) => {
+hospitals.sort((a, b) => {
   return b.comments - a.comments
 });
 
@@ -40,95 +38,24 @@ router.post('/editor/profiles/search-dentist', (req, res) => {
 });
 
 router.get('/editor/manage-profile', function (req, res) {
-  let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
   let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
-  let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
   let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
-  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
-  let facilitiesConfirmed = localStorage.getItem('facilitiesConfirmed');
   let servicesConfirmed = localStorage.getItem('servicesConfirmed');
   let addressChangePending = localStorage.getItem('addressChangePending');
   let patientTypeLastUpdatedDate = localStorage.getItem('patientTypeLastUpdatedDate')
 
   // Setting values to booleans again due to localStorage using strings
-  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
-  facilitiesConfirmed = JSON.parse(facilitiesConfirmed);
   servicesConfirmed = JSON.parse(servicesConfirmed);
   addressChangePending = JSON.parse(addressChangePending);
 
   res.render('profile-manager/hospitals/editor/manage-profile', {
-    contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
-    facilitiesLastUpdatedDate,
     servicesLastUpdatedDate,
     recentChangeMade,
-    contactDetailsConfirmed,
-    facilitiesConfirmed,
     servicesConfirmed,
     addressChangePending,
     patientTypeLastUpdatedDate,
   });
-});
-
-//*********************** */
-// Branching - Contact details 
-//*********************** */
-router.get('/editor/contact-details/contact-details-landing', function (req, res) {
-  let contactDetailsConfirmed = localStorage.getItem('contactDetailsConfirmed');
-  res.render('profile-manager/hospitals/editor/contact-details/contact-details-landing', {
-    contactDetailsConfirmed, recentChangeMade
-  });
-});
-
-router.get('/editor/contact-details/contact-details-phone-edit', function (req, res) {
-  let primaryTelephone = localStorage.getItem('primaryTelephone')
-  res.render('profile-manager/hospitals/editor/contact-details/contact-details-phone-edit', { primaryTelephone });
-});
-
-router.post('/editor/contact-details/contact-details-phone-edit', function (req, res) {
-  localStorage.setItem('primaryTelephone', req.body.telephone);
-  res.redirect('contact-details-online-edit');
-});
-
-router.post('/editor/contact-details/contact-details-online-edit', function (req, res) {
-  res.redirect('contact-details-check');
-});
-
-router.get('/editor/contact-details/contact-details-check', function (req, res) {
-  const showEditAll = req.query.hasOwnProperty('check')
-  res.render('profile-manager/hospitals/editor/contact-details/contact-details-check', { showEditAll })
-})
-
-router.post('/editor/contact-details/contact-details-check', function (req, res) {
-  localStorage.setItem(
-    'contactDetailsUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  recentChangeMade = true;
-  localStorage.setItem('contactDetailsConfirmed', true);
-  res.redirect('contact-details-landing');
-}); 
-
-//*********************** */
-// Branching - Facilities
-//*********************** */
-router.get('/editor/facilities/facilities-edit', function (req, res) {
-  recentChangeMade = false;
-  res.render('profile-manager/hospitals/editor/facilities/facilities-edit');
-});
-
-router.post('/editor/facilities/facilities-edit', function (req, res) {
-  res.redirect('facilities-check');
-});
-
-router.post('/editor/facilities/facilities-check', function (req, res) {
-  localStorage.setItem(
-    'facilitiesUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  recentChangeMade = true;
-  facilitiesConfirmed = true;
-  res.redirect('../../editor/manage-profile');
 });
 
 //*********************** */
@@ -153,36 +80,10 @@ router.post('/editor/services/services-check', function (req, res) {
   res.redirect('../../editor/manage-profile');
 });
 
-//*********************** */
-// Branching - Availability 
-//*********************** */
-router.post('/editor/availability/practice-type', function (req, res) {
-  if (req.body.practiceType === "referral") {
-    res.redirect('availability-check');
-  } else {
-    res.redirect('accepting-patients');
-  }
-});
-
-router.post('/editor/availability/accepting-patients', function (req, res) {
-  res.redirect('availability-check');
-});
-
-router.post('/editor/availability/availability-check', function (req, res) {
-  localStorage.setItem(
-    'patientTypeLastUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  res.redirect('../../editor/manage-profile');
-});
-
 router.get('/editor/profiles', (req, res) => {
   recentChangeMade = false;
-  // contactDetailsConfirmed = false;
-  // facilitiesConfirmed = false;
-  // servicesConfirmed = false;
-  currentDentists = dentists.slice(0, 15);
-  res.render('profile-manager/hospitals/editor/profiles/index', { currentDentists, dentists });
+  currentHospitals = hospitals.slice(0, 15);
+  res.render('profile-manager/hospitals/editor/profiles/index', { currentHospitals, hospitals });
 });
 
 router.get('/editor/profiles/profiles-page2', (req, res) => {
