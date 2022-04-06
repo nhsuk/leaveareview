@@ -41,99 +41,66 @@
                     <span class="nhsuk-u-visually-hidden">Search</span>
                   </button>
                 </div>
-                <!-- <div class="filter-buttons">
-                  <button id="show-filter-button" class="nhsuk-button nhsuk-button--small nhsuk-u-margin-bottom-0" aria-expanded="false" aria-controls="filter">Show filter</button>
-                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
-                </div> -->
               </div>
-              <!-- Form fields for super user -->
-              <!-- <div id="profile-filter" class="filter nhsuk-u-margin-top-3" aria-label="Profiles filter">
-                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-                    Sector 
-                  </legend>
-                  <div class="nhsuk-checkboxes nhsuk-u-margin-bottom-3">
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="pharmacies" name="sector" type="checkbox" value="pharmacies">
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="pharmacies">
-                        Pharmacies 
-                      </label>
-                    </div>
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="dentists" name="sector" type="checkbox" value="dentists">
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="dentists">
-                        Dentists 
-                      </label>
-                    </div>
-                    <div class="nhsuk-checkboxes__item">
-                      <input class="nhsuk-checkboxes__input" id="gp" name="sector" type="checkbox" value="gp">
-                      <label class="nhsuk-label nhsuk-checkboxes__label" for="gp">
-                        GPs 
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-                <button type="submit" class="nhsuk-button">Search</button>
-                <button class="nhsuk-button nhsuk-button--secondary nhsuk-button nhsuk-u-margin-bottom-0" onclick="window.location='/profiles/'"/>Clear search</button>
-              </div> -->
             </form>
           </div>
         </div>
       </div>
       <div class="profile-list-pagination-counter">
-        <p>Showing <span class="nhsuk-u-font-weight-bold">16-30 results of {{pharmacies.length}}</span>.</p>
-        <p>Page <span class="nhsuk-u-font-weight-bold">1 of 3</span></p>
+        <p>Showing <span class="nhsuk-u-font-weight-bold">16-17 results of {{hospitals.length}}</span>.</p>
+        <p>Page <span class="nhsuk-u-font-weight-bold">1 of 2</span></p>
       </div>
       <div class="nhsuk-table__panel-with-heading-tab nhsuk-u-margin-top-0">
         <table role="table" class="nhsuk-table-responsive">
-          <caption class="nhsuk-table__caption">Profile search results</caption>
+          <caption class="nhsuk-table__caption">Your profiles</caption>
           <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
               <th role="columnheader" scope="col">Name</th>
               <th role="columnheader" scope="col">Address</th>
-              <th role="columnheader" scope="col">City</th>
-              <th role="columnheader" scope="col">Postcode</th>
+              <th role="columnheader" scope="col">Type</th>
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
-            {% for dentist in currentDentists %}
-            <tr role="row" class="nhsuk-table__row">
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Name </span>
-                <a href="/editor/manage-profile">
-                  <span class="nhsuk-u-visually-hidden">View </span>{{dentist.Name}}
-                </a>
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Address </span>
-                {{dentist.Line1}}
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">City </span>
-                {{dentist.city}}
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Postcode </span>
-                {{dentist.Postcode}}
-              </td>
-            </tr>
-            {% endfor %}
+                {% for hospital in currentHospitals %}
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Name </span>
+                    {% if hospital.Name == "Mile End Hospital" %}
+                      <a href="..manage-profile-mileend">
+                        {{hospital.Name}} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+                      </a>
+                    {% elseif hospital.Name == "The Royal London Hospital" %}
+                      <a href="../manage-profile-royal">
+                        {{hospital.Name}} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+                      </a>
+                    {% else %}
+                      <a href="#">
+                        {{hospital.Name}} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+                      </a>
+                    {% endif %}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Address </span>
+                    {{hospital.Line1}}, {{ hospital.City }}, {{ hospital.Postcode }}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Type</span>{{ hospital.Type }}
+                  </td>
+                </tr>
+                {% endfor %}
           </tbody>
         </table>
       </div>
       <nav aria-label="Page navigation">
         <ul class="pagination">
           <li class="page-item">
-            <a class="page-link" href="/profiles" aria-label="Go to previous page">Previous</a>
+            <a class="page-link" href="./" aria-label="Go to first page">First</a>
           </li>
           <li class="page-item">
-            <span class="page-link active" aria-current="page">2 of 3</span>
+            <a class="page-link" href="./" aria-label="Go to previous page">Previous</a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to next page">Next</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="/profiles/profiles-page3" aria-label="Go to last page">Last</a>
+            <span class="page-link active" aria-current="page">2 of 2</span>
           </li>
         </ul>
       </nav>

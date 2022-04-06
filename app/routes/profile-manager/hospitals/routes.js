@@ -87,13 +87,8 @@ router.get('/editor/profiles', (req, res) => {
 });
 
 router.get('/editor/profiles/profiles-page2', (req, res) => {
-  let currentDentists = dentists.slice(15, 30);
-  res.render('profile-manager/hospitals/editor/profiles/profiles-page2', { currentDentists, dentists });
-});
-
-router.get('/editor/profiles/profiles-page3', (req, res) => {
-  let currentDentists = dentists.slice(31, 45);
-  res.render('profile-manager/hospitals/editor/profiles/profiles-page3', { currentDentists, dentists });
+  currentHospitals = hospitals.slice(15);
+  res.render('profile-manager/hospitals/editor/profiles/profiles-page2', { currentHospitals, hospitals });
 });
 
 router.post('/profiles-comments/search-dentist', (req, res) => {

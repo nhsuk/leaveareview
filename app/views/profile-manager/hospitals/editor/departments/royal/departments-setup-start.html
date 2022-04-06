@@ -1,4 +1,5 @@
 
+
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header-pharmacies.html' %}
 
@@ -70,9 +71,25 @@
       </div>
     </div>
   </div>
+  <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+    <h2 class="nhsuk-tabs__title">Contents</h2>
+    <ul class="nhsuk-tabs__list">
+      <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+        <a class="nhsuk-tabs__tab" href="#tab-one">Active</a>
+      </li>
+      <li class="nhsuk-tabs__list-item">
+        <a class="nhsuk-tabs__tab" href="#tab-two">Needs setup (3)</a>
+      </li>
+    </ul>
+    <div class="nhsuk-tabs__panel" id="tab-one">  
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>      
+    </div>
+    <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-two">  
+			<p><a href="cardiology">Cardiology</a></p>
+    </div>
+  </div>
 
   <a href="add-departments" class="nhsuk-button nhsuk-button--secondary">Add department</a>
-  <a href="remove-departments" class="nhsuk-button nhsuk-button--secondary">Remove departments</a>
   <nav aria-label="Page navigation">
     <ul class="pagination">
       <li class="page-item">

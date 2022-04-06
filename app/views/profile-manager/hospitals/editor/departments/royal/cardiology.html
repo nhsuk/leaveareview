@@ -4,7 +4,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Departments - Profile manager - NHS
+  Edit profile - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -21,6 +21,9 @@
 {% endblock %}
 
 {% block beforeContent %}
+<div class="survey-container nhsuk-width-container">
+  <p class="nhsuk-u-margin-bottom-0">This is a new service – your <a target="_blank" href="#">feedback (opens in a new window or tab)</a> will help us to improve it.</p>
+</div>
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
@@ -43,49 +46,58 @@
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Departments</h1>
+      <h1 class="nhsuk-u-margin-bottom-0">Cardiology</h1>
       <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
         Royal London Hospital 
       </p>
-    </div>
-  </div>
-  <a class="nhsuk-skip-link" href="#profileslist">Skip filter</a>
-  <div class="nhsuk-card">
-    <div class="nhsuk-card__content">
-      <div class="search-sort">
-        <form id="search" action="/profile-manager/hospitals/editor/profiles/search-hospital" method="POST" role="search">
-          <label class="nhsuk-label" for="searchBar">Search by department</label>
-          <div class="search-bar-buttons">
-            <div class="search-bar">
-              <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
-              <button class="nhsuk-profiles-search__submit" type="submit">
-                <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-                </svg>
-                <span class="nhsuk-u-visually-hidden">Search</span>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <p>Whitechapel Road, Whitechapel, London, E1 1FR</p>
     </div>
   </div>
 
-  <a href="add-departments" class="nhsuk-button nhsuk-button--secondary">Add department</a>
-  <a href="remove-departments" class="nhsuk-button nhsuk-button--secondary">Remove departments</a>
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li class="page-item">
-        <span class="page-link active" aria-current="page">1 of 3</span>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="./profiles-page2" aria-label="Go to next page">Next</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="./profiles-page3" aria-label="Go to last page">Last</a>
-      </li>
-    </ul>
-  </nav>
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Contact details
+          </h2>
+          {% if contactDetailsConfirmed %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <p><a href="contact-details/contact-details-landing">Check your contact details</a></p>
+          </div>
+          {% else %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
+          </div>
+          {% endif %}
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">01 March 2022</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Treatments 
+          </h2>
+          {% if contactDetailsConfirmed %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <p><a href="contact-details/contact-details-landing">Check your treatments</a></p>
+          </div>
+          {% else %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">treatments</span></a></span>
+          </div>
+          {% endif %}
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
   <div class="nhsuk-back-link">
     <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
       <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
