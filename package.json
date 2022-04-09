@@ -37,7 +37,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "keypather": "^3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "nhsuk-frontend": "^5.1.0",
     "node-localstorage": "^1.3.1",
     "nunjucks": "^3.2.0",
