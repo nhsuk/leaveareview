@@ -2,7 +2,7 @@
 	background-color: #d5281b ;
 	box-shadow: 0 2px 0 #55150b;
 
-	&:hover {
+	&:hover:not(:focus) {
 		background-color: #aa2a16;
 	}
 }

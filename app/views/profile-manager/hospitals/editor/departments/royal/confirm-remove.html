@@ -53,39 +53,41 @@
 				</h2>
 				<p>This will permanently delete these departments and all related information such as contact details and opening times</p>
 			</div>
-			<dl class="nhsuk-summary-list">
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Department 1	
-					</dt>
-					<dd class="nhsuk-summary-list__actions">
-						<a href="#">
-							Change<span class="nhsuk-u-visually-hidden"> department 1</span>
-						</a>
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Department 2	
-					</dt>
-					<dd class="nhsuk-summary-list__actions">
-						<a href="#">
-							Change<span class="nhsuk-u-visually-hidden"> depatment 2</span>
-						</a>
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Department 3	
-					</dt>
-					<dd class="nhsuk-summary-list__actions">
-						<a href="#">
-							Change<span class="nhsuk-u-visually-hidden"> department 3</span>
-						</a>
-					</dd>
-				</div>
-			</dl>
-			<a href="#" class="nhsuk-button nhsuk-button--warning">Remove departments</a>
+			<form action="/profile-manager/hospitals/editor/departments/royal/index" method="POST">
+				<dl class="nhsuk-summary-list">
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							Department 1	
+						</dt>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="#">
+								Change<span class="nhsuk-u-visually-hidden"> department 1</span>
+							</a>
+						</dd>
+					</div>
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							Department 2	
+						</dt>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="#">
+								Change<span class="nhsuk-u-visually-hidden"> depatment 2</span>
+							</a>
+						</dd>
+					</div>
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							Department 3	
+						</dt>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="#">
+								Change<span class="nhsuk-u-visually-hidden"> department 3</span>
+							</a>
+						</dd>
+					</div>
+				</dl>
+				<button class="nhsuk-button nhsuk-button--warning">Remove departments</button>
+			</form>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
 					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
