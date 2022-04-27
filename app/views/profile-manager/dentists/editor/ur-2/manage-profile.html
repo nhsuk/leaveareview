@@ -66,7 +66,7 @@
             <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
             </svg>
-            <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
+            <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully updated your new NHS patients</p>
           </div>
       </div> 
     </div>
@@ -81,20 +81,20 @@
           </h2>
           <div class="nhsuk-u-margin-bottom-5">
             {% if data["practiceType"] %}
-                {% if data["practiceType"] === 'referral' %}
-                  <p>Accepting patients by referral only</p>
-                  <p><a href="availability/availability-check">Change accepting new NHS patients</a></p>
+              {% if data["practiceType"] === 'referral' %}
+                <p>Accepting patients by referral only</p>
+                <p><a href="availability/availability-check">Change accepting new NHS patients</a></p>
+              {% endif %}
+              {% if data["practiceType"] === 'general' %}
+                {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
+                  <p>Not currently accepting new NHS patients</p>
+                {% else %}
+                  {% for patients in data["patientsAccepting"] %}
+                    <p class="nhsuk-u-margin-bottom-0">{{ patients}} </p>
+                  {% endfor %}
                 {% endif %}
-                {% if data["practiceType"] === 'general' %}
-                  {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
-                    <p>Not currently accepting new NHS patients</p>
-                  {% else %}
-                    {% for patients in data["patientsAccepting"] %}
-                      <p class="nhsuk-u-margin-bottom-0">{{ patients}} </p>
-                    {% endfor %}
-                  {% endif %}
-                  <p><a href="availability/availability-check">Update</a></p>
-                {% endif %}
+                <p><a href="availability/availability-check">Update</a></p>
+              {% endif %}
             {% else %}
               <p>Not provided</p>
               <span class="edit-link"><a href="availability/practice-type">Set up <span class="nhsuk-u-visually-hidden">accepting new NHS patients</span></a></span>
@@ -112,17 +112,11 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Contact details
           </h2>
-          {% if contactDetailsConfirmed %}
           <div class="nhsuk-u-margin-bottom-5">
             <p><a href="contact-details/contact-details-phone-edit">Check your contact details</a></p>
           </div>
-          {% else %}
-          <div class="nhsuk-u-margin-bottom-5">
-            <span class="edit-link"><a href="contact-details/contact-details-phone-edit">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
-          </div>
-          {% endif %}
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ contactDetailsLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">20 April 2022</span></p>
           </div>
         </div>
       </div>
@@ -137,7 +131,7 @@
             <p><a href="facilities/facilities-edit">Check your facilities</a></p>
           </div>
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">20 April 2022</span></p>
           </div>
         </div>
       </div>
@@ -152,7 +146,7 @@
             <p><a href="services/services-edit">Check your services</a></p>
           </div>
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ servicesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">20 April 2022</span></p>
           </div>
         </div>
       </div>
@@ -167,7 +161,7 @@
             <p><a href="opening-times/opening-times-start">Check your opening times</a></p>
           </div>
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ openingTimesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">20 April 2022</span></p>
           </div>
         </div>
       </div>

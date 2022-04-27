@@ -56,7 +56,7 @@ Confirm your contact details - Profile manager - NHS
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/profile-manager/dentists/editor/availability/availability-check"  method="post">
+      <form action="/profile-manager/dentists/editor/ur-2/availability/availability-check"  method="post">
         {% if data["practiceType"] === "referral" %} 
           <h1>
             Confirm your NHS practice type
@@ -72,7 +72,9 @@ Confirm your contact details - Profile manager - NHS
               Practice type 
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data["practiceType"] === 'referral' %}
+              {% if data["practiceType"] === 'general' %}
+              Routine treatments only
+              {% elif data["practiceType"] === 'referral' %}
               Referral only
               {% else %}
               Routine treatments and referrals

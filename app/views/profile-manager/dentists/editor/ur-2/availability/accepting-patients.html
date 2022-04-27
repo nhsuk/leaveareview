@@ -1,4 +1,5 @@
 
+
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout-app-header.html" %}
 
@@ -8,7 +9,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Which best describes your practice? - Profile manager - NHS
+For your direct booking NHS patients, which are you accepting? - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -61,28 +62,47 @@ Which best describes your practice? - Profile manager - NHS
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <form method="post" action="/profile-manager/dentists/editor/availability/practice-type">
+    <form method="post" action="/profile-manager/dentists/editor/ur-2/availability/accepting-patients">
       <div class="nhsuk-form-group">
-        <h1 class="nhsuk-u-margin-bottom-3">
-           For all of your NHS treatments, are you referral only? 
+        <h1>
+          For routine treatments, which NHS patients are you accepting? 
         </h1>
-        <fieldset class="nhsuk-fieldset">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
           <legend class="nhsuk-u-visually-hidden">
-            For all of your NHS treatments, are you referral only? 
+            For routine treatments, which NHS patients are you accepting? 
           </legend>
-          <div class="nhsuk-radios">
-            <div class="nhsuk-radios__item">
-              <input id="referral" class="nhsuk-radios__input" type="radio" value="referral" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="referral">Yes</label>
-            </div>
-            <div class="nhsuk-radios__item">
-              <input id="direct" class="nhsuk-radios__input" type="radio" value="general" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="direct">No</label>
-            </div>
-          </div>
+          <div class="nhsuk-hint" id="example-hint">
+						Select all relevant options.
+					</div>
+					<div class="nhsuk-checkboxes">
+						<div class="nhsuk-checkboxes__item">
+							<input class="nhsuk-checkboxes__input" id="children" name="patientsAccepting" type="checkbox" value="Children (up to the age of 18)">
+							<label class="nhsuk-label nhsuk-checkboxes__label" for="children">
+							  Children (under 18 years)	
+							</label>
+						</div>
+						<div class="nhsuk-checkboxes__item">
+							<input class="nhsuk-checkboxes__input" id="adults" name="patientsAccepting" type="checkbox" value="Adults (18 and over)">
+							<label class="nhsuk-label nhsuk-checkboxes__label" for="adults">
+							  Adults (18 years and over)	
+							</label>
+						</div>
+						<div class="nhsuk-checkboxes__item">
+							<input class="nhsuk-checkboxes__input" id="adultsFree" name="patientsAccepting" type="checkbox" value="Adults entitled to free dental care">
+							<label class="nhsuk-label nhsuk-checkboxes__label" for="adultsFree">
+								Adults entitled to free dental care
+							</label>
+						</div>
+						<div class="nhsuk-checkboxes__item">
+							<input class="nhsuk-checkboxes__input" id="notAcceptingPatients" name="patientsAccepting" type="checkbox" value="Not accepting new NHS patients">
+							<label class="nhsuk-label nhsuk-checkboxes__label" for="notAcceptingPatients">
+							  Not accepting new NHS patients	
+							</label>
+						</div>
+					</div>
         </fieldset>
+        <button type="submit" class="nhsuk-button">Continue</button>
       </div>
-      <button type="submit" class="nhsuk-button">Continue</button>
     </form>
     <div class="nhsuk-back-link">
       <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">

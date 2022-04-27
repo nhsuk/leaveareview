@@ -70,6 +70,15 @@ router.get('/editor/manage-profile', function (req, res) {
   });
 });
 
+router.get('/editor/ur-2/manage-profile', function (req, res) {
+
+  let patientTypeLastUpdatedDate = localStorage.getItem('patientTypeLastUpdatedDate')
+  res.render('profile-manager/dentists/editor/ur-2/manage-profile', {
+    recentChangeMade,
+    patientTypeLastUpdatedDate,
+  });
+});
+
 //*********************** */
 // Branching - Contact details 
 //*********************** */
@@ -164,7 +173,19 @@ router.post('/editor/availability/practice-type', function (req, res) {
   }
 });
 
+router.post('/editor/ur-2/availability/practice-type', function (req, res) {
+  if (req.body.practiceType === "referral") {
+    res.redirect('availability-check');
+  } else {
+    res.redirect('accepting-patients');
+  }
+});
+
 router.post('/editor/availability/accepting-patients', function (req, res) {
+  res.redirect('availability-check');
+});
+
+router.post('/editor/ur-2/availability/accepting-patients', function (req, res) {
   res.redirect('availability-check');
 });
 
@@ -174,6 +195,15 @@ router.post('/editor/availability/availability-check', function (req, res) {
     moment().format('DD MMMM YYYY')
   );
   res.redirect('../../editor/manage-profile');
+});
+
+router.post('/editor/ur-2/availability/availability-check', function (req, res) {
+  recentChangeMade = true;
+  localStorage.setItem(
+    'patientTypeLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('../../../editor/ur-2/manage-profile');
 });
 
 router.get('/editor/profiles', (req, res) => {
