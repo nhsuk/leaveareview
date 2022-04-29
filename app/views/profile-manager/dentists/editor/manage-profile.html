@@ -82,8 +82,8 @@
           <div class="nhsuk-u-margin-bottom-5">
             {% if data["practiceType"] %}
                 {% if data["practiceType"] === 'referral' %}
-                  <p>Accepting patients by referral only</p>
-                  <p><a href="availability/availability-check">Change accepting new NHS patients</a></p>
+                  <p>Accepting patients on referral only</p>
+                  <p><a href="availability/availability-check">Change your NHS treatment type</a></p>
                 {% endif %}
                 {% if data["practiceType"] === 'general' %}
                   {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
@@ -93,10 +93,9 @@
                       <p class="nhsuk-u-margin-bottom-0">{{ patients}} </p>
                     {% endfor %}
                   {% endif %}
-                  <p><a href="availability/availability-check">Update</a></p>
+                  <p><a href="availability/availability-check">Update your new NHS patients</a></p>
                 {% endif %}
             {% else %}
-              <p>Not provided</p>
               <span class="edit-link"><a href="availability/practice-type">Set up <span class="nhsuk-u-visually-hidden">accepting new NHS patients</span></a></span>
             {% endif %}
           </div>

@@ -65,11 +65,16 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
     <form method="post" action="/profile-manager/dentists/editor/ur-2/availability/accepting-patients">
       <div class="nhsuk-form-group">
         <h1>
-          For routine treatments, which NHS patients are you accepting? 
+          Which new NHS patients do you currently accept? 
         </h1>
+        <div class="nhsuk-warning-text">
+          <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="nhsuk-warning-text__text">
+            <span class="nhsuk-warning-text__assistive">Warning</span>If you select adults aged 18 and over, select adults entitled to free dental care too. This includes services offered to adults on benefits.</strong>
+        </div>
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
           <legend class="nhsuk-u-visually-hidden">
-            For routine treatments, which NHS patients are you accepting? 
+            Which new NHS patients do you currently accept? 
           </legend>
           <div class="nhsuk-hint" id="example-hint">
 						Select all relevant options.
@@ -78,13 +83,13 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
 						<div class="nhsuk-checkboxes__item">
 							<input class="nhsuk-checkboxes__input" id="children" name="patientsAccepting" type="checkbox" value="Children (up to the age of 18)">
 							<label class="nhsuk-label nhsuk-checkboxes__label" for="children">
-							  Children (under 18 years)	
+							  Children under 18 years	
 							</label>
 						</div>
 						<div class="nhsuk-checkboxes__item">
 							<input class="nhsuk-checkboxes__input" id="adults" name="patientsAccepting" type="checkbox" value="Adults (18 and over)">
 							<label class="nhsuk-label nhsuk-checkboxes__label" for="adults">
-							  Adults (18 years and over)	
+							  Adults 18 years and over
 							</label>
 						</div>
 						<div class="nhsuk-checkboxes__item">

@@ -59,23 +59,23 @@ Confirm your contact details - Profile manager - NHS
       <form action="/profile-manager/dentists/editor/availability/availability-check"  method="post">
         {% if data["practiceType"] === "referral" %} 
           <h1>
-            Confirm your NHS practice type
+            Confirm your NHS treatment type
           </h1>
         {% else %}
           <h1>
-            Confirm your NHS practice type and which new NHS patients you are accepting
+            Confirm your NHS treatment type and which new NHS patients you currently accept
           </h1>
         {% endif %}
         <dl class="nhsuk-summary-list">
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
-              Practice type 
+              Referral only 
             </dt>
             <dd class="nhsuk-summary-list__value">
               {% if data["practiceType"] === 'referral' %}
-              Referral only
+              Yes 
               {% else %}
-              Routine treatments and referrals
+              No 
               {% endif %}
             </dd>
             <dd class="nhsuk-summary-list__actions">

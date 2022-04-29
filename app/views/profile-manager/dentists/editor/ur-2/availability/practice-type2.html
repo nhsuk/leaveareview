@@ -1,5 +1,4 @@
 
-
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout-app-header.html" %}
 
@@ -9,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-For your direct booking NHS patients, which are you accepting? - Profile manager - NHS
+Select your practice type- Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -62,52 +61,28 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <form method="post" action="/profile-manager/dentists/editor/availability/accepting-patients">
+    <form method="post" action="/profile-manager/dentists/editor/ur-2/availability/practice-type">
       <div class="nhsuk-form-group">
-        <h1>
-          Which new NHS patients do you currently accept? 
+        <h1 class="nhsuk-u-margin-bottom-3">
+          Select your practice type
         </h1>
-        <div class="nhsuk-warning-text">
-          <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="nhsuk-warning-text__text">
-            <span class="nhsuk-warning-text__assistive">Warning</span>If you select adults aged 18 and over, select adults entitled to free dental care too. This includes services offered to adults on benefits.</strong>
-        </div>
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
+        <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-u-visually-hidden">
-            Which new NHS patients do you currently accept? 
+            Select your practice type
           </legend>
-          <div class="nhsuk-hint" id="example-hint">
-						Select all relevant options.
-					</div>
-					<div class="nhsuk-checkboxes">
-						<div class="nhsuk-checkboxes__item">
-							<input class="nhsuk-checkboxes__input" id="children" name="patientsAccepting" type="checkbox" value="Children up to the age of 18">
-							<label class="nhsuk-label nhsuk-checkboxes__label" for="children">
-							  Children under 18 years	
-							</label>
-						</div>
-						<div class="nhsuk-checkboxes__item">
-							<input class="nhsuk-checkboxes__input" id="adults" name="patientsAccepting" type="checkbox" value="Adults 18 and over">
-							<label class="nhsuk-label nhsuk-checkboxes__label" for="adults">
-							  Adults 18 years and over
-							</label>
-						</div>
-						<div class="nhsuk-checkboxes__item">
-							<input class="nhsuk-checkboxes__input" id="adultsFree" name="patientsAccepting" type="checkbox" value="Adults entitled to free dental care">
-							<label class="nhsuk-label nhsuk-checkboxes__label" for="adultsFree">
-								Adults entitled to free dental care
-							</label>
-						</div>
-						<div class="nhsuk-checkboxes__item">
-							<input class="nhsuk-checkboxes__input" id="notAcceptingPatients" name="patientsAccepting" type="checkbox" value="Not accepting new NHS patients">
-							<label class="nhsuk-label nhsuk-checkboxes__label" for="notAcceptingPatients">
-							  Not accepting new NHS patients	
-							</label>
-						</div>
-					</div>
+          <div class="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input id="type1" class="nhsuk-radios__input" type="radio" value="general" name="practiceType">
+              <label class="nhsuk-label nhsuk-radios__label" for="type1">High street dental practice - providing general dental care and treatments</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input id="type2" class="nhsuk-radios__input" type="radio" value="referral" name="practiceType">
+              <label class="nhsuk-label nhsuk-radios__label" for="type2">Specialist dental practice, community dental practice or urgent care dental centre - providing care and treatments on referral only</label>
+            </div>
+          </div>
         </fieldset>
-        <button type="submit" class="nhsuk-button">Continue</button>
       </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
     </form>
     <div class="nhsuk-back-link">
       <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
