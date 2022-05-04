@@ -62,15 +62,25 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <form method="post" action="/profile-manager/dentists/editor/availability/accepting-patients">
+    {% if hasErrors %}
+        {{ errorSummary({
+          "titleText": "There is a problem",
+          "errorList": errorList
+        }) }}
+      {% endif %}
+    <form id="patientsAccepting" method="post" action="/profile-manager/dentists/editor/availability/accepting-patients">
+      {%if hasErrors %}
+      <div class="nhsuk-form-group nhsuk-form-group--error">
+      {% else %}
       <div class="nhsuk-form-group">
+      {% endif %}
         <h1>
           Which new NHS patients do you currently accept? 
         </h1>
-        <div class="nhsuk-warning-text">
+        <div class="nhsuk-warning-text nhsuk-u-margin-bottom-4">
           <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="nhsuk-warning-text__text">
-            <span class="nhsuk-warning-text__assistive">Warning</span>If you select adults aged 18 and over, select adults entitled to free dental care too. This includes services offered to adults on benefits.</strong>
+            <span class="nhsuk-warning-text__assistive">Warning</span>If you select adults aged 18 and over, you need to select adults entitled to free dental care too. This includes services offered to adults on benefits.</strong>
         </div>
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-5">
           <legend class="nhsuk-u-visually-hidden">
@@ -79,6 +89,11 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
           <div class="nhsuk-hint" id="example-hint">
 						Select all relevant options.
 					</div>
+          {% if hasErrors %}
+          <span class="nhsuk-error-message" id="contact-error">
+            <span class="nhsuk-u-visually-hidden">Error:</span> You need to select adults entitled to free dental care too
+          </span>
+          {% endif %}
 					<div class="nhsuk-checkboxes">
 						<div class="nhsuk-checkboxes__item">
 							<input class="nhsuk-checkboxes__input" id="children" name="patientsAccepting" type="checkbox" value="Children up to the age of 18">
@@ -106,8 +121,8 @@ For your direct booking NHS patients, which are you accepting? - Profile manager
 						</div>
 					</div>
         </fieldset>
-        <button type="submit" class="nhsuk-button">Continue</button>
       </div>
+      <button type="submit" class="nhsuk-button">Continue</button>
     </form>
     <div class="nhsuk-back-link">
       <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
