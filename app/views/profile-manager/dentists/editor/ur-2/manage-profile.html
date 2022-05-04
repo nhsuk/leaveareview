@@ -80,8 +80,8 @@
             Accepting new NHS patients 
           </h2>
           <div class="nhsuk-u-margin-bottom-5">
-            {% if data["practiceType"] %}
-              {% if data["practiceType"] !== 'High street dental practice - providing general dental care and treatments' %}
+            {% if data["practiceTypeUR"] %}
+              {% if data["practiceTypeUR"] !== 'High street dental practice - providing general dental care and treatments' %}
                 <p>Accepting patients on referral only</p>
                 <p><a href="availability/availability-check">Update which new NHS patients you accept</a></p>
               {% else %}

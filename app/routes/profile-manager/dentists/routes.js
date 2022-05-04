@@ -174,7 +174,7 @@ router.post('/editor/availability/practice-type', function (req, res) {
 });
 
 router.post('/editor/ur-2/availability/practice-type', function (req, res) {
-  if (req.body.practiceType !== "High street dental practice - providing general dental care and treatments") {
+  if (req.body.practiceTypeUR !== "High street dental practice - providing general dental care and treatments") {
     res.redirect('availability-check');
   } else {
     res.redirect('accepting-patients');

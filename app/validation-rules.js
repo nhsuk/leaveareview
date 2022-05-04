@@ -25,7 +25,7 @@ module.exports = {
 	'/profile-manager/dentists/editor/availability/accepting-patients': [
 		body('patientsAccepting').custom((value) => {
 		  if (value.includes('Adults 18 and over') && !value.includes('Adults entitled to free dental care')) {
-				throw new Error('You need to select adults entitled to free dental care too') 
+				throw new Error('You need to select adults entitled to free dental care, when you select adults aged 18 and over') 
 			}	
 			return true;
 		})
