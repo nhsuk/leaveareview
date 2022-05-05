@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  {% if recentChangeMade %}
+  {% if recentChangeMade2 %}
     <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
       <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-alert nhsuk-alert--success nhsuk-alert--icon nhsuk-u-margin-bottom-5" role="alert">
@@ -88,9 +88,7 @@
                 {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
                   <p>Not currently accepting new NHS patients</p>
                 {% else %}
-                  {% for patients in data["patientsAccepting"] %}
-                    <p class="nhsuk-u-margin-bottom-0">{{ patients}} </p>
-                  {% endfor %}
+                  <p>Currently accepting new NHS patients</p>
                 {% endif %}
               <p><a href="availability/availability-check">Update which new NHS patients you accept</a></p>
               {% endif %}

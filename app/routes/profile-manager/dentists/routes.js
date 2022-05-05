@@ -13,6 +13,7 @@ const dentists = require('../../../data/dentists');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
+let recentChangeMade2 = false;
 // let contactDetailsConfirmed = false;
 // let facilitiesConfirmed = false;
 // let servicesConfirmed = false;
@@ -190,6 +191,7 @@ router.post('/editor/ur-2/availability/accepting-patients', function (req, res) 
 });
 
 router.post('/editor/availability/availability-check', function (req, res) {
+  recentChangeMade = true;
   localStorage.setItem(
     'patientTypeLastUpdatedDate',
     moment().format('DD MMMM YYYY')
@@ -198,7 +200,7 @@ router.post('/editor/availability/availability-check', function (req, res) {
 });
 
 router.post('/editor/ur-2/availability/availability-check', function (req, res) {
-  recentChangeMade = true;
+  recentChangeMade2 = true;
   localStorage.setItem(
     'patientTypeLastUpdatedDate',
     moment().format('DD MMMM YYYY')

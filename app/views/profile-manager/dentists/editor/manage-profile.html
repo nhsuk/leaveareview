@@ -57,7 +57,7 @@
       <p class="nhsuk-u-margin-bottom-2"><a href="./contact-details/change-name-address/index">Find out how to change your address or trading name</a></p>
     </div>
   </div>
-
+  
   {% if recentChangeMade %}
     <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
       <div class="nhsuk-grid-column-two-thirds">
@@ -66,7 +66,7 @@
             <svg class="nhsuk-icon nhsuk-icon__tick nhsuk-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
             </svg>
-            <p class="nhsuk-heading-m nhsuk-u-margin-0">You have successfully edited or validated your information</p>
+            <p class="nhsuk-heading-m nhsuk-u-margin-0">You have updated which new NHS patients you accept</p>
           </div>
       </div> 
     </div>
@@ -89,13 +89,7 @@
                   {% if data["patientsAccepting"] === 'Not accepting new NHS patients' %}
                     <p>Not currently accepting new NHS patients</p>
                   {% else %}
-                    {% if data["patientsAccepting"] is string %}
-                      {{ data["patientsAccepting"] }}
-                    {% else %}
-                      {% for patients in data["patientsAccepting"] %}
-                        <p class="nhsuk-u-margin-bottom-1">{{ patients}} </p>
-                      {% endfor %}
-                    {% endif %}
+                    <p>Currently accepting new NHS patients</p>
                   {% endif %}
                   <p><a href="availability/availability-check">Update which new NHS patients you accept</a></p>
                 {% endif %}
