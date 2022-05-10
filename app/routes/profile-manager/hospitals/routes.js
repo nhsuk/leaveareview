@@ -60,7 +60,6 @@ router.get('/editor/manage-profile', function (req, res) {
 });
 
 router.get('/editor/profiles', (req, res) => {
-  console.log('CHECK CHECK')
   recentChangeMade = false;
   currentHospitals = hospitals.slice(0, 15);
   res.render('profile-manager/hospitals/editor/profiles/index', { currentHospitals, hospitals });

@@ -4,7 +4,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Departments - Profile manager - NHS
+Confirm removal of services - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -43,31 +43,31 @@
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>Confirm removal of departments</h1>
+      <h1>Confirm removal of services</h1>
 			<div class="nhsuk-warning-callout">
 				<h2 class="nhsuk-warning-callout__label">
 					<span role="text">
 						<span class="nhsuk-u-visually-hidden">Important: </span>
-					  Removing departments	
+					  Removing services 
 					</span>
 				</h2>
-				<p>This will permanently delete these departments and all related information such as contact details and opening times</p>
+				<p>This will permanently delete these services and all related information such as contact details and opening times</p>
 			</div>
 			<form action="/profile-manager/hospitals/editor/departments/royal/index" method="POST">
 				<dl class="nhsuk-summary-list">
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">
-							Department 1	
+							Service 1	
 						</dt>
 						<dd class="nhsuk-summary-list__actions">
 							<a href="#">
-								Change<span class="nhsuk-u-visually-hidden"> department 1</span>
+								Change<span class="nhsuk-u-visually-hidden"> service 1</span>
 							</a>
 						</dd>
 					</div>
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">
-							Department 2	
+							Service 2	
 						</dt>
 						<dd class="nhsuk-summary-list__actions">
 							<a href="#">
@@ -77,16 +77,16 @@
 					</div>
 					<div class="nhsuk-summary-list__row">
 						<dt class="nhsuk-summary-list__key">
-							Department 3	
+							Service 3	
 						</dt>
 						<dd class="nhsuk-summary-list__actions">
 							<a href="#">
-								Change<span class="nhsuk-u-visually-hidden"> department 3</span>
+								Change<span class="nhsuk-u-visually-hidden"> service 3</span>
 							</a>
 						</dd>
 					</div>
 				</dl>
-				<button class="nhsuk-button nhsuk-button--warning">Remove departments</button>
+				<button class="nhsuk-button nhsuk-button--warning">Remove services</button>
 			</form>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
