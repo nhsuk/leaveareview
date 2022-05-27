@@ -64,20 +64,40 @@ Select your practice type- Profile manager - NHS
     <form method="post" action="/profile-manager/dentists/editor/availability/practice-type">
       <div class="nhsuk-form-group">
         <h1 class="nhsuk-u-margin-bottom-3">
-          Does your practice accept new NHS patients on referral only?
+          Select your main practice type
         </h1>
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-u-visually-hidden">
-            Does your practice accept new NHS patients on referral only?
+            Select your main practice type
           </legend>
           <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input id="referral" class="nhsuk-radios__input" type="radio" value="referral" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="referral">Yes</label>
+              <input id="type1" class="nhsuk-radios__input" type="radio" value="High street dental practice" name="practiceType" aria-describedby="practice-1-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="type1">High street dental practice</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="practice-1-hint">
+                Providing general dental care and other treatments
+              </div>
             </div>
             <div class="nhsuk-radios__item">
-              <input id="direct" class="nhsuk-radios__input" type="radio" value="general" name="practiceType">
-              <label class="nhsuk-label nhsuk-radios__label" for="direct">No</label>
+              <input id="type2" class="nhsuk-radios__input" type="radio" value="Specialist dental practice" name="practiceType" aria-describedby="practice-2-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="type2">Specialist dental practice</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="practice-2-hint">
+                Providing orthodontics, oral surgery, sedation services or domiciliary services
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input id="type3" class="nhsuk-radios__input" type="radio" value="Community dental practice" name="practiceType" aria-describedby="practice-3-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="type3">Community dental practice</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="practice-3-hint">
+                Providing general dental care for patients who cannot be treated in high street dental practices
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input id="type4" class="nhsuk-radios__input" type="radio" value="Urgent care dental centre" name="practiceType" aria-describedby="practice-4-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="type4">Urgent care dental centre</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="practice-4-hint">
+                Providing general dental care and treatments by 111 referral only
+              </div>
             </div>
           </div>
         </fieldset>

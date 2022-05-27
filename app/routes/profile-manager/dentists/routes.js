@@ -167,26 +167,14 @@ router.post('/editor/services/services-check', function (req, res) {
 // Branching - Availability 
 //*********************** */
 router.post('/editor/availability/practice-type', function (req, res) {
-  if (req.body.practiceType === "referral") {
-    res.redirect('availability-check');
-  } else {
+  if (req.body.practiceType === "High street dental practice") {
     res.redirect('accepting-patients');
-  }
-});
-
-router.post('/editor/ur-2/availability/practice-type', function (req, res) {
-  if (req.body.practiceTypeUR !== "High street dental practice - providing general dental care and treatments") {
-    res.redirect('availability-check');
   } else {
-    res.redirect('accepting-patients');
+    res.redirect('availability-check');
   }
 });
 
 router.post('/editor/availability/accepting-patients', function (req, res) {
-  res.redirect('availability-check');
-});
-
-router.post('/editor/ur-2/availability/accepting-patients', function (req, res) {
   res.redirect('availability-check');
 });
 
@@ -197,15 +185,6 @@ router.post('/editor/availability/availability-check', function (req, res) {
     moment().format('DD MMMM YYYY')
   );
   res.redirect('../../editor/manage-profile');
-});
-
-router.post('/editor/ur-2/availability/availability-check', function (req, res) {
-  recentChangeMade2 = true;
-  localStorage.setItem(
-    'patientTypeLastUpdatedDate',
-    moment().format('DD MMMM YYYY')
-  );
-  res.redirect('../../../editor/ur-2/manage-profile');
 });
 
 router.get('/editor/profiles', (req, res) => {
