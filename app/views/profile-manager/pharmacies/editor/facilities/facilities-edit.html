@@ -78,12 +78,6 @@ Facilities - Profile manager - NHS
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" {{ checked("disabledCarParking", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
-                  Disabled car parking
-                </label>
-              </div>
-              <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="facilities-3" name="disabledWC" type="checkbox" value="yes" {{ checked("disabledWC", "yes") }}>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-3">
                   Disabled toilet
@@ -123,10 +117,38 @@ Facilities - Profile manager - NHS
           </fieldset>
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
             <h2>
-              Patient facilities
+              Parking 
             </h2>
             <legend class="nhsuk-u-visually-hidden">
-              Patient facilities
+              Parking 
+            </legend>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
+                  Car parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-10" name="cycleParking" type="checkbox" value="yes" checked> 
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-10">
+                  Cycle parking
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="facilities-2" name="disabledCarParking" type="checkbox" value="yes" checked>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-2">
+                  Disabled car parking
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <h2>
+              Other facilities
+            </h2>
+            <legend class="nhsuk-u-visually-hidden">
+              Other facilities
             </legend>
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
@@ -136,19 +158,13 @@ Facilities - Profile manager - NHS
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-9" name="carParking" type="checkbox" value="yes" checked>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-9">
-                  Car parking
+                <input class="nhsuk-checkboxes__input" id="facilities-12" name="customerToilet" type="checkbox" value="yes" {{ checked("consultationRoom", "yes") }}>
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-12">
+                  Consultation room available
                 </label>
               </div>
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-10" name="cycleParking" type="checkbox" value="yes" {{ checked("cycleParking", "yes") }}>
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-10">
-                  Cycle parking
-                </label>
-              </div>
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="facilities-12" name="customerToilet" type="checkbox" value="yes" {{ checked("customerToilet", "yes") }}>
+                <input class="nhsuk-checkboxes__input" id="facilities-12" name="customerToilet" type="checkbox" value="yes" checked>
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="facilities-12">
                   Customer toilet
                 </label>
