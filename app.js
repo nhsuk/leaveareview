@@ -35,6 +35,9 @@ const dentistsRoutes = require('./app/routes/profile-manager/dentists/routes').r
 const dentistsOpeningTimesRoutes = require('./app/routes/profile-manager/dentists/openingTimes').router;
 const dentistsEditorLogin = require('./app/routes/profile-manager/dentists/editorLogin').router;
 
+/************* GP *************/
+const gpRoutes = require('./app/routes/profile-manager/gp/routes').router;
+
 /************* OTHER *************/
 const localStorage = require('./app/routes').localStorage;
 
@@ -216,6 +219,9 @@ app.use('/profile-manager/dentists', dentistsRoutes);
 app.use('/profile-manager/dentists/editor/opening-times', dentistsOpeningTimesRoutes);
 app.use('/profile-manager/dentists/editor-login', dentistsEditorLogin);
 
+/*********** GP ***********/
+app.use('/profile-manager/gp', gpRoutes);
+
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {
   automaticRouting.matchRoutes(req, res, next);
@@ -271,7 +277,10 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('facilitiesUpdatedDate', '12 June 2021');
   localStorage.setItem('servicesUpdatedDate', '12 December 2020');
   localStorage.setItem('openingTimesUpdatedDate', '12 June 2021');
+  localStorage.setItem('patientRegistrationLastUpdatedDate', '12 December 2020');
   localStorage.setItem('patientTypeLastUpdatedDate', '01 January 2022');
+  localStorage.setItem('registerNewPatientsLastUpdatedDate', '01 January 2022');
+  localStorage.setItem('gpRegServiceLastUpdatedDate', '');
   localStorage.setItem('tempChanges', JSON.stringify([]));
   localStorage.setItem('primaryTelephone', '4222222');
   localStorage.setItem('contactDetailsConfirmed', false);

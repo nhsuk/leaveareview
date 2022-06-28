@@ -1,0 +1,118 @@
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+{% set mainClasses = 'nhsuk-u-padding-bottom-0' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Edit profile - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../editor">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../editor/profiles/">
+          Your profiles
+        </a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
+      Back to your profiles
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+			<h1>Confirm patient registration</h1>
+			<form method="POST" action="/profile-manager/gp/editor/patient-registration/gp-reg-service/check-answers">
+				<dl class="nhsuk-summary-list">
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+							Your shared NHSmail address
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+						  {{ data["sharedMailbox"] }}	
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="#">
+								Change<span class="nhsuk-u-visually-hidden"> your shared NHSmail address</span>
+							</a>
+						</dd>
+					</div>
+					<div class="nhsuk-summary-list__row">
+						<dt class="nhsuk-summary-list__key">
+						  Extra questions	
+						</dt>
+						<dd class="nhsuk-summary-list__value">
+							{% for q in data["extraQuestions"] %}
+							  {{ q }}<br />
+							{% endfor %}
+						</dd>
+						<dd class="nhsuk-summary-list__actions">
+							<a href="#">
+								Change<span class="nhsuk-u-visually-hidden"> extra questions</span>
+							</a>
+						</dd>
+					</div>
+				</dl>
+				<button type="submit" class="nhsuk-button">Continue</button>
+			</form>
+			<div class="nhsuk-back-link nhsuk-u-margin-bottom-5">
+				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
+					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+						<path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+					</svg>
+					Go back
+				</a>
+			</div>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+let displayname = req.body.displayname;
+</script>
+{% endblock %}
+
+
