@@ -285,11 +285,13 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('primaryTelephone', '4222222');
   localStorage.setItem('contactDetailsConfirmed', false);
   localStorage.setItem('facilitiesConfirmed', false);
-  localstorage.setitem('servicesconfirmed', false);
+  localStorage.setItem('servicesconfirmed', false);
   localStorage.setItem('disabledCarParking', 'yes');
   localStorage.setItem('carParking', 'yes');
   localStorage.setItem('profilesToAdd', JSON.stringify([]));
   localStorage.setItem('addressChangePending', false);
+  localStorage.setItem('patientRegistrationConfirmed', false);
+  localStorage.setItem('onlineRegistrationConfirmed', false);
   res.render('examples/passing-data/clear-data-success');
 });
 

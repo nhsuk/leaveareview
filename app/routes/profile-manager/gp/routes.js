@@ -10,19 +10,16 @@ const app = require('../../../../app');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
-let patientRegistrationConfirmed = false;
-let onlineRegistrationConfirmed = false;
-let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
-let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
-let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
-let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
-let patientRegistrationLastUpdatedDate = localStorage.getItem('patientRegistrationLastUpdatedDate')
-let registerNewPatientsLastUpdatedDate = localStorage.getItem('registerNewPatientsLastUpdatedDate')
-let gpRegServiceLastUpdatedDate = localStorage.getItem('gpRegServiceLastUpdatedDate')
-
 moment.locale('en-GB');
 
 router.get('/editor/manage-profile', function (req, res) {
+	let contactDetailsLastUpdatedDate = localStorage.getItem('contactDetailsUpdatedDate')
+	let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
+	let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
+	let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+	let gpRegServiceLastUpdatedDate = localStorage.getItem('gpRegServiceLastUpdatedDate')
+	let patientRegistrationLastUpdatedDate = localStorage.getItem('patientRegistrationLastUpdatedDate')
+
   res.render('profile-manager/gp/editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
@@ -33,7 +30,14 @@ router.get('/editor/manage-profile', function (req, res) {
   });
 });
 
-router.get('/editor/patient-registration/index', (req, res) => {
+router.get('/editor/patient-registration/', (req, res) => {
+	let patientRegistrationConfirmed = localStorage.getItem('patientRegistrationConfirmed');
+	let onlineRegistrationConfirmed = localStorage.getItem('onlineRegistrationConfirmed');
+	let registerNewPatientsLastUpdatedDate = localStorage.getItem('registerNewPatientsLastUpdatedDate')
+
+	patientRegistrationConfirmed = JSON.parse(patientRegistrationConfirmed);
+	onlineRegistrationConfirmed = JSON.parse(onlineRegistrationConfirmed);
+
 	res.render('profile-manager/gp/editor/patient-registration/index', {
 		patientRegistrationConfirmed,
 		onlineRegistrationConfirmed,
@@ -53,7 +57,8 @@ router.post('/editor/patient-registration/new-patients/registering-new-patients-
     'patientRegistrationLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-	[recentChangeMade, patientRegistrationConfirmed] = [true, true];
+	localStorage.setItem('patientRegistrationConfirmed', true)
+	recentChangeMade = true;
 	res.redirect('../gp-reg-service/index');
 })
 
@@ -70,12 +75,13 @@ router.post('/editor/patient-registration/gp-reg-service/extra-questions', (req,
 })
 
 router.post('/editor/patient-registration/gp-reg-service/check-answers', (req, res) => {
-	onlineRegistrationConfirmed = true;
+	localStorage.setItem('onlineRegistrationConfirmed', true)
 	res.redirect('confirmation');
 })
 
 router.post('/editor/patient-registration/gp-reg-service/opt-out/opt-out', (req, res) => {
-	[recentChangeMade, onlineRegistrationConfirmed] = [true, false];
+	localStorage.setItem('onlineRegistrationConfirmed', true)
+	recentChangeMade = true;
 	res.redirect('../../');
 })
 
