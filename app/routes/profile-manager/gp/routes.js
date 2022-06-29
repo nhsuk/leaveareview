@@ -57,6 +57,10 @@ router.post('/editor/patient-registration/new-patients/registering-new-patients-
     'patientRegistrationLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
+  localStorage.setItem(
+    'registerNewPatientsLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
 	localStorage.setItem('patientRegistrationConfirmed', true)
 	recentChangeMade = true;
 	res.redirect('../gp-reg-service/index');
