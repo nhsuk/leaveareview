@@ -109,7 +109,11 @@
           {% else %}
             <p>Opt in to register patients with this online service</p>
           {% endif %}
-          {% if patientRegistrationConfirmed %}
+          {% if patientRegistrationConfirmed and onlineRegistrationConfirmed %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <p><a href="gp-reg-service/index">Opt-out of the GP registration service</a></p>
+          </div>
+          {% elif patientRegistrationConfirmed %}
           <div class="nhsuk-u-margin-bottom-5">
             <p><a href="gp-reg-service/index">Opt-in to the GP registration service</a></p>
           </div>
