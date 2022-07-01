@@ -84,7 +84,7 @@ router.post('/editor/patient-registration/gp-reg-service/check-answers', (req, r
 })
 
 router.post('/editor/patient-registration/gp-reg-service/opt-out/opt-out', (req, res) => {
-	localStorage.setItem('onlineRegistrationConfirmed', true)
+	localStorage.setItem('onlineRegistrationConfirmed', false)
 	recentChangeMade = true;
 	res.redirect('../../');
 })
