@@ -730,6 +730,16 @@ dd {
   margin-bottom: 0px;
 }
 
+.card-content-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content__inner {
+  flex-grow: 1;
+}
+
 .profile-list-container {
   padding: 2em 2em;
 }
