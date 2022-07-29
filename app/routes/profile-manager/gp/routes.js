@@ -21,6 +21,8 @@ router.get('/editor/manage-profile', function (req, res) {
 	let patientRegistrationConfirmed = localStorage.getItem('patientRegistrationConfirmed')
 	let patientRegistrationLastUpdatedDate = localStorage.getItem('patientRegistrationLastUpdatedDate')
 
+  patientRegistrationConfirmed = JSON.parse(patientRegistrationConfirmed);
+
   res.render('profile-manager/gp/editor/manage-profile', {
     contactDetailsLastUpdatedDate,
     openingTimesLastUpdatedDate,
