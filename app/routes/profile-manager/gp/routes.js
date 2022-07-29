@@ -18,6 +18,7 @@ router.get('/editor/manage-profile', function (req, res) {
 	let facilitiesLastUpdatedDate = localStorage.getItem('facilitiesUpdatedDate')
 	let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
 	let gpRegServiceLastUpdatedDate = localStorage.getItem('gpRegServiceLastUpdatedDate')
+	let patientRegistrationConfirmed = localStorage.getItem('patientRegistrationConfirmed')
 	let patientRegistrationLastUpdatedDate = localStorage.getItem('patientRegistrationLastUpdatedDate')
 
   res.render('profile-manager/gp/editor/manage-profile', {
@@ -26,6 +27,7 @@ router.get('/editor/manage-profile', function (req, res) {
     facilitiesLastUpdatedDate,
     servicesLastUpdatedDate,
 		patientRegistrationLastUpdatedDate,
+		patientRegistrationConfirmed,
     recentChangeMade,
   });
 });
@@ -63,7 +65,7 @@ router.post('/editor/patient-registration/new-patients/registering-new-patients-
   );
 	localStorage.setItem('patientRegistrationConfirmed', true)
 	recentChangeMade = true;
-	res.redirect('../gp-reg-service/index');
+	res.redirect('../../manage-profile');
 })
 
 router.post('/editor/patient-registration/gp-reg-service/email-address', (req, res) => {
