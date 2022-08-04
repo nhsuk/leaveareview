@@ -1,0 +1,138 @@
+
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Aylestone Hill Surgery - Overview - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP surgery</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP surgery</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        <span role="text">
+					Register with this GP surgery  
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+      <nav class="nhsuk-contents-list nhsuk-u-margin-bottom-8" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list" href="index">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Register with this GP surgery</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+      <p>This surgery is not accepting new patients. You can contact them to find out more:</p>
+			<ul class="nhsuk-list nhsuk-list--bullet">
+				<li>check the <a href="#">GP surgery website</a></li>
+				<li>phone the GP surgery reception on 020 865 99343</li>
+				<li>email <a href="mailto:info@surgery.co.uk">info@surgery.co.uk</a></li>
+				<li>go to the GP surgery in person – <a href="#">get directions (opens in Google Maps)</a></li>
+			</ul>
+      <p>There are other GP surgeries covering your area that are accepting new patients.</p>
+			<div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="register-start">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Find another GP surgery</span>
+        </a>
+      </div>
+			<h2>Find out more about registering with a GP</h2>
+			<p><a href="https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/">How to register with a GP surgery</a></p>
+			<p><a href="https://www.nhs.uk/nhs-services/gps/registering-with-a-gp-outside-your-area/">Registering with a GP surgery outside the area you live</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
