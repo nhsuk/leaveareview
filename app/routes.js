@@ -301,6 +301,18 @@ router.post('/aaq3', function (req, res) {
   }
 });
 
+router.post('/mvp/gps/can-register/inside-catchment/register', (req, res) => {
+  res.redirect('/mvp/gps/can-register/inside-catchment/success')
+})
+
+router.post('/mvp/gps/can-register/outside-catchment/register', (req, res) => {
+  res.redirect('/mvp/gps/can-register/outside-catchment/success')
+})
+
+router.post('/mvp/gps/cant-register/outside-catchment/register', (req, res) => {
+  res.redirect('/mvp/gps/cant-register/outside-catchment/failure')
+})
+
 module.exports = {
   router: router,
   localStorage: localStorage,

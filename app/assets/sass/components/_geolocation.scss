@@ -1,0 +1,14 @@
+.geo-locate {
+	&--button,
+	&--denied,
+	&--error,
+	&--searching {
+		display: none;
+	
+		img {
+			height: 40px;
+			width: 40px;
+			margin: 0 10px -13px 0;
+		}
+  	}
+}

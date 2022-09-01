@@ -84,15 +84,70 @@
           </li>
         </ol>
       </nav>
-			<h2>Register with this GP surgery</h2>
-			<p>You can:</p>
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Check that you live in the area covered by this GP surgery</h2>
+          <p>Most GPs will only let you register if you live in their catchment area.</p>
+          <form action="/mvp/gps/can-register/inside-catchment/register" method="POST" id="catchment-area-search-form">
+            <input type="hidden" id="UsersLatitude" />
+            <input type="hidden" id="UsersLongitude" />
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="example">
+                Enter your postcode 
+              </label>
+              <input class="nhsuk-input nhsuk-input--width-10" id="example" name="example" type="text" autocomplete="postal-code">
+            </div>
+            <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-4">Search</button>
+            <button class="nhsuk-button nhsuk-button--secondary geo-locate--button">Use your location</button>
+            <div class="geo-locate">
+                <p class="geo-locate--searching nhsuk-u-margin-bottom-7"><img src="" alt="" />We are searching for your location</p>
+                <p class="geo-locate--error nhsuk-u-margin-bottom-7">We can't find your location. Please try again or enter a town, city or postcode.</p>
+                <p class="geo-locate--denied nhsuk-u-margin-bottom-7">You have not allowed us to use your location. You can change this in your browser settings.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+			<h2>Register online using the NHS website</h2>
+			<p>Registration will be faster and easier if you have your personal information ready.</p>
+      <p>You do not need proof of address or immigration status, ID or an NHS number to register online with a GP.</p>
+			<details class="nhsuk-details nhsuk-u-margin-bottom-6">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            What you'll be asked during online registration
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>You'll be asked:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>for your name and address</li>
+            <li>for the name and address of the GP you're registered with now, if there is one</li>
+            <li>for your NHS number, if you know it</li>
+            <li>for the name and address of an emergency contact</li>
+            <li>for the name and address of your carer, if you have one</li>
+            <li>about your medical history</li>
+            <li>about allergies you might have</li>
+            <li>about medication you might be taking</li>
+            <li>for a way to contact you, like a phone number or email address</li>
+          </ul>
+        </div>
+      </details>
+			<div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="register-start">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Register online using the NHS website</span>
+        </a>
+      </div>
+      <h2>Other ways to register</h2>
+			<p>To find out more:</p>
 			<ul class="nhsuk-list nhsuk-list--bullet">
 				<li>check the <a href="#">GP surgery website</a></li>
 				<li>phone the GP surgery reception on 020 8659 9343</li>
 				<li>email <a href="mailto:info@surgery.co.uk">info@surgery.co.uk</a></li>
 				<li>visit the GP surgery to collect a form – <a href="#">get directions (opens in Google Maps)</a></li>
 			</ul>
-      <p>You cannot currently register with this surgery online using the NHS website.</p>
 			<h2>More information</h2>
       <p>Find out more about <a href="https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/">how to register with a GP surgery</a>, including:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
