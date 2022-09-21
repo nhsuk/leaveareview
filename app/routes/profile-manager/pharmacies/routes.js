@@ -171,8 +171,8 @@ router.post('/editor/services/services-check', function (req, res) {
     moment().format('DD MMMM YYYY')
   );
   recentChangeMade = true;
-  servicesConfirmed = true;
-  res.redirect('../../editor/manage-profile');
+  localStorage.setItem('servicesConfirmed', true);
+  res.redirect('attributes/more-detail');
 });
 
 router.get('/editor/profiles', (req, res) => {

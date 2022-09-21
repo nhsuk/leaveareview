@@ -113,7 +113,11 @@
             <h2 class="nhsuk-card__heading nhsuk-heading-m">
               Services 
             </h2>
-            <p><a href="services/services-edit">Check your services</a></p>
+            {% if servicesConfirmed %}
+            <p><a href="services/dashboard">Check your services</a></p>
+            {% else %}
+            <p class="edit-link"><a href="services/services-edit">Set up <span class="nhsuk-u-visually-hidden">services</span></a></p>
+            {% endif %}
           </div>
           <div class="last-updated">
             <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ servicesLastUpdatedDate }}</span></p>

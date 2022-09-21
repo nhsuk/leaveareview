@@ -1,0 +1,114 @@
+
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends 'layout-app-header-pharmacies.html' %}
+{% set mainClasses = 'nhsuk-u-padding-bottom-0' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Edit profile - Profile manager - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS Profile Manager",
+        "href": "/profile-manager/pharmacies/editor/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href=".//">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../manage-profile">
+        Edit Cohens 
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="services-edit">
+          Services 
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../services-check">
+          Check your answers 
+        </a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../services-check">
+      Check your answers 
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+	<div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-u-margin-bottom-0">Add details to your services</h1>
+      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
+        {% if data["newname"] %}
+          {{data["newname"]}}
+        {%else%}
+          Cohens 
+        {%endif%}
+      </p>
+			<p>1 or more services needs extra details</p>
+			<dl class="nhsuk-summary-list">
+				<div class="nhsuk-summary-list__row">
+					<dt class="nhsuk-summary-list__key">
+						Flu vaccinations	
+					</dt>
+					<dd class="nhsuk-summary-list__value">
+						Online booking service	
+					</dd>
+				</div>
+				<div class="nhsuk-summary-list__row">
+					<dt class="nhsuk-summary-list__key">
+					  Health check	
+					</dt>
+					<dd class="nhsuk-summary-list__value">
+					  Online booking service</br>
+						Opening times	
+					</dd>
+				</div>
+			</dl>
+			<a class="nhsuk-button" href="../dashboard">Continue</a>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
