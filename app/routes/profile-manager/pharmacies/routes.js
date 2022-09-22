@@ -175,6 +175,33 @@ router.post('/editor/services/services-check', function (req, res) {
   res.redirect('attributes/more-detail');
 });
 
+router.get('/editor/services/dashboard', function (req, res) {
+  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+  res.render('profile-manager/pharmacies/editor/services/dashboard', { 
+    servicesLastUpdatedDate, 
+  });
+});
+
+router.get('/editor/services/attributes/', function (req, res) {
+  let fluvaccinebookingconfirmed = localStorage.getItem('fluvaccinebookingconfirmed');
+  let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
+  res.render('profile-manager/pharmacies/editor/services/attributes/index', { 
+    recentChangeMade, 
+    fluVaccineBookingConfirmed,
+    fluVaccineBookingLastUpdatedDate
+  });
+});
+
+router.post('/editor/services/attributes/flu-vaccine/confirm', function (req, res) {
+  recentChangeMade = true;
+  fluVaccineBookingConfirmed = true
+  localStorage.setItem(
+    'fluVaccineBookingLastUpdatedDate',
+    moment().format('DD MMMM YYYY')
+  );
+  res.redirect('../../attributes/')
+})
+
 router.get('/editor/profiles', (req, res) => {
   recentChangeMade = false;
   currentPharmacies = pharmacies.slice(0, 15);

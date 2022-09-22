@@ -292,6 +292,8 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('addressChangePending', false);
   localStorage.setItem('patientRegistrationConfirmed', false);
   localStorage.setItem('onlineRegistrationConfirmed', false);
+  localStorage.setItem('fluVaccineBookingConfirmed', false);
+  localStorage.setItem('fluVaccineBookingLastUpdatedDate', '');
   res.render('examples/passing-data/clear-data-success');
 });
 
