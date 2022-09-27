@@ -57,7 +57,7 @@ Health check opening times - Profile manager - NHS
 {% block content %}
 	<div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Health check opening times</h1>
+      <h1 class="nhsuk-u-margin-bottom-0">Health check</h1>
       <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
         {% if data["newname"] %}
           {{data["newname"]}}
@@ -68,6 +68,21 @@ Health check opening times - Profile manager - NHS
     </div>
   </div>
   <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content card-content-flex">
+          <div class="card-content__inner">
+            <h2 class="nhsuk-card__heading nhsuk-heading-m">
+              Health check online booking service 
+            </h2>
+            <p><a href="#">Update health check online booking service</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       <div class="nhsuk-card">
         <div class="nhsuk-card__content card-content-flex">
