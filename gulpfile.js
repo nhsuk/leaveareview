@@ -7,6 +7,7 @@ const browserSync = require('browser-sync');
 const clean = require('gulp-clean');
 var sass = require('gulp-sass')(require('sass'));
 const nodemon = require('gulp-nodemon');
+const webpack = require('webpack-stream');
 
 // Local dependencies
 const config = require('./app/config');
@@ -34,6 +35,31 @@ function compileStyles() {
       console.log(err)
       process.exit(1)
     });
+}
+
+/* Use Webpack to build and minify the NHS.UK components JS. */
+function webpackCompileScripts() {
+  return gulp.src('app/assets/javascript/main.js')
+    .pipe(webpack({
+      mode: 'production',
+      module: {
+        rules: [
+          {
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
+            },
+          },
+        ],
+      },
+      output: {
+        filename: 'nhsuk.js',
+      },
+      target: 'web',
+    }))
+    .pipe(gulp.dest('./public/js/'));
 }
 
 // Compile JavaScript (with ES6 support)

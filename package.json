@@ -4,6 +4,7 @@
   "description": "Rapidly create HTML prototypes of NHS websites and services.",
   "main": "app.js",
   "scripts": {
+    "webpack": "webpack",
     "build": "gulp build",
     "postinstall": "npm run build",
     "start": "node app.js",
@@ -19,8 +20,6 @@
   "author": "https://github.com/nhsuk/",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.19.0",
     "browser-sync": "^2.27.9",
@@ -33,7 +32,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.2.0",
-    "gulp-nodemon": "^2.4.2",
+    "gulp-nodemon": "^2.5.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.1.0",
     "keypather": "^3.0.0",
@@ -45,8 +44,19 @@
     "sass": "^1.49.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4"
+    "eslint-plugin-import": "^2.25.4",
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-stream": "^7.0.0"
   }
 }

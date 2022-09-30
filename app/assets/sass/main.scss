@@ -1,6 +1,15 @@
 // Import NHS.UK frontend library
 @import "node_modules/nhsuk-frontend/packages/nhsuk";
 
+// Wouldn't import
+.nhsuk-u-float-left {
+  float: left !important;
+}
+
+.nhsuk-u-float-right {
+  float: right !important;
+}
+
 // Bug fixing NHS Frontend
 @import "components/nhsuk-input-fix";
 
@@ -27,3 +36,5 @@
 @import "verifyRegister";
 
 @import "components/richText";
+@import "components/tabs";
+@import "components/button";
