@@ -37,6 +37,9 @@ const dentistsEditorLogin = require('./app/routes/profile-manager/dentists/edito
 
 /************* GP *************/
 const gpRoutes = require('./app/routes/profile-manager/gp/routes').router;
+/************* HOSPITALS *************/
+const hospitalsRoutes = require('./app/routes/profile-manager/hospitals/routes').router;
+const hospitalsEditorLogin = require('./app/routes/profile-manager/hospitals/editorLogin').router;
 
 /************* OTHER *************/
 const localStorage = require('./app/routes').localStorage;
@@ -221,6 +224,9 @@ app.use('/profile-manager/dentists/editor-login', dentistsEditorLogin);
 
 /*********** GP ***********/
 app.use('/profile-manager/gp', gpRoutes);
+/*********** HOSPITALS ***********/
+app.use('/profile-manager/hospitals', hospitalsRoutes);
+app.use('/profile-manager/hospitals/editor-login', hospitalsEditorLogin);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function(req, res, next) {
