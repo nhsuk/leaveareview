@@ -5,7 +5,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Overview
+Departments and services - Org name - NHS 
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -57,16 +57,10 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1>
-        <span role="text">
-          Departments and services
-          <span class="nhsuk-caption-xl">
-            <span class="nhsuk-u-visually-hidden"> -</span> 
-            Sevenoaks Hospital
-          </span>
-        </span>
-      </h1>
+      <span class="nhsuk-caption-xl">
+        Sevenoaks Hospital
+      </span>
+      <h1>Departments and services</h1>
 
       <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
         <h2 class="nhsuk-u-visually-hidden">Contents</h2>
@@ -89,113 +83,254 @@
         </ol>
       </nav>
 
-    </div>
-
-  </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
       <ul class="nhsuk-grid-row nhsuk-card-group">
-        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
           <div class="nhsuk-card nhsuk-card--clickable">
             <div class="nhsuk-card__content">
               <h2 class="nhsuk-card__heading nhsuk-heading-m">
                 <a class="nhsuk-card__link" href="/mvp/hospitals/departments/accident-emergency">Accident and emergency</a>
               </h2>
               <p class="nhsuk-card__description">This department is for people of all ages</p>
+              <p><span class="department-open-status department-open-status--open"></span>Open</p>
             </div>
           </div>
         </li>
-        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
           <div class="nhsuk-card nhsuk-card--clickable">
             <div class="nhsuk-card__content">
               <h2 class="nhsuk-card__heading nhsuk-heading-m">
                 <a class="nhsuk-card__link" href="/mvp/hospitals/departments/minor-injuries">Minor injuries unit</a>
               </h2>
               <p class="nhsuk-card__description">This department is for anyone aged 1 or over</p>
+              <p><span class="department-open-status department-open-status--open"></span>Open</p>
+              <p><span class="department-open-status department-open-status--almost-full"></span>Almost at capacity</p>
+              <p><span class="department-open-status department-open-status--busy"></span>Busy</p>
+              <div class="nhsuk-warning-text">
+                <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="nhsuk-warning-text__text">
+                  <span class="nhsuk-warning-text__assistive">Warning</span>
+                  Closed 
+                </strong>
+              </div>
             </div>
           </div>
         </li>
       </ul>
-    </div>
-  </div>
 
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
       <h2 class="nhsuk-u-margin-bottom-6">A-Z of our departments and services</h2>
-    </div>
-  </div>
+      <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+        <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">A</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">B</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">C</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">D</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#E">E</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#F">F</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#G">G</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#H">H</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#I">I</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#J">J</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#K">K</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#L">L</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#M">M</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#N">N</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#O">O</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#P">P</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#Q">Q</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#R">R</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#S">S</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#T">T</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#U">U</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#V">V</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#W">W</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#X">X</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#Y">Y</span>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color" href="#Z">Z</span>
+          </li>
+        </ol>
+      </nav>
 
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h3 class="index-header"><span class="index-letter">A</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/accident-emergency">Accident and Emergency</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">C</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Cardiology</a></li>
-        <li><a href="/mvp/hospitals/departments/">Children's & Adolescent Services</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">D</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Diabetic Medicine</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">E</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Ear, Nose & Throat</a></li>
-        <li><a href="/mvp/hospitals/departments/">Eye services (community)</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">G</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Gastrointestinal and Liver services</a></li>
-        <li><a href="/mvp/hospitals/departments/">General Surgery</a></li>
-        <li><a href="/mvp/hospitals/departments/">Geriatric Medicine</a></li>
-        <li><a href="/mvp/hospitals/departments/">Gynaecology</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">M</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/minor-injuries">Minor injuries unit</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">N</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Neurology</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">O</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Obstetrics And Gynaecology</a></li>
-        <li><a href="/mvp/hospitals/departments/">Ophthalmology</a></li>
-        <li><a href="/mvp/hospitals/departments/orthopaedics">Orthopaedics</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">P</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Pain Management</a></li>
-        <li><a href="/mvp/hospitals/departments/">Physiotherapy</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">R</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Rehabilitation</a></li>
-        <li><a href="/mvp/hospitals/departments/">Respiratory Medicine</a></li>
-        <li><a href="/mvp/hospitals/departments/">Rheumatology</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">S</span></h3>
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/speech-language">Speech and language services</a></li>
-      </ul>
-      <h3 class="index-header"><span class="index-letter">V</span></h3>
-      <!--hr class="nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-2"-->
-      <ul class="nhsuk-list nhsuk-u-margin-bottom-6">
-        <li><a href="/mvp/hospitals/departments/">Vascular surgery</a></li>
-      </ul>
-    </div>
-  </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="A" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            A
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href='accident-emergency'>Accident and Emergency</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="C" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            C
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Cardiology</a></li>
+            <li><a href="/mvp/hospitals/departments/">Children's & Adolescent Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="D" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            D
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Diabetic Medicine</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="E" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            E
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Ear, Nose & Throat</a></li>
+            <li><a href="/mvp/hospitals/departments/">Eye services (community)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="G" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            G
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Gastrointestinal and Liver services</a></li>
+            <li><a href="/mvp/hospitals/departments/">General Surgery</a></li>
+            <li><a href="/mvp/hospitals/departments/">Geriatric Medicine</a></li>
+            <li><a href="/mvp/hospitals/departments/">Gynaecology</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="M" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            M
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="minor-injuries">Minor injuries unit</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="N" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            N
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Neurology</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="O" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            O
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Obstetrics And Gynaecology</a></li>
+            <li><a href="/mvp/hospitals/departments/">Ophthalmology</a></li>
+            <li><a href="orthopaedics">Orthopaedics</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="P" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            P
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Pain Management</a></li>
+            <li><a href="/mvp/hospitals/departments/">Physiotherapy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="R" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            R
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Rehabilitation</a></li>
+            <li><a href="/mvp/hospitals/departments/">Respiratory Medicine</a></li>
+            <li><a href="/mvp/hospitals/departments/">Rheumatology</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="S" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            S
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="speech-language">Speech and language services</a></li>
+          </ul>
+        </div>
+      </div><div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 id="V" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            V
+          </h2>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="speech-language">Vascular surgery</a></li>
+          </ul>
+        </div>
+      </div>
+      
       <hr>
       <p><a href="">Report an issue with the information on this page</a></p>
       <p>Information supplied by <a href="">Maidstone and Tunbridge Wells NHS Trust</a></p>

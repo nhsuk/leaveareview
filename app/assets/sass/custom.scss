@@ -635,63 +635,14 @@ dd {
 }
 
 .nhsuk-notification-red {
-  margin-bottom: 40px !important;
-  margin-top: -16px !important;
-  padding: 16px !important;
-  background-color: #ffffff !important;
-  border-bottom: solid 4px #d8dde0 !important;
-  border-left: solid 16px #d5281b !important;
+  border-left: solid 16px #d5281b;
 }
 .nhsuk-notification-green {
-  margin-bottom: 40px !important;
-  margin-top: -16px !important;
-  padding: 16px !important;
-  background-color: #ffffff !important;
-  border-bottom: solid 4px #d8dde0 !important;
-  border-left: solid 16px #007f3b !important;
+  border-left: solid 16px #007f3b;
 }
 
 .noborder {
   border: 0px;
-}
-
-/* Squares - for Open now or Closed indicators
-   ======================================= */
-
-.green-square {
-  margin-bottom: 3px;
-  background-color: #007f3b;
-  border: 1px solid transparent;
-  border-radius: 15%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
-}
-
-.red-square {
-  margin-bottom: 3px;
-  background-color: #d5281b;
-  border: 1px solid transparent;
-  border-radius: 15%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
-}
-
-.amber-square {
-  margin-bottom: 3px;
-  background-color: #ffb81c;
-  border: 1px solid transparent;
-  border-radius: 15%;
-  display: inline-block;
-  height: 26px;
-  margin-right: 8px;
-  vertical-align: middle;
-  width: 26px;
 }
 
 /* Index letter headings
@@ -742,4 +693,8 @@ dd {
 
 .profile-list-container {
   padding: 2em 2em;
+}
+
+.nhsuk-contents-list--nested {
+  margin-left: 1em;
 }

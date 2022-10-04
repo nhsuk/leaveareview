@@ -1,0 +1,23 @@
+/* Squares - for Open now or Closed indicators
+   ======================================= */
+.department-open-status {
+  margin-bottom: 3px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  display: inline-block;
+  height: 26px;
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 26px;
+  &--open {
+    background-color: #007f3b;
+  }
+  
+  &--almost-full {
+    background-color: #ffb81c;
+  }
+  
+  &--busy {
+    background-color: #d5281b;
+  }
+}
