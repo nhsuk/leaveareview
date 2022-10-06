@@ -3,7 +3,13 @@
   list-style: none;
   margin-bottom: 0 !important;
   padding: 20px;
-  width: 50%;
+  max-width: 50%;
+
+  @include mq($until: tablet) {
+    border-left: 0;
+    max-width: 100%; 
+  }
+
   &--list-list-item {
     font-size: 18px;
     padding: 10px 0 8px 8px;
@@ -69,11 +75,19 @@
 
   &-card {
     display: flex;
+
+    @include mq($until: tablet) {
+      display: block;
+    }
   }
 
   &-description {
     max-width: 50%;
     padding: 20px;
+    
+    @include mq($until: tablet) {
+      max-width: 100%; 
+    }
   }
 }
 
