@@ -698,3 +698,8 @@ dd {
 .nhsuk-contents-list--nested {
   margin-left: 1em;
 }
+
+.nhsuk-list--border li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
