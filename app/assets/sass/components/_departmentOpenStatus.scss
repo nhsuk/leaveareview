@@ -3,7 +3,7 @@
 .department-open-status {
   margin-bottom: 3px;
   border: 1px solid transparent;
-  border-radius: 15%;
+  border-radius: 50%;
   display: inline-block;
   height: 26px;
   margin-right: 8px;
@@ -19,5 +19,9 @@
   
   &--busy {
     background-color: #d5281b;
+  }
+  
+  &--closed {
+    background-color: #4c6272 ;
   }
 }
