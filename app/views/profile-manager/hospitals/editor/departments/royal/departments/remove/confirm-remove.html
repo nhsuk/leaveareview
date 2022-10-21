@@ -1,9 +1,10 @@
+
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header-pharmacies.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Remove services - Profile manager - NHS
+Confirm removal of services - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -42,54 +43,31 @@ Remove services - Profile manager - NHS
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Remove services</h1>
-      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
-        Royal London Hospital 
-      </p>
-			<h2>Removing services</h2>
-			<p>Not all departments are fully editable using the NHS Profile Manager. To remove a UEC department you must first contact your DOS lead. You can remove an EDOS deparment by using the <a href="#">EDOS Profile Editor</a></p>
-			<form action="">
+			<form>
 				<div class="nhsuk-form-group">
-					<fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-						<legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">
-						  Choose serivces to remove	
+					<fieldset class="nhsuk-fieldset">
+						<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+							<h1 class="nhsuk-fieldset__heading">
+							  Do you want to remove X department?	
+							</h1>
 						</legend>
-						<div class="nhsuk-checkboxes">
-							<div class="nhsuk-checkboxes__item">
-								<input class="nhsuk-checkboxes__input" id="remove-1" name="remove-department" type="checkbox" value="cardiology" aria-describedby="remove-1-item-hint">
-								<label class="nhsuk-label nhsuk-checkboxes__label" for="remove-1">
-								  Cardiology
+						<div class="nhsuk-radios">
+							<div class="nhsuk-radios__item">
+								<input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+								<label class="nhsuk-label nhsuk-radios__label" for="example-1">
+									Yes
 								</label>
-								<div class="nhsuk-hint nhsuk-checkboxes__hint" id="remove-1-item-hint">
-									Active<br />
-									Provided by ...
-								</div>
 							</div>
-							<div class="nhsuk-checkboxes__item">
-								<input class="nhsuk-checkboxes__input" id="remove-2" name="remove-department" type="checkbox" value="uregentdentalcare" aria-describedby="remove-2-item-hint">
-								<label class="nhsuk-label nhsuk-checkboxes__label" for="remove-2">
-								  Urgent Dental Care	
+							<div class="nhsuk-radios__item">
+								<input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+								<label class="nhsuk-label nhsuk-radios__label" for="example-2">
+									No
 								</label>
-								<div class="nhsuk-hint nhsuk-checkboxes__hint" id="remove-2-item-hint">
-									Active<br />
-									Provided by ...
-								</div>
-							</div>
-							<div class="nhsuk-checkboxes__item">
-								<input class="nhsuk-checkboxes__input" id="remove-3" name="department" type="checkbox" value="ortopeadics" aria-describedby="remove-3-item-hint">
-								<label class="nhsuk-label nhsuk-checkboxes__label" for="remove-3">
-								  Orthopeadics	
-								</label>
-								<div class="nhsuk-hint nhsuk-checkboxes__hint" id="remove-3-item-hint">
-									Active<br />
-									Provided by ...
-								</div>
 							</div>
 						</div>
 					</fieldset>
 				</div>
-				<a href="confirm-remove" class="nhsuk-button">Continue</a>
-				<!-- <button type="submit" class="nhsuk-button">Continue</button> -->
+				<button class="nhsuk-button nhsuk-button--warning">Remove department</button>
 			</form>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">

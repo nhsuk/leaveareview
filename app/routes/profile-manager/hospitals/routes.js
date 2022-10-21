@@ -7,14 +7,19 @@ const moment = require('moment');
 const app = require('../../../../app');
 
 const reviews = require('../../../data/reviews');
-const hospitals = require('../../../data/hospitals');
-const hospitalServices = require('../../../data/services');
+const hospitals = require('../../../data/hospitals/hospitals');
+const hospitalDepartmentsList = require('../../../data/hospitals/departmentList');
+const hospitalDepartments = require('../../../data/hospitals/departments');
 
 // Create local storage for opening times
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
 // let servicesConfirmed = false;
+const alphabet = [];
+for (var i = 65; i <= 90; i ++) {
+  alphabet.push(String.fromCharCode(i));
+}
 
 moment.locale('en-GB');
 
@@ -71,44 +76,18 @@ router.get('/editor/profiles/profiles-page2', (req, res) => {
 });
 
 router.get('/editor/departments/royal/index', (req, res) => {
-  currentServices = hospitalServices.slice(0, 15);
-  res.render('profile-manager/hospitals/editor/departments/royal/index', { currentServices, hospitalServices })
+  currentDepartments = hospitalDepartments.slice(0, 15);
+  res.render('profile-manager/hospitals/editor/departments/royal/index', { currentDepartments, hospitalDepartments })
 })
 
-router.post('/profiles-comments/search-dentist', (req, res) => {
-  let searchTerm = req.body.search;
-  let currentDentists = findByPostCode(searchTerm);
-  if (searchTerm.toLowerCase() === 'leeds') {
-    res.redirect('/profiles/multiple-places');
-  }
-  if (currentDentists.length === 0) {
-    res.redirect('/profile-manager/hospitals/profiles-comments/no-results');
-  } else {
-    res.render('profile-manager/hospitals/profiles-comments/index', { currentDentists, searchTerm });
-  }
-});
+router.get('/editor/departments/royal/add-departments', (req, res) => {
+  res.render('profile-manager/hospitals/editor/departments/royal/add-departments', { hospitalDepartmentsList, alphabet })
+})
 
-function findLeeds(searchTerm) {
-  const searchResults = dentists.filter(
-    (curr) => curr.city.toLowerCase() === searchTerm.toLowerCase()
-  );
-  return searchResults;
-}
-
-function findByPostCode(searchTerm) {
-  const searchResults = dentists.filter((curr) =>
-    curr.Postcode.toLowerCase()
-      .replace(/ /g, '')
-      .includes(searchTerm.toLowerCase().replace(/ /g, ''))
-  );
-  return searchResults;
-}
-
-router.get('/profiles/profile-list-leeds', (req, res) => {
-  const currentDentists = findLeeds('Leeds');
-  const searchTerm = 'Leeds';
-  res.render('profiles/profile-list-leeds', { currentDentists, searchTerm });
-});
+router.get('/editor/departments/royal/departments/remove/remove-departments', (req, res) => {
+  currentDepartments = hospitalDepartments.slice(0, 15);
+  res.render('profile-manager/hospitals/editor/departments/royal/departments/remove/remove-departments', { currentDepartments, hospitalDepartments })
+})
 
 module.exports = {
   router: router,
