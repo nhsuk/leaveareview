@@ -6,7 +6,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Add deparments - Profile manager - NHS
+Add departments  - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -45,22 +45,27 @@
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Add departments</h1>
-      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
-        Royal London Hospital 
-      </p>
+      <h1 id="page-heading">
+        <span role="text">
+            <span class="nhsuk-caption-xl">
+              Royal London Hospital 
+              <span class="nhsuk-u-visually-hidden"> -</span>
+            </span>
+            Add departments 
+        </span>
+      </h1>
     </div>
   </div>
 	<nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
 		<ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
 			<li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
-				<span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">A</span>
+				<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">A</a>
 			</li>
 			<li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
 				<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#B">B</a>
 			</li>
 			<li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
-				<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="add-departments-c">C</a>
+				<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">C</a>
 			</li>
 			<li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
 				<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">D</a>
@@ -143,13 +148,20 @@
 				{% for department in hospitalDepartmentsList %}
 					{% if department.startsWith(letter) %}
 						<li>
-							<a href="#">{{ department }}</a>
+							{% if department == 'Cardiology' %}
+								<a href="cardiology">{{ department }}</a>
+							{% elif department == 'Urology' %}
+								<a href="urology/index">{{ department }}</a>
+							{% else %}
+								<a href="#">{{ department }}</a>
+							{% endif %}
 						</li>
 					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
 	</div>
+	<p><a href="#nhsuk-nav-a-z">Back to top</a></p>
 	{% endfor %}
 	<div class="nhsuk-back-to-top nhsuk-u-margin-bottom-5">
 		<a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">

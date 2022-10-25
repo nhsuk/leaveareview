@@ -33,7 +33,7 @@ Your profiles - Profile manager - NHS
               <label class="nhsuk-label" for="searchBar">Search by name, postcode or ODS Code</label>
               <div class="search-bar-buttons">
                 <div class="search-bar">
-                  <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="search" type="text">
+                  <input class="nhsuk-input nhsuk-input--width-10 profile-search" id="searchBar" name="searchHospital" type="text">
                   <button class="nhsuk-profiles-search__submit" type="submit">
                     <svg class="nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                       <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -47,14 +47,6 @@ Your profiles - Profile manager - NHS
         </div>
       </div>
       <div id="profileslist">
-        <div class="profile-list-pagination-counter">
-          {% if (searchTerm) %}
-          <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentHospitals.length }} of {{hospitals.length}}</span> results for <span class="nhsuk-u-font-weight-bold">{{ searchTerm }}</span>.</p>
-          {% else %}
-          <p>Showing <span class="nhsuk-u-font-weight-bold">1-{{ currentHospitals.length }} results of {{hospitals.length}}</span>.</p>
-          {% endif %}
-          <p>Page <span class="nhsuk-u-font-weight-bold">1 of 2</span></p>
-        </div>
         <div class="nhsuk-card">
           <div class="nhsuk-card__content">
             <table role="table" class="nhsuk-table-responsive">
@@ -76,7 +68,7 @@ Your profiles - Profile manager - NHS
                         {{hospital.Name}} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
                       </a>
                     {% elseif hospital.Name == "The Royal London Hospital" %}
-                      <a href="../manage-profile-royal">
+                      <a href="../profiles/royal/manage-profile">
                         {{hospital.Name}} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
                       </a>
                     {% else %}
@@ -119,7 +111,7 @@ Your profiles - Profile manager - NHS
             </a>
           </li>
         </ul>
-        <p class="nhsuk-pagination__results">Showing <b>1</b> to <b>15</b> of <b>45</b> departments</p>
+        <p class="nhsuk-pagination__results">Showing <b>1</b> to <b>15</b> of <b>45</b> profiles</p>
       </nav>
       <div class="nhsuk-back-link">
         <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">

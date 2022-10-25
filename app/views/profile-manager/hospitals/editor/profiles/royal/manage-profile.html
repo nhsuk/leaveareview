@@ -1,4 +1,3 @@
-
 <!-- Extends the layout from /docs/views/layout.html -->
 {% extends 'layout-app-header-pharmacies.html' %}
 
@@ -46,11 +45,16 @@
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Cardiology</h1>
-      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
-        Royal London Hospital 
-      </p>
-      <p>Whitechapel Road, Whitechapel, London, E1 1FR</p>
+      <h1 id="page-heading">
+        <span role="text">
+            <span class="nhsuk-caption-xl">
+              Royal London Hospital 
+              <span class="nhsuk-u-visually-hidden"> -</span>
+            </span>
+            Manage your profile
+        </span>
+      </h1>
+      <p>Whitechapel Road, Whitechapel, London, E1 1FR </p>
     </div>
   </div>
 
@@ -61,17 +65,11 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             Contact details
           </h2>
-          {% if contactDetailsConfirmed %}
           <div class="nhsuk-u-margin-bottom-5">
-            <p><a href="contact-details/contact-details-landing">Check your contact details</a></p>
+            <p><a href="contact-details/contact-details-check">Check your contact details</a></p>
           </div>
-          {% else %}
-          <div class="nhsuk-u-margin-bottom-5">
-            <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">contact details</span></a></span>
-          </div>
-          {% endif %}
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">01 March 2022</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">1 March 2022</span></p>
           </div>
         </div>
       </div>
@@ -80,19 +78,28 @@
       <div class="nhsuk-card">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            Treatments 
+            Facilities 
           </h2>
-          {% if contactDetailsConfirmed %}
           <div class="nhsuk-u-margin-bottom-5">
-            <p><a href="contact-details/contact-details-landing">Check your treatments</a></p>
+            <p><a href="#">Check your facilities</a></p>
           </div>
-          {% else %}
-          <div class="nhsuk-u-margin-bottom-5">
-            <span class="edit-link"><a href="contact-details/contact-details-landing">Set up <span class="nhsuk-u-visually-hidden">treatments</span></a></span>
-          </div>
-          {% endif %}
           <div class="last-updated">
-            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ facilitiesLastUpdatedDate }}</span></p>
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">1 March 2022</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            Departments 
+          </h2>
+          <div class="nhsuk-u-margin-bottom-5">
+            <p><a href="departments/index">Check your departments</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">6 April 2022</span></p>
           </div>
         </div>
       </div>
