@@ -104,6 +104,27 @@ Manage your profile - Profile manager - NHS
         </div>
       </div>
     </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            PALS contact details
+          </h2>
+          {% if palsContactDetailsConfirmed %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <p><a href="contact-details/pals-contact-details-check">Manage your PALS contact details</a></p>
+          </div>
+          <div class="last-updated">
+            <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ palsContactDetailsUpdatedDate }}</span></p>
+          </div>
+          {% else %}
+          <div class="nhsuk-u-margin-bottom-5">
+            <span class="edit-link"><a href="contact-details/pals-telephone">Set up <span class="nhsuk-u-visually-hidden"> PALS contact details</span></a></span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
   </ul>
   <div class="nhsuk-back-link">
     <a class="nhsuk-back-link__link" href="javascript:history.go(-1)">

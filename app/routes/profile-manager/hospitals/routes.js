@@ -28,16 +28,13 @@ hospitals.sort((a, b) => {
 });
 
 router.get('/editor/profiles/royal/manage-profile', function (req, res) {
-  let openingTimesLastUpdatedDate = localStorage.getItem('openingTimesUpdatedDate')
-  let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
-  let servicesConfirmed = localStorage.getItem('servicesConfirmed');
-
-  // Setting values to booleans again due to localStorage using strings
-  servicesConfirmed = JSON.parse(servicesConfirmed);
+  let palsContactDetailsConfirmed = localStorage.getItem('palsContactDetailsConfirmed')
+  let palsContactDetailsUpdatedDate = localStorage.getItem('palsContactDetailsUpdatedDate')
+  palsContactDetailsConfirmed = JSON.parse(palsContactDetailsConfirmed);
 
   res.render('profile-manager/hospitals/editor/profiles/royal/manage-profile', {
-    openingTimesLastUpdatedDate,
-    servicesLastUpdatedDate,
+    palsContactDetailsConfirmed,
+    palsContactDetailsUpdatedDate,
     recentChangeMade
   });
 });
@@ -57,6 +54,20 @@ router.post('/editor/profiles/search-hospital', (req, res) => {
   let hospitalSearch = req.body.searchHospital;
   currentHospitals = hospitals.filter(hospital => hospital.Name.toLowerCase().includes(hospitalSearch.toLowerCase()))
   res.render('profile-manager/hospitals/editor/profiles/index', { currentHospitals })
+})
+
+router.post('/editor/profiles/royal/contact-details/pals-telephone', (req, res) => {
+  res.redirect('/profile-manager/hospitals/editor/profiles/royal/contact-details/pals-email')
+})
+
+router.post('/editor/profiles/royal/contact-details/pals-email', (req, res) => {
+  res.redirect('/profile-manager/hospitals/editor/profiles/royal/contact-details/pals-contact-details-check')
+})
+
+router.post('/editor/profiles/royal/contact-details/pals-contact-details-check', (req, res) => {
+  localStorage.setItem('palsContactDetailsConfirmed', true);
+  localStorage.setItem('palsContactDetailsUpdatedDate', moment().format('DD MMMM YYYY'));
+  res.redirect('/profile-manager/hospitals/editor/profiles/royal/manage-profile')
 })
 
 // DISPLAY HOSPITAL DEPARTMENTS WITH PAGINATION

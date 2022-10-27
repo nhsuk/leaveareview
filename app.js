@@ -304,6 +304,8 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('hospitalDepartmentContactDetailsUpdatedDate', '12 December 2016');
   localStorage.setItem('hospitalWebsiteConfirmed', false);
   localStorage.setItem('hospitalWebsiteUpdatedDate', '12 December 2016');
+  localStorage.setItem('palsContactDetailsConfirmed', false);
+  localStorage.setItem('palsContactDetailsUpdatedDate', '12 December 2016');
   res.render('examples/passing-data/clear-data-success');
 });
 
