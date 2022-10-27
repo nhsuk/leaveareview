@@ -93,9 +93,7 @@ Remove services - Profile manager - NHS
 							<thead role="rowgroup" class="nhsuk-table__head">
 								<tr role="row">
 									<th role="columnheader" scope="col">Department name</th>
-									<th role="columnheader" scope="col">Status</th>
 									<th role="columnheader" scope="col">Last updated</th>
-									<th role="columnheader" scope="col">Department type</th>
 								</tr>
 							</thead>
 							<tbody class="nhsuk-table__body">
@@ -110,22 +108,8 @@ Remove services - Profile manager - NHS
 										{% endif %}
 									</td>
 									<td role="cell" class="nhsuk-table__cell">
-										<span class="nhsuk-table-responsive__heading">Status</span>
-										<strong class="nhsuk-tag nhsuk-tag--green">
-										  Active	
-										</strong>
-									</td>
-									<td role="cell" class="nhsuk-table__cell">
 										<span class="nhsuk-table-responsive__heading">Last updated</span>
 										Date here 
-									</td>
-									<td role="cell" class="nhsuk-table__cell">
-										<span class="nhsuk-table-responsive__heading">Last updated</span>
-										{% if department == "Dermatology" %}
-										  EDOS	
-										{% else %}
-										  CV	
-										{% endif %}
 									</td>
 								</tr>
 								{% endfor %}

@@ -8,6 +8,9 @@ $color_nhsuk-grey-5: #f0f4f5;
 
 .search-sort {
   margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .search-bar-buttons {
     display: flex;
@@ -53,9 +56,6 @@ $color_nhsuk-grey-5: #f0f4f5;
 }
 
 .filter-buttons {
-  display: flex;
-  align-items: center;
-
   button:first-child {
     margin-right: .5em;
   }

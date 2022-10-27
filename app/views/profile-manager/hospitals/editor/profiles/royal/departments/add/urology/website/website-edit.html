@@ -1,6 +1,5 @@
 <!-- Extends the layout from /docs/views/layouts/layout.html -->
 {% extends "layout-app-header.html" %}
-{% from 'error-summary/macro.njk' import errorSummary %}
 
 <!-- Adds a custom class to the <main> wrapper -->
 <!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
@@ -59,17 +58,11 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      {% if hasErrors %}
-        {{ errorSummary({
-          "titleText": "There is a problem",
-          "errorList": errorList
-        }) }}
-      {% endif %}
       <form action="/profile-manager/hospitals/editor/profiles/royal/departments/add/urology/website/website-edit" method="post">
         <div class="nhsuk-form-group">
           <h1>Department website address</h1>
 					<div class="nhsuk-form-group">
-						<label class="nhsuk-label" for="departmentWebsite">Enter your department website address</label>
+						<label class="nhsuk-label" for="departmentWebsite">Enter the department website address for your hospital or trust</label>
 						<input class="nhsuk-input" id="departmentWebsite" name="departmentWebsite" type="text" value={{departmentWebsite}}>
 					</div>
 					<div class="nhsuk-form-group">

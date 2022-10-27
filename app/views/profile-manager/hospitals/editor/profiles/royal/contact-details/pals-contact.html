@@ -8,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Customer telephone number - Profile manager - NHS
+PALS contact details - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -35,22 +35,17 @@
           Your profiles
         </a>
       </li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../manage-profile">
-        {% set displayname = 'alias0' %}
-        {% if data["displayname"] == alias0 %}
-        Edit Cohens
-        {%else%}
-        Edit {{data["displayname"]}}
-        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../manage-profile">
+          Manage profile 
+        </a>
+      </li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
-      {% set displayname = 'alias0' %}
-      {% if data["displayname"] == alias0 %}
-      Back to Edit Cohens
-      {%else%}
-      Back to Edit {{data["displayname"]}}
-      {%endif%}
-    </a></p>
+    <p class="nhsuk-breadcrumb__back">
+      <a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
+        Manage profile 
+      </a>
+    </p>
   </div>
 </nav>
 {% endblock %}

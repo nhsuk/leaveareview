@@ -48,9 +48,9 @@ router.get('/editor/profiles', (req, res) => {
   res.render('profile-manager/hospitals/editor/profiles/index', { currentHospitals, hospitals });
 });
 
-router.get('/editor/profiles/profiles-page2', (req, res) => {
+router.get('/editor/profiles/index-2', (req, res) => {
   currentHospitals = hospitals.slice(15);
-  res.render('profile-manager/hospitals/editor/profiles/profiles-page2', { currentHospitals, hospitals });
+  res.render('profile-manager/hospitals/editor/profiles/index-2', { currentHospitals, hospitals });
 });
 
 router.post('/editor/profiles/search-hospital', (req, res) => {
@@ -95,13 +95,13 @@ router.get('/editor/profiles/royal/departments/add/urology/manage-urology', func
   let hospitalDepartmentContactDetailsUpdatedDate = localStorage.getItem('hospitalDepartmentContactDetailsUpdatedDate')
   let hospitalWebsiteConfirmed = localStorage.getItem('hospitalWebsiteConfirmed')
   let hospitalWebsiteUpdatedDate = localStorage.getItem('hospitalWebsiteUpdatedDate')
-  contactDetailsConfirmed = JSON.parse(contactDetailsConfirmed);
-  websiteConfirmed = JSON.parse(hospitalWebsiteConfirmed);
+  hospitalDepartmentContactDetailsConfirmed = JSON.parse(hospitalDepartmentContactDetailsConfirmed);
+  hospitalWebsiteConfirmed = JSON.parse(hospitalWebsiteConfirmed);
 
   res.render('profile-manager/hospitals/editor/profiles/royal/departments/add/urology/manage-urology', {
-    contactDetailsConfirmed,
+    hospitalDepartmentContactDetailsConfirmed,
     hospitalDepartmentContactDetailsUpdatedDate,
-    websiteConfirmed,
+    hospitalWebsiteConfirmed,
     hospitalWebsiteUpdatedDate,
   });
 });
@@ -111,14 +111,19 @@ router.post('/editor/profiles/royal/departments/add/urology/contact-details/phon
 })
 
 router.post('/editor/profiles/royal/departments/add/urology/contact-details/contact-details-check', (req, res) => {
-  contactDetailsConfirmed = true;
+  localStorage.setItem('hospitalDepartmentContactDetailsConfirmed', true);
   localStorage.setItem('hospitalDepartmentContactDetailsUpdatedDate', moment().format('DD MMMM YYYY'));
   res.redirect('/profile-manager/hospitals/editor/profiles/royal/departments/add/urology/manage-urology')
 })
 
 router.post('/editor/profiles/royal/departments/add/urology/website/website-edit', (req, res) => {
-  console.log('here')
   res.redirect('/profile-manager/hospitals/editor/profiles/royal/departments/add/urology/website/website-check')
+})
+
+router.post('/editor/profiles/royal/departments/add/urology/website/website-check', (req, res) => {
+  localStorage.setItem('hospitalWebsiteConfirmed', true);
+  localStorage.setItem('hospitalWebsiteUpdatedDate', moment().format('DD MMMM YYYY'));
+  res.redirect('/profile-manager/hospitals/editor/profiles/royal/departments/add/urology/manage-urology')
 })
 
 module.exports = {

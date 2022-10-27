@@ -28,13 +28,18 @@ Departments - Profile manager - NHS
         <a class="nhsuk-breadcrumb__link" href="../editor">Home</a>
       </li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="../editor/profiles/">
+        <a class="nhsuk-breadcrumb__link" href="/profile-manager/hospitals/editor/profiles/">
           Your profiles
         </a>
       </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../manage-profile">
+          Manage your profile
+        </a>
+      </li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/editor/manage-profile">
-      Back to your profiles
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
+      Back to manage your profile
     </a></p>
   </div>
 </nav>
@@ -49,7 +54,7 @@ Departments - Profile manager - NHS
               Royal London Hospital 
               <span class="nhsuk-u-visually-hidden"> -</span>
             </span>
-            Deparments 
+            Departments 
         </span>
       </h1>
     </div>
@@ -71,8 +76,8 @@ Departments - Profile manager - NHS
           </div>
         </form>
         <div class="filter-buttons">
-          <a href="add/add-departments" class="nhsuk-button nhsuk-button--secondary">Add departments</a>
-          <a href="remove/remove-departments" class="nhsuk-button nhsuk-button--secondary">Remove departments</a>
+          <a href="add/add-departments" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0">Add departments</a>
+          <a href="remove/remove-departments" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0">Remove departments</a>
         </div>
       </div>
     </div>
@@ -81,37 +86,25 @@ Departments - Profile manager - NHS
     <div class="nhsuk-card">
       <div class="nhsuk-card__content">
         <table role="table" class="nhsuk-table-responsive">
-          <caption class="nhsuk-table__caption">Your profiles</caption>
+          <caption class="nhsuk-table__caption">Your departments</caption>
           <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
               <th role="columnheader" scope="col">Department name</th>
-              <th role="columnheader" scope="col">Status</th>
               <th role="columnheader" scope="col">Last updated</th>
-              <th role="columnheader" scope="col">Department type</th>
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
-            {% for deparment in currentDepartments %}
+            {% for department in currentDepartments %}
             <tr role="row" class="nhsuk-table__row">
               <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Department name </span>
                   <a href="#">
-                    {{ deparment }} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+                    {{ department }}
                   </a>
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Status</span>
-                <strong class="nhsuk-tag nhsuk-tag--orange">
-                  Needs set up 
-                </strong>
               </td>
               <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Last updated</span>
                 Date here 
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Last updated</span>
-                CV 
               </td>
             </tr>
             {% endfor %}

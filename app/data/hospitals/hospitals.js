@@ -112,6 +112,14 @@ module.exports = [
     Postcode: 'E1 0LR',
   },
   {
+    Name: 'The Royal Victoria Infirmary',
+    Type: 'Hospital',
+    Line1: 'Queen Victoria Road',
+    Line2: 'New Victoria Wing',
+    City: 'Newcastle',
+    Postcode: 'NE1 4LP',
+  },
+  {
     Name: 'The Royal London Hospital',
     Type: 'Hospital',
     Line1: 'Whitechapel Road',

@@ -8,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Confirm your contact details - Profile manager - NHS
+Department website address - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -53,19 +53,17 @@ Confirm your contact details - Profile manager - NHS
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <form action="/profile-manager/hospitals/editor/profiles/royal/departments/add/urology/website/website-check"  method="post">
-        <h1>
-          Confirm your department website address 
-        </h1>
+        <h1>Confirm your department website address</h1>
         <dl class="nhsuk-summary-list">
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
               Department website address 
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {{ departmentWebsite }}
+              {{ data["departmentWebsite"] }}
             </dd>
             <dd class="nhsuk-summary-list__actions">
-              <a href="phone-edit">
+              <a href="website-edit">
                 Change<span class="nhsuk-u-visually-hidden"> department website address</span>
               </a>
             </dd>
@@ -75,10 +73,10 @@ Confirm your contact details - Profile manager - NHS
               Website description 
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {{websiteDescription}} 
+              {{ data["websiteDescription"] }}
             </dd>
             <dd class="nhsuk-summary-list__actions">
-              <a href="phone-edit">
+              <a href="website-edit">
                 Change<span class="nhsuk-u-visually-hidden"> website description</span>
               </a>
             </dd>
