@@ -94,13 +94,19 @@ Departments - Profile manager - NHS
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
-            {% for deparment in currentDepartments %}
+            {% for department in currentDepartments %}
             <tr role="row" class="nhsuk-table__row">
               <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Department name </span>
+                  {% if department == 'Urology' %}
+                    <a href="add/urology/manage-urology">
+                      {{ department }}
+                    </a>
+                  {% else %}
                   <a href="#">
-                    {{ deparment }} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+                    {{ department }}
                   </a>
+                  {% endif %}
               </td>
               <td role="cell" class="nhsuk-table__cell">
                 <span class="nhsuk-table-responsive__heading">Last updated</span>

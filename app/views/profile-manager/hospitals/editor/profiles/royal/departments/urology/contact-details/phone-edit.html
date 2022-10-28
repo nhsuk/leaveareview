@@ -8,7 +8,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Confirm you would like to add a new department - Profile manager - NHS
+  Customer telephone number - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -59,9 +59,34 @@ Confirm you would like to add a new department - Profile manager - NHS
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-			<h1>Confirm you would like to add a new department</h1>
-			<p>We’ll add a new Urology department to Royal London Hospital</p>
-			<p class="nhsuk-u-margin-bottom-0"><a href="manage-urology" class="nhsuk-button" role="button">Add department</a></p>
+      {% if hasErrors %}
+        {{ errorSummary({
+          "titleText": "There is a problem",
+          "errorList": errorList
+        }) }}
+      {% endif %}
+      <form action="/profile-manager/hospitals/editor/profiles/royal/departments/urology/contact-details/phone-edit" method="post">
+        <div class="nhsuk-form-group">
+          <h1>Customer telephone number</h1>
+          <p>You need to:</p>
+          <ul id="telephone-hint" class="nhsuk-list--bullet">
+            <li>use the direct number for your reception</li>
+            <li>enter a full UK landline number</li>
+          </ul>
+					<div class="nhsuk-form-group">
+						<label class="nhsuk-label" for="extension">Extension number (optional)</label>
+						<input class="nhsuk-input nhsuk-input--width-10" id="extension" name="extension" type="text" value={{extension}}>
+					</div>
+					<div class="nhsuk-form-group">
+						<label class="nhsuk-label" for="telephone">Reception telephone number</label>
+						<input class="nhsuk-input nhsuk-input--width-10" id="telephone" name="telephone" type="text" value={{primaryTelephone}}>
+					</div>
+				</div>
+        {{ button({
+        "text": "Continue",
+        "id": "btn_submit"
+        }) }}
+      </form>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
 					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">

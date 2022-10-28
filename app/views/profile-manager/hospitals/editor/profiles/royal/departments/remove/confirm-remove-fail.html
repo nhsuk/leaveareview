@@ -42,30 +42,11 @@ Confirm that you would like to delete this department - Profile manager - NHS
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-			<form>
-				<div class="nhsuk-form-group">
-					<fieldset class="nhsuk-fieldset">
-						<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-							<h1 class="nhsuk-fieldset__heading">
-							  Confirm that you would like to delete this department
-							</h1>
-						</legend>
-            <p>This will permanently delete the department and all of its information. You cannot reverse this. </p>
-            <p>If you decide to add this department again later, you will need to set up the information again.</p>
-            <p>You are about to delete Cardiology.</p>
-            <div class="nhsuk-checkboxes">
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="confirm-delete" name="confirmDelete" type="checkbox" value="delete">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="confirm-delete">
-                  I confirm that I would like to delete this department
-                </label>
-              </div>
-            </div>
-					</fieldset>
-				</div>
-				<button type="submit" class="nhsuk-button nhsuk-button--warning">Delete department</button>
-        <p><a href="remove-departments" class="nhsuk-button nhsuk-button--secondary" role="button" draggable="false">Cancel</a></p>
-			</form>
+      <h1>You cannot delete this department</h1>
+      <p>We add departments and treatments to your NHS website profile from details held in your directory of services on the NHS e-Referral Service</p>
+      <p>To delete this department, update your directory of services.</p>
+      <p><a href="#">Log into the NHS e-Referral Service (N3 connection required)</a></p>
+      <p><a href="../index" class="nhsuk-button" role="button" draggable="false">View departments</a></p>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
 					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
