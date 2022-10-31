@@ -7,7 +7,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Customer telephone number - Profile manager - NHS
+Request to add department submitted - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -58,20 +58,20 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/profile-manager/hospitals/editor/profiles/royal/departments/urology/website/website-edit" method="post">
-        <div class="nhsuk-form-group">
-          <h1>Department website address</h1>
-          <p>Enter the department website address to help people find information about this service.</p>
-          <label class="nhsuk-label" for="departmentWebsite">Department website address (optional)</label>
-          <div class="nhsuk-hint" id="website-hit">For example www.nhs.uk</div>
-          <input class="nhsuk-input" id="departmentWebsite" name="departmentWebsite" type="text" aria-describedby="website-hint" value={{departmentWebsite}}>
-        </div>
-        <p>We check that website addresses work. This may take a few moments.</p>
-        {{ button({
-        "text": "Continue",
-        "id": "btn_submit"
-        }) }}
-      </form>
+			<h1>Request to add department submitted</h1>
+      <p>Your request to add a department to Royal London Hospital has been submitted to the NHS website service desk.</p>
+      <div class="nhsuk-warning-text nhsuk-u-margin-bottom-4">
+        <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="nhsuk-warning-text__text">
+          <span class="nhsuk-warning-text__assistive">Warning</span>Allow several days for requests to be processed. There's no need to submit twice.</strong>
+      </div>
+      <p>The service desk will:</p>
+      <ul>
+        <li>email you to confirm a ticket number for your request</li>
+        <li>manage your request directly with you</li>
+      </ul>
+			<div><a href="../index" class="nhsuk-button" role="button">View departments</a></div>
+			<div><a href="add-departments" class="nhsuk-button nhsuk-button--secondary" role="button">Add another deparment</a></div>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
 					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">

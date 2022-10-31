@@ -4,7 +4,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-Confirm that you want to delete this department - Profile manager - NHS
+Confirm that you would like to delete this department - Profile manager - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -43,29 +43,9 @@ Confirm that you want to delete this department - Profile manager - NHS
 {% block content %}
   <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-			<form action="/profile-manager/hospitals/editor/profiles/royal/departments/remove/remove-done">
-				<div class="nhsuk-form-group">
-					<fieldset class="nhsuk-fieldset">
-						<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-							<h1 class="nhsuk-fieldset__heading">
-							  Confirm that you want to delete this department
-							</h1>
-						</legend>
-            <p>This will delete Urology and all of its information.</p> 
-            <p>If you need to add this department later, you will need to set it up again.</p>
-            <div class="nhsuk-checkboxes">
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="confirm-delete" name="confirmDelete" type="checkbox" value="delete">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="confirm-delete">
-                  I confirm that I want to delete this department and all of its information
-                </label>
-              </div>
-            </div>
-					</fieldset>
-				</div>
-				<button type="submit" class="nhsuk-button nhsuk-button--warning">Delete department</button>
-        <p><a href="remove-departments" class="nhsuk-button nhsuk-button--secondary" role="button" draggable="false">Cancel</a></p>
-			</form>
+      <h1>Deparment has been deleted</h1>
+      <p>You have deleted Urology from Royal London Hospital. This will no longer show in your list of departments</p>
+      <div><a href="../index" class="nhsuk-button" role="button" draggable="false">View departments</a></div>
 			<div class="nhsuk-back-link">
 				<a class="nhsuk-back-link__link" href="javascript:history.go(-1)">
 					<svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">

@@ -148,8 +148,8 @@ Add departments  - Profile manager - NHS
 				{% for department in hospitalDepartmentsList %}
 					{% if department.startsWith(letter) %}
 						<li>
-							{% if department == 'Cardiology' %}
-								<a href="cardiology">{{ department }}</a>
+							{% if department == 'Haematology' %}
+								<a href="haematology">{{ department }}</a>
 							{% elif department == 'Urology' %}
 								<a href="../urology/index">{{ department }}</a>
 							{% else %}
