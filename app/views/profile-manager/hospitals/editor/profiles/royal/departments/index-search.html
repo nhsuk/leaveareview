@@ -80,38 +80,30 @@ Departments - Profile manager - NHS
   <div id="profileslist">
     <div class="nhsuk-card">
       <div class="nhsuk-card__content">
-        <table role="table" class="nhsuk-table-responsive">
-          <caption class="nhsuk-table__caption">Your profiles</caption>
-          <thead role="rowgroup" class="nhsuk-table__head">
-            <tr role="row">
-              <th role="columnheader" scope="col">Department name</th>
-              <th role="columnheader" scope="col">Status</th>
-              <th role="columnheader" scope="col">Last updated</th>
-              <th role="columnheader" scope="col">Department type</th>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Your departments</caption>
+          <thead class="nhsuk-table__head">
+            <tr>
+              <th scope="col">Department name</th>
+              <th scope="col">Last updated</th>
             </tr>
           </thead>
           <tbody class="nhsuk-table__body">
-            {% for deparment in currentDepartments %}
-            <tr role="row" class="nhsuk-table__row">
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Department name </span>
-                  <a href="#">
-                    {{ deparment }} <span class="nhsuk-u-visually-hidden"> located at {{hospital.Line1}}</span>
+            {% for department in currentDepartments %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+                {% if department == 'Cardiology' %}
+                  <a href="cardiology/manage-cardiology">
+                    {{ department }}
                   </a>
+                {% else %}
+                <a href="#">
+                  {{ department }}
+                </a>
+                {% endif %}
               </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Status</span>
-                <strong class="nhsuk-tag nhsuk-tag--orange">
-                  Needs set up 
-                </strong>
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Last updated</span>
+              <td class="nhsuk-table__cell">
                 Date here 
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                <span class="nhsuk-table-responsive__heading">Last updated</span>
-                CV 
               </td>
             </tr>
             {% endfor %}
