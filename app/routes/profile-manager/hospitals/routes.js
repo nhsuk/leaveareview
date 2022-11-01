@@ -118,6 +118,9 @@ router.get('/editor/profiles/royal/departments/urology/manage-urology', function
 });
 
 router.post('/editor/profiles/royal/departments/urology/contact-details/phone-edit', (req, res) => {
+  if(req.body.contact == 'switchboard') {
+    res.redirect('/profile-manager/hospitals/editor/profiles/royal/departments/urology/contact-details/contact-details-switchboard-check')
+  }
   res.redirect('/profile-manager/hospitals/editor/profiles/royal/departments/urology/contact-details/contact-details-check')
 })
 

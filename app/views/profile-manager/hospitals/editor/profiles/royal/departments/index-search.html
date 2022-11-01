@@ -72,7 +72,6 @@ Departments - Profile manager - NHS
         </form>
         <div class="filter-buttons">
           <a href="add/add-departments" class="nhsuk-button nhsuk-button--secondary">Add departments</a>
-          <a href="remove/remove-departments" class="nhsuk-button nhsuk-button--secondary">Remove departments</a>
         </div>
       </div>
     </div>
@@ -94,6 +93,10 @@ Departments - Profile manager - NHS
               <td class="nhsuk-table__cell">
                 {% if department == 'Cardiology' %}
                   <a href="cardiology/manage-cardiology">
+                    {{ department }}
+                  </a>
+                {% elif department == 'Urology' %}
+                  <a href="urology/manage-urology">
                     {{ department }}
                   </a>
                 {% else %}

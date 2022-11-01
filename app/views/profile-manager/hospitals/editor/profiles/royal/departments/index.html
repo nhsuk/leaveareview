@@ -100,6 +100,10 @@ Departments - Profile manager - NHS
                   <a href="cardiology/manage-cardiology">
                     {{ department }}
                   </a>
+                {% elif department == 'Urology' %}
+                  <a href="urology/manage-urology">
+                    {{ department }}
+                  </a>
                 {% else %}
                 <a href="#">
                   {{ department }}
