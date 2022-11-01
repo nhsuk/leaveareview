@@ -28,27 +28,25 @@
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../../editor/">Home</a></li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="../profiles">
+        <a class="nhsuk-breadcrumb__link" href="../../editor/profiles/">
           Your profiles
         </a>
       </li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="../manage-profile">
-        {% set displayname = 'alias0' %}
-        {% if data["displayname"] == alias0 %}
-        Edit Cohens
-        {%else%}
-        Edit {{data["displayname"]}}
-        {%endif%}</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../index">
+          Your departments 
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../manage-urology">
+          Manage Urology 
+        </a>
+      </li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
-      {% set displayname = 'alias0' %}
-      {% if data["displayname"] == alias0 %}
-      Back to Edit Cohens
-      {%else%}
-      Back to Edit {{data["displayname"]}}
-      {%endif%}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-urology">
+      Manage Urology 
     </a></p>
   </div>
 </nav>
