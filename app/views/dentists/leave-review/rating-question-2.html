@@ -34,13 +34,18 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
+
+  <div id="loading-spinner" class="nhsuk-loader" aria-live="polite" style="display: none">
+    <span class="nhsuk-loader__spinner"></span>
+    <span class="nhsuk-loader__text">Please wait - we are checking your review</span>
+  </div>
+  <div id="spinner-delete" class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 10</span>
 
-      <form action="/q2" method="post">
+      <form id="automoderation-form" action="/q2" method="post">
 
         {% call fieldset({
           legend: {

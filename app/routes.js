@@ -45,14 +45,7 @@ router.post('/q1', function (req, res) {
 router.post('/q2', function (req, res) {
   let title = req.body.title;
   let details = req.body.details;
-
-  if (!title) {
-    res.redirect('/dentists/leave-review/rating-question-2?error=true');
-  } else if (!details) {
-    res.redirect('/dentists/leave-review/rating-question-2?error=true');
-  } else {
-    res.redirect('/dentists/leave-review/rating-question-3');
-  }
+  res.redirect('/dentists/leave-review/rating-question-3');
 });
 
 router.post('/q3', function (req, res) {
