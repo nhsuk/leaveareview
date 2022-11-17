@@ -21,6 +21,11 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
@@ -28,8 +33,8 @@ module.exports = {
     extensions: ['*', '.js'],
   },
   output: {
-    path: path.resolve(__dirname, './public/js-webpack/'),
+    path: path.resolve(__dirname, './public/webpack/'),
     filename: 'webpack.js',
-    clean: false,
+    clean: true,
   },
 };

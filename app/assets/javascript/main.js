@@ -1,3 +1,6 @@
+// Webpack
+import main from "../sass/main.scss"
+
 // ES6 or Vanilla JavaScript
 const contentsToHide = document.getElementsByClassName('nhsuk-contents-list__list--nested')
 for (let ele of contentsToHide) {
