@@ -17,19 +17,20 @@
 @import "helpers/helpers";
 
 // Components that are not in the NHS.UK frontend library
+@import "components/alerts";
+@import "components/breadcrumb";
+@import "components/cqcRating";
+@import "components/departmentOpenStatus";
+@import "components/geolocation";
+@import "components/loading-spinner";
+@import "components/pagination-moj";
 @import "components/panel-confirmation";
 @import "components/related-nav";
+@import "components/savedChanges";
 @import "components/search-results";
+@import "components/starRating";
 @import "components/table-one-row";
 @import "components/warningText";
-@import "components/savedChanges";
-@import "components/starRating";
-@import "components/cqcRating";
-@import "components/breadcrumb";
-@import "components/geolocation";
-@import "components/departmentOpenStatus";
-@import "components/pagination-moj";
-@import "components/loading-spinner";
 
 @import "custom";
 @import "manageProfile";
