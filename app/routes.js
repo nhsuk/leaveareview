@@ -306,6 +306,14 @@ router.post('/mvp/gps/cant-register/outside-catchment/register', (req, res) => {
   res.redirect('/mvp/gps/cant-register/outside-catchment/failure')
 })
 
+router.post('/mvp/gps/unknown-area-data/catchment-available/register', (req, res) => {
+  res.redirect('/mvp/gps/unknown-area-data/catchment-available/result')
+})
+
+router.post('/mvp/gps/unknown-area-data/no-catchment-available/register', (req, res) => {
+  res.redirect('/mvp/gps/unknown-area-data/no-catchment-available/result')
+})
+
 module.exports = {
   router: router,
   localStorage: localStorage,

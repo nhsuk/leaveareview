@@ -6,7 +6,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-You live in this GP surgery’s catchment area - Aylestone Hill Surgery - NHS
+How to register with this GP surgery - Aylestone Hill Surgery - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -84,10 +84,27 @@ You live in this GP surgery’s catchment area - Aylestone Hill Surgery - NHS
           </li>
         </ol>
       </nav>
-      <div id="catchment-check" class="nhsuk-card">
+      <div class="nhsuk-card">
         <div class="nhsuk-card__content">
-          <h2 class="nhsuk-card__heading">You live in this GP surgery’s catchment area</h2>
-          <p>This means you're likely to be accepted as a patient if you register.</p>
+          <h2 class="nhsuk-card__heading">Check that you live in this GP surgery’s catchment area</h2>
+          <p>Most GPs only let you register if you live in the area they cover. Check here if you live near enough.</p>
+          <form action="/mvp/gps/unknown-area-data/catchment-available/register" method="POST" id="catchment-area-search-form">
+            <input type="hidden" id="UsersLatitude" />
+            <input type="hidden" id="UsersLongitude" />
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="example">
+                Enter a postcode in England 
+              </label>
+              <input class="nhsuk-input nhsuk-input--width-10" id="example" name="example" type="text" autocomplete="postal-code">
+            </div>
+            <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-4">Search</button>
+            <button class="nhsuk-button nhsuk-button--secondary geo-locate--button">Use your location</button>
+            <div class="geo-locate">
+                <p class="geo-locate--searching nhsuk-u-margin-bottom-7"><img src="" alt="" />We are searching for your location</p>
+                <p class="geo-locate--error nhsuk-u-margin-bottom-7">We can't find your location. Please try again or enter a town, city or postcode.</p>
+                <p class="geo-locate--denied nhsuk-u-margin-bottom-7">You have not allowed us to use your location. You can change this in your browser settings.</p>
+            </div>
+          </form>
         </div>
       </div>
 			<h2>Register online using the NHS website</h2>
