@@ -123,30 +123,7 @@
 
 {% block content %}
 
-  <!-- Page title -->
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-      <div class="nhsuk-u-reading-width">
-        <h1>Welcome to the profiles prototype gallery</h1>
-        <p class="nhsuk-body-l">The profiles prototype gallery is a central place to store prototypes, including both code-based and Figma prototypes.</p>
-        
-        <hr class="nhsuk-section-break nhsuk-section-break--m">
-
-        <h2>Using the Profiles Prototype gallery</h2>
-        <p class="nhsuk-body">You can navigate to the prototypes of a given sector by clicking on the sector name in the navigation header above. You can then filter the prototypes to see viewer specific or editor speific prototypes.</p>
-        
-        <hr class="nhsuk-section-break nhsuk-section-break--m">
-        
-        <h2>Accessing mobile prototypes</h2>
-        <p class="nhsuk-body">Code based prototypes natively work on all devices types, including mobile phones, tablets and desktops/laptops.</p>
-        <p class="nhsuk-body">Figma prototypes aren't responsive, and as such, multiple files need to be created for each viewport (mobile, tablet, etc.). You'll find the device type prepended to the link for each Figma prototype.</p>
-      </div>
-    </div>
-  </div>
-
-  <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
-
-  <!-- Styles for the boxed links -->
+<!-- Styles for the boxed links -->
 <style>
   .flex-container {
     display: flex;
@@ -245,47 +222,65 @@
 
 </style>
 
+
+  <!-- Page title -->
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       <div class="nhsuk-u-reading-width">
-        <h2>Misc Designs</h2>
+        <h1>Clinic Prototypes</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contents page for viewer and profile -->
+  <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+    <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+    <ol class="nhsuk-contents-list__list">
+      <li class="nhsuk-contents-list__item" aria-current="page">
+        <span class="nhsuk-contents-list__current">Profile viewer</span>
+      </li>
+      <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="/prototype-parent-pages/clinic-editor">Profile editor</a>
+      </li>
+    </ol>
+  </nav>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--m">
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <div class="nhsuk-u-reading-width">
+        <h2>MVP Designs</h2>
 
         <hr class="nhsuk-section-break nhsuk-section-break--m">
 
-        <h3>Transfer profile</h3>
-        <p class="nhsuk-body">Transfer profiles journey from wagtail page.</p>
+        <h3>Clinic profile using the new template</h3>
+        <p class="nhsuk-body">This prototype shows the clinic profile after it's been migrated to use the new NHS profile template.</p>
       </div>
 
+      <!-- <h4 class="nhsuk-heading-s">Code</h4> -->
       <div class="flex-container">
         <div class="flex-items">
-          <!-- Code Logo -->
           <img src="https://raw.githubusercontent.com/dhanishgajjar/vscode-icons/master/png/default_dark.png" width="50px"/>
-
-          <!-- Figma Logo -->
-          <!-- <div class="flex-items"><img src="https://cdn-images-1.medium.com/max/1600/1*6XgfDCVn81AYX68Xvd2I-g@2x.png" width="48px"/></div> -->
         </div>
         <div class="flex-items">
-          <a href="https://nhsuk-org-review-prototype.azurewebsites.net/profile-manager/pharmacies/editor-login/transfer-profiles-wagtail" target="_blank" rel="noopener noreferrer">Transfer profiles</a>
+          <a href="https://nhsuk-org-review-prototype.azurewebsites.net/mvp/clinics/overview/" target="_blank" rel="noopener noreferrer">Clinic profile</a>
         </div>
         <div class="flex-items">
-          <p class="nhsuk-body-s"><strong>Last updated</strong><br>Unknown</p>
+          <p class="nhsuk-body-s"><strong>Last updated</strong><br>25/02/2020</p>
         </div>
       </div>
 
-      <div class="flex-container">
-        <div class="flex-items">
-          <!-- Code Logo -->
-          <img src="https://raw.githubusercontent.com/dhanishgajjar/vscode-icons/master/png/default_dark.png" width="50px"/>
 
-          <!-- Figma Logo -->
-          <!-- <div class="flex-items"><img src="https://cdn-images-1.medium.com/max/1600/1*6XgfDCVn81AYX68Xvd2I-g@2x.png" width="48px"/></div> -->
-        </div>
-        <div class="flex-items">
-          <a href="https://nhsuk-org-review-prototype.azurewebsites.net/gsd/overview/" target="_blank" rel="noopener noreferrer">GDoS profiles</a>
-        </div>
-        <div class="flex-items">
-          <p class="nhsuk-body-s"><strong>Last updated</strong><br>28/01/2020</p>
-        </div>
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+
+      <div class="nhsuk-u-reading-width">
+        <h2>Post MVP Designs</h2>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m">
+
+        <h3>No prototypes to showcase yet</h3>
+        <p class="nhsuk-body">It looks like we don't have any prototypes to showcase in this space just yet. If you believe this to be in error, please reach out to a  member of the profiles team for assistance.</p>
       </div>
 
       <hr class="nhsuk-section-break nhsuk-section-break--xl">
