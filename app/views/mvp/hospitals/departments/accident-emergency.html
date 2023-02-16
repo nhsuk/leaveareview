@@ -24,15 +24,19 @@ Accident and emergency - Org name - NHS
         },
         {
           'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
           'label' : 'Care and support'
         },
         {
           'url'  : '#',
-          'label' : 'Health news'
+          'label' : 'Pregnancy'
         },
         {
           'url' : '#',
-          'label' : 'Services near you'
+          'label' : 'NHS services'
         }
       ]
     })
@@ -41,12 +45,21 @@ Accident and emergency - Org name - NHS
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhsuk-breadcrumb--viewer" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></li>
+    <ol id="breadcrumb_list" class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-0" class="nhsuk-breadcrumb__link" href="/">Home</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-1" class="nhsuk-breadcrumb__link" href="/nhs-services">NHS services</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-2" class="nhsuk-breadcrumb__link" href="/nhs-services/hospitals">Hospitals</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-3" class="nhsuk-breadcrumb__link" href="/service-search/hospital">Find a hospital</a>
+      </li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
   </div>

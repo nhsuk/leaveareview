@@ -5,7 +5,7 @@
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
-  Org name - Overview
+  Facilities - Sevenoaks Hospital - NHS
 {% endblock %}
 
 <!-- Header goes inside this block -->
@@ -24,15 +24,19 @@
         },
         {
           'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
           'label' : 'Care and support'
         },
         {
           'url'  : '#',
-          'label' : 'Health news'
+          'label' : 'Pregnancy'
         },
         {
           'url' : '#',
-          'label' : 'Services near you'
+          'label' : 'NHS services'
         }
       ]
     })
@@ -41,12 +45,21 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhsuk-breadcrumb--viewer" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></li>
+    <ol id="breadcrumb_list" class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-0" class="nhsuk-breadcrumb__link" href="/">Home</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-1" class="nhsuk-breadcrumb__link" href="/nhs-services">NHS services</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-2" class="nhsuk-breadcrumb__link" href="/nhs-services/hospitals">Hospitals</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-3" class="nhsuk-breadcrumb__link" href="/service-search/hospital">Find a hospital</a>
+      </li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
   </div>
@@ -57,17 +70,15 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1>
+      <h1 id="page-heading">
         <span role="text">
-          Facilities
           <span class="nhsuk-caption-xl">
-            <span class="nhsuk-u-visually-hidden"> -</span> 
             Sevenoaks Hospital
+            <span class="nhsuk-u-visually-hidden"> -</span>
           </span>
+          Facilities
         </span>
       </h1>
-
       <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
         <h2 class="nhsuk-u-visually-hidden">Contents</h2>
         <ol class="nhsuk-contents-list__list">
@@ -89,73 +100,36 @@
         </ol>
       </nav>
 
-    </div>
-
-  </div>
-
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-
-      <h2>Facilities at this hospital</h2>
-      <p>These facilities and amenities are available at this hospital for patients and visitors</p>
+      <h2>Facilities for patients and visitors</h2>
+      <h3>Accommodation</h3>
+      <ul id="facilities-list-1" class="nhsuk-list nhsuk-list--bullet">
+        <li id="facility-list-name-1-1">Access to TV</li>
+        <li id="facility-list-name-1-2">Public telephone</li>
+      </ul>
+      <h3>Food and amenities on-site</h3>
+      <ul id="facilities-list-2" class="nhsuk-list nhsuk-list--bullet">
+        <li id="facility-list-name-2-1">Cafe</li>
+        <li id="facility-list-name-2-2">Shop</li>
+      </ul>
       <h3>Parking</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Car parking</li>
-        <li>Cycle parking</li>
-        <li>Disabled parking</li>
-        <li>Parent and child parking</li>
+      <ul id="facilities-list-3" class="nhsuk-list nhsuk-list--bullet">
+        <li id="facility-list-name-3-1">Car Parking</li>
+        <li id="facility-list-name-3-2">Disabled parking</li>
       </ul>
       <h3>Accessibility</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Disabled toilet</li>
-        <li>Braille translation service</li>
-        <li>Induction loop</li>
-        <li>Text relay</li>
-        <li>Signing service</li>
-        <li>Wheelchair access</li>
-        <li>Step-free access</li>
+      <ul id="facilities-list-4" class="nhsuk-list nhsuk-list--bullet">
+        <li id="facility-list-name-4-1">Disabled parking</li>
+        <li id="facility-list-name-4-2">Induction loop</li>
+        <li id="facility-list-name-4-3">Wheelchair access</li>
+        <li id="facility-list-name-4-4">Signing service available</li>
       </ul>
-      <h3>Customer facilities</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Access to TV</li>
-        <li>Cashpoint machine</li>
-        <li>Mobile phone charging point</li>
-        <li>Visitor overnight accommodation</li>
-      </ul>
-      <h3>Food and amenities</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Cafe</li>
-        <li>Patient library</li>
-        <li>Pharmacy</li>
-        <li>Shop</li>
-      </ul>
-      <h3>In-patient accommodation</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Private rooms</li>
-        <li>Single sex wards</li>
-      </ul>
-      <h3>Familiy friendly</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Baby changing</li>
-        <li>Children's play area</li>
-        <li>Parent and baby room</li>
-        <li>Pram park</li>
-      </ul>
-      <h3>Faith services</h3>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>Prayer area</li>
-        <li>Onsite chapel</li>
-      </ul>
-    </div>
-  </div>
+      <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
+        <p id="facilities_lastUpdated" class="nhsuk-body-s">Last updated: 19 July 2012</p>
+      </div>
 
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
       <hr>
       <p><a href="">Report an issue with the information on this page</a></p>
-      <p>Information supplied by <a href="">Maidstone and Tunbridge Wells NHS Trust</a></p>
+      <p>Information supplied by <a href="">Kent Community Health NHS Foundation Trust</a></p>
     </div>
   </div>
 
