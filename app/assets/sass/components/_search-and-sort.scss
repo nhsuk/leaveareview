@@ -86,6 +86,11 @@ $color_nhsuk-grey-5: #f0f4f5;
   line-height: inherit;
   outline: 0;
   width: 44px;
+  .nhsuk-icon__search {
+    fill: #fff;
+    height: 39px;
+    width: 36px;
+  }
 }
 
 .nhsuk-profiles-search__submit:hover {
@@ -97,12 +102,12 @@ $color_nhsuk-grey-5: #f0f4f5;
   box-shadow: 0 4px 0 #212b32;
   color: #212b32;
   outline: 4px solid transparent;
+
+  .nhsuk-icon__search {
+    fill: #000;
+  }
 }
 
-.nhsuk-icon__search {
-  height: 39px;
-  width: 36px;
-}
 
 .nhsuk-button--small {
   padding: 6px 8px;
