@@ -58,55 +58,33 @@
 {% block content %}
 	<div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">You need to add some extra details</h1>
+      <h1 class="nhsuk-u-margin-bottom-0">Add details to your services</h1>
       <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
         Cohens 
       </p>
-			<p>5 of your services need extra details.</p>
-			<dl class="nhsuk-summary-list">
+			<p>1 or more services needs extra details.</p>
+      <p>You can add these now or come back later.</p>
+      <h2>NHS services</h2>
+      <dl class="nhsuk-summary-list">
 				<div class="nhsuk-summary-list__row">
 					<dt class="nhsuk-summary-list__key">
-					  Diabetes screening 
+					  Flu vaccine
 					</dt>
 					<dd class="nhsuk-summary-list__value">
-						Opening times	
+					  Online booking service	
 					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-						Flu vaccinations	
-					</dt>
 					<dd class="nhsuk-summary-list__value">
-						Online booking service	
+            {{ fluVaccineBookingLastUpdatedDate }}
 					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Health check	
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-					  Online booking service</br>
-						Opening times	
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Travel clinic 
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-					  Online booking service</br>
-						Opening times	
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Stop smoking service 
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-						Opening times	
+					<dd class="nhsuk-summary-list__actions">
+            <a href="flu-vaccine/online">
+              Set up<span class="nhsuk-u-visually-hidden"> Online booking service</span>
+            </a>
 					</dd>
 				</div>
 			</dl>
+      <h2>Non-NHS services</h2>
+			
 			<a class="nhsuk-button" href="../dashboard">Continue</a>
     </div>
   </div>

@@ -182,13 +182,10 @@ router.get('/editor/services/dashboard', function (req, res) {
   });
 });
 
-router.get('/editor/services/attributes/', function (req, res) {
-  let fluvaccinebookingconfirmed = localStorage.getItem('fluvaccinebookingconfirmed');
+router.get('/editor/services/attributes/more-detail', function (req, res) {
   let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
-  res.render('profile-manager/pharmacies/editor/services/attributes/index', { 
-    recentChangeMade, 
-    fluVaccineBookingConfirmed,
-    fluVaccineBookingLastUpdatedDate
+  res.render('profile-manager/pharmacies/editor/services/attributes/more-detail', { 
+    fluVaccineBookingLastUpdatedDate, 
   });
 });
 
@@ -199,7 +196,8 @@ router.post('/editor/services/attributes/flu-vaccine/confirm', function (req, re
     'fluVaccineBookingLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-  res.redirect('../../attributes/')
+  console.log(`here `, localStorage.getItem('fluVaccineBookingLastUpdatedDate'))
+  res.redirect('../../attributes/more-detail')
 })
 
 router.get('/editor/profiles', (req, res) => {

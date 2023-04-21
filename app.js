@@ -299,7 +299,7 @@ app.post('/examples/passing-data/clear-data', function(req, res) {
   localStorage.setItem('patientRegistrationConfirmed', false);
   localStorage.setItem('onlineRegistrationConfirmed', false);
   localStorage.setItem('fluVaccineBookingConfirmed', false);
-  localStorage.setItem('fluVaccineBookingLastUpdatedDate', '');
+  localStorage.setItem('fluVaccineBookingLastUpdatedDate', 'Never');
   localStorage.setItem('hospitalDepartmentContactDetailsConfirmed', false);
   localStorage.setItem('hospitalDepartmentContactDetailsUpdatedDate', '12 December 2016');
   localStorage.setItem('hospitalWebsiteConfirmed', false);
