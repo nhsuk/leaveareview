@@ -196,7 +196,6 @@ router.post('/editor/services/attributes/flu-vaccine/confirm', function (req, re
     'fluVaccineBookingLastUpdatedDate',
     moment().format('DD MMMM YYYY')
   );
-  console.log(`here `, localStorage.getItem('fluVaccineBookingLastUpdatedDate'))
   res.redirect('../../attributes/more-detail')
 })
 

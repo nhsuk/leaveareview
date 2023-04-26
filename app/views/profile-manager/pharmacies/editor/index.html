@@ -22,46 +22,41 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-      <div class="nhsuk-u-margin-bottom-8">
-        <h1 class="nhsuk-u-margin-bottom-0">NHS Profile Manager</h1>
-        <span class="nhsuk-caption-xl">
-          John Smith
-        </span>
-      </div>
+      <h1>NHS Profile Manager</h1>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="profiles/">Manage profiles</a>
+              </h2>
+              <p class="nhsuk-card__description">Manage profiles on the NHS website, including contact details and opening times</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="../profiles-comments/">Respond to reviews</a>
+              </h2>
+              <p class="nhsuk-card__description">Read and respond to reviews left by NHS website users</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="../editor-login/register/use-system-for">Add profiles</a>
+              </h2>
+              <p>This will send a request to the NHS website service desk</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-  <ul class="nhsuk-grid-row nhsuk-card-group">
-    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      <div class="nhsuk-card nhsuk-card--clickable">
-        <div class="nhsuk-card__content">
-          <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="profiles/">Check your profiles</a>
-          </h2>
-          <p class="nhsuk-card__description">Manage and edit information on your profiles, including contact details and opening times</p>
-        </div>
-      </div>
-    </li>
-    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      <div class="nhsuk-card nhsuk-card--clickable">
-        <div class="nhsuk-card__content">
-          <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="../profiles-comments/">Respond to reviews</a>
-          </h2>
-          <p class="nhsuk-card__description">Read and respond to reviews left by NHS website users</p>
-        </div>
-      </div>
-    </li>
-    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      <div class="nhsuk-card nhsuk-card--clickable">
-        <div class="nhsuk-card__content">
-          <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="../editor-login/register/use-system-for">Add profiles</a>
-          </h2>
-					<p>This will send a request to the NHS website service desk</p>
-        </div>
-      </div>
-    </li>
-  </ul>
 
 {% endblock %}
 
