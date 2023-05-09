@@ -61,7 +61,7 @@ Check your answers before confirming - Profile manager - NHS
       <span class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Step 2 of 2</span>
       <h1>Check your answers before confirming</h1>
       <form action="/profile-manager/pharmacies/editor/services/services-check" method="post">
-          <h2>NHS services</h2>
+          <h2>General pharmacy services</h2>
           <dl class="nhsuk-summary-list">
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -69,11 +69,61 @@ Check your answers before confirming - Profile manager - NHS
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list">
-                  <li>Chlamydia screening</li>
-                  <li>Condom supply</li>
-                  <li>Emergency contraception</li>
-                  <li>Stop smoking service</li>
-                  <li>Stop smoking voucher service</li>
+                  <li>Appointment booking available for consultations g</li>
+                  <li>Appointment booking for consultations not required </li>
+                  <li>New medicine service</li>
+                  <li>Prescription collection from local General Practices</li>
+                  <li>Prescription delivery service</li>
+                  <li>Private consultation room</li>
+                  <li>Seasonal flu vaccination service (at risk groups)</li>
+                </ul>
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> general pharmacy services that your practice provides</span>
+                </a>
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Not provided 
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list">
+                  <li>Appliance dispensing </li>
+                  <li>Appliance use review service </li>
+                  <li>Inhaler recycling</li>
+                  <li>Multi-lingual staff</li>
+                  <li>Other health professionals onsite</li>
+                  <li>Stoma appliance customisation service </li>
+                </ul>
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="services-edit">
+                  Change<span class="nhsuk-u-visually-hidden"> general pharmacy services that your practice does not provide</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <h2>NHS pharmacy services</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Provided 
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list">
+                  <li>Emergency contraception (NHS)</li>
+                  <li>Gluten-free food service</li>
+                  <li>Head lice management</li>
+                  <li>Inhaler technique service (NHS)</li>
+                  <li>Medication review service</li>
+                  <li>Minor ailment service</li>
+                  <li>NHS Health Check</li>
+                  <li>Post-discharge support</li>
+                  <li>Stop smoking service (NHS)</li>
+                  <li>Vaccination service (NHS)</li>
                 </ul>
               </dd>
               <dd class="nhsuk-summary-list__actions">
@@ -89,12 +139,18 @@ Check your answers before confirming - Profile manager - NHS
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list">
                   <li>Alcohol screening and intervention service</li>
-                  <li>Medicine use review service</li>
-                  <li>Minor ailment service</li>
+                  <li>Anticoagulant monitoring service</li>
+                  <li>Blood-borne virus testing</li>
+                  <li>Condom supply</li>
+                  <li>Domiciliary support service</li>
+                  <li>H.pylori detection test</li>
+                  <li>Healthy start vitamins</li>
                   <li>Needle and syringe exchange</li>
-                  <li>NHS Health check</li>
-                  <li>Pregnancy testing</li>
-                  <li>Weight management service</li>
+                  <li>NHS blood pressure check service</li>
+                  <li>Pregnancy testing (NHS)</li>
+                  <li>Stop smoking voucher service</li>
+                  <li>Supervised consumption of medicines</li>
+                  <li>Weight management (NHS)</li>
                 </ul>
               </dd>
               <dd class="nhsuk-summary-list__actions">
@@ -104,59 +160,27 @@ Check your answers before confirming - Profile manager - NHS
               </dd>
             </div>
           </dl>
-
-          <h2>Non-NHS services</h2>
-          <dl class="nhsuk-summary-list">
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Provided 
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list">
-                  <li>Diabetes screening</li>
-                  <li>Flu vaccine - for not at risk groups</li>
-                  <li>Health check</li>
-                  <li>Travel clinic</li>
-                </ul>
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="services-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> non-NHS that your practice does not provide</span>
-                </a>
-              </dd>
-            </div>
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Not provided 
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list">
-                  <li>Blood pressure monitoring </li>
-                  <li>Emergency contraception</li>
-                  <li>Pregnancy testing </li>
-                  <li>Stop smoking service</li>
-                </ul>
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a href="services-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> non-NHS services that your practice does not provide</span>
-                </a>
-              </dd>
-            </div>
-          </dl>
           
-          <h2>General pharmacy services</h2>
+          <h2>Non-NHS pharmacy services</h2>
           <dl class="nhsuk-summary-list">
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
                 Provided 
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <p>No general pharmacy services selected</p>
+                <ul class="nhsuk-list">
+                  <li>Emergency contraception (Non-NHS)</li>
+                  <li>Healthcheck</li>
+                  <li>Inhaler technique service (Non-NHS)</li>
+                  <li>Stop smoking service (Non-NHS)</li>
+                  <li>Travel clinic</li>
+                  <li>Type 2 diabetes screening</li>
+                  <li>Vaccination service (Non-NHS)</li>
+                </ul>
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="services-edit">
-                  Change<span class="nhsuk-u-visually-hidden"> general pharmacy services that your practice provides</span>
+                  Change<span class="nhsuk-u-visually-hidden"> Non-NHS pharmacy services that your practice provides</span>
                 </a>
               </dd>
             </div>
@@ -166,16 +190,15 @@ Check your answers before confirming - Profile manager - NHS
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list">
-                  <li>Appliance dispensing</li>
-                  <li>Appliance use review service</li>
-                  <li>Appointment booking available</li>
-                  <li>Inhaler recycling</li>
-                  <li>Multi-lingual staff</li>
+                  <li>Chlamydia screening and treatment (Non-NHS)</li>
+                  <li>Pregnancy testing (Non-NHS)</li>
+                  <li>Seasonal flu vaccination service (not at risk groups)</li>
+                  <li>Weight management (Non-NHS)</li>
                 </ul>
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="services-edit#generalPharmacyServices">
-                  Change<span class="nhsuk-u-visually-hidden"> general pharmacy services that your practice does not provide</span>
+                  Change<span class="nhsuk-u-visually-hidden"> Non-NHS pharmacy services that your practice does not provide</span>
                 </a>
               </dd>
             </div>

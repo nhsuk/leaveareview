@@ -13,6 +13,7 @@ const pharmacies = require('../../../data/pharmacies');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
+let fluVaccineOnelineBookingConfirmed = false;
 // let contactDetailsConfirmed = false;
 // let facilitiesConfirmed = false;
 // let servicesConfirmed = false;
@@ -156,12 +157,14 @@ router.post('/editor/facilities/facilities-check', function (req, res) {
 //*********************** */
 // Branching - Services
 //*********************** */
+let pharmacyServices = [];
 router.get('/editor/services/services-edit', function (req, res) {
   recentChangeMade = false;
   res.render('profile-manager/pharmacies/editor/services/services-edit');
 });
 
 router.post('/editor/services/services-edit', function (req, res) {
+  pharmacyServices = req.body.services
   res.redirect('services-check');
 });
 
@@ -172,26 +175,34 @@ router.post('/editor/services/services-check', function (req, res) {
   );
   recentChangeMade = true;
   localStorage.setItem('servicesConfirmed', true);
-  res.redirect('attributes/more-detail');
+  if(pharmacyServices.includes('Seasonal flu vaccination service (at risk groups)')) {
+    res.redirect('attributes/more-detail');
+  } else {
+    res.redirect('dashboard')
+  }
 });
 
 router.get('/editor/services/dashboard', function (req, res) {
   let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+  let showAttributes = pharmacyServices.includes('Seasonal flu vaccination service (at risk groups)')
   res.render('profile-manager/pharmacies/editor/services/dashboard', { 
     servicesLastUpdatedDate, 
+    showAttributes,
   });
 });
 
 router.get('/editor/services/attributes/more-detail', function (req, res) {
   let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
   res.render('profile-manager/pharmacies/editor/services/attributes/more-detail', { 
-    fluVaccineBookingLastUpdatedDate, 
+    fluVaccineBookingLastUpdatedDate,
+    recentChangeMade,
+    fluVaccineOnelineBookingConfirmed
   });
 });
 
 router.post('/editor/services/attributes/flu-vaccine/confirm', function (req, res) {
-  recentChangeMade = true;
-  fluVaccineBookingConfirmed = true
+  recentChangeMade = false;
+  fluVaccineOnelineBookingConfirmed = true
   localStorage.setItem(
     'fluVaccineBookingLastUpdatedDate',
     moment().format('DD MMMM YYYY')

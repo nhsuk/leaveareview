@@ -33,18 +33,13 @@
         </a>
       </li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="../manage-profile">
-        Edit Cohens 
+        <a class="nhsuk-breadcrumb__link" href="../../manage-profile">
+          Manage your profile 
         </a>
       </li>
       <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="services-edit">
+        <a class="nhsuk-breadcrumb__link" href="../dashboard">
           Services 
-        </a>
-      </li>
-      <li class="nhsuk-breadcrumb__item">
-        <a class="nhsuk-breadcrumb__link" href="../services-check">
-          Check your answers 
         </a>
       </li>
     </ol>
@@ -58,11 +53,20 @@
 {% block content %}
 	<div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-u-margin-bottom-0">Add details to your services</h1>
-      <p class="nhsuk-caption-xl nhsuk-u-margin-bottom-4">
-        Cohens 
-      </p>
-      <h2>NHS services</h2>
+      <!-- {% if recentChangeMade %}
+      <div class="nhsuk-inset-text nhsuk-confirmation-alert nhsuk-u-margin-top-0">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>You have confirmed your NHS website services</p>
+      </div>
+      {% endif %} -->
+      <h1>Add details to your services</h1>
+      {% if fluVaccineOnelineBookingConfirmed %}
+        <div class="nhsuk-inset-text nhsuk-confirmation-alert nhsuk-u-margin-top-0">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p>You have updated your seasonal flu vaccination service (at risk groups) - online booking service</p>
+        </div>
+      {% endif %}
+      <h2>General pharmacy services</h2>
       <dl class="nhsuk-summary-list">
 				<div class="nhsuk-summary-list__row">
 					<dt class="nhsuk-summary-list__key">
@@ -80,60 +84,12 @@
             </a>
 					</dd>
 				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Service 2
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-					  Online booking service	
-					</dd>
-					<dd class="nhsuk-summary-list__value">
-            Updated: Never
-					</dd>
-					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
-              Set up<span class="nhsuk-u-visually-hidden"> Online booking service</span>
-            </a>
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Service 3
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-					  Online booking service	
-					</dd>
-					<dd class="nhsuk-summary-list__value">
-            Updated: Never
-					</dd>
-					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
-              Set up<span class="nhsuk-u-visually-hidden"> Online booking service</span>
-            </a>
-					</dd>
-				</div>
-				<div class="nhsuk-summary-list__row">
-					<dt class="nhsuk-summary-list__key">
-					  Service 4
-					</dt>
-					<dd class="nhsuk-summary-list__value">
-					  Online booking service	
-					</dd>
-					<dd class="nhsuk-summary-list__value">
-            Updated: Never
-					</dd>
-					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
-              Set up<span class="nhsuk-u-visually-hidden"> Online booking service</span>
-            </a>
-					</dd>
-				</div>
 			</dl>
-      <h2>Non-NHS services</h2>
+      <h2>Non-NHS pharmacy services</h2>
       <dl class="nhsuk-summary-list">
 				<div class="nhsuk-summary-list__row">
 					<dt class="nhsuk-summary-list__key">
-					  Service 1
+            Seasonal flu vaccination service (not at risk groups)
 					</dt>
 					<dd class="nhsuk-summary-list__value">
 					  Online booking service	

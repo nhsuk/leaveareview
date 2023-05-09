@@ -67,16 +67,17 @@ Which website address do patients use to book their appointment? - Profile manag
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">   
       <form action="/profile-manager/pharmacies/editor/services/attributes/flu-vaccine/confirm">
-        <h1>Which website address do patients use to book their appointment?</h1>
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="website">
-              Website address
-            </label>
-            <div class="nhsuk-hint" id="website-hint">
-              Enter your booking homepage: for example www.nhs.uk
-            </div>
-            <input class="nhsuk-input" id="website" name="bookingWebsite" type="text" aria-describedby="website-hint" value="{{data["bookingWebsite"]}}">
+        <h1>
+          <label class="nhsuk-label nhsuk-label--xl" for="website">
+            What website address do your patients use?
+          </label>
+        </h1>
+        <div class="nhsuk-form-group">
+          <div class="nhsuk-hint" id="website-hint">
+            Enter the address on your website where patients make their booking
           </div>
+          <input class="nhsuk-input" id="website" name="bookingWebsite" type="text" aria-describedby="website-hint" value="{{data["bookingWebsite"]}}">
+        </div>
         {{ button({
         "text": "Continue",
         "id": "btn_submit"
