@@ -175,11 +175,7 @@ router.post('/editor/services/services-check', function (req, res) {
   );
   recentChangeMade = true;
   localStorage.setItem('servicesConfirmed', true);
-  if(pharmacyServices.includes('Seasonal flu vaccination service (at risk groups)')) {
-    res.redirect('attributes/more-detail');
-  } else {
-    res.redirect('dashboard')
-  }
+  res.redirect('attributes/more-detail-large-list');
 });
 
 router.get('/editor/services/dashboard', function (req, res) {
