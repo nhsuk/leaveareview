@@ -53,21 +53,17 @@
 {% block content %}
 	<div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
     <div class="nhsuk-grid-column-two-thirds">
-      <!-- {% if recentChangeMade %}
-      <div class="nhsuk-inset-text nhsuk-confirmation-alert nhsuk-u-margin-top-0">
-        <span class="nhsuk-u-visually-hidden">Information: </span>
-        <p>You have confirmed your NHS website services</p>
-      </div>
-      {% endif %} -->
-      <h1>Add details to your services</h1>
       {% if fluVaccineOnelineBookingConfirmed %}
         <div class="nhsuk-inset-text nhsuk-confirmation-alert nhsuk-u-margin-top-0">
           <span class="nhsuk-u-visually-hidden">Information: </span>
           <p>You have updated your seasonal flu vaccination service (at risk groups) - online booking service</p>
         </div>
       {% endif %}
+      <h1>Add details to your services</h1>
       <h2>General pharmacy services</h2>
-      <dl class="nhsuk-summary-list">
+    </div>
+    <div class="nhsuk-grid-column-full">
+      <dl class="nhsuk-summary-list services-summary-list">
 				<div class="nhsuk-summary-list__row">
 					<dt class="nhsuk-summary-list__key">
 					  Seasonal flu vaccination service (at risk groups)
@@ -91,8 +87,12 @@
 					</dd>
 				</div>
 			</dl>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
       <h2>Non-NHS pharmacy services</h2>
-      <dl class="nhsuk-summary-list">
+    </div>
+    <div class="nhsuk-grid-column-full">
+      <dl class="nhsuk-summary-list services-summary-list">
 				<div class="nhsuk-summary-list__row">
 					<dt class="nhsuk-summary-list__key">
             Seasonal flu vaccination service (not at risk groups)
@@ -110,7 +110,8 @@
 					</dd>
 				</div>
 			</dl>
-			
+    </div>
+		<div class="nhsuk-grid-column-two-thirds">
 			<a class="nhsuk-button" href="../dashboard">Back to services</a>
     </div>
   </div>

@@ -1,0 +1,11 @@
+@include mq($from: desktop) {
+  .services-summary-list {
+    .nhsuk-summary-list__value {
+      width: 30%; 
+    }
+
+    .nhsuk-summary-list__actions {
+      width: 10%; 
+    }
+  }
+}
