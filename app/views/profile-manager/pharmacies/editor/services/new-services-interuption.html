@@ -1,0 +1,118 @@
+<!-- Extends the layout from /docs/views/layouts/layout.html -->
+{% extends "layout-app-header.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  New services added - Profile Manager - NHS
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Profile Manager",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href=".//">Home</a></li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../profiles">
+          Your profiles
+        </a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a class="nhsuk-breadcrumb__link" href="../manage-profile">
+        Manage your profile
+        </a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="../manage-profile">
+      {% set displayname = 'alias0' %}
+      {% if data["displayname"] == alias0 %}
+      Back to Edit Cohens 
+      {%else%}
+      Back to Edit {{data["displayname"]}}
+      {%endif%}
+    </a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>New services added</h1>
+      <p>New NHS website services are available to select.</p>
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Community pharmacy blood pressure check service
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Where community pharmacists measure blood pressure of adults aged 40 years or older, who have not been diagnosed with hypertension or a related condition.
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Pharmacy contraception service
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Allows customers to get oral contraception from trained pharmacists, to relieve the burden on general practices.
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Pharmacy first
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Where patients are referred for a consultation with a pharmacist, to discuss a condition, be given advice and possibly have medicine prescribed.
+          </dd>
+        </div>
+      </dl>
+      <a class="nhsuk-button" href="services-edit">Continue</a>
+
+      {{ backLink({
+      "href": "dashboard",
+      "text": "Go back"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "/examples/passing-data/clear-data",
+        "label": "Clear data"
+      }
+    ]
+  })}}
+{% endblock %}
