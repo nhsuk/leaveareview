@@ -180,10 +180,12 @@ router.post('/editor/services/services-check', function (req, res) {
 
 router.get('/editor/services/dashboard', function (req, res) {
   let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
+  let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
   let showAttributes = pharmacyServices.includes('Seasonal flu vaccination service (at risk groups)')
   res.render('profile-manager/pharmacies/editor/services/dashboard', { 
     servicesLastUpdatedDate, 
     showAttributes,
+    fluVaccineBookingLastUpdatedDate,
   });
 });
 

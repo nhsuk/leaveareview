@@ -1,21 +1,36 @@
-.validate-link {
-  padding: 5px 12px 5px 12px;
+.nhsuk-card--actions--buttons {
+  width: 100%;
 }
 
-.edit-link a {
-  padding: 5px 12px 5px 12px;
+.nhsuk-button--secondary__light {
   background: #f0f4f5;
   box-shadow: 0 3px 0 #aeb7bd;
   text-decoration: none;
   color: #212b32 !important;
-  font-weight: bold;
-  border-radius: 4px;
 }
 
-.edit-link a:hover {
+.nhsuk-button--secondary__light:hover {
   background: #d8dde0;
 }
 
-.edit-link a:active {
+.nhsuk-button--secondary__light:active{
   box-shadow: none;
 }
+
+// .edit-link a {
+//   padding: 5px 12px 5px 12px;
+//   background: #f0f4f5;
+//   box-shadow: 0 3px 0 #aeb7bd;
+//   text-decoration: none;
+//   color: #212b32 !important;
+//   font-weight: bold;
+//   border-radius: 4px;
+// }
+//
+// .edit-link a:hover {
+//   background: #d8dde0;
+// }
+//
+// .edit-link a:active {
+//   box-shadow: none;
+// }
