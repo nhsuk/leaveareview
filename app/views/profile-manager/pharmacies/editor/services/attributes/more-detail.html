@@ -75,7 +75,7 @@
             Updated: {{ fluVaccineBookingLastUpdatedDate }}
 					</dd>
 					<dd class="nhsuk-summary-list__actions">
-            {% if fluVaccineBookingLastUpdatedDate %}
+            {% if fluVaccineBookingLastUpdatedDate !== "Never" %}
               <a href="flu-vaccine/confirm">
                 Manage 
               </a>

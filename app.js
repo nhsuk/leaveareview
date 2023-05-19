@@ -279,7 +279,7 @@ if (useDocumentation || onlyDocumentation == 'true') {
 // Clear all data in session if you open /examples/passing-data/clear-data
 app.post('/examples/passing-data/clear-data', function(req, res) {
   req.session.data = {};
-  localStorage.setItem('contactDetailsUpdatedDate', '12 December 2020');
+  localStorage.setItem('contactDetailsUpdatedDate', 'Never');
   localStorage.setItem('facilitiesUpdatedDate', '12 June 2021');
   localStorage.setItem('servicesUpdatedDate', '12 December 2020');
   localStorage.setItem('openingTimesUpdatedDate', '12 June 2021');
