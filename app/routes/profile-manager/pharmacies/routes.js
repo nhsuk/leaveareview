@@ -13,10 +13,6 @@ const pharmacies = require('../../../data/pharmacies');
 const localStorage = new LocalStorage('./scratch');
 
 let recentChangeMade = false;
-let fluVaccineOnelineBookingConfirmed = false;
-// let contactDetailsConfirmed = false;
-// let facilitiesConfirmed = false;
-// let servicesConfirmed = false;
 
 moment.locale('en-GB');
 
@@ -181,26 +177,31 @@ router.post('/editor/services/services-check', function (req, res) {
 router.get('/editor/services/dashboard', function (req, res) {
   let servicesLastUpdatedDate = localStorage.getItem('servicesUpdatedDate')
   let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
+  let fluVaccineOnlineBookingConfirmed = localStorage.getItem('fluVaccineOnlineBookingConfirmed')
   let showAttributes = pharmacyServices.includes('Seasonal flu vaccination service (at risk groups)')
+  fluVaccineOnlineBookingConfirmed = JSON.parse(fluVaccineOnlineBookingConfirmed);
   res.render('profile-manager/pharmacies/editor/services/dashboard', { 
     servicesLastUpdatedDate, 
     showAttributes,
     fluVaccineBookingLastUpdatedDate,
+    fluVaccineOnlineBookingConfirmed
   });
 });
 
 router.get('/editor/services/attributes/more-detail', function (req, res) {
   let fluVaccineBookingLastUpdatedDate = localStorage.getItem('fluVaccineBookingLastUpdatedDate')
+  let fluVaccineOnlineBookingConfirmed = localStorage.getItem('fluVaccineOnlineBookingConfirmed')
+  fluVaccineOnlineBookingConfirmed = JSON.parse(fluVaccineOnlineBookingConfirmed);
   res.render('profile-manager/pharmacies/editor/services/attributes/more-detail', { 
     fluVaccineBookingLastUpdatedDate,
     recentChangeMade,
-    fluVaccineOnelineBookingConfirmed
+    fluVaccineOnlineBookingConfirmed
   });
 });
 
 router.post('/editor/services/attributes/flu-vaccine/confirm', function (req, res) {
   recentChangeMade = false;
-  fluVaccineOnelineBookingConfirmed = true
+  localStorage.setItem('fluVaccineOnlineBookingConfirmed', true);
   localStorage.setItem(
     'fluVaccineBookingLastUpdatedDate',
     moment().format('DD MMMM YYYY')

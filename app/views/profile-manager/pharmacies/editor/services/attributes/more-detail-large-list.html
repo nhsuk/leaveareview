@@ -61,7 +61,7 @@
       </div>
       {% endif %}
       <h1>Add details to your services</h1>
-      {% if fluVaccineOnelineBookingConfirmed %}
+      {% if fluVaccineOnlineBookingConfirmed %}
         <div class="nhsuk-inset-text nhsuk-confirmation-alert nhsuk-u-margin-top-0">
           <span class="nhsuk-u-visually-hidden">Information: </span>
           <p>You have updated your seasonal flu vaccination service (at risk groups) - online booking service</p>
@@ -79,18 +79,12 @@
 					  Online booking service	
 					</dd>
 					<dd class="nhsuk-summary-list__value">
-            Updated: {{ fluVaccineBookingLastUpdatedDate }}
+            Updated: Never 
 					</dd>
 					<dd class="nhsuk-summary-list__actions">
-            {% if fluVaccineBookingLastUpdatedDate %}
-              <a href="flu-vaccine/online">
-                Manage<span class="nhsuk-u-visually-hidden">Seasonal flu vaccination service (at risk groups) Online booking service</span>
-              </a>
-            {% else %}
-            <a href="flu-vaccine/online">
-              Set up<span class="nhsuk-u-visually-hidden"> Seasonal flu vaccination service (at risk groups) Online booking service</span>
+            <a href="#">
+              Set up 
             </a>
-            {% endif %}
 					</dd>
 				</div>
 				<div class="nhsuk-summary-list__row">
@@ -104,8 +98,8 @@
             Updated: 31&nbsp;January&nbsp;2023
 					</dd>
 					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
-              Set up 
+            <a href="#">
+              Manage 
             </a>
 					</dd>
         </div>
@@ -114,13 +108,13 @@
 					  NHS blood pressure check service 
 					</dt>
 					<dd class="nhsuk-summary-list__value">
-            Opening times	
+            Appointment times	
 					</dd>
 					<dd class="nhsuk-summary-list__value">
-            Updated: 
+            Updated: Never
 					</dd>
 					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
+            <a href="#">
               Set up 
             </a>
 					</dd>
@@ -140,10 +134,10 @@
 					  Online booking service	
 					</dd>
 					<dd class="nhsuk-summary-list__value">
-            Updated: 
+            Updated: Never
 					</dd>
 					<dd class="nhsuk-summary-list__actions">
-            <a href="flu-vaccine/online">
+            <a href="#">
               Set up<span class="nhsuk-u-visually-hidden"> Online booking service</span>
             </a>
 					</dd>

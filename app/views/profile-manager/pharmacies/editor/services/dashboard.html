@@ -77,9 +77,15 @@
             <p class="nhsuk-body-s">Updated: <span class="nhsuk-u-font-weight-bold">{{ fluVaccineBookingLastUpdatedDate }}</span></p>
           </div>
           <div class="nhsuk-card__actions">
+            {% if fluVaccineOnlineBookingConfirmed === true %}
             <a class="nhsuk-button nhsuk-button--secondary__light nhsuk-card--actions--buttons nhsuk-u-margin-bottom-0" href="attributes/more-detail">
               Manage<span class="nhsuk-u-visually-hidden"> your season flu vaccination service</span>
             </a>
+            {% else %}
+            <a class="nhsuk-button nhsuk-button--secondary nhsuk-card--actions--buttons nhsuk-u-margin-bottom-0" href="attributes/more-detail">
+              Set up<span class="nhsuk-u-visually-hidden"> your season flu vaccination service</span>
+            </a>
+            {% endif %}
           </div>
         </div>
       </div>
