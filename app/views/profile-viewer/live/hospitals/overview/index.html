@@ -1,0 +1,289 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Overview - Sevenoaks Hospital  - NHS
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhsuk-breadcrumb--viewer" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol id="breadcrumb_list" class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-0" class="nhsuk-breadcrumb__link" href="/">Home</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-1" class="nhsuk-breadcrumb__link" href="/nhs-services">NHS services</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-2" class="nhsuk-breadcrumb__link" href="/nhs-services/hospitals">Hospitals</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-3" class="nhsuk-breadcrumb__link" href="/service-search/hospital">Find a hospital</a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 id="page-heading">
+        <span role="text">
+            <span class="nhsuk-caption-xl">
+                Sevenoaks Hospital
+                <span class="nhsuk-u-visually-hidden"> -</span>
+            </span>
+            Overview
+        </span>
+      </h1>
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Overview</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../departments/">Departments and services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../facilities/">Facilities</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+      <h2>Contact us</h2>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                Address 
+              </h2>
+              <address>Sevenoaks Hospital<br>
+                Hospital Road<br>
+                Sevenoaks<br>
+                Kent<br>
+                TN13 3PG</address>
+                <p><a href="https://www.google.com/maps/place/Sevenoaks+Hospital/@51.2878738,0.1933866,17z/data=!3m1!4b1!4m5!3m4!1s0x47df4d8db63d879b:0x46ee0efcf1177e2d!8m2!3d51.2878738!4d0.1955753">Get directions (opens in Google Maps)</a></p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3>Phone</h3>
+              <p>01732 470200</p>
+              <h3>Online</h3>
+              <p><a href="http://www.kentcht.nhs.uk">Visit hospital website</a></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="nhsuk-action-link nhsuk-u-margin-bottom-8">
+        <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Find another Hospital</span>
+        </a>
+      </div>
+
+			<h2>Care Quality Commission inspection rating</h2>
+			<p>The Care Quality Commission (CQC) is the independent regulator of health and social care in England. It monitors and inspects services, to make sure they are safe, effective and provide high-quality care.</p>
+			<div class="nhsuk-card">
+				<div class="cqc-rating-card">
+					<div class="cqc-rating-description">
+						<p>CQC rating: <span class="nhsuk-u-font-weight-bold">Good</span></p>
+						<p><a href="https://www.cqc.org.uk/provider/RYY">For more information, visit the CQC website</a></p>
+					</div>
+          <div class="cqc-rating">
+            <p class="nhsuk-u-margin-bottom-2">The CQC rating scale is:</p>
+            <ol class="nhsuk-list">
+              <li class="cqc-rating--list-list-item">
+                <span class="cqc-rating--indicator cqc-rating--indicator-green" aria-hidden="true">
+                  <svg class="icon icon--star" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                    <defs>
+                      <path d="M22,9.24 L14.81,8.62 L12,2 L9.19,8.63 L2,9.24 L7.46,13.97 L5.82,21 L12,17.27 L18.18,21 L16.55,13.97 L22,9.24 L22,9.24 Z M12,15.4 L8.24,17.67 L9.24,13.39 L5.92,10.51 L10.3,10.13 L12,6.1 L13.71,10.14 L18.09,10.52 L14.77,13.4 L15.77,17.68 L12,15.4 L12,15.4 Z" id="path-uf98z-qjsj-1--1301892244"></path>
+                      <rect id="path-uf98z-qjsj-3--495238114" x="0" y="0" width="50" height="50"></rect>
+                    </defs>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g>
+                        <g transform="translate(3.000000, 3.000000)">
+                          <mask id="mask-uf98z-qjsj-2--1301892244" fill="white">
+                            <use xlink:href="#path-uf98z-qjsj-1--1301892244"></use>
+                          </mask>
+                          <g mask="url(#mask-uf98z-qjsj-2--1301892244)">
+                            <g transform="translate(-13.000000, -13.000000)">
+                              <mask fill="white">
+                                <use xlink:href="#path-uf98z-qjsj-3--495238114"></use>
+                              </mask>
+                              <use fill="#FFFFFF" xlink:href="#path-uf98z-qjsj-3--495238114"></use>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+                Outstanding</li>
+              </li>
+              <li class="cqc-rating--list-list-item cqc-rating-active">
+                <span class="cqc-rating--indicator cqc-rating--indicator-green" aria-hidden="true"></span>
+                Good<span class="nhsuk-u-visually-hidden"> - this is the CQC rating</span></li>
+              </li>
+              <li class="cqc-rating--list-list-item">
+                <span class="cqc-rating--indicator cqc-rating--indicator-amber" aria-hidden="true"></span>
+                Requires improvement</li>
+              <li class="cqc-rating--list-list-item">
+                <span class="cqc-rating--indicator cqc-rating--indicator-red" aria-hidden="true"></span>
+                Inadequate
+              </li>
+            </ol>
+          </div>
+				</div>
+			</div>
+      <h2>Patient Advice and Liaison Service (PALS)</h2>
+      <p>The Patient Advice and Liaison Service (PALS) offers confidential advice, support and information on health-related matters, for patients, their families and their carers.</p>
+      <p><a href="https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/">Learn more about PALS</a></p>
+      <p>To contact PALS at this hospital:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>phone 01732 470200</li>
+        <li>email <a href="mailto:example@pals.com">example@pals.com</a></li>
+      </ul>
+
+      <h2>What patients say</h2>
+      <p>Latest reviews of this hospital.</p>
+
+      <p><a href="/ratings-reviews/">Read all 7 reviews</a></p>
+      <ul class="nhsuk-card-group">
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Good experience
+              </h3>
+              <p>I had need of a urgent appointment, I was seen within 3 hours of contacting the surgery. I had not been to this practice before. The staff ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Really happy
+              </h3>
+              <p>Really happy with the service at this surgery. Staff are very friendly and professional. Receptionist is really nice and w ..</p>
+              <p class="nhsuk-u-secondary-text-color">21 March 2019</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Friendly and professional service
+              </h3>
+              <p>I'm glad to have found a place that provides such good service, particularly after much less favourable experiences with other practice ...</p>
+              <p class="nhsuk-u-secondary-text-color">20 March 2019</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <p class="nhsuk-u-margin-bottom-8"><a href="/ratings-reviews/">Read all 7 reviews</a></p>
+
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/dentists/leave-review">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Leave a review</span>
+        </a>
+      </div>
+
+      <hr>
+      <p><a href="">Report an issue with the information on this page</a></p>
+      <p>Information supplied by <a href="">Kent Community Health NHS Foundation Trust</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

@@ -1,0 +1,165 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - How to register with this GP surgery
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          How to register with this GP surgery
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">How to register with this GP surgery</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../clinics-services/">Clinics and services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../prescriptions/">Prescriptions</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../ratings-reviews/">Ratings and reviews</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-warning-text nhsuk-u-margin-bottom-8">
+    <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="nhsuk-warning-text__text">
+      <span class="nhsuk-warning-text__assistive">Warning</span>
+      This GP surgery is not currently accepting new patients.
+    </strong>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>Am I eligible to register at this GP surgery?</h2>
+      <p>To be eligible to register with this GP surgery you must be a resident <a href="https://www.herefordmedicalgroup.co.uk/join-the-practice">within the practice area</a>.</p>
+
+      <h2>How to register?</h2>
+      <p>If you wish to register with this GP surgery you can visit reception to complete a registration form. You can also <a href="https://www.gov.uk/government/publications/gms1">download the form.</a></p>
+
+      <h2>Registration</h2>
+      <p>GP surgeries require new patients to provide:</p>
+      <ul>
+        <li>photo ID</li>
+        <li>proof of address</li>
+      </ul>
+
+      <hr>
+      
+      <p>For further information on registering at this surgery <a href="https://www.herefordmedicalgroup.co.uk/join-the-practice">see surgery website</a>.</p>
+
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

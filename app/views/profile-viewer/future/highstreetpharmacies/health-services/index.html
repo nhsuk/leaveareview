@@ -1,0 +1,171 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Health services
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://beta.nhs.uk/find-a-pharmacy/">Search for a pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Health services
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Hyde Park Pharmacy
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../help-with-medicines/">Help with medicines</a>
+        </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../prescription-support/">Help with NHS prescription costs</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Health services</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+       
+      <p>This pharmacy provides the following health services.</p>
+      
+      <h2>Minor ailments</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Advice and medicines for a range of common illnesses such as coughs, colds and sore throats (NHS)</li>
+      </ul>
+
+      <h2>Healthy living</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Stop smoking advice, support and the supply of nicotine replacement therapy (NHS)</li>
+        <li>Weight management (paid for)</li>
+        <li>Alcohol misuse screening and intervention (NHS)</li>
+      </ul>
+  
+      <h2>Sexual health</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Emergency contraception (paid for)</li>
+        <li>Chlamydia testing kits (paid for)</li>
+        <li>Chlamydia testing & treatment for 16 to 25-year olds (NHS)</li>
+        <li>Condom supply (NHS)</li>
+      </ul>
+
+      <h2>Vaccinations</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Seasonal flu vaccination service (at risk groups) for 65-year olds and older and other at-risk groups (NHS). <a href="https://www.nhs.uk/conditions/vaccinations/who-should-have-flu-vaccine/">Find out if you’re eligible for a free flu vaccine</a>.</li>
+        <li>Seasonal flu vaccination service (at risk groups) for non-risk groups (paid for)</li>
+        <li>Travel vaccinations (paid for)</li>
+      </ul>
+
+      <h2>Health checks and tests</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Blood pressure testing (paid for)</li>
+        <li>Type 2 diabetes testing (paid for)</li>
+        <li><a href="https://www.nhs.uk/conditions/nhs-health-check/">NHS health check</a> for over-40s (NHS)</li>
+      </ul>
+
+      <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
+        <p class="nhsuk-body-s">Last updated: 12 February 2017</p>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

@@ -1,0 +1,156 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Prescription support
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Help with medicines
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Pharmacy2u Ltd
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Help with medicines</span> 
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../prescription-support/">Help with NHS prescription costs</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../health-services/">Health  services at this pharmacy</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+      <p>This pharmacy offers these free NHS services:</p>
+      
+      <h2>Medicine questions</h2>
+
+      <p>Pharmacists can answer your questions about prescription medicines and those that you can buy such as paracetamol.</p>
+      <p>Find out about commonly prescribed medicines and medicines you can buy without a prescription in our <a href="https://www.nhs.uk/medicines/">medicines A-Z</a></p>
+      
+      <h2>Advice about new medicines</h2>
+      <p>Advice and support to tell you more about a medicine you’ve just begun taking for:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>asthma</li>
+        <li>chronic obstructive pulmonary disease (COPD)</li>
+        <li>type 2 diabetes</li>
+        <li>high blood pressure </li>
+        <li>conditions which need blood thinning medicines </li>
+      </ul>
+
+      <h2>Medicine check-up</h2>
+      <p>A medicine review by a pharmacist if you take several prescription medicines or have a long-term illness. The service focuses on:</p>
+      <ul>
+        <li>increasing your knowledge of the medicines you take</li>
+        <li>why you take them</li>
+        <li>how you can take them more easily</li>
+      </ul>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

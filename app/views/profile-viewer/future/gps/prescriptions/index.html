@@ -1,0 +1,169 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Services and clinics
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Prescriptions
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../register/">How to register with this GP surgery</a>
+          </li>     
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../clinics-services/">Clinics and services</a>
+          </li>     
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Prescriptions</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../ratings-reviews/">Ratings and reviews</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>How to order a repeat prescription</h2>
+      <p>You do not need to see a GP to order a repeat prescription. You can order a repeat prescription from the surgery in several ways:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>by post - enclosing a stamped addressed envelope if you want the prescription to be returned to you</li>
+        <li>by phone - <a href="">01432 263063</a> between 10am to 1pm</li>
+        <li>in person at reception</li>
+      </ul>
+
+      <p>Check with your local pharmacist as they may be able to order a repeat prescription on your behalf.</p>
+      <p>This service is for medicine that you take regularly. It is not for one-off prescriptions, these will require an appointment with a GP.</p>
+
+      <h2>Electronic prescriptions</h2>
+      <p>This is a new way to get your medicines and appliances.</p>
+      <p>It means you can save time by not having to pick up your paper prescription from the surgery. Instead your GP will send it electronically to the place you choose.</p>
+      <p>When you need more medicine, you can reorder it directly from the from the pharmacy.</p>
+      <p><a href="https://www.nhs.uk/using-the-nhs/nhs-services/pharmacies/electronic-prescription-service/">Find out more about electronic prescriptions</a></p>
+
+      <h2>Order your repeat prescriptions online</h2>
+      <p>You can order your repeat prescriptions online. If you do this, you can choose which pharmacy they are sent to.</p>
+      <p>You must be registered with your <a href="">online GP service</a> to do this.</p>
+      <p><a href="">Find out more about using online services</a></p>
+
+      <!--h2>Onsite pharmacist</h2>
+      <p>The onsite pharmacist at this surgery helps you to better understand your prescribed medicines and how to take them. The pharmacist provides:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>medicine advice</li>
+        <li>medicine check-ups</li>
+        <li>healthy living advice</li>
+      </ul-->
+
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

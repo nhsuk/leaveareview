@@ -1,0 +1,277 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+Departments and services - Sevenoaks Hospital  - NHS 
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhsuk-breadcrumb--viewer" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol id="breadcrumb_list" class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-0" class="nhsuk-breadcrumb__link" href="/">Home</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-1" class="nhsuk-breadcrumb__link" href="/nhs-services">NHS services</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-2" class="nhsuk-breadcrumb__link" href="/nhs-services/hospitals">Hospitals</a>
+      </li>
+      <li class="nhsuk-breadcrumb__item">
+        <a id="breadcrumb-link-3" class="nhsuk-breadcrumb__link" href="/service-search/hospital">Find a hospital</a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a Hospital</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-xl">
+        Sevenoaks Hospital
+      </span>
+      <h1>Departments and services</h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Departments and services</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../facilities/">Facilities</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="accident-emergency">Accident and emergency</a>
+              </h2>
+              <p class="nhsuk-card__description">This department is for people of all ages</p>
+              <p><span class="department-open-status department-open-status--busy"></span>Very busy</p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="minor-injuries">Minor injuries unit</a>
+              </h2>
+              <p class="nhsuk-card__description">This department is for anyone aged 1 or over</p>
+              <p><span class="department-open-status department-open-status--closed"></span>Closed</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h2>Our departments and services</h2>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="A" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            A
+          </h3>
+          <p><a href='accident-emergency'>Accident and Emergency</a></p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="C" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            C
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Cardiology</a></li>
+            <li><a href="/mvp/hospitals/departments/">Children's & Adolescent Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="D" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            D
+          </h3>
+          <p><a href="/mvp/hospitals/departments/">Diabetic Medicine</a></p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="E" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            E
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Ear, Nose & Throat</a></li>
+            <li><a href="/mvp/hospitals/departments/">Eye services (community)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="G" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            G
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Gastrointestinal and Liver services</a></li>
+            <li><a href="/mvp/hospitals/departments/">General Surgery</a></li>
+            <li><a href="/mvp/hospitals/departments/">Geriatric Medicine</a></li>
+            <li><a href="/mvp/hospitals/departments/">Gynaecology</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="M" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            M
+          </h3>
+          <p><a href="minor-injuries">Minor injuries unit</a></p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="N" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            N
+          </h3>
+          <p><a href="/mvp/hospitals/departments/">Neurology</a></p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="O" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            O
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Obstetrics And Gynaecology</a></li>
+            <li><a href="/mvp/hospitals/departments/">Ophthalmology</a></li>
+            <li><a href="orthopaedics">Orthopaedics</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="P" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            P
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Pain Management</a></li>
+            <li><a href="/mvp/hospitals/departments/">Physiotherapy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="R" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            R
+          </h3>
+          <ul class='nhsuk-list nhsuk-list--border'>
+            <li><a href="/mvp/hospitals/departments/">Rehabilitation</a></li>
+            <li><a href="/mvp/hospitals/departments/">Respiratory Medicine</a></li>
+            <li><a href="/mvp/hospitals/departments/">Rheumatology</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="S" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            S
+          </h3>
+          <p><a href="speech-language">Speech and language services</a></p>
+        </div>
+      </div><div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h3 id="V" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+            V
+          </h3>
+          <p><a href="speech-language">Vascular surgery</a></p>
+        </div>
+      </div>
+      
+      <hr>
+      <p><a href="">Report an issue with the information on this page</a></p>
+      <p>Information supplied by <a href="">Kent Community Health NHS Foundation Trust</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

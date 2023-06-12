@@ -1,0 +1,221 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Services and clinics
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Appointments
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../overview/">Overview</a>
+          </li>
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Appointments</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../register/">How to register with this GP surgery</a>
+          </li>          
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../clinics-services/">Clinics and services</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../prescriptions/">Prescriptions</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../ratings-reviews/">Ratings and reviews</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h2>How to book</h2>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Phone
+              </h3>
+              <p><a href="">01432 263063</a></p>
+              <h3 class="nhsuk-card__heading">
+                Visit surgery
+              </h3>
+              <p><a href="">Opening times</a></p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Online 
+              </h3>
+              <p>Log in with your usual website or app</p>
+              <p><a href="https://www.nhs.uk/using-the-nhs/nhs-services/gps/gp-online-services/">Start using online services</a></p>
+              <p>Sign up or log in using the <a href="https://www.nhsapp.service.nhs.uk/login">NHS App</a></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>You need to be registered with your GP’s online service to book online. Some types of appointment will not be available.</p>
+      </div>
+      <h2>Routine GP appointments</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Available with a GP of your choice</li>
+        <li>Evening clinic</li>
+        <li>Book online</li>
+        <li>Book by telephone</li>
+        <li>Book by visiting the surgery</li>
+      </ul>
+
+      <h2>On the day GP appointments</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Prioritised by medical need</li>
+        <li>Book by telephone on the day</li>
+      </ul>
+
+      <h2>GP telephone appointments</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Available between 12 to 1pm daily</li>
+        <li>Prioritised by medical need</li>
+        <li>Book by telephone</li>
+      </ul>
+
+      <h2>Out of hours GP appointments at another surgery</h2>
+      <p>If you need to see a GP outside surgery opening hours you can book an evening or weekend appointment with a neighbouring GP surgery. You can book these by phoning the surgery or by <a href="">calling 111</a> if the surgery is closed.</p>
+      <p>Appointments are also available with a neighbouring GP surgery on bank holidays.</p>
+
+      <h2>Appointments with other health professionals at this surgery</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Practice nurse</li>
+        <li>Physiotherapist</li>
+        <li>Mental health therapist</li>
+      </ul>
+      <p>You do not need a GP referral to book these appointments.</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Book online</li>
+        <li>Book by telephone</li>
+        <li>Book by visiting the surgery</li>
+      </ul>  
+
+      <hr>
+
+      <p><a href="">Visit the surgery website</a> for further information about booking an appointment. Routine appointment are always available to book online. </p>
+
+      <hr>
+      
+      <p><a href="">Report an issue with the information on this page</a></p>
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

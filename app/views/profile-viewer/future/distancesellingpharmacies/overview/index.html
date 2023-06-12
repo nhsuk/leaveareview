@@ -1,0 +1,330 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online-only pharmacy</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">Search for an online-only pharmacy</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          Overview
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Pharmacy2u Ltd
+          </span>
+        </span>
+      </h1>
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item" aria-current="page"> 
+            <span class="nhsuk-contents-list__current">Overview</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../help-with-medicines/">Help with medicines</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../prescription-support/">Help with NHS prescription costs</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../health-services/">Health services at  this pharmacy</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Ratings and reviews</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="#">Leave a review</a>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+    <h2>Contact us</h2>
+    <ul class="nhsuk-grid-row nhsuk-card-group">
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-heading-m">
+              Address
+            </h3>
+            <p>Pharmacy2U Ltd<br>
+              1 Hawthorn Park<br>
+              Leeds<br>
+              LS14 1PQ</p>
+              <p><a href="https://www.google.com/maps/place/Pharmacy2U/@53.8337415,-1.4641704,17z/data=!3m1!4b1!4m5!3m4!1s0x48795b48803de107:0x72f87d7a70ab0139!8m2!3d53.8337415!4d-1.4619817">Get directions</a></p>
+          </div>
+        </div>
+      </li>
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-heading-m">
+              Phone
+            </h3>
+            <p>0113 265 0222</p>
+            <h3 class="nhsuk-card__heading nhsuk-heading-m">
+              Online 
+            </h3>
+            <p class="nhsuk-u-margin-bottom-2"><a href="https://www.pharmacy2u.co.uk">Visit pharmacy website</a></p>
+            <p><a href="mailto:support@pharmacy2u.co.uk">Send email to pharmacy</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="nhsuk-action-link nhsuk-u-margin-bottom-8">
+      <a class="nhsuk-action-link__link" href="https://www.nhs.uk/Service-Search/pharmacies/internetpharmacies">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text">Find another online-only pharmacy</span>
+      </a>
+    </div>
+
+      <h2>Online-only pharmacy</h2>
+      <p>This pharmacy will deliver nationwide. You cannot visit the pharmacy premises to take in or pick up a prescription</p>
+      <p>This pharmacy offers:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>NHS one-off prescriptions</li>
+        <li>NHS repeat prescriptions</li>
+        <li>nationwide delivery </li>
+        <li>an app to manage your repeat prescriptions</li>
+        <li>reminders when your repeat prescriptions are due</li>
+      </ul>
+      <p>Online-only pharmacies are regulated by the General Pharmaceutical Council in the same way as high street pharmacies.</p>
+      <p><a href="https://inspections.pharmacyregulation.org/">Search for this pharmacy's inspection report</a></p>
+
+      <h2>Repeat prescriptions</h2>
+      <p>You can choose this pharmacy to have your repeat prescriptions sent to them by your GP surgery. This means that you will not have to visit the surgery every time you need a repeat prescription.</p>
+      <p>This pharmacy will be able to order repeat prescriptions on your behalf from your GP surgery.</p>
+      <p><a href="">How to use an online-only pharmacy</a></p>
+    
+      <h3>Delivery</h3>
+      <p>Prescriptions will take up to 4 working days to be delivered after being received by this pharmacy.</p>
+      <p>Some medicines may need to be ordered in by the pharmacy in which case delivery may take longer.</p>
+      <p class="nhsuk-u-margin-bottom-6">Contact this pharmacy if you need your medicine urgently.</p>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>Opening times</h2>
+      <p>You can get advice from a pharmacist during these hours.</p>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Opening times</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Day</th>
+              <th class="nhsuk-table__header" scope="col">Times</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Monday</td>
+              <td class="nhsuk-table__cell ">8am to 5:30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Tuesday</td>
+              <td class="nhsuk-table__cell ">8am to 5:30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Wednesday</td>
+              <td class="nhsuk-table__cell ">8am to 5:30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Thursday</td>
+              <td class="nhsuk-table__cell ">8am to 5:30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Friday</td>
+              <td class="nhsuk-table__cell ">8am to 5:30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Saturday</td>
+              <td class="nhsuk-table__cell ">8:30am - 1pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Sunday</td>
+              <td class="nhsuk-table__cell ">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
+        <p class="nhsuk-body-s">Last updated: 12 February 2017</p>
+      </div>
+    
+      <h2>Temporary changes to opening times</h2>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Temporary changes to opening times</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Day</th>
+              <th class="nhsuk-table__header" scope="col">Date</th>
+              <th class="nhsuk-table__header" scope="col">Times</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Monday</td>
+              <td class="nhsuk-table__cell">2 September</td>
+              <td class="nhsuk-table__cell">9am to 11am</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <h2>Bank holiday opening times</h2>
+      <div class="table-one-row nhsuk-u-margin-bottom-7">
+        <div class="table-one-row__header" aria-hidden="true">Holiday</div>
+        <div class="table-one-row__header" aria-hidden="true">Date</div>
+        <div class="table-one-row__header" aria-hidden="true">Times</div>
+        <p class="table-one-row__data"><span class="nhsuk-u-visually-hidden">Holiday </span>Summer bank holiday</p>
+        <p class="table-one-row__data"><span class="nhsuk-u-visually-hidden">Date </span>26 August</p>
+        <p class="table-one-row__data">
+          <span class="nhsuk-u-visually-hidden">Times </span>
+          <span>9am to 11am</span>
+        </p>
+      </div>
+
+      <h2>What patients say</h2>
+      <p>Latest reviews of this online-only pharmacy.</p>
+      <div class="nhsuk-card nhsuk-card--clickable">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            <a class="nhsuk-card__link" href="#">Excellent prompt service</a>
+          </h2>
+          <p class="nhsuk-card__description">Pharmacy2 U is a great service which really helps when you work full time. It means I can order on line and have my prescription delivered directly to me, usually in the...</p>
+          <p class="nhsuk-u-secondary-text-color">7 July 2019</p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--clickable">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            <a class="nhsuk-card__link" href="#">So easy just to order your medication</a>
+          </h2>
+          <p class="nhsuk-card__description">So easy just to order your medication on the app and have it delivered with me working shifts it's hard to get and fetch them this way is so much better and super quick delivery...</p>
+          <p class="nhsuk-u-secondary-text-color">7 July 2019</p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-card--clickable">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            <a class="nhsuk-card__link" href="#">Delivery & plastic problems</a>
+          </h2>
+          <p class="nhsuk-card__description">I have a problem with the PO, they will not give any packages to a neighbour, so I decided to not order a prescription item that makes delivery package too big to be...</p>
+          <p class="nhsuk-u-secondary-text-color">7 July 2019</p>
+        </div>
+      </div>
+      <p class="nhsuk-u-margin-bottom-6"><a href="/ratings-reviews/">Read all 15 reviews</a></p>
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/leave-review">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Leave a review</span>
+        </a>
+      </div>
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}

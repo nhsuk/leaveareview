@@ -1,0 +1,336 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+<!-- Extends the layout from /docs/views/layout.html -->
+{% extends "layout.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Org name - Overview
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Mental health'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Pregnancy'
+        },
+        {
+          'url' : '#',
+          'label' : 'NHS services'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Services near you</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP surgery</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">Search for a GP surgery</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-card nhsuk-alert-black">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading">This GP’s reception is now closed for the day</h2>
+        <p class="nhsuk-card__description">If you think you have an urgent medical problem you can call <a href="https://111.nhs.uk/">111</a> or <a href="http://111.nhs.uk">visit 111 online</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+      <h1>
+        <span role="text">
+          Overview
+          <span class="nhsuk-caption-xl">
+            <span class="nhsuk-u-visually-hidden"> -</span> 
+            Aylestone Hill Surgery
+          </span>
+        </span>
+      </h1>
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this profile">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item" aria-current="page">
+            <span class="nhsuk-contents-list__current">Overview</span>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="../appointments/">Appointments</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/register/">How to register with this GP surgery</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link--nested" href="/gps/clinics-services/">Clinics and services</a>
+            <ul class="nhsuk-contents-list__list--nested" aria-expanded="false">
+              <li class="nhsuk-contents-list__item nobg"><a href="/gps/clinics-services/atthissurgery" class="nhsuk-contents-list__link">Clinics and services at this surgery</a></li>
+              <li class="nhsuk-contents-list__item nobg"><a href="/gps/clinics-services/other" class="nhsuk-contents-list__link">Other available clinics and services</a></li>
+            </ul>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="/gps/prescriptions/">Prescriptions</a>
+          </li>
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link--nested" href="#">Ratings and reviews</a>
+            <ul class="nhsuk-contents-list__list--nested" aria-expanded="false">
+              <li class="nhsuk-contents-list__item nobg"><a href="/gps/np-ratings-reviews/" class="nhsuk-contents-list__link">Performance ratings</a></li>
+              <li class="nhsuk-contents-list__item nobg"><a href="/gps/p-ratings-reviews/" class="nhsuk-contents-list__link">Patient ratings and reviews</a></li>
+              <li class="nhsuk-contents-list__item nobg"><a href="#" class="nhsuk-contents-list__link">Leave a review</a></li>
+            </ul>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <div class="nhsuk-warning-text nhsuk-u-margin-bottom-8">
+        <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="nhsuk-warning-text__text">
+          <span class="nhsuk-warning-text__assistive">Warning</span>
+          This GP surgery is NOT currently accepting new patients.
+        </strong>
+      </div>
+      <h2>Contact us</h2>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Address 
+              </h3>
+              <p>Aylestone Hill<br>
+              Hereford<br>
+              Hertfordshire<br>
+              HR1 1HR</p>
+              <p><a href="https://www.google.com/maps/place/Aylestone+Hill+Surgery/@52.0606363,-2.7046445,15z/data=!4m5!3m4!1s0x0:0x5314dd362c5e50d7!8m2!3d52.0606363!4d-2.7046445">Get directions</a></p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Phone
+              </h3>
+              <p>Reception<br> <a href="">01432 263063</a></p>
+              <p>Appointments<br> <a href="">01432 272 175</a></p>
+              <p>Repeat prescriptions<br> <a href="">01432 263064</a></p>
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                Online 
+              </h3>
+            <p class="nhsuk-u-margin-bottom-4"><a href="https://www.herefordmedicalgroup.co.uk/">Visit GP surgery website</a></p>
+            <p><a href="https://www.facebook.com/pg/HMGHereford/posts/">GP surgery Facebook profile</a></p>
+            <p><a href="mailto:name@email.com">Email this GP surgery</a></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <div class="nhsuk-action-link nhsuk-u-margin-bottom-8">
+        <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/GP/LocationSearch/4">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Find another GP surgery</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>Reception opening times</h2>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Reception opening times</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col" width="35%">Day</th>
+              <th class="nhsuk-table__header" scope="col">Times</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Monday</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Tuesday</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Wednesday</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Thursday</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Friday</td>
+              <td class="nhsuk-table__cell">8am to 6.30pm</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Saturday</td>
+              <td class="nhsuk-table__cell">Closed</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Sunday</td>
+              <td class="nhsuk-table__cell">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
+        <p class="nhsuk-body-s">Last updated: 12 February 2017</p>
+      </div>
+
+      <h2>Temporary changes to opening times</h2>
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Temporary changes to opening times</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col">Day</th>
+            <th class="nhsuk-table__header" scope="col">Date</th>
+            <th class="nhsuk-table__header" scope="col">Times</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Wednesday</td>
+            <td class="nhsuk-table__cell">27 November</td>
+            <td class="nhsuk-table__cell">Closed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2>GPs at this surgery</h2>
+      <h5>8 GPs</h5>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>4 female</li>
+        <li>4 male</li>
+      </ul>
+      <h5>Additional languages spoken by GPs</h5>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Russian</li>
+        <li>Spanish</li>
+      </ul>
+
+      <p>For more information about our staff, see the <a href="https://www.herefordmedicalgroup.co.uk/team?category=gp-partners">surgery website</a>.</p>
+
+      <h2>Customer facilities</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Car parking</li>
+      </ul>
+
+      <h2>Accessibility</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Disabled toilet</li>
+        <li>Wheelchair access</li>
+        <li>Step free access</li>
+      </ul>
+      <div class="nhsuk-review-date nhsuk-u-margin-bottom-8 nhsuk-u-margin-top-2">
+        <p class="nhsuk-body-s">Last updated: 12 February 2017</p>
+      </div>
+
+      <h2>Nearby GP surgeries</h2>
+      <p>This surgery is part of a practice group. This means that patients at this surgery may be able to have appointments, clinics and services at other surgeries within the practice group.</p>
+
+      <p>The other surgeries within this practice group are:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=38558">Moorfield House Surgery</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=39681">Quay House Medical Centre</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=39823">Sarum House Surgery</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44663">Greyfriars Surgery</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152194">King Street Surgery</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152195">Credenhill Surgery</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152196">South Wye Medical Centre</a></li>
+        <li><a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=152197">Bobblestock Surgery</a></li>
+      </ul>
+
+      <hr>
+
+      <p><a href="">Report an issue with the information on this page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
