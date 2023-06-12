@@ -294,24 +294,8 @@ router.post('/aaq3', function (req, res) {
   }
 });
 
-router.post('/mvp/gps/can-register/inside-catchment/register', (req, res) => {
-  res.redirect('/mvp/gps/can-register/inside-catchment/success')
-})
-
-router.post('/mvp/gps/can-register/outside-catchment/register', (req, res) => {
-  res.redirect('/mvp/gps/can-register/outside-catchment/success')
-})
-
-router.post('/mvp/gps/cant-register/outside-catchment/register', (req, res) => {
-  res.redirect('/mvp/gps/cant-register/outside-catchment/failure')
-})
-
-router.post('/mvp/gps/unknown-area-data/catchment-available/register', (req, res) => {
-  res.redirect('/mvp/gps/unknown-area-data/catchment-available/result')
-})
-
-router.post('/mvp/gps/unknown-area-data/no-catchment-available/register', (req, res) => {
-  res.redirect('/mvp/gps/unknown-area-data/no-catchment-available/result')
+router.post('/profile-viewer/live/gps/can-register/inside-catchment/register', (req, res) => {
+  res.redirect('/profile-viewer/live/gps/can-register/inside-catchment/success')
 })
 
 module.exports = {
