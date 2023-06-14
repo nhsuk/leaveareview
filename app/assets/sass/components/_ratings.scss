@@ -1,0 +1,13 @@
+:root {
+  --rating-percent: 0%;
+}
+
+.rating-bar {
+  background: rgb(0,94,184);
+  background: linear-gradient(90deg, rgba(0,94,184,1) var(--rating-percent), rgba(216,221,224,1) var(--rating-percent));
+  border-radius: 10px;
+  display: inline-block;
+  height: 15px;
+  vertical-align: middle;
+  width: 150px;
+}
