@@ -1,11 +1,21 @@
-@include mq($from: desktop) {
+.services-summary-list {
+  .nhsuk-summary-list__row {
+    background-color: #fff;
+  }
+
+  .nhsuk-summary-list__key, .nhsuk-summary-list__value, .nhsuk-summary-list__actions {
+    padding: 1rem;
+  }
+}
+
+@include mq($until: desktop) {
   .services-summary-list {
-    .nhsuk-summary-list__value {
-      width: 30%; 
+    .nhsuk-summary-list__key, .nhsuk-summary-list__value, .nhsuk-summary-list__actions {
+      padding: 0.5rem 1rem;
     }
 
-    .nhsuk-summary-list__actions {
-      width: 10%; 
+    .nhsuk-summary-list__value {
+      margin-bottom: 0;
     }
   }
 }
