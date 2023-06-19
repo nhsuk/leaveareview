@@ -1,12 +1,12 @@
 
 .nhsuk-account-navigation-container {
   background-color: #fff;
-
+  border-bottom: 1px solid #AEB7BD;
+  
   .nhsuk-account-navigation {
-    border-bottom: 1px solid #AEB7BD;
     display: flex;
     justify-content: flex-end;
-    
+
     @media(max-width: 768px) {
       justify-content: flex-start;
     }
@@ -15,7 +15,7 @@
   .nhsuk-account-navigation__main {
     list-style-type: none;
     margin-bottom: 0;
-    
+
     @media(max-width: 768px) {
       padding-left: 0;
       width: 100%;
@@ -36,7 +36,6 @@
     box-sizing: border-box;
     display: inline-block;
     font-size: 16px;
-    line-height: 1.25;
     padding: 12px 16px 8px;
     text-decoration: none;
 
@@ -47,21 +46,9 @@
     &:hover:not(:focus) {
       border-bottom: 4px solid #d8dde0;
     }
+
     &:focus {
       box-shadow: 0 0 #ffeb3b,0 4px #212b32;
     }
-  }
-
-  .nhsuk-alert-badge {
-    background: #d4351c;
-    border-radius: 4px;
-    color: #fff;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    min-width: 25px;
-    padding: 0px 2px;
-    text-align: center;
-    white-space: nowrap;
   }
 }
